@@ -296,45 +296,34 @@ function LangSwitcher({lang,setLang}){
   );
 }
 
-function TopBar({lang,setLang,client,setClient,setTab,t}){
-  const[visible,setVisible]=useState(true);
-  const lastY=useRef(0);
-  useEffect(()=>{
-    const attach=()=>{
-      const el=document.getElementById("main-scroll");
-      if(!el)return false;
-      const onScroll=()=>{
-        const y=el.scrollTop;
-        if(y<10){setVisible(true);}
-        else if(y>lastY.current+5){setVisible(false);}
-        else if(y<lastY.current-5){setVisible(true);}
-        lastY.current=y;
-      };
-      el.addEventListener("scroll",onScroll,{passive:true});
-      return()=>el.removeEventListener("scroll",onScroll);
-    };
-    // Try immediately, then retry after paint
-    const cleanup=attach();
-    if(cleanup)return cleanup;
-    const t=setTimeout(()=>attach(),100);
-    return()=>clearTimeout(t);
-  },[]);
-  const BAR_H=56;
+function TopBar({lang,setLang,client,setClient,setTab,t,hidden}){
+  const H=56;
   return(
-    <>
-    <div style={{height:visible?BAR_H:0,flexShrink:0,transition:"height 0.28s cubic-bezier(0.22,1,0.36,1)"}}/>
-    <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"6px 20px",background:"rgba(8,15,30,0.92)",backdropFilter:"blur(40px)",WebkitBackdropFilter:"blur(40px)",borderBottom:"1px solid rgba(255,255,255,0.07)",position:"fixed",top:0,left:0,right:0,zIndex:100,transform:visible?"translateY(0)":"translateY(-110%)",transition:"transform 0.28s cubic-bezier(0.22,1,0.36,1)"}}>
-      <div style={{width:80,display:"flex",justifyContent:"flex-start"}}>
-        {client&&<button onClick={()=>{setClient(null);setTab("home");}} style={{fontSize:12,color:C.lo,fontWeight:500,background:"rgba(255,255,255,0.06)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:99,padding:"5px 12px"}}>{t.signOut}</button>}
-      </div>
-      <img src="https://ozeklaw.com/wp-content/uploads/2026/03/Ozek-Law-Firm-Logo-white-transparent.png" alt="Ozek Law" style={{height:44,objectFit:"contain",width:"auto",maxWidth:200}}/>
-      <div style={{width:80,display:"flex",justifyContent:"flex-end"}}>
-        <LangSwitcher lang={lang} setLang={setLang}/>
+    <div style={{
+      height:hidden?0:H,
+      overflow:"hidden",
+      flexShrink:0,
+      transition:"height 0.28s ease",
+    }}>
+      <div style={{
+        display:"flex",alignItems:"center",justifyContent:"space-between",
+        padding:"6px 20px",height:H,
+        background:"rgba(8,15,30,0.92)",
+        backdropFilter:"blur(40px)",WebkitBackdropFilter:"blur(40px)",
+        borderBottom:"1px solid rgba(255,255,255,0.07)",
+      }}>
+        <div style={{width:80,display:"flex",justifyContent:"flex-start"}}>
+          {client&&<button onClick={()=>{setClient(null);setTab("home");}} style={{fontSize:12,color:C.lo,fontWeight:500,background:"rgba(255,255,255,0.06)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:99,padding:"5px 12px"}}>{t.signOut}</button>}
+        </div>
+        <img src="https://ozeklaw.com/wp-content/uploads/2026/03/Ozek-Law-Firm-Logo-white-transparent.png" alt="Ozek Law" style={{height:44,objectFit:"contain",width:"auto",maxWidth:200}}/>
+        <div style={{width:80,display:"flex",justifyContent:"flex-end"}}>
+          <LangSwitcher lang={lang} setLang={setLang}/>
+        </div>
       </div>
     </div>
-    </>
   );
 }
+
 
 function BottomNav({tab,setTab,isClient,t}){
   const pub=[{id:"home",icon:"⚖️",label:t.home},{id:"news",icon:"📰",label:t.news},{id:"team",icon:"👥",label:t.team||"Team"},{id:"uscis",icon:"🛠️",label:"Tools"},{id:"portal",icon:"🔐",label:t.portal}];
@@ -1028,14 +1017,27 @@ export default function App(){
   const[tab,setTab]=useState("home");
   const[client,setClient]=useState(null);
   const[lang,setLang]=useState("en");
+  const[topHidden,setTopHidden]=useState(false);
+  const lastScrollY=useRef(0);
   const t=I18N[lang]||I18N.en;
+
+  // Reset scroll + show bar on tab change
+  useEffect(()=>{
+    const el=document.getElementById("main-scroll");
+    if(el) el.scrollTop=0;
+    lastScrollY.current=0;
+    setTopHidden(false);
+  },[tab]);
+
+
+
   const isClient=!!client&&["dash","tasks","docs","forms","chat","billing"].includes(tab);
   const dir=LANGS[lang].dir;
   return(
     <>
       <style>{FONTS}{css}</style>
       <div dir={dir} className={lang==="zh"?"lang-zh":""} style={{display:"flex",flexDirection:"column",height:"100vh",background:C.bg0,overflow:"hidden"}}>
-        <TopBar lang={lang} setLang={setLang} client={client} setClient={setClient} setTab={setTab} t={t}/>
+        <TopBar lang={lang} setLang={setLang} client={client} setClient={setClient} setTab={setTab} t={t} hidden={topHidden}/>
         {client&&isClient&&(
           <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"5px 20px",background:"rgba(8,15,30,0.75)",backdropFilter:"blur(20px)",WebkitBackdropFilter:"blur(20px)",borderBottom:"1px solid rgba(255,255,255,0.06)",flexShrink:0}}>
             <div style={{display:"flex",alignItems:"center",gap:8}}>
@@ -1045,7 +1047,7 @@ export default function App(){
             <Badge bg={C.greenBg} color={C.green} small>● {t.live}</Badge>
           </div>
         )}
-        <div id="main-scroll" style={{flex:1,overflowY:"auto",overscrollBehavior:"contain"}}>
+        <div id="main-scroll" style={{flex:1,overflowY:"auto",overscrollBehavior:"contain"}} onScroll={e=>{const y=e.currentTarget.scrollTop;if(y<30){setTopHidden(false);lastScrollY.current=y;return;}if(y-lastScrollY.current>8)setTopHidden(true);else if(lastScrollY.current-y>8)setTopHidden(false);lastScrollY.current=y;}}>
           <div className="page-enter" key={tab+lang}>
             {!client&&tab==="home"   &&<PublicHome setTab={setTab} t={t} lang={lang}/>}
             {!client&&tab==="news"   &&<NewsPage t={t} lang={lang}/>}
