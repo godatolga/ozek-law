@@ -297,12 +297,34 @@ function LangSwitcher({lang,setLang}){
 }
 
 function TopBar({lang,setLang,client,setClient,setTab,t}){
+  const[visible,setVisible]=useState(true);
+  const lastY=useRef(0);
+  useEffect(()=>{
+    const attach=()=>{
+      const el=document.getElementById("main-scroll");
+      if(!el)return false;
+      const onScroll=()=>{
+        const y=el.scrollTop;
+        if(y<10){setVisible(true);}
+        else if(y>lastY.current+5){setVisible(false);}
+        else if(y<lastY.current-5){setVisible(true);}
+        lastY.current=y;
+      };
+      el.addEventListener("scroll",onScroll,{passive:true});
+      return()=>el.removeEventListener("scroll",onScroll);
+    };
+    // Try immediately, then retry after paint
+    const cleanup=attach();
+    if(cleanup)return cleanup;
+    const t=setTimeout(()=>attach(),100);
+    return()=>clearTimeout(t);
+  },[]);
   return(
-    <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"8px 20px",background:"rgba(8,15,30,0.85)",backdropFilter:"blur(40px)",WebkitBackdropFilter:"blur(40px)",borderBottom:"1px solid rgba(255,255,255,0.07)",flexShrink:0,position:"sticky",top:0,zIndex:100}}>
+    <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"4px 20px",background:"rgba(8,15,30,0.92)",backdropFilter:"blur(40px)",WebkitBackdropFilter:"blur(40px)",borderBottom:"1px solid rgba(255,255,255,0.07)",position:"fixed",top:0,left:0,right:0,zIndex:100,transform:visible?"translateY(0)":"translateY(-110%)",transition:"transform 0.28s cubic-bezier(0.22,1,0.36,1)"}}>
       <div style={{width:80,display:"flex",justifyContent:"flex-start"}}>
         {client&&<button onClick={()=>{setClient(null);setTab("home");}} style={{fontSize:12,color:C.lo,fontWeight:500,background:"rgba(255,255,255,0.06)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:99,padding:"5px 12px"}}>{t.signOut}</button>}
       </div>
-      <img src="https://ozeklaw.com/wp-content/uploads/2024/12/Ozek-Law-Firm-Logo-white-transparent.png" alt="Ozek Law" style={{height:128,objectFit:"contain"}}/>
+      <img src="https://ozeklaw.com/wp-content/uploads/2024/12/Ozek-Law-Firm-Logo-white-transparent.png" alt="Ozek Law" style={{height:72,objectFit:"contain"}}/>
       <div style={{width:80,display:"flex",justifyContent:"flex-end"}}>
         <LangSwitcher lang={lang} setLang={setLang}/>
       </div>
@@ -1019,7 +1041,7 @@ export default function App(){
             <Badge bg={C.greenBg} color={C.green} small>● {t.live}</Badge>
           </div>
         )}
-        <div style={{flex:1,overflowY:"auto",overscrollBehavior:"contain"}}>
+        <div id="main-scroll" style={{flex:1,overflowY:"auto",overscrollBehavior:"contain",paddingTop:80}}>
           <div className="page-enter" key={tab+lang}>
             {!client&&tab==="home"   &&<PublicHome setTab={setTab} t={t} lang={lang}/>}
             {!client&&tab==="news"   &&<NewsPage t={t} lang={lang}/>}
