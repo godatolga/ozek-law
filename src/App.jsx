@@ -352,17 +352,17 @@ function PublicHome({setTab,t,lang}){
   return(
     <>
     <div dir={dir}>
-      <div style={{position:"relative",overflow:"hidden",minHeight:"52vh",display:"flex",flexDirection:"column",justifyContent:"flex-end"}}>
+      <div style={{position:"relative",overflow:"hidden",minHeight:"calc(52vh + 56px)",display:"flex",flexDirection:"column",justifyContent:"flex-end"}}>
         <div style={{position:"absolute",inset:0,background:`url('https://ozeklaw.com/wp-content/uploads/2026/03/Website-Banners.png') center/cover no-repeat`}}/>
-        <div style={{position:"absolute",inset:0,background:"linear-gradient(to bottom, rgba(6,12,26,0.3) 0%, rgba(8,15,30,0.7) 70%, rgba(8,15,30,1) 100%)"}}/>
+        <div style={{position:"absolute",inset:0,background:"radial-gradient(ellipse 80% 60% at 75% 15%,rgba(201,168,76,0.11) 0%,transparent 55%)"}}/>
+        <div style={{position:"absolute",inset:0,background:"radial-gradient(ellipse 60% 50% at 15% 85%,rgba(10,132,255,0.07) 0%,transparent 55%)"}}/>
         <div style={{position:"absolute",inset:0,background:"radial-gradient(ellipse 60% 50% at 15% 85%,rgba(10,132,255,0.07) 0%,transparent 55%)"}}/>
         {[[320,320,-60,-100,0.08],[200,200,30,-60,0.05],[150,150,-20,100,0.04]].map(([w,h,tt,r,o],i)=>(
           <div key={i} style={{position:"absolute",width:w,height:h,top:tt,right:r,borderRadius:"50%",border:`1px solid rgba(201,168,76,${o})`,pointerEvents:"none"}}/>
         ))}
-        <div style={{position:"relative",padding:"28px 22px 32px"}}>
-          <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:32}}>
+        <div style={{position:"relative",padding:"28px 22px 32px",paddingTop:72}}>
+          <div style={{marginBottom:32}}>
             <div style={{fontSize:9,color:C.lo,letterSpacing:2,textTransform:"uppercase"}}>{t.tagline}</div>
-            <button onClick={()=>setTab("portal")} style={{background:C.gold,color:"#0F1923",border:"none",borderRadius:12,padding:"9px 18px",fontSize:12,fontWeight:700,cursor:"pointer",boxShadow:`0 4px 20px ${C.goldGlow}`,flexShrink:0}}>{t.clientLogin}</button>
           </div>
           <div style={{marginBottom:24}}>
             <div style={{width:32,height:2.5,background:C.gold,borderRadius:2,marginBottom:16}}/>
@@ -462,7 +462,7 @@ function NewsPage({t,lang}){
   if(newsTab==="regs") return <RegsPage t={t} lang={lang} onBack={()=>setNewsTab("news")}/>;
   return(
     <div dir={dir} style={{background:"#F7F5F2",minHeight:"100%"}}>
-      <div style={{background:"linear-gradient(145deg,#0A1628,#0D1E3A)",padding:"22px 22px 0",position:"relative",overflow:"hidden"}}>
+      <div style={{background:"linear-gradient(145deg,#0A1628,#0D1E3A)",padding:"78px 22px 0",position:"relative",overflow:"hidden"}}>
         <div style={{position:"absolute",inset:0,background:"radial-gradient(ellipse 70% 60% at 80% 20%,rgba(201,168,76,0.10),transparent)"}}/>
         <div style={{position:"relative"}}>
           <div style={{fontSize:9,letterSpacing:2.5,textTransform:"uppercase",color:C.gold,fontWeight:600,marginBottom:8}}>UPDATES</div>
@@ -528,7 +528,7 @@ function USCISPage({t,lang}){
   ];
   return(
     <div dir={dir} style={{background:"#F7F5F2",minHeight:"100%"}}>
-      <div style={{background:"linear-gradient(145deg,#0A1628,#0D1E3A)",padding:"22px 22px 0"}}>
+      <div style={{background:"linear-gradient(145deg,#0A1628,#0D1E3A)",padding:"78px 22px 0"}}>
         <div style={{fontSize:9,letterSpacing:2.5,textTransform:"uppercase",color:C.gold,fontWeight:600,marginBottom:8}}>IMMIGRATION</div>
         <h1 style={{fontFamily:"'Playfair Display',serif",fontSize:26,fontWeight:700,color:C.hi,letterSpacing:-0.5,marginBottom:12}}>Useful Tools</h1>
         <div style={{display:"flex",gap:8,paddingBottom:16}}>
@@ -605,7 +605,7 @@ function RegsPage({t,lang,onBack}){
   const dir=LANGS[lang].dir;
   return(
     <div dir={dir} style={{background:"#F7F5F2",minHeight:"100%"}}>
-      <div style={{background:"linear-gradient(145deg,#0A1628,#0D1E3A)",padding:"22px 22px 28px"}}>
+      <div style={{background:"linear-gradient(145deg,#0A1628,#0D1E3A)",padding:"78px 22px 28px"}}>
         <div style={{fontSize:9,letterSpacing:2.5,textTransform:"uppercase",color:C.gold,fontWeight:600,marginBottom:8}}>BUSINESS</div>
         {onBack&&<button onClick={onBack} style={{display:"flex",alignItems:"center",gap:6,color:C.gold,fontSize:13,marginBottom:12,fontWeight:600,background:"none",border:"none",cursor:"pointer"}}>‹ Back to News</button>}
         <h1 style={{fontFamily:"'Playfair Display',serif",fontSize:26,fontWeight:700,color:C.hi,letterSpacing:-0.5,marginBottom:4}}>{t.regsTitle}</h1>
@@ -655,7 +655,7 @@ function ClientLogin({setClient,setTab,t,lang}){
   };
   return(
     <div dir={dir} style={{minHeight:"100%",background:"linear-gradient(160deg,#080F1E 0%,#0D1628 60%,#111D33 100%)"}}>
-      <div style={{padding:"40px 24px 100px",position:"relative"}}>
+      <div style={{padding:"96px 24px 100px",position:"relative"}}>
         <div style={{textAlign:"center",marginBottom:36}}>
           <div style={{width:68,height:68,borderRadius:22,background:C.gold,display:"flex",alignItems:"center",justifyContent:"center",margin:"0 auto 16px",boxShadow:`0 8px 32px ${C.goldGlow},inset 0 1px 0 rgba(255,255,255,0.3)`}}>
             <span style={{fontSize:22,fontWeight:800,color:"#0F1923",fontFamily:"'Playfair Display',serif"}}>OL</span>
@@ -696,7 +696,7 @@ function ClientDash({client,setTab,t,lang}){
   return(
     <>
     <div dir={dir} style={{background:"#F7F5F2",minHeight:"100%"}}>
-      <div style={{background:"linear-gradient(145deg,#0A1628,#0D1E3A)",padding:"20px 22px 26px",position:"relative",overflow:"hidden"}}>
+      <div style={{background:"linear-gradient(145deg,#0A1628,#0D1E3A)",padding:"76px 22px 26px",position:"relative",overflow:"hidden"}}>
         <div style={{position:"absolute",inset:0,background:"radial-gradient(ellipse 80% 60% at 80% 10%,rgba(201,168,76,0.10),transparent)"}}/>
         <div style={{position:"relative",display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:18}}>
           <div>
@@ -931,7 +931,7 @@ function BillingPage({t,lang}){
   const dir=LANGS[lang].dir;
   return(
     <div dir={dir} style={{background:"#F7F5F2",minHeight:"100%"}}>
-      <div style={{background:"linear-gradient(145deg,#0A1628,#0D1E3A)",padding:"22px 22px 28px",position:"relative",overflow:"hidden"}}>
+      <div style={{background:"linear-gradient(145deg,#0A1628,#0D1E3A)",padding:"78px 22px 28px",position:"relative",overflow:"hidden"}}>
         <div style={{position:"absolute",inset:0,background:"radial-gradient(ellipse 70% 60% at 80% 20%,rgba(201,168,76,0.10),transparent)"}}/>
         <div style={{position:"relative"}}>
           <div style={{fontSize:9,letterSpacing:2.5,textTransform:"uppercase",color:C.gold,fontWeight:600,marginBottom:8}}>ACCOUNT</div>
@@ -1049,7 +1049,7 @@ export default function App(){
             <Badge bg={C.greenBg} color={C.green} small>● {t.live}</Badge>
           </div>
         )}
-        <div id="main-scroll" style={{flex:1,overflowY:"auto",overscrollBehavior:"contain",WebkitOverflowScrolling:"touch",transform:"translateZ(0)",paddingTop:56}} onScroll={e=>{const y=e.currentTarget.scrollTop;const bar=document.getElementById("top-bar");if(!bar){lastScrollY.current=y;return;}if(y<=2){if(scrollHidden.current){bar.style.transform="translateY(0)";scrollHidden.current=false;}}else if(y>lastScrollY.current&&!scrollHidden.current){bar.style.transform="translateY(-100%)";scrollHidden.current=true;}else if(y<lastScrollY.current&&scrollHidden.current){bar.style.transform="translateY(0)";scrollHidden.current=false;}lastScrollY.current=y;}}>
+        <div id="main-scroll" style={{flex:1,overflowY:"auto",overscrollBehavior:"contain",WebkitOverflowScrolling:"touch",transform:"translateZ(0)"}} onScroll={e=>{const y=e.currentTarget.scrollTop;const bar=document.getElementById("top-bar");if(!bar){lastScrollY.current=y;return;}if(y<=2){if(scrollHidden.current){bar.style.transform="translateY(0)";scrollHidden.current=false;}}else if(y>lastScrollY.current&&!scrollHidden.current){bar.style.transform="translateY(-100%)";scrollHidden.current=true;}lastScrollY.current=y;}}>
           <div className="page-enter" key={tab+lang}>
             {!client&&tab==="home"   &&<PublicHome setTab={setTab} t={t} lang={lang}/>}
             {!client&&tab==="news"   &&<NewsPage t={t} lang={lang}/>}
