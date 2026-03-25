@@ -278,12 +278,12 @@ function BillingDonut({paid,due,soon}){
 function LangSwitcher({lang,setLang}){
   const[open,setOpen]=useState(false);
   return(
-    <div style={{position:"relative",zIndex:200}}>
+    <div style={{position:"relative"}}>
       <button onClick={()=>setOpen(o=>!o)} style={{background:"rgba(201,168,76,0.15)",backdropFilter:"blur(12px)",WebkitBackdropFilter:"blur(12px)",border:"1px solid rgba(201,168,76,0.30)",borderRadius:99,padding:"5px 13px",fontSize:11,fontWeight:700,color:C.gold,display:"flex",alignItems:"center",gap:5}}>
         {LANGS[lang].label}<span style={{fontSize:8,opacity:0.7}}>▾</span>
       </button>
       {open&&(
-        <div style={{position:"absolute",top:"calc(100% + 8px)",right:0,background:"rgba(10,18,35,0.95)",backdropFilter:"blur(32px)",WebkitBackdropFilter:"blur(32px)",border:"1px solid rgba(255,255,255,0.10)",borderRadius:18,overflow:"hidden",boxShadow:"0 20px 60px rgba(0,0,0,0.5)",minWidth:140}}>
+        <div style={{position:"fixed",top:64,right:16,background:"rgba(10,18,35,0.97)",backdropFilter:"blur(32px)",WebkitBackdropFilter:"blur(32px)",border:"1px solid rgba(255,255,255,0.10)",borderRadius:18,overflow:"hidden",boxShadow:"0 20px 60px rgba(0,0,0,0.5)",minWidth:160,zIndex:99999}}>
           {Object.values(LANGS).map(l=>(
             <button key={l.code} onClick={()=>{setLang(l.code);setOpen(false);}} style={{display:"flex",alignItems:"center",gap:10,width:"100%",padding:"11px 16px",background:l.code===lang?"rgba(201,168,76,0.14)":"transparent",borderBottom:"1px solid rgba(255,255,255,0.06)",textAlign:"left"}}>
               <span style={{fontSize:11,fontWeight:700,color:C.gold,minWidth:28}}>{l.label}</span>
@@ -298,24 +298,29 @@ function LangSwitcher({lang,setLang}){
 
 function TopBar({lang,setLang,client,setClient,setTab,t}){
   return(
-    <div id="top-bar" style={{
-      display:"flex",alignItems:"center",justifyContent:"space-between",
-      padding:"6px 20px",
-      background:"rgba(8,15,30,0.92)",
-      backdropFilter:"blur(40px)",WebkitBackdropFilter:"blur(40px)",
-      borderBottom:"1px solid rgba(255,255,255,0.07)",
-      flexShrink:0,
-      willChange:"transform",
-      transition:"transform 0.25s ease",
-    }}>
-      <div style={{width:80,display:"flex",justifyContent:"flex-start"}}>
-        {client&&<button onClick={()=>{setClient(null);setTab("home");}} style={{fontSize:12,color:C.lo,fontWeight:500,background:"rgba(255,255,255,0.06)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:99,padding:"5px 12px"}}>{t.signOut}</button>}
+    <>
+      {/* Fixed bar that slides up */}
+      <div id="top-bar" style={{
+        position:"fixed",top:0,left:0,right:0,
+        display:"flex",alignItems:"center",justifyContent:"space-between",
+        padding:"6px 20px",
+        background:"rgba(8,15,30,0.95)",
+        backdropFilter:"blur(40px)",WebkitBackdropFilter:"blur(40px)",
+        borderBottom:"1px solid rgba(255,255,255,0.07)",
+        zIndex:1000,
+        willChange:"transform",
+        transition:"transform 0.22s cubic-bezier(0.4,0,0.2,1)",
+      }}>
+        <div style={{width:80,display:"flex",justifyContent:"flex-start"}}>
+          {client&&<button onClick={()=>{setClient(null);setTab("home");}} style={{fontSize:12,color:C.lo,fontWeight:500,background:"rgba(255,255,255,0.06)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:99,padding:"5px 12px"}}>{t.signOut}</button>}
+        </div>
+        <img src="https://ozeklaw.com/wp-content/uploads/2026/03/Ozek-Law-Firm-Logo-white-transparent.png" alt="Ozek Law" style={{height:44,objectFit:"contain",width:"auto",maxWidth:200}}/>
+        <div style={{width:80,display:"flex",justifyContent:"flex-end"}}>
+          <LangSwitcher lang={lang} setLang={setLang}/>
+        </div>
       </div>
-      <img src="https://ozeklaw.com/wp-content/uploads/2026/03/Ozek-Law-Firm-Logo-white-transparent.png" alt="Ozek Law" style={{height:44,objectFit:"contain",width:"auto",maxWidth:200}}/>
-      <div style={{width:80,display:"flex",justifyContent:"flex-end"}}>
-        <LangSwitcher lang={lang} setLang={setLang}/>
-      </div>
-    </div>
+
+    </>
   );
 }
 
@@ -1023,6 +1028,7 @@ export default function App(){
     scrollHidden.current=false;
     const bar=document.getElementById("top-bar");
     if(bar) bar.style.transform="translateY(0)";
+    
   },[tab]);
 
 
@@ -1043,7 +1049,7 @@ export default function App(){
             <Badge bg={C.greenBg} color={C.green} small>● {t.live}</Badge>
           </div>
         )}
-        <div id="main-scroll" style={{flex:1,overflowY:"auto",overscrollBehavior:"contain"}} onScroll={e=>{const y=e.currentTarget.scrollTop;const bar=document.getElementById("top-bar");if(!bar){lastScrollY.current=y;return;}if(y<=2){if(scrollHidden.current){bar.style.transform="translateY(0)";scrollHidden.current=false;}}else if(y>lastScrollY.current&&!scrollHidden.current){bar.style.transform="translateY(-100%)";scrollHidden.current=true;}else if(y<lastScrollY.current&&scrollHidden.current){bar.style.transform="translateY(0)";scrollHidden.current=false;}lastScrollY.current=y;}}>
+        <div id="main-scroll" style={{flex:1,overflowY:"auto",overscrollBehavior:"contain",paddingTop:56,WebkitOverflowScrolling:"touch",transform:"translateZ(0)"}} onScroll={e=>{const y=e.currentTarget.scrollTop;const bar=document.getElementById("top-bar");if(!bar){lastScrollY.current=y;return;}if(y<=2){if(scrollHidden.current){bar.style.transform="translateY(0)";scrollHidden.current=false;}}else if(y>lastScrollY.current&&!scrollHidden.current){bar.style.transform="translateY(-100%)";scrollHidden.current=true;}else if(y<lastScrollY.current&&scrollHidden.current){bar.style.transform="translateY(0)";scrollHidden.current=false;}lastScrollY.current=y;}}>
           <div className="page-enter" key={tab+lang}>
             {!client&&tab==="home"   &&<PublicHome setTab={setTab} t={t} lang={lang}/>}
             {!client&&tab==="news"   &&<NewsPage t={t} lang={lang}/>}
