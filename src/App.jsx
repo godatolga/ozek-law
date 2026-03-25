@@ -68,7 +68,7 @@ const EN={
   documents:"Documents",docsSub:"Upload and manage your case files",uploadFile:"Upload",pdfTypes:"PDF · JPG · PNG",scanDoc:"Scan",useCamera:"Use camera",scanning:"Scanning…",allFiles:"All Files",
   legalForms:"Legal Forms",formsSub:"Immigration, business & litigation forms",submitToAtty:"Submit to Attorney",saveDraft:"Save",submitted:"Submitted!",submittedSub:"Your form has been sent to your attorney for review.",submitAnother:"Submit Another",back:"Back",
   askAttorney:"Ask Atty. Tolga Ozek",askSub:"Messages sent directly via WhatsApp",askPlaceholder:"Type your legal question…",sendBtn:"Send",whatsappSent:"Opening WhatsApp for Atty. Tolga Ozek…",
-  billing:"Billing",billingSub:"Account summary & invoices",amountDueLabel:"Amount Due",paidLabel:"Paid (2026)",paymentRequired:"Payment Required",payNow:"Pay Now",invoices:"Invoices",signOut:"Sign Out",
+  billing:"Billing",billingSub:"Account summary & invoices",amountDueLabel:"Amount Due",paidLabel:"Paid (2026)",paymentRequired:"Payment Required",payNow:"Pay Now",invoices:"Invoices",signOut:"Sign Out",team:"Team",
   quickQ:["How long does I-485 take?","How do I form an LLC?","How does litigation work?","What is breach of contract?"],
   practiceList:[{icon:"🛂",title:"Immigration",sub:"Visas & Green Cards"},{icon:"⚖️",title:"Litigation",sub:"Courts & Disputes"},{icon:"🏢",title:"Business Law",sub:"Formation & Compliance"},{icon:"📑",title:"Corporate",sub:"Contracts & Transactions"},{icon:"🛡️",title:"Removal Defense",sub:"Appeals & Hearings"},{icon:"🤝",title:"Asylum",sub:"Humanitarian Relief"}],
   statLabels:{Done:"Done",Pending:"Pending",Progress:"In Progress",Scheduled:"Scheduled"},
@@ -76,7 +76,7 @@ const EN={
 const I18N={
   en:EN,
   ar:Object.assign({},EN,{tagline:"هجرة · أعمال · تقاضٍ",heroTitle:"طريقك إلى",heroEm:"الوضوح القانوني",heroSub:"هجرة، قانون أعمال، تقاضٍ — مكتب متكامل.",clientLogin:"بوابة العملاء",scheduleNow:"احجز الآن",home:"الرئيسية",news:"الأخبار",rules:"اللوائح",portal:"البوابة",dash:"الرئيسية",tasks:"المهام",docs:"المستندات",forms:"النماذج",ask:"اسأل",bills:"الفواتير",signOut:"خروج",goodMorning:"صباح الخير،",signIn:"تسجيل الدخول",back:"رجوع",askAttorney:"اسأل المحامي",billing:"الفواتير",practiceList:[{icon:"🛂",title:"الهجرة",sub:"تأشيرات"},{icon:"⚖️",title:"التقاضي",sub:"المحاكم"},{icon:"🏢",title:"قانون الأعمال",sub:"التأسيس"},{icon:"📑",title:"الشركات",sub:"العقود"},{icon:"🛡️",title:"الدفاع",sub:"الاستئنافات"},{icon:"🤝",title:"اللجوء",sub:"إنساني"}],statLabels:{Done:"مكتمل",Pending:"معلّق",Progress:"قيد التنفيذ",Scheduled:"مجدول"}}),
-  tr:Object.assign({},EN,{tagline:"Göçmenlik · İş · Dava",heroTitle:"Hukuki Netliğe",heroEm:"Giden Yolunuz",home:"Ana",news:"Haberler",rules:"Kurallar",portal:"Portal",dash:"Ana",tasks:"Görevler",docs:"Belgeler",forms:"Formlar",ask:"Sor",bills:"Faturalar",signOut:"Çıkış",goodMorning:"Günaydın,",signIn:"Giriş Yap",back:"Geri",billing:"Faturalar",practiceList:[{icon:"🛂",title:"Göçmenlik",sub:"Vize"},{icon:"⚖️",title:"Dava",sub:"Mahkemeler"},{icon:"🏢",title:"Şirketler Hukuku",sub:"Kuruluş ve Uyum"},{icon:"📑",title:"Kurumsal",sub:"Sözleşmeler"},{icon:"🛡️",title:"Sınır Dışı Etme Savunması",sub:"İtirazlar"},{icon:"🤝",title:"İltica",sub:"İnsani Yardım"}],statLabels:{Done:"Tamamlandı",Pending:"Bekliyor",Progress:"Devam Ediyor",Scheduled:"Planlandı"}}),
+  tr:Object.assign({},EN,{tagline:"Göçmenlik · İş · Dava",heroTitle:"Hukuki Netliğe",heroEm:"Giden Yolunuz",home:"Ana",news:"Haberler",rules:"Kurallar",portal:"Portal",dash:"Ana",tasks:"Görevler",docs:"Belgeler",forms:"Formlar",ask:"Sor",bills:"Faturalar",signOut:"Çıkış",team:"Ekibimiz",goodMorning:"Günaydın,",signIn:"Giriş Yap",back:"Geri",billing:"Faturalar",practiceList:[{icon:"🛂",title:"Göçmenlik",sub:"Vize"},{icon:"⚖️",title:"Dava",sub:"Mahkemeler"},{icon:"🏢",title:"Şirketler Hukuku",sub:"Kuruluş ve Uyum"},{icon:"📑",title:"Kurumsal",sub:"Sözleşmeler"},{icon:"🛡️",title:"Sınır Dışı Etme Savunması",sub:"İtirazlar"},{icon:"🤝",title:"İltica",sub:"İnsani Yardım"}],statLabels:{Done:"Tamamlandı",Pending:"Bekliyor",Progress:"Devam Ediyor",Scheduled:"Planlandı"}}),
   es:Object.assign({},EN,{tagline:"Inmigración · Negocios · Litigios",heroTitle:"Su Camino hacia la",heroEm:"Claridad Legal",home:"Inicio",news:"Noticias",rules:"Normas",dash:"Inicio",tasks:"Tareas",docs:"Docs",forms:"Formularios",ask:"Preguntar",bills:"Facturas",signOut:"Salir",goodMorning:"Buenos días,",signIn:"Iniciar Sesión",back:"Volver",billing:"Facturación",practiceList:[{icon:"🛂",title:"Inmigración",sub:"Visas"},{icon:"⚖️",title:"Litigios",sub:"Tribunales"},{icon:"🏢",title:"Empresarial",sub:"Constitución"},{icon:"📑",title:"Corporativo",sub:"Contratos"},{icon:"🛡️",title:"Deportación",sub:"Apelaciones"},{icon:"🤝",title:"Asilo",sub:"Humanitario"}],statLabels:{Done:"Completado",Pending:"Pendiente",Progress:"En Progreso",Scheduled:"Programado"}}),
   ru:Object.assign({},EN,{tagline:"Иммиграция · Бизнес · Суд",heroTitle:"Ваш путь к",heroEm:"правовой ясности",home:"Главная",news:"Новости",rules:"Нормы",dash:"Главная",tasks:"Задачи",docs:"Документы",forms:"Формы",ask:"Вопрос",bills:"Счета",signOut:"Выйти",goodMorning:"Доброе утро,",signIn:"Войти",back:"Назад",billing:"Счета",practiceList:[{icon:"🛂",title:"Иммиграция",sub:"Визы"},{icon:"⚖️",title:"Суд",sub:"Споры"},{icon:"🏢",title:"Корпоративное",sub:"Регистрация"},{icon:"📑",title:"Контракты",sub:"Сделки"},{icon:"🛡️",title:"Депортация",sub:"Защита"},{icon:"🤝",title:"Убежище",sub:"Гуманитарное"}],statLabels:{Done:"Завершено",Pending:"Ожидает",Progress:"В процессе",Scheduled:"Запланировано"}}),
   zh:Object.assign({},EN,{tagline:"移民 · 商业 · 诉讼",heroTitle:"通往",heroEm:"法律清晰之路",home:"首页",news:"新闻",rules:"法规",dash:"首页",tasks:"任务",docs:"文件",forms:"表格",ask:"提问",bills:"账单",signOut:"退出",goodMorning:"早上好，",signIn:"登录",back:"返回",billing:"账单",practiceList:[{icon:"🛂",title:"移民",sub:"签证"},{icon:"⚖️",title:"诉讼",sub:"法院"},{icon:"🏢",title:"商业法",sub:"成立"},{icon:"📑",title:"企业",sub:"合同"},{icon:"🛡️",title:"驱逐辩护",sub:"上诉"},{icon:"🤝",title:"庇护",sub:"人道"}],statLabels:{Done:"已完成",Pending:"待处理",Progress:"进行中",Scheduled:"已安排"}}),
@@ -302,7 +302,7 @@ function TopBar({lang,setLang,client,setClient,setTab,t}){
   return(
     <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"12px 20px 10px",background:"rgba(8,15,30,0.85)",backdropFilter:"blur(40px)",WebkitBackdropFilter:"blur(40px)",borderBottom:"1px solid rgba(255,255,255,0.07)",flexShrink:0,position:"sticky",top:0,zIndex:100}}>
       <div style={{display:"flex",alignItems:"center",gap:10}}>
-        <img src="https://ozeklaw.com/wp-content/uploads/2024/12/Ozek-Law-Firm-Logo-white-transparent.png" alt="Ozek Law" style={{height:32,objectFit:"contain"}}/>
+        <img src="https://ozeklaw.com/wp-content/uploads/2024/12/Ozek-Law-Firm-Logo-white-transparent.png" alt="Ozek Law" style={{height:64,objectFit:"contain"}}/>
         {time&&<div style={{fontSize:11,color:C.lo,fontWeight:300}}>{time}</div>}
       </div>
       <div style={{display:"flex",alignItems:"center",gap:10}}>
@@ -314,7 +314,7 @@ function TopBar({lang,setLang,client,setClient,setTab,t}){
 }
 
 function BottomNav({tab,setTab,isClient,t}){
-  const pub=[{id:"home",icon:"⚖️",label:t.home},{id:"news",icon:"📰",label:t.news},{id:"team",icon:"👥",label:"Team"},{id:"uscis",icon:"🛂",label:t.uscis},{id:"portal",icon:"🔐",label:t.portal}];
+  const pub=[{id:"home",icon:"⚖️",label:t.home},{id:"news",icon:"📰",label:t.news},{id:"team",icon:"👥",label:t.team||"Team"},{id:"uscis",icon:"🛠️",label:"Tools"},{id:"portal",icon:"🔐",label:t.portal}];
   const cli=[{id:"dash",icon:"🏠",label:t.dash},{id:"tasks",icon:"✅",label:t.tasks},{id:"docs",icon:"📁",label:t.docs},{id:"forms",icon:"📋",label:t.formsLabel},{id:"chat",icon:"💬",label:t.ask},{id:"billing",icon:"💳",label:t.bills}];
   const tabs=isClient?cli:pub;
   return(
@@ -502,58 +502,92 @@ function NewsPage({t,lang}){
 }
 
 function USCISPage({t,lang}){
-  const[num,setNum]=useState("");const[res,setRes]=useState(null);const[loading,setLoading]=useState(false);const[selForm,setSelForm]=useState("I-485");
+  const[num,setNum]=useState("");const[res,setRes]=useState(null);const[loading,setLoading]=useState(false);
+  const[selForm,setSelForm]=useState("I-485");
+  const[uscisTab,setUscisTab]=useState("tools");
   const dir=LANGS[lang].dir;
   const check=()=>{if(!num.trim())return;setLoading(true);setRes(null);setTimeout(()=>{setRes({status:"Case Was Received and A Receipt Notice Was Emailed",updated:"March 18, 2026",form:"I-485",center:"Nebraska Service Center"});setLoading(false);},1400);};
+  const TOOLS=[
+    {icon:"🔐",title:"USCIS Online Account",sub:"Sign in to manage your case",url:"https://myaccount.uscis.gov/sign-in",color:C.blueBg,border:"rgba(10,132,255,0.22)"},
+    {icon:"✈️",title:"Travel History",sub:"Find your I-94 travel records",url:"https://i94.cbp.dhs.gov/search/history-search",color:"rgba(48,209,88,0.08)",border:"rgba(48,209,88,0.22)"},
+    {icon:"📋",title:"I-94 Latest Entry",sub:"View your most recent arrival",url:"https://i94.cbp.dhs.gov/search/recent-search",color:"rgba(48,209,88,0.08)",border:"rgba(48,209,88,0.22)"},
+    {icon:"📅",title:"Visa Bulletin",sub:"Adjustment of status filing charts",url:"https://www.uscis.gov/green-card/green-card-processes-and-procedures/visa-availability-priority-dates/adjustment-of-status-filing-charts-from-the-visa-bulletin",color:C.goldPale,border:C.goldBorder},
+    {icon:"⏱️",title:"Dept. of Labor Processing Times",sub:"PERM & prevailing wage timelines",url:"https://flag.dol.gov/processingtimes",color:"rgba(191,90,242,0.08)",border:"rgba(191,90,242,0.22)"},
+  ];
   return(
     <div dir={dir} style={{background:"#F7F5F2",minHeight:"100%"}}>
-      <div style={{background:"linear-gradient(145deg,#0A1628,#0D1E3A)",padding:"22px 22px 28px"}}>
+      <div style={{background:"linear-gradient(145deg,#0A1628,#0D1E3A)",padding:"22px 22px 0"}}>
         <div style={{fontSize:9,letterSpacing:2.5,textTransform:"uppercase",color:C.gold,fontWeight:600,marginBottom:8}}>IMMIGRATION</div>
-        <h1 style={{fontFamily:"'Playfair Display',serif",fontSize:26,fontWeight:700,color:C.hi,letterSpacing:-0.5,marginBottom:4}}>{t.uscisTitle}</h1>
-        <p style={{fontSize:12,color:C.md,fontWeight:300}}>{t.uscisSub}</p>
-      </div>
-      <div style={{padding:"20px 18px 100px"}}>
-        <div style={{background:"#FFFFFF",borderRadius:20,padding:"18px",marginBottom:14,boxShadow:"0 1px 12px rgba(0,0,0,0.06)",border:"1px solid rgba(0,0,0,0.05)"}}>
-          <div style={{fontSize:10,color:C.inkLo,letterSpacing:1,textTransform:"uppercase",marginBottom:8}}>{t.receiptNumber}</div>
-          <input value={num} onChange={e=>setNum(e.target.value.toUpperCase())} placeholder={t.receiptPlaceholder} style={{width:"100%",background:"rgba(0,0,0,0.04)",border:"1.5px solid rgba(0,0,0,0.08)",borderRadius:13,padding:"13px 16px",color:C.ink,fontSize:15,outline:"none",letterSpacing:1.5,marginBottom:12,fontFamily:"monospace"}}/>
-          <GoldBtn full onPress={check} style={{color:"#0F1923"}}>{loading?t.checking:t.checkStatus}</GoldBtn>
-          <div style={{textAlign:"center",marginTop:10,fontSize:11,color:C.inkLo}}>{t.orVisit} <a href="https://egov.uscis.gov/casestatus/landing.do" target="_blank" rel="noreferrer" style={{color:C.goldDim,fontWeight:600}}>USCIS.gov ↗</a></div>
+        <h1 style={{fontFamily:"'Playfair Display',serif",fontSize:26,fontWeight:700,color:C.hi,letterSpacing:-0.5,marginBottom:12}}>Useful Tools</h1>
+        <div style={{display:"flex",gap:8,paddingBottom:16}}>
+          {[["tools","🛠️","Tools"],["case","📋","Case Status"]].map(([id,icon,label])=>(
+            <button key={id} onClick={()=>setUscisTab(id)} style={{padding:"7px 16px",borderRadius:99,fontSize:12,fontWeight:600,cursor:"pointer",border:"none",background:uscisTab===id?C.gold:"rgba(255,255,255,0.12)",color:uscisTab===id?"#0F1923":"rgba(255,255,255,0.75)",transition:"all 0.2s"}}>{icon} {label}</button>
+          ))}
         </div>
-        {loading&&<div style={{textAlign:"center",padding:20}}><div style={{width:28,height:28,borderRadius:14,border:`3px solid ${C.gold}`,borderTopColor:"transparent",margin:"0 auto 8px",animation:"spin 0.8s linear infinite"}}/></div>}
-        {res&&!loading&&(
-          <div style={{background:"#FFFFFF",borderRadius:20,padding:"18px",marginBottom:14,border:"1.5px solid rgba(201,168,76,0.25)"}}>
-            <Badge bg={C.greenBg} color={C.green}>● {t.statusFound}</Badge>
-            <div style={{fontFamily:"'Playfair Display',serif",fontSize:14,color:C.ink,lineHeight:1.55,margin:"12px 0 14px"}}>{res.status}</div>
-            <Divider light/><div style={{height:12}}/>
-            {[["Receipt",num],["Form",res.form],["Center",res.center],["Updated",res.updated]].map(([l,v])=>(
-              <div key={l} style={{display:"flex",justifyContent:"space-between",marginBottom:8}}>
-                <span style={{fontSize:11,color:C.inkLo}}>{l}</span>
-                <span style={{fontSize:11,fontWeight:600,color:C.ink,textAlign:"right",maxWidth:"60%"}}>{v}</span>
+      </div>
+
+      {uscisTab==="tools"&&(
+        <div style={{padding:"20px 18px 100px"}}>
+          {TOOLS.map(r=>(
+            <a key={r.title} href={r.url} target="_blank" rel="noreferrer" style={{display:"block",textDecoration:"none",marginBottom:10}}>
+              <div style={{background:r.color,border:`1px solid ${r.border}`,borderRadius:18,padding:"16px",display:"flex",gap:14,alignItems:"center"}}>
+                <div style={{width:44,height:44,borderRadius:13,background:"rgba(255,255,255,0.8)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:22,flexShrink:0}}>{r.icon}</div>
+                <div style={{flex:1}}>
+                  <div style={{fontSize:13,fontWeight:700,color:C.ink,marginBottom:3}}>{r.title}</div>
+                  <div style={{fontSize:11,color:C.inkLo}}>{r.sub}</div>
+                </div>
+                <span style={{color:C.gold,fontSize:18,opacity:0.8}}>↗</span>
               </div>
-            ))}
-          </div>
-        )}
-        <div style={{background:"rgba(201,168,76,0.09)",borderRadius:20,padding:"18px",marginBottom:20,border:"1px solid rgba(201,168,76,0.22)"}}>
-          <div style={{fontSize:13,fontWeight:700,color:C.ink,marginBottom:10}}>{t.processingTimesTitle}</div>
-          <div style={{position:"relative",marginBottom:12}}>
-            <select value={selForm} onChange={e=>setSelForm(e.target.value)} style={{width:"100%",background:"#FFF",border:"1.5px solid rgba(201,168,76,0.30)",borderRadius:13,padding:"12px 36px 12px 14px",color:C.ink,fontSize:14,outline:"none",cursor:"pointer"}}>
-              {USCIS_FORMS.map(f=><option key={f} value={f}>{f}</option>)}
-            </select>
-            <span style={{position:"absolute",right:13,top:"50%",transform:"translateY(-50%)",color:C.gold,pointerEvents:"none",fontSize:12}}>▾</span>
-          </div>
-          <GoldBtn full onPress={()=>window.open("https://egov.uscis.gov/processing-times/","_blank")} style={{color:"#0F1923"}}>{t.viewTimes}</GoldBtn>
+            </a>
+          ))}
         </div>
-        <div style={{fontSize:13,fontWeight:700,color:C.ink,marginBottom:12}}>{t.receiptGuide}</div>
-        {[["EAC","Vermont SC"],["LIN","Nebraska SC"],["SRC","Texas SC"],["WAC","California SC"],["NBC","National Benefits Center"],["IOE","Online / Electronic"]].map(([code,name])=>(
-          <div key={code} style={{display:"flex",gap:12,alignItems:"center",padding:"11px 0",borderBottom:"1px solid rgba(0,0,0,0.06)"}}>
-            <span style={{background:"#0A1628",color:"#FFF",padding:"5px 10px",borderRadius:8,fontSize:10,fontWeight:700,fontFamily:"monospace"}}>{code}</span>
-            <span style={{fontSize:13,color:C.ink}}>{name}</span>
+      )}
+
+      {uscisTab==="case"&&(
+        <div style={{padding:"20px 18px 100px"}}>
+          <div style={{background:"#FFFFFF",borderRadius:20,padding:"18px",marginBottom:14,boxShadow:"0 1px 12px rgba(0,0,0,0.06)",border:"1px solid rgba(0,0,0,0.05)"}}>
+            <div style={{fontSize:10,color:C.inkLo,letterSpacing:1,textTransform:"uppercase",marginBottom:8}}>{t.receiptNumber}</div>
+            <input value={num} onChange={e=>setNum(e.target.value.toUpperCase())} placeholder={t.receiptPlaceholder} style={{width:"100%",background:"rgba(0,0,0,0.04)",border:"1.5px solid rgba(0,0,0,0.08)",borderRadius:13,padding:"13px 16px",color:C.ink,fontSize:15,outline:"none",letterSpacing:1.5,marginBottom:12,fontFamily:"monospace"}}/>
+            <GoldBtn full onPress={check} style={{color:"#0F1923"}}>{loading?t.checking:t.checkStatus}</GoldBtn>
+            <div style={{textAlign:"center",marginTop:10,fontSize:11,color:C.inkLo}}>{t.orVisit} <a href="https://egov.uscis.gov/casestatus/landing.do" target="_blank" rel="noreferrer" style={{color:C.goldDim,fontWeight:600}}>USCIS.gov ↗</a></div>
           </div>
-        ))}
-      </div>
+          {loading&&<div style={{textAlign:"center",padding:20}}><div style={{width:28,height:28,borderRadius:14,border:`3px solid ${C.gold}`,borderTopColor:"transparent",margin:"0 auto 8px",animation:"spin 0.8s linear infinite"}}/></div>}
+          {res&&!loading&&(
+            <div style={{background:"#FFFFFF",borderRadius:20,padding:"18px",marginBottom:14,border:"1.5px solid rgba(201,168,76,0.25)"}}>
+              <Badge bg={C.greenBg} color={C.green}>● {t.statusFound}</Badge>
+              <div style={{fontFamily:"'Playfair Display',serif",fontSize:14,color:C.ink,lineHeight:1.55,margin:"12px 0 14px"}}>{res.status}</div>
+              <Divider light/><div style={{height:12}}/>
+              {[["Receipt",num],["Form",res.form],["Center",res.center],["Updated",res.updated]].map(([l,v])=>(
+                <div key={l} style={{display:"flex",justifyContent:"space-between",marginBottom:8}}>
+                  <span style={{fontSize:11,color:C.inkLo}}>{l}</span>
+                  <span style={{fontSize:11,fontWeight:600,color:C.ink,textAlign:"right",maxWidth:"60%"}}>{v}</span>
+                </div>
+              ))}
+            </div>
+          )}
+          <div style={{background:"rgba(201,168,76,0.09)",borderRadius:20,padding:"18px",marginBottom:20,border:"1px solid rgba(201,168,76,0.22)"}}>
+            <div style={{fontSize:13,fontWeight:700,color:C.ink,marginBottom:10}}>{t.processingTimesTitle}</div>
+            <div style={{position:"relative",marginBottom:12}}>
+              <select value={selForm} onChange={e=>setSelForm(e.target.value)} style={{width:"100%",background:"#FFF",border:"1.5px solid rgba(201,168,76,0.30)",borderRadius:13,padding:"12px 36px 12px 14px",color:C.ink,fontSize:14,outline:"none",cursor:"pointer"}}>
+                {USCIS_FORMS.map(f=><option key={f} value={f}>{f}</option>)}
+              </select>
+              <span style={{position:"absolute",right:13,top:"50%",transform:"translateY(-50%)",color:C.gold,pointerEvents:"none",fontSize:12}}>▾</span>
+            </div>
+            <GoldBtn full onPress={()=>window.open("https://egov.uscis.gov/processing-times/","_blank")} style={{color:"#0F1923"}}>{t.viewTimes}</GoldBtn>
+          </div>
+          <div style={{fontSize:13,fontWeight:700,color:C.ink,marginBottom:12}}>{t.receiptGuide}</div>
+          {[["EAC","Vermont SC"],["LIN","Nebraska SC"],["SRC","Texas SC"],["WAC","California SC"],["NBC","National Benefits Center"],["IOE","Online / Electronic"]].map(([code,name])=>(
+            <div key={code} style={{display:"flex",gap:12,alignItems:"center",padding:"11px 0",borderBottom:"1px solid rgba(0,0,0,0.06)"}}>
+              <span style={{background:"#0A1628",color:"#FFF",padding:"5px 10px",borderRadius:8,fontSize:10,fontWeight:700,fontFamily:"monospace"}}>{code}</span>
+              <span style={{fontSize:13,color:C.ink}}>{name}</span>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
+
 
 function RegsPage({t,lang,onBack}){
   const dir=LANGS[lang].dir;
