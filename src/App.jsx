@@ -298,7 +298,7 @@ function LangSwitcher({lang,setLang}){
 
 function TopBar({lang,setLang,client,setClient,setTab,t}){
   return(
-    <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"10px 20px",background:"rgba(8,15,30,0.85)",backdropFilter:"blur(40px)",WebkitBackdropFilter:"blur(40px)",borderBottom:"1px solid rgba(255,255,255,0.07)",flexShrink:0,position:"sticky",top:0,zIndex:100}}>
+    <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"8px 20px",background:"rgba(8,15,30,0.85)",backdropFilter:"blur(40px)",WebkitBackdropFilter:"blur(40px)",borderBottom:"1px solid rgba(255,255,255,0.07)",flexShrink:0,position:"sticky",top:0,zIndex:100}}>
       <div style={{width:80,display:"flex",justifyContent:"flex-start"}}>
         {client&&<button onClick={()=>{setClient(null);setTab("home");}} style={{fontSize:12,color:C.lo,fontWeight:500,background:"rgba(255,255,255,0.06)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:99,padding:"5px 12px"}}>{t.signOut}</button>}
       </div>
