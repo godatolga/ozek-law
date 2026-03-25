@@ -304,9 +304,9 @@ function TopBar({lang,setLang,client,setClient,setTab,t}){
         position:"fixed",top:0,left:0,right:0,
         display:"flex",alignItems:"center",justifyContent:"space-between",
         padding:"6px 20px",
-        background:"rgba(8,15,30,0.95)",
-        backdropFilter:"blur(40px)",WebkitBackdropFilter:"blur(40px)",
-        borderBottom:"1px solid rgba(255,255,255,0.07)",
+        background:"rgba(8,15,30,0.0)",
+        backdropFilter:"blur(0px)",WebkitBackdropFilter:"blur(0px)",
+        borderBottom:"none",
         zIndex:1000,
         willChange:"transform",
         transition:"transform 0.22s cubic-bezier(0.4,0,0.2,1)",
@@ -1049,7 +1049,7 @@ export default function App(){
             <Badge bg={C.greenBg} color={C.green} small>● {t.live}</Badge>
           </div>
         )}
-        <div id="main-scroll" style={{flex:1,overflowY:"auto",overscrollBehavior:"contain",paddingTop:56,WebkitOverflowScrolling:"touch",transform:"translateZ(0)"}} onScroll={e=>{const y=e.currentTarget.scrollTop;const bar=document.getElementById("top-bar");if(!bar){lastScrollY.current=y;return;}if(y<=2){if(scrollHidden.current){bar.style.transform="translateY(0)";scrollHidden.current=false;}}else if(y>lastScrollY.current&&!scrollHidden.current){bar.style.transform="translateY(-100%)";scrollHidden.current=true;}else if(y<lastScrollY.current&&scrollHidden.current){bar.style.transform="translateY(0)";scrollHidden.current=false;}lastScrollY.current=y;}}>
+        <div id="main-scroll" style={{flex:1,overflowY:"auto",overscrollBehavior:"contain",WebkitOverflowScrolling:"touch",transform:"translateZ(0)"}} onScroll={e=>{const y=e.currentTarget.scrollTop;const bar=document.getElementById("top-bar");if(!bar){lastScrollY.current=y;return;}if(y<=2){if(scrollHidden.current){bar.style.transform="translateY(0)";scrollHidden.current=false;}}else if(y>lastScrollY.current&&!scrollHidden.current){bar.style.transform="translateY(-100%)";scrollHidden.current=true;}else if(y<lastScrollY.current&&scrollHidden.current){bar.style.transform="translateY(0)";scrollHidden.current=false;}lastScrollY.current=y;}}>
           <div className="page-enter" key={tab+lang}>
             {!client&&tab==="home"   &&<PublicHome setTab={setTab} t={t} lang={lang}/>}
             {!client&&tab==="news"   &&<NewsPage t={t} lang={lang}/>}
