@@ -353,8 +353,8 @@ function PublicHome({setTab,t,lang}){
     <>
     <div dir={dir}>
       <div style={{position:"relative",overflow:"hidden",minHeight:"52vh",display:"flex",flexDirection:"column",justifyContent:"flex-end"}}>
-        <div style={{position:"absolute",inset:0,background:"linear-gradient(145deg,#060C1A 0%,#0A1628 50%,#0D1E3A 100%)"}}/>
-        <div style={{position:"absolute",inset:0,background:"radial-gradient(ellipse 80% 60% at 75% 15%,rgba(201,168,76,0.11) 0%,transparent 55%)"}}/>
+        <div style={{position:"absolute",inset:0,background:`url('https://ozeklaw.com/wp-content/uploads/2026/03/Website-Banners.png') center/cover no-repeat`}}/>
+        <div style={{position:"absolute",inset:0,background:"linear-gradient(to bottom, rgba(6,12,26,0.3) 0%, rgba(8,15,30,0.7) 70%, rgba(8,15,30,1) 100%)"}}/>
         <div style={{position:"absolute",inset:0,background:"radial-gradient(ellipse 60% 50% at 15% 85%,rgba(10,132,255,0.07) 0%,transparent 55%)"}}/>
         {[[320,320,-60,-100,0.08],[200,200,30,-60,0.05],[150,150,-20,100,0.04]].map(([w,h,tt,r,o],i)=>(
           <div key={i} style={{position:"absolute",width:w,height:h,top:tt,right:r,borderRadius:"50%",border:`1px solid rgba(201,168,76,${o})`,pointerEvents:"none"}}/>
@@ -1049,7 +1049,7 @@ export default function App(){
             <Badge bg={C.greenBg} color={C.green} small>● {t.live}</Badge>
           </div>
         )}
-        <div id="main-scroll" style={{flex:1,overflowY:"auto",overscrollBehavior:"contain",WebkitOverflowScrolling:"touch",transform:"translateZ(0)"}} onScroll={e=>{const y=e.currentTarget.scrollTop;const bar=document.getElementById("top-bar");if(!bar){lastScrollY.current=y;return;}if(y<=2){if(scrollHidden.current){bar.style.transform="translateY(0)";scrollHidden.current=false;}}else if(y>lastScrollY.current&&!scrollHidden.current){bar.style.transform="translateY(-100%)";scrollHidden.current=true;}else if(y<lastScrollY.current&&scrollHidden.current){bar.style.transform="translateY(0)";scrollHidden.current=false;}lastScrollY.current=y;}}>
+        <div id="main-scroll" style={{flex:1,overflowY:"auto",overscrollBehavior:"contain",WebkitOverflowScrolling:"touch",transform:"translateZ(0)",paddingTop:56}} onScroll={e=>{const y=e.currentTarget.scrollTop;const bar=document.getElementById("top-bar");if(!bar){lastScrollY.current=y;return;}if(y<=2){if(scrollHidden.current){bar.style.transform="translateY(0)";scrollHidden.current=false;}}else if(y>lastScrollY.current&&!scrollHidden.current){bar.style.transform="translateY(-100%)";scrollHidden.current=true;}else if(y<lastScrollY.current&&scrollHidden.current){bar.style.transform="translateY(0)";scrollHidden.current=false;}lastScrollY.current=y;}}>
           <div className="page-enter" key={tab+lang}>
             {!client&&tab==="home"   &&<PublicHome setTab={setTab} t={t} lang={lang}/>}
             {!client&&tab==="news"   &&<NewsPage t={t} lang={lang}/>}
