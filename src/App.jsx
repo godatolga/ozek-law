@@ -154,10 +154,12 @@ function BookingModal({onClose}){
     setDone(true);
   };
   return(
-    <div style={{position:"fixed",inset:0,zIndex:500,display:"flex",flexDirection:"column",justifyContent:"flex-end"}}>
-      <div onClick={onClose} style={{position:"absolute",inset:0,background:"rgba(0,0,0,0.65)",backdropFilter:"blur(8px)",WebkitBackdropFilter:"blur(8px)"}}/>
-      <div className="modal-enter" style={{position:"relative",background:"#0D1628",borderRadius:"28px 28px 0 0",height:"92vh",overflow:"hidden",display:"flex",flexDirection:"column",boxShadow:"0 -2px 60px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.14)"}}>
-        <div style={{display:"flex",justifyContent:"center",padding:"12px 0 4px"}}><div style={{width:36,height:4,borderRadius:2,background:"rgba(255,255,255,0.18)"}}/></div>
+    <div style={{position:"fixed",inset:0,zIndex:500,display:"flex",flexDirection:"column"}}>
+      <div className="modal-enter" style={{position:"relative",background:"#0D1628",flex:1,overflow:"hidden",display:"flex",flexDirection:"column"}}>
+        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"16px 22px 8px"}}>
+          <div style={{fontFamily:"'Playfair Display',serif",fontSize:17,fontWeight:700,color:"#FFF",letterSpacing:-0.3}}>Ozek Law</div>
+          <button onClick={onClose} style={{width:32,height:32,borderRadius:99,background:"rgba(255,255,255,0.12)",border:"none",color:"#FFF",fontSize:18,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center"}}>✕</button>
+        </div>
         <div style={{overflow:"auto",padding:"4px 22px 28px"}}>
           {done?(
             <div style={{textAlign:"center",padding:"32px 0 16px"}}>
