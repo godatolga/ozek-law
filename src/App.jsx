@@ -38,12 +38,12 @@ a{-webkit-user-select:none;user-select:none}
 .lang-zh{font-family:'Noto Sans SC','Inter',sans-serif}
 `;
 
-const LANGS={en:{code:"en",label:"EN",name:"English",dir:"ltr"},ar:{code:"ar",label:"عر",name:"العربية",dir:"rtl"},tr:{code:"tr",label:"TR",name:"Türkçe",dir:"ltr"},es:{code:"es",label:"ES",name:"Español",dir:"ltr"},ru:{code:"ru",label:"РУ",name:"Русский",dir:"ltr"},zh:{code:"zh",label:"中文",name:"中文",dir:"ltr"}};
+const LANGS={en:{code:"en",label:"EN",name:"English",dir:"ltr"},tr:{code:"tr",label:"TR",name:"Türkçe",dir:"ltr"},ar:{code:"ar",label:"عر",name:"العربية",dir:"rtl"},es:{code:"es",label:"ES",name:"Español",dir:"ltr"},ru:{code:"ru",label:"РУ",name:"Русский",dir:"ltr"},zh:{code:"zh",label:"中文",name:"中文",dir:"ltr"}};
 
 const EN={
   tagline:"Immigration · Business · Litigation",heroTitle:"Your Path to",heroEm:"Legal Clarity",
   heroSub:"Immigration, business law, litigation, and corporate counsel — a full-service firm guiding individuals and companies through every legal challenge.",
-  clientLogin:"Client Login",scheduleNow:"Schedule Now",consultation:"Free Consultation",
+  clientLogin:"Client Login",scheduleNow:"Schedule Now",consultation:"Consultation",
   practiceAreas:"Practice Areas",latestUpdates:"Latest Insights",seeAll:"See all →",
   home:"Home",news:"News",uscis:"USCIS",rules:"Rules",portal:"Portal",
   dash:"Home",tasks:"Tasks",docs:"Docs",forms:"Forms",ask:"Ask",bills:"Bills",
@@ -170,7 +170,7 @@ function BookingModal({onClose}){
             <>
               <div style={{marginBottom:20}}>
                 <div style={{fontSize:9,letterSpacing:2.5,textTransform:"uppercase",color:"#C9A84C",fontWeight:600,marginBottom:8}}>SCHEDULE</div>
-                <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:22,color:"#FFF",letterSpacing:-0.4}}>Free Consultation</h2>
+                <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:22,color:"#FFF",letterSpacing:-0.4}}>Consultation</h2>
                 <p style={{fontSize:12,color:"rgba(255,255,255,0.5)",marginTop:4}}>Choose a date and time · Atty. Tolga Ozek</p>
               </div>
               <div style={{fontSize:10,color:"rgba(255,255,255,0.4)",letterSpacing:1.2,textTransform:"uppercase",marginBottom:10}}>Select Date</div>
@@ -363,7 +363,7 @@ function PublicHome({setTab,t,lang}){
           </div>
         </div>
         <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",background:"rgba(255,255,255,0.05)",backdropFilter:"blur(20px)",WebkitBackdropFilter:"blur(20px)",borderTop:"1px solid rgba(255,255,255,0.08)",padding:"14px 0"}}>
-          {[["98%","Approval"],["15+","Years"],["50+","Areas"],["42","Countries"]].map(([n,l],i)=>(
+          {[["98%","Approval"],["15+","Years"],["20+","Areas"],["42","Countries"]].map(([n,l],i)=>(
             <div key={l} style={{textAlign:"center",borderRight:i<3?"1px solid rgba(255,255,255,0.07)":"none"}}>
               <div style={{fontSize:20,fontWeight:800,color:C.gold,fontFamily:"'Playfair Display',serif",lineHeight:1}}>{n}</div>
               <div style={{fontSize:9,color:C.lo,marginTop:3,letterSpacing:0.5,textTransform:"uppercase"}}>{l}</div>
@@ -372,73 +372,57 @@ function PublicHome({setTab,t,lang}){
         </div>
       </div>
 
-      <div style={{padding:"28px 22px 0"}}>
+      <div style={{padding:"28px 22px 28px",background:"#FFFFFF"}}>
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-end",marginBottom:16}}>
           <div>
             <div style={{fontSize:9,letterSpacing:2.5,textTransform:"uppercase",color:C.gold,fontWeight:600,marginBottom:5}}>EXPERTISE</div>
-            <h2 style={{fontSize:20,fontWeight:700,color:C.hi,fontFamily:"'Playfair Display',serif",letterSpacing:-0.3}}>{t.practiceAreas}</h2>
+            <h2 style={{fontSize:20,fontWeight:700,color:C.ink,fontFamily:"'Playfair Display',serif",letterSpacing:-0.3}}>{t.practiceAreas}</h2>
           </div>
           <button onClick={()=>window.open("https://ozeklaw.com/practiceareas/","_blank")} style={{fontSize:12,color:C.gold,fontWeight:600,background:"none",border:"none",cursor:"pointer"}}>{t.seeAll}</button>
         </div>
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,marginBottom:28}}>
           {t.practiceList.map((p,i)=>(
-            <div key={p.title} onClick={()=>window.open("https://ozeklaw.com/practiceareas/","_blank")} style={{background:i%2===0?"rgba(255,255,255,0.06)":"rgba(201,168,76,0.07)",backdropFilter:"blur(20px)",WebkitBackdropFilter:"blur(20px)",border:i%2===0?"1px solid rgba(255,255,255,0.10)":"1px solid rgba(201,168,76,0.18)",boxShadow:"inset 0 1px 0 rgba(255,255,255,0.12),0 2px 16px rgba(0,0,0,0.18)",borderRadius:22,padding:"18px 16px 16px",cursor:"pointer",position:"relative",overflow:"hidden"}}>
+            <div key={p.title} onClick={()=>window.open("https://ozeklaw.com/practiceareas/","_blank")} style={{background:i%2===0?"#F7F5F2":"rgba(201,168,76,0.08)",border:i%2===0?"1px solid rgba(0,0,0,0.06)":"1px solid rgba(201,168,76,0.20)",boxShadow:"0 2px 10px rgba(0,0,0,0.05)",borderRadius:22,padding:"18px 16px 16px",cursor:"pointer",position:"relative",overflow:"hidden"}}>
               <div style={{position:"absolute",top:-12,right:-12,width:56,height:56,borderRadius:"50%",background:"rgba(201,168,76,0.06)"}}/>
               <div style={{fontSize:26,marginBottom:11}}>{p.icon}</div>
-              <div style={{fontSize:13,fontWeight:700,color:C.hi,marginBottom:4,lineHeight:1.2}}>{p.title}</div>
-              <div style={{fontSize:11,color:C.md,lineHeight:1.4}}>{p.sub}</div>
+              <div style={{fontSize:13,fontWeight:700,color:C.ink,marginBottom:4,lineHeight:1.2}}>{p.title}</div>
+              <div style={{fontSize:11,color:C.inkMd,lineHeight:1.4}}>{p.sub}</div>
               <div style={{position:"absolute",bottom:12,right:14,color:C.gold,fontSize:15,fontWeight:700,opacity:0.7}}>›</div>
             </div>
           ))}
         </div>
       </div>
 
-      <div style={{margin:"0 22px 28px"}}>
-        <div style={{background:"rgba(255,255,255,0.05)",backdropFilter:"blur(28px)",WebkitBackdropFilter:"blur(28px)",border:"1px solid rgba(255,255,255,0.10)",boxShadow:"inset 0 1px 0 rgba(255,255,255,0.14),0 8px 40px rgba(0,0,0,0.28)",borderRadius:24,padding:"22px 20px",position:"relative",overflow:"hidden"}}>
-          <div style={{position:"absolute",top:-16,right:-16,width:80,height:80,borderRadius:"50%",border:"1px solid rgba(201,168,76,0.12)"}}/>
-          <div style={{fontSize:9,letterSpacing:2.5,textTransform:"uppercase",color:C.gold,fontWeight:600,marginBottom:16}}>WHY OZEK LAW</div>
-          <div style={{display:"flex",flexDirection:"column",gap:14,marginBottom:18}}>
-            {[["🔒","Attorney-Client Privilege","Every communication protected"],["⚡","Response Within 24 Hours","Fast, reliable communication"],["🌍","Multilingual Team","EN, AR, TR, ES, RU, ZH"],["🏛️","Full-Service Firm","Immigration, Business & Litigation"]].map(([icon,title,sub])=>(
-              <div key={title} style={{display:"flex",gap:14,alignItems:"center"}}>
-                <div style={{width:38,height:38,borderRadius:12,flexShrink:0,background:"rgba(201,168,76,0.14)",border:"1px solid rgba(201,168,76,0.24)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:17}}>{icon}</div>
-                <div><div style={{fontSize:13,fontWeight:600,color:C.hi,marginBottom:1}}>{title}</div><div style={{fontSize:11,color:C.lo}}>{sub}</div></div>
-              </div>
-            ))}
-          </div>
-          <button onClick={()=>window.open("https://ozeklaw.com","_blank")} style={{width:"100%",background:"rgba(201,168,76,0.12)",backdropFilter:"blur(8px)",WebkitBackdropFilter:"blur(8px)",border:"1px solid rgba(201,168,76,0.30)",color:C.gold,borderRadius:14,padding:"13px",fontSize:13,fontWeight:600,cursor:"pointer"}}>Learn About Our Firm ↗</button>
-        </div>
-      </div>
-
-      <div style={{padding:"0 22px"}}>
+      <div style={{padding:"0 22px",background:"#FFFFFF"}}>
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-end",marginBottom:16}}>
           <div>
             <div style={{fontSize:9,letterSpacing:2.5,textTransform:"uppercase",color:C.gold,fontWeight:600,marginBottom:5}}>INSIGHTS</div>
-            <h2 style={{fontSize:20,fontWeight:700,color:C.hi,fontFamily:"'Playfair Display',serif",letterSpacing:-0.3}}>{t.latestUpdates}</h2>
+            <h2 style={{fontSize:20,fontWeight:700,color:C.ink,fontFamily:"'Playfair Display',serif",letterSpacing:-0.3}}>{t.latestUpdates}</h2>
           </div>
           <button onClick={()=>setTab("news")} style={{fontSize:12,color:C.gold,fontWeight:600,background:"none",border:"none",cursor:"pointer"}}>{t.seeAll}</button>
         </div>
         {ARTICLES_META.slice(0,3).map((a,i)=>(
-          <div key={i} onClick={()=>window.open("https://ozeklaw.com/newsletter/","_blank")} style={{display:"flex",gap:14,alignItems:"center",padding:"14px 0",borderBottom:"1px solid rgba(255,255,255,0.07)",cursor:"pointer"}}>
+          <div key={i} onClick={()=>window.open("https://ozeklaw.com/newsletter/","_blank")} style={{display:"flex",gap:14,alignItems:"center",padding:"14px 0",borderBottom:"1px solid rgba(0,0,0,0.07)",cursor:"pointer"}}>
             <div style={{width:48,height:48,borderRadius:14,flexShrink:0,background:"rgba(255,255,255,0.07)",border:"1px solid rgba(255,255,255,0.09)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:22}}>{a.emoji}</div>
             <div style={{flex:1}}>
               <div style={{display:"flex",gap:7,marginBottom:5,alignItems:"center"}}>
                 <Badge bg={C.goldPale} color={C.gold}>{a.cat}</Badge>
                 <span style={{fontSize:10,color:C.lo}}>{a.read}</span>
               </div>
-              <div style={{fontSize:13,fontWeight:600,color:C.hi,lineHeight:1.35}}>{(ARTICLE_TITLES[lang]||ARTICLE_TITLES.en)[i]}</div>
+              <div style={{fontSize:13,fontWeight:600,color:C.ink,lineHeight:1.35}}>{(ARTICLE_TITLES[lang]||ARTICLE_TITLES.en)[i]}</div>
             </div>
             <span style={{color:C.gold,fontSize:18,flexShrink:0,opacity:0.7}}>›</span>
           </div>
         ))}
       </div>
 
-      <div style={{margin:"26px 22px 28px"}}>
+      <div style={{margin:"0",padding:"28px 22px 28px",background:"#FFFFFF"}}>
         <div style={{background:"rgba(201,168,76,0.13)",backdropFilter:"blur(28px)",WebkitBackdropFilter:"blur(28px)",border:"1px solid rgba(201,168,76,0.32)",boxShadow:"inset 0 1px 0 rgba(255,220,100,0.20),0 8px 40px rgba(0,0,0,0.25)",borderRadius:24,padding:"24px 22px",position:"relative",overflow:"hidden"}}>
           <div style={{position:"absolute",top:-24,right:-24,width:100,height:100,borderRadius:"50%",background:"rgba(201,168,76,0.10)"}}/>
           <div style={{position:"relative"}}>
             <div style={{fontSize:28,marginBottom:10}}>📞</div>
-            <h3 style={{fontFamily:"'Playfair Display',serif",fontSize:20,fontWeight:700,color:C.hi,marginBottom:8,letterSpacing:-0.3}}>{t.consultation}</h3>
-            <p style={{fontSize:13,color:C.md,marginBottom:18,lineHeight:1.6,fontWeight:300}}>{t.heroSub.slice(0,90)}…</p>
+            <h3 style={{fontFamily:"'Playfair Display',serif",fontSize:20,fontWeight:700,color:C.ink,marginBottom:8,letterSpacing:-0.3}}>{t.consultation}</h3>
+            <p style={{fontSize:13,color:C.inkMd,marginBottom:18,lineHeight:1.6,fontWeight:300}}>{t.heroSub.slice(0,90)}…</p>
             <button onClick={()=>window.open("https://wa.me/12028548545?text=Hello%2C+I+would+like+to+schedule+a+consultation+with+Ozek+Law+Firm.","_blank")} style={{width:"100%",background:C.gold,color:"#0F1923",border:"none",borderRadius:14,padding:"15px",fontSize:14,fontWeight:700,cursor:"pointer",boxShadow:`0 6px 24px ${C.goldGlow}`}}>{t.scheduleNow} via WhatsApp ↗</button>
           </div>
         </div>
