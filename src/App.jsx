@@ -36,6 +36,13 @@ a{-webkit-user-select:none;user-select:none}
 .field::placeholder{color:rgba(255,255,255,0.32)}.field:focus{border-color:rgba(201,168,76,0.45)}
 [dir="rtl"]{font-family:'Noto Sans Arabic','Inter',sans-serif}
 .lang-zh{font-family:'Noto Sans SC','Inter',sans-serif}
+
+@keyframes fogIn{0%{opacity:0;filter:blur(40px);transform:scale(1.15)}60%{opacity:1;filter:blur(6px);transform:scale(1.02)}100%{opacity:1;filter:blur(0px);transform:scale(1)}}
+@keyframes fogOut{0%{opacity:1}100%{opacity:0;transform:scale(0.98)}}
+@keyframes particleDrift{0%{transform:translateY(0) translateX(0);opacity:0}20%{opacity:0.6}80%{opacity:0.3}100%{transform:translateY(-120px) translateX(var(--dx));opacity:0}}
+@keyframes glowPulse{0%,100%{box-shadow:0 0 60px 20px rgba(201,168,76,0.15)}50%{box-shadow:0 0 120px 50px rgba(201,168,76,0.35)}}
+@keyframes ringExpand{0%{transform:scale(0.5);opacity:0.8}100%{transform:scale(2.5);opacity:0}}
+
 `;
 
 const LANGS={en:{code:"en",label:"EN",name:"English",dir:"ltr"},tr:{code:"tr",label:"TR",name:"Türkçe",dir:"ltr"},ar:{code:"ar",label:"عر",name:"العربية",dir:"rtl"},es:{code:"es",label:"ES",name:"Español",dir:"ltr"},ru:{code:"ru",label:"РУ",name:"Русский",dir:"ltr"},zh:{code:"zh",label:"中文",name:"中文",dir:"ltr"}};
@@ -1013,7 +1020,81 @@ function TeamPage({lang}){
   );
 }
 
+
+function SplashScreen({onDone}){
+  useEffect(()=>{
+    const t=setTimeout(onDone, 2800);
+    return()=>clearTimeout(t);
+  },[]);
+  return(
+    <div style={{
+      position:"fixed",inset:0,zIndex:99999,
+      background:"#080F1E",
+      display:"flex",alignItems:"center",justifyContent:"center",
+      flexDirection:"column",
+      animation:"fogOut 0.6s ease 2.3s both",
+    }}>
+      {/* Fog rings */}
+      {[0,1,2].map(i=>(
+        <div key={i} style={{
+          position:"absolute",
+          width:300,height:300,
+          borderRadius:"50%",
+          border:"1px solid rgba(201,168,76,0.25)",
+          animation:`ringExpand ${1.6+i*0.5}s ease-out ${i*0.3}s infinite`,
+        }}/>
+      ))}
+      {/* Floating particles */}
+      {Array.from({length:12},(_,i)=>(
+        <div key={i} style={{
+          position:"absolute",
+          width:3+Math.random()*3,
+          height:3+Math.random()*3,
+          borderRadius:"50%",
+          background:`rgba(201,168,76,${0.3+Math.random()*0.5})`,
+          left:`${30+Math.random()*40}%`,
+          top:`${40+Math.random()*20}%`,
+          "--dx":`${(Math.random()-0.5)*80}px`,
+          animation:`particleDrift ${2+Math.random()*1.5}s ease-out ${Math.random()*1}s both`,
+        }}/>
+      ))}
+      {/* Glow circle behind logo */}
+      <div style={{
+        position:"absolute",
+        width:180,height:180,
+        borderRadius:"50%",
+        background:"radial-gradient(circle, rgba(201,168,76,0.18) 0%, transparent 70%)",
+        animation:"glowPulse 2s ease-in-out infinite",
+      }}/>
+      {/* Logo */}
+      <img
+        src="https://ozeklaw.com/wp-content/uploads/2026/03/Ozek-Law-Firm-Logo-white-transparent.png"
+        alt="Ozek Law"
+        style={{
+          height:120,
+          objectFit:"contain",
+          position:"relative",
+          zIndex:1,
+          animation:"fogIn 1.8s cubic-bezier(0.22,1,0.36,1) 0.2s both",
+          filter:"drop-shadow(0 0 20px rgba(201,168,76,0.5))",
+        }}
+      />
+      {/* Tagline */}
+      <div style={{
+        marginTop:16,
+        fontSize:11,
+        letterSpacing:3,
+        textTransform:"uppercase",
+        color:"rgba(201,168,76,0.7)",
+        fontWeight:500,
+        animation:"fogIn 1.8s cubic-bezier(0.22,1,0.36,1) 0.6s both",
+      }}>Immigration · Business · Litigation</div>
+    </div>
+  );
+}
+
 export default function App(){
+  const[splash,setSplash]=useState(true);
   const[tab,setTab]=useState("home");
   const[client,setClient]=useState(null);
   const[lang,setLang]=useState("en");
@@ -1038,6 +1119,7 @@ export default function App(){
   return(
     <>
       <style>{FONTS}{css}</style>
+      {splash&&<SplashScreen onDone={()=>setSplash(false)}/>}
       <div dir={dir} className={lang==="zh"?"lang-zh":""} style={{display:"flex",flexDirection:"column",height:"100vh",background:C.bg0,overflow:"hidden"}}>
         <TopBar lang={lang} setLang={setLang} client={client} setClient={setClient} setTab={setTab} t={t}/>
         {client&&isClient&&(
