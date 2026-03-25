@@ -1047,7 +1047,7 @@ export default function App(){
             <Badge bg={C.greenBg} color={C.green} small>● {t.live}</Badge>
           </div>
         )}
-        <div id="main-scroll" style={{flex:1,overflowY:"auto",overscrollBehavior:"contain"}} onScroll={e=>{const y=e.currentTarget.scrollTop;if(y<30){setTopHidden(false);lastScrollY.current=y;return;}if(y-lastScrollY.current>8)setTopHidden(true);else if(lastScrollY.current-y>8)setTopHidden(false);lastScrollY.current=y;}}>
+        <div id="main-scroll" style={{flex:1,overflowY:"auto",overscrollBehavior:"contain"}} onScroll={e=>{const y=e.currentTarget.scrollTop;if(y<=0){setTopHidden(false);lastScrollY.current=y;return;}if(y>lastScrollY.current)setTopHidden(true);else if(y<lastScrollY.current)setTopHidden(false);lastScrollY.current=y;}}>
           <div className="page-enter" key={tab+lang}>
             {!client&&tab==="home"   &&<PublicHome setTab={setTab} t={t} lang={lang}/>}
             {!client&&tab==="news"   &&<NewsPage t={t} lang={lang}/>}
