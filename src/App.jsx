@@ -1041,7 +1041,7 @@ export default function App(){
             <Badge bg={C.greenBg} color={C.green} small>● {t.live}</Badge>
           </div>
         )}
-        <div id="main-scroll" style={{flex:1,overflowY:"auto",overscrollBehavior:"contain",paddingTop:80}}>
+        <div id="main-scroll" style={{flex:1,overflowY:"auto",overscrollBehavior:"contain"}}>
           <div className="page-enter" key={tab+lang}>
             {!client&&tab==="home"   &&<PublicHome setTab={setTab} t={t} lang={lang}/>}
             {!client&&tab==="news"   &&<NewsPage t={t} lang={lang}/>}
