@@ -320,7 +320,7 @@ function TopBar({lang,setLang,client,setClient,setTab,t}){
     return()=>clearTimeout(t);
   },[]);
   return(
-    <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"6px 20px",background:"rgba(8,15,30,0.92)",backdropFilter:"blur(40px)",WebkitBackdropFilter:"blur(40px)",borderBottom:"1px solid rgba(255,255,255,0.07)",position:"fixed",top:0,left:0,right:0,zIndex:100,transform:visible?"translateY(0)":"translateY(-110%)",transition:"transform 0.28s cubic-bezier(0.22,1,0.36,1)"}}>
+    <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"6px 20px",background:"rgba(8,15,30,0.92)",backdropFilter:"blur(40px)",WebkitBackdropFilter:"blur(40px)",borderBottom:"1px solid rgba(255,255,255,0.07)",position:"sticky",top:0,zIndex:100,flexShrink:0,transform:visible?"translateY(0)":"translateY(-110%)",transition:"transform 0.28s cubic-bezier(0.22,1,0.36,1)"}}>
       <div style={{width:80,display:"flex",justifyContent:"flex-start"}}>
         {client&&<button onClick={()=>{setClient(null);setTab("home");}} style={{fontSize:12,color:C.lo,fontWeight:500,background:"rgba(255,255,255,0.06)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:99,padding:"5px 12px"}}>{t.signOut}</button>}
       </div>
