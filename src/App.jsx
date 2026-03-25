@@ -296,29 +296,24 @@ function LangSwitcher({lang,setLang}){
   );
 }
 
-function TopBar({lang,setLang,client,setClient,setTab,t,hidden}){
-  const H=56;
+function TopBar({lang,setLang,client,setClient,setTab,t}){
   return(
-    <div style={{
-      height:hidden?0:H,
-      overflow:"hidden",
+    <div id="top-bar" style={{
+      display:"flex",alignItems:"center",justifyContent:"space-between",
+      padding:"6px 20px",
+      background:"rgba(8,15,30,0.92)",
+      backdropFilter:"blur(40px)",WebkitBackdropFilter:"blur(40px)",
+      borderBottom:"1px solid rgba(255,255,255,0.07)",
       flexShrink:0,
-      transition:"height 0.28s ease",
+      willChange:"transform",
+      transition:"transform 0.25s ease",
     }}>
-      <div style={{
-        display:"flex",alignItems:"center",justifyContent:"space-between",
-        padding:"6px 20px",height:H,
-        background:"rgba(8,15,30,0.92)",
-        backdropFilter:"blur(40px)",WebkitBackdropFilter:"blur(40px)",
-        borderBottom:"1px solid rgba(255,255,255,0.07)",
-      }}>
-        <div style={{width:80,display:"flex",justifyContent:"flex-start"}}>
-          {client&&<button onClick={()=>{setClient(null);setTab("home");}} style={{fontSize:12,color:C.lo,fontWeight:500,background:"rgba(255,255,255,0.06)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:99,padding:"5px 12px"}}>{t.signOut}</button>}
-        </div>
-        <img src="https://ozeklaw.com/wp-content/uploads/2026/03/Ozek-Law-Firm-Logo-white-transparent.png" alt="Ozek Law" style={{height:44,objectFit:"contain",width:"auto",maxWidth:200}}/>
-        <div style={{width:80,display:"flex",justifyContent:"flex-end"}}>
-          <LangSwitcher lang={lang} setLang={setLang}/>
-        </div>
+      <div style={{width:80,display:"flex",justifyContent:"flex-start"}}>
+        {client&&<button onClick={()=>{setClient(null);setTab("home");}} style={{fontSize:12,color:C.lo,fontWeight:500,background:"rgba(255,255,255,0.06)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:99,padding:"5px 12px"}}>{t.signOut}</button>}
+      </div>
+      <img src="https://ozeklaw.com/wp-content/uploads/2026/03/Ozek-Law-Firm-Logo-white-transparent.png" alt="Ozek Law" style={{height:44,objectFit:"contain",width:"auto",maxWidth:200}}/>
+      <div style={{width:80,display:"flex",justifyContent:"flex-end"}}>
+        <LangSwitcher lang={lang} setLang={setLang}/>
       </div>
     </div>
   );
@@ -895,7 +890,7 @@ function ChatPage({client,t,lang}){
     setInput("");
   },[input,client,t]);
   return(
-    <div dir={dir} style={{display:"flex",flexDirection:"column",height:"calc(100vh - 130px)",background:"#F7F5F2"}}>
+    <div dir={dir} style={{display:"flex",flexDirection:"column",height:"calc(100vh - 60px)",background:"#F7F5F2"}}>
       <div style={{background:"linear-gradient(145deg,#0A1628,#0D1E3A)",padding:"18px 22px 20px",flexShrink:0}}>
         <h1 style={{fontFamily:"'Playfair Display',serif",fontSize:18,fontWeight:700,color:C.hi,marginBottom:2}}>{t.askAttorney}</h1>
         <p style={{fontSize:11,color:C.md,fontWeight:300}}>{t.askSub}</p>
@@ -1017,16 +1012,17 @@ export default function App(){
   const[tab,setTab]=useState("home");
   const[client,setClient]=useState(null);
   const[lang,setLang]=useState("en");
-  const[topHidden,setTopHidden]=useState(false);
   const lastScrollY=useRef(0);
+  const scrollHidden=useRef(false);
   const t=I18N[lang]||I18N.en;
 
-  // Reset scroll + show bar on tab change
   useEffect(()=>{
     const el=document.getElementById("main-scroll");
     if(el) el.scrollTop=0;
     lastScrollY.current=0;
-    setTopHidden(false);
+    scrollHidden.current=false;
+    const bar=document.getElementById("top-bar");
+    if(bar) bar.style.transform="translateY(0)";
   },[tab]);
 
 
@@ -1037,7 +1033,7 @@ export default function App(){
     <>
       <style>{FONTS}{css}</style>
       <div dir={dir} className={lang==="zh"?"lang-zh":""} style={{display:"flex",flexDirection:"column",height:"100vh",background:C.bg0,overflow:"hidden"}}>
-        <TopBar lang={lang} setLang={setLang} client={client} setClient={setClient} setTab={setTab} t={t} hidden={topHidden}/>
+        <TopBar lang={lang} setLang={setLang} client={client} setClient={setClient} setTab={setTab} t={t}/>
         {client&&isClient&&(
           <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"5px 20px",background:"rgba(8,15,30,0.75)",backdropFilter:"blur(20px)",WebkitBackdropFilter:"blur(20px)",borderBottom:"1px solid rgba(255,255,255,0.06)",flexShrink:0}}>
             <div style={{display:"flex",alignItems:"center",gap:8}}>
@@ -1047,7 +1043,7 @@ export default function App(){
             <Badge bg={C.greenBg} color={C.green} small>● {t.live}</Badge>
           </div>
         )}
-        <div id="main-scroll" style={{flex:1,overflowY:"auto",overscrollBehavior:"contain"}} onScroll={e=>{const y=e.currentTarget.scrollTop;if(y<=0){setTopHidden(false);lastScrollY.current=y;return;}if(y>lastScrollY.current)setTopHidden(true);else if(y<lastScrollY.current)setTopHidden(false);lastScrollY.current=y;}}>
+        <div id="main-scroll" style={{flex:1,overflowY:"auto",overscrollBehavior:"contain"}} onScroll={e=>{const y=e.currentTarget.scrollTop;const bar=document.getElementById("top-bar");if(!bar){lastScrollY.current=y;return;}if(y<=2){if(scrollHidden.current){bar.style.transform="translateY(0)";scrollHidden.current=false;}}else if(y>lastScrollY.current&&!scrollHidden.current){bar.style.transform="translateY(-100%)";scrollHidden.current=true;}else if(y<lastScrollY.current&&scrollHidden.current){bar.style.transform="translateY(0)";scrollHidden.current=false;}lastScrollY.current=y;}}>
           <div className="page-enter" key={tab+lang}>
             {!client&&tab==="home"   &&<PublicHome setTab={setTab} t={t} lang={lang}/>}
             {!client&&tab==="news"   &&<NewsPage t={t} lang={lang}/>}
