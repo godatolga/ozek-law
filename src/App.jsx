@@ -320,11 +320,11 @@ function TopBar({lang,setLang,client,setClient,setTab,t}){
     return()=>clearTimeout(t);
   },[]);
   return(
-    <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"4px 20px",background:"rgba(8,15,30,0.92)",backdropFilter:"blur(40px)",WebkitBackdropFilter:"blur(40px)",borderBottom:"1px solid rgba(255,255,255,0.07)",position:"fixed",top:0,left:0,right:0,zIndex:100,transform:visible?"translateY(0)":"translateY(-110%)",transition:"transform 0.28s cubic-bezier(0.22,1,0.36,1)"}}>
+    <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"6px 20px",background:"rgba(8,15,30,0.92)",backdropFilter:"blur(40px)",WebkitBackdropFilter:"blur(40px)",borderBottom:"1px solid rgba(255,255,255,0.07)",position:"fixed",top:0,left:0,right:0,zIndex:100,transform:visible?"translateY(0)":"translateY(-110%)",transition:"transform 0.28s cubic-bezier(0.22,1,0.36,1)"}}>
       <div style={{width:80,display:"flex",justifyContent:"flex-start"}}>
         {client&&<button onClick={()=>{setClient(null);setTab("home");}} style={{fontSize:12,color:C.lo,fontWeight:500,background:"rgba(255,255,255,0.06)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:99,padding:"5px 12px"}}>{t.signOut}</button>}
       </div>
-      <img src="https://ozeklaw.com/wp-content/uploads/2024/12/Ozek-Law-Firm-Logo-white-transparent.png" alt="Ozek Law" style={{height:72,objectFit:"contain"}}/>
+      <img src="https://ozeklaw.com/wp-content/uploads/2024/12/Ozek-Law-Firm-Logo-white-transparent.png" alt="Ozek Law" style={{height:64,maxHeight:"calc(100% - 8px)",objectFit:"contain",width:"auto",maxWidth:260}}/>
       <div style={{width:80,display:"flex",justifyContent:"flex-end"}}>
         <LangSwitcher lang={lang} setLang={setLang}/>
       </div>
@@ -337,15 +337,15 @@ function BottomNav({tab,setTab,isClient,t}){
   const cli=[{id:"dash",icon:"🏠",label:t.dash},{id:"tasks",icon:"✅",label:t.tasks},{id:"docs",icon:"📁",label:t.docs},{id:"forms",icon:"📋",label:t.formsLabel},{id:"chat",icon:"💬",label:t.ask},{id:"billing",icon:"💳",label:t.bills}];
   const tabs=isClient?cli:pub;
   return(
-    <nav className="tab-bar" style={{display:"flex",padding:"10px 0 12px",flexShrink:0}}>
+    <nav className="tab-bar" style={{display:"flex",padding:"12px 0 14px",flexShrink:0}}>
       {tabs.map(tb=>{
         const active=tab===tb.id;
         return(
           <button key={tb.id} onClick={()=>setTab(tb.id)} style={{flex:1,display:"flex",flexDirection:"column",alignItems:"center",gap:3,padding:"2px 0"}}>
-            <div style={{width:36,height:28,borderRadius:10,background:active?"rgba(201,168,76,0.18)":"transparent",display:"flex",alignItems:"center",justifyContent:"center",transition:"all 0.2s",transform:active?"scale(1.08)":"scale(1)"}}>
+            <div style={{width:42,height:32,borderRadius:12,background:active?"rgba(201,168,76,0.18)":"transparent",display:"flex",alignItems:"center",justifyContent:"center",transition:"all 0.2s",transform:active?"scale(1.08)":"scale(1)"}}>
               <span style={{fontSize:18,opacity:active?1:0.3,transition:"opacity 0.2s"}}>{tb.icon}</span>
             </div>
-            <span style={{fontSize:9,fontWeight:active?700:400,color:active?C.gold:"#FFFFFF",transition:"all 0.2s"}}>{tb.label}</span>
+            <span style={{fontSize:10,fontWeight:active?700:500,color:active?C.gold:"#FFFFFF",transition:"all 0.2s"}}>{tb.label}</span>
           </button>
         );
       })}
