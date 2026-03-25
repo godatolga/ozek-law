@@ -324,7 +324,7 @@ function TopBar({lang,setLang,client,setClient,setTab,t}){
       <div style={{width:80,display:"flex",justifyContent:"flex-start"}}>
         {client&&<button onClick={()=>{setClient(null);setTab("home");}} style={{fontSize:12,color:C.lo,fontWeight:500,background:"rgba(255,255,255,0.06)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:99,padding:"5px 12px"}}>{t.signOut}</button>}
       </div>
-      <img src="https://ozeklaw.com/wp-content/uploads/2026/03/Ozek-Law-Firm-Logo-white-transparent.png" alt="Ozek Law" style={{height:22,objectFit:"contain",width:"auto",maxWidth:160}}/>
+      <img src="https://ozeklaw.com/wp-content/uploads/2026/03/Ozek-Law-Firm-Logo-white-transparent.png" alt="Ozek Law" style={{height:44,objectFit:"contain",width:"auto",maxWidth:200}}/>
       <div style={{width:80,display:"flex",justifyContent:"flex-end"}}>
         <LangSwitcher lang={lang} setLang={setLang}/>
       </div>
