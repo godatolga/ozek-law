@@ -157,7 +157,7 @@ function BookingModal({onClose}){
     <div style={{position:"fixed",inset:0,zIndex:500,display:"flex",flexDirection:"column"}}>
       <div className="modal-enter" style={{position:"relative",background:"#0D1628",flex:1,overflow:"hidden",display:"flex",flexDirection:"column"}}>
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"16px 22px 8px"}}>
-          <img src="https://ozeklaw.com/wp-content/uploads/2024/12/Ozek-Law-Firm-Logo-white-transparent.png" alt="Ozek Law" style={{height:28,objectFit:"contain"}}/>
+          <img src="https://ozeklaw.com/wp-content/uploads/2026/03/Ozek-Law-Firm-Logo-white-transparent.png" alt="Ozek Law" style={{height:28,objectFit:"contain"}}/>
           <button onClick={onClose} style={{width:32,height:32,borderRadius:99,background:"rgba(255,255,255,0.12)",border:"none",color:"#FFF",fontSize:18,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center"}}>✕</button>
         </div>
         <div style={{overflow:"auto",padding:"4px 22px 28px"}}>
@@ -324,7 +324,7 @@ function TopBar({lang,setLang,client,setClient,setTab,t}){
       <div style={{width:80,display:"flex",justifyContent:"flex-start"}}>
         {client&&<button onClick={()=>{setClient(null);setTab("home");}} style={{fontSize:12,color:C.lo,fontWeight:500,background:"rgba(255,255,255,0.06)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:99,padding:"5px 12px"}}>{t.signOut}</button>}
       </div>
-      <img src="https://ozeklaw.com/wp-content/uploads/2024/12/Ozek-Law-Firm-Logo-white-transparent.png" alt="Ozek Law" style={{height:64,maxHeight:"calc(100% - 8px)",objectFit:"contain",width:"auto",maxWidth:260}}/>
+      <img src="https://ozeklaw.com/wp-content/uploads/2026/03/Ozek-Law-Firm-Logo-white-transparent.png" alt="Ozek Law" style={{height:64,maxHeight:"calc(100% - 8px)",objectFit:"contain",width:"auto",maxWidth:260}}/>
       <div style={{width:80,display:"flex",justifyContent:"flex-end"}}>
         <LangSwitcher lang={lang} setLang={setLang}/>
       </div>
