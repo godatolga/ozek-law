@@ -353,7 +353,7 @@ function PublicHome({setTab,t,lang}){
     <>
     <div dir={dir}>
       <div style={{position:"relative",overflow:"hidden",minHeight:"calc(52vh + 56px)",display:"flex",flexDirection:"column",justifyContent:"flex-end"}}>
-        <div style={{position:"absolute",inset:0,background:`url('https://ozeklaw.com/wp-content/uploads/2026/03/Untitled-design-1.png') center/cover no-repeat`}}/>
+        <div style={{position:"absolute",inset:0,background:`url('https://ozeklaw.com/wp-content/uploads/2026/03/Untitled-design-copy.png') center/cover no-repeat`}}/>
         <div style={{position:"absolute",inset:0,background:"radial-gradient(ellipse 80% 60% at 75% 15%,rgba(201,168,76,0.11) 0%,transparent 55%)"}}/>
         <div style={{position:"absolute",inset:0,background:"radial-gradient(ellipse 60% 50% at 15% 85%,rgba(10,132,255,0.07) 0%,transparent 55%)"}}/>
         <div style={{position:"absolute",inset:0,background:"radial-gradient(ellipse 60% 50% at 15% 85%,rgba(10,132,255,0.07) 0%,transparent 55%)"}}/>
