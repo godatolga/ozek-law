@@ -156,7 +156,7 @@ function BookingModal({onClose}){
   return(
     <div style={{position:"fixed",inset:0,zIndex:500,display:"flex",flexDirection:"column",justifyContent:"flex-end"}}>
       <div onClick={onClose} style={{position:"absolute",inset:0,background:"rgba(0,0,0,0.65)",backdropFilter:"blur(8px)",WebkitBackdropFilter:"blur(8px)"}}/>
-      <div className="modal-enter" style={{position:"relative",background:"#0D1628",borderRadius:"28px 28px 0 0",paddingBottom:24,maxHeight:"85vh",overflow:"hidden",display:"flex",flexDirection:"column",boxShadow:"0 -2px 60px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.14)"}}>
+      <div className="modal-enter" style={{position:"relative",background:"#0D1628",borderRadius:"28px 28px 0 0",height:"92vh",overflow:"hidden",display:"flex",flexDirection:"column",boxShadow:"0 -2px 60px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.14)"}}>
         <div style={{display:"flex",justifyContent:"center",padding:"12px 0 4px"}}><div style={{width:36,height:4,borderRadius:2,background:"rgba(255,255,255,0.18)"}}/></div>
         <div style={{overflow:"auto",padding:"4px 22px 28px"}}>
           {done?(
