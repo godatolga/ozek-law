@@ -281,7 +281,7 @@ function LangSwitcher({lang,setLang}){
         {LANGS[lang].label}<span style={{fontSize:8,opacity:0.7}}>▾</span>
       </button>
       {open&&(
-        <div style={{position:"absolute",top:"calc(100% + 8px)",right:0,background:"rgba(10,18,35,0.95)",backdropFilter:"blur(32px)",WebkitBackdropFilter:"blur(32px)",border:"1px solid rgba(255,255,255,0.10)",borderRadius:18,overflow:"hidden",boxShadow:"0 20px 60px rgba(0,0,0,0.5)",minWidth:140}}>
+        <div style={{position:"fixed",top:64,right:16,background:"rgba(10,18,35,0.97)",backdropFilter:"blur(32px)",WebkitBackdropFilter:"blur(32px)",border:"1px solid rgba(255,255,255,0.10)",borderRadius:18,overflow:"hidden",boxShadow:"0 20px 60px rgba(0,0,0,0.5)",minWidth:160,zIndex:99999}}>
           {Object.values(LANGS).map(l=>(
             <button key={l.code} onClick={()=>{setLang(l.code);setOpen(false);}} style={{display:"flex",alignItems:"center",gap:10,width:"100%",padding:"11px 16px",background:l.code===lang?"rgba(201,168,76,0.14)":"transparent",borderBottom:"1px solid rgba(255,255,255,0.06)",textAlign:"left"}}>
               <span style={{fontSize:11,fontWeight:700,color:C.gold,minWidth:28}}>{l.label}</span>
@@ -295,16 +295,13 @@ function LangSwitcher({lang,setLang}){
 }
 
 function TopBar({lang,setLang,client,setClient,setTab,t}){
-  const[time,setTime]=useState("");
-  useEffect(()=>{const u=()=>setTime(new Date().toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit"}));u();const id=setInterval(u,30000);return()=>clearInterval(id);},[]);
   return(
-    <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"12px 20px 10px",background:"rgba(8,15,30,0.85)",backdropFilter:"blur(40px)",WebkitBackdropFilter:"blur(40px)",borderBottom:"1px solid rgba(255,255,255,0.07)",flexShrink:0,position:"sticky",top:0,zIndex:100}}>
-      <div style={{display:"flex",alignItems:"center",gap:10}}>
-        <img src="https://ozeklaw.com/wp-content/uploads/2024/12/Ozek-Law-Firm-Logo-white-transparent.png" alt="Ozek Law" style={{height:64,objectFit:"contain"}}/>
-        {time&&<div style={{fontSize:11,color:C.lo,fontWeight:300}}>{time}</div>}
+    <div id="top-bar" style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"6px 20px",background:"rgba(8,15,30,0.0)",borderBottom:"none",flexShrink:0,position:"fixed",top:0,left:0,right:0,zIndex:1000,willChange:"transform",transition:"transform 0.22s cubic-bezier(0.4,0,0.2,1)"}}>
+      <div style={{width:60,display:"flex",justifyContent:"flex-start"}}>
+        {client&&<button onClick={()=>{setClient(null);setTab("home");}} style={{fontSize:11,color:"rgba(255,255,255,0.8)",fontWeight:500,background:"rgba(0,0,0,0.3)",border:"1px solid rgba(255,255,255,0.15)",borderRadius:99,padding:"5px 10px"}}>{t.signOut}</button>}
       </div>
-      <div style={{display:"flex",alignItems:"center",gap:10}}>
-        {client&&<button onClick={()=>{setClient(null);setTab("home");}} style={{fontSize:12,color:C.lo,fontWeight:500,background:"rgba(255,255,255,0.06)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:99,padding:"5px 12px"}}>{t.signOut}</button>}
+      <img src="https://ozeklaw.com/wp-content/uploads/2026/03/Ozek-Law-Firm-Logo-white-transparent.png" alt="Ozek Law" style={{height:44,objectFit:"contain",width:"auto",maxWidth:180}}/>
+      <div style={{width:60,display:"flex",justifyContent:"flex-end"}}>
         <LangSwitcher lang={lang} setLang={setLang}/>
       </div>
     </div>
@@ -460,7 +457,7 @@ function NewsPage({t,lang}){
   );
   return(
     <div dir={dir} style={{background:"#F7F5F2",minHeight:"100%"}}>
-      <div style={{background:"linear-gradient(145deg,#0A1628,#0D1E3A)",padding:"78px 22px 0",position:"relative",overflow:"hidden"}}>
+      <div style={{background:"linear-gradient(145deg,#0A1628,#0D1E3A)",padding:"22px 22px 0",position:"relative",overflow:"hidden"}}>
         <div style={{position:"absolute",inset:0,background:"radial-gradient(ellipse 70% 60% at 80% 20%,rgba(201,168,76,0.10),transparent)"}}/>
         <div style={{position:"relative"}}>
           <div style={{fontSize:9,letterSpacing:2.5,textTransform:"uppercase",color:C.gold,fontWeight:600,marginBottom:8}}>UPDATES</div>
@@ -587,32 +584,8 @@ function USCISPage({t,lang}){
     ]},
   ];
   const STATE_NAMES={"AL":"Alabama","AK":"Alaska","AZ":"Arizona","AR":"Arkansas","CA":"California","CO":"Colorado","CT":"Connecticut","DE":"Delaware","FL":"Florida","GA":"Georgia","HI":"Hawaii","ID":"Idaho","IL":"Illinois","IN":"Indiana","IA":"Iowa","KS":"Kansas","KY":"Kentucky","LA":"Louisiana","ME":"Maine","MD":"Maryland","MA":"Massachusetts","MI":"Michigan","MN":"Minnesota","MS":"Mississippi","MO":"Missouri","MT":"Montana","NE":"Nebraska","NV":"Nevada","NH":"New Hampshire","NJ":"New Jersey","NM":"New Mexico","NY":"New York","NC":"North Carolina","ND":"North Dakota","OH":"Ohio","OK":"Oklahoma","OR":"Oregon","PA":"Pennsylvania","RI":"Rhode Island","SC":"South Carolina","SD":"South Dakota","TN":"Tennessee","TX":"Texas","UT":"Utah","VT":"Vermont","VA":"Virginia","WA":"Washington","WV":"West Virginia","WI":"Wisconsin","WY":"Wyoming","DC":"Washington D.C."};
-  const STATE_OFFICES={"CA":{uscis:"Los Angeles Field Office
-1 World Way, Los Angeles CA 90045",court:"LA Immigration Court
-606 S Olive St, Los Angeles CA 90014"},"NY":{uscis:"New York Field Office
-26 Federal Plaza, New York NY 10278",court:"NY Immigration Court
-26 Federal Plaza, New York NY 10278"},"TX":{uscis:"Houston Field Office
-126 Northpoint Dr, Houston TX 77060",court:"Houston Immigration Court
-126 Northpoint Dr, Houston TX 77060"},"FL":{uscis:"Miami Field Office
-8801 NW 7th Ave, Miami FL 33150",court:"Miami Immigration Court
-333 S Miami Ave, Miami FL 33130"},"IL":{uscis:"Chicago Field Office
-101 W Congress Pkwy, Chicago IL 60605",court:"Chicago Immigration Court
-55 E Monroe St, Chicago IL 60603"},"VA":{uscis:"Arlington Field Office
-2306 Mt. Vernon Ave, Alexandria VA 22301",court:"Arlington Immigration Court
-1901 S Bell St, Arlington VA 22202"},"MD":{uscis:"Baltimore Field Office
-31 Hopkins Plaza, Baltimore MD 21201",court:"Baltimore Immigration Court
-31 Hopkins Plaza, Baltimore MD 21201"},"NJ":{uscis:"Newark Field Office
-970 Broad St, Newark NJ 07102",court:"Newark Immigration Court
-970 Broad St, Newark NJ 07102"},"MA":{uscis:"Boston Field Office
-15 New Sudbury St, Boston MA 02203",court:"Boston Immigration Court
-15 New Sudbury St, Boston MA 02203"},"WA":{uscis:"Seattle Field Office
-12500 Tukwila Intl Blvd, Seattle WA 98168",court:"Seattle Immigration Court
-1000 2nd Ave, Seattle WA 98104"},"DC":{uscis:"DC Field Office
-2675 Prosperity Ave, Fairfax VA 22031",court:"Arlington Immigration Court
-1901 S Bell St, Arlington VA 22202"}};
-  const DEF_OFFICE={uscis:"USCIS: 1-800-375-5283 (Mon–Fri 8am–8pm)
-egov.uscis.gov — Find your local office",court:"EOIR: 1-800-898-7180
-www.justice.gov/eoir — Find your local court"};
+  const STATE_OFFICES={"CA":{uscis:"Los Angeles Field Office\n1 World Way, Los Angeles CA 90045",court:"LA Immigration Court\n606 S Olive St, Los Angeles CA 90014"},"NY":{uscis:"New York Field Office\n26 Federal Plaza, New York NY 10278",court:"NY Immigration Court\n26 Federal Plaza, New York NY 10278"},"TX":{uscis:"Houston Field Office\n126 Northpoint Dr, Houston TX 77060",court:"Houston Immigration Court\n126 Northpoint Dr, Houston TX 77060"},"FL":{uscis:"Miami Field Office\n8801 NW 7th Ave, Miami FL 33150",court:"Miami Immigration Court\n333 S Miami Ave, Miami FL 33130"},"IL":{uscis:"Chicago Field Office\n101 W Congress Pkwy, Chicago IL 60605",court:"Chicago Immigration Court\n55 E Monroe St, Chicago IL 60603"},"VA":{uscis:"Arlington Field Office\n2306 Mt. Vernon Ave, Alexandria VA 22301",court:"Arlington Immigration Court\n1901 S Bell St, Arlington VA 22202"},"MD":{uscis:"Baltimore Field Office\n31 Hopkins Plaza, Baltimore MD 21201",court:"Baltimore Immigration Court\n31 Hopkins Plaza, Baltimore MD 21201"},"NJ":{uscis:"Newark Field Office\n970 Broad St, Newark NJ 07102",court:"Newark Immigration Court\n970 Broad St, Newark NJ 07102"},"MA":{uscis:"Boston Field Office\n15 New Sudbury St, Boston MA 02203",court:"Boston Immigration Court\n15 New Sudbury St, Boston MA 02203"},"WA":{uscis:"Seattle Field Office\n12500 Tukwila Intl Blvd, Seattle WA 98168",court:"Seattle Immigration Court\n1000 2nd Ave, Seattle WA 98104"},"DC":{uscis:"DC Field Office\n2675 Prosperity Ave, Fairfax VA 22031",court:"Arlington Immigration Court\n1901 S Bell St, Arlington VA 22202"}};
+  const DEF_OFFICE={uscis:"USCIS: 1-800-375-5283 (Mon–Fri 8am–8pm)\negov.uscis.gov — Find your local office",court:"EOIR: 1-800-898-7180\nwww.justice.gov/eoir — Find your local court"};
   const STATES=Object.keys(STATE_NAMES);
   const FEDERAL=[
     {icon:"📜",title:"USCIS Policy Manual",sub:"Federal immigration policy",url:"https://www.uscis.gov/policy-manual"},
@@ -622,7 +595,7 @@ www.justice.gov/eoir — Find your local court"};
   ];
   return(
     <div dir={dir} style={{background:"#F7F5F2",minHeight:"100%"}}>
-      <div style={{background:"linear-gradient(145deg,#0A1628,#0D1E3A)",padding:"78px 22px 0"}}>
+      <div style={{background:"linear-gradient(145deg,#0A1628,#0D1E3A)",padding:"22px 22px 0"}}>
         <div style={{fontSize:9,letterSpacing:2.5,textTransform:"uppercase",color:C.gold,fontWeight:600,marginBottom:8}}>IMMIGRATION</div>
         <h1 style={{fontFamily:"'Playfair Display',serif",fontSize:26,fontWeight:700,color:C.hi,letterSpacing:-0.5,marginBottom:12}}>Useful Tools</h1>
         <div style={{display:"flex",gap:8,overflowX:"auto",paddingBottom:16,scrollbarWidth:"none"}}>
@@ -989,7 +962,7 @@ function DocsPage({t,lang}){
   const[uploaded,setUploaded]=useState([]);const fileRef=useRef();
   const dir=LANGS[lang].dir;
   const existing=[{name:"Passport_Copy.pdf",size:"1.2MB",date:"Mar 1",status:"Verified"},{name:"Birth_Certificate_EN.pdf",size:"456KB",date:"Feb 28",status:"Verified"},{name:"I-94_Record.pdf",size:"89KB",date:"Feb 20",status:"Pending"}];
-  const stC=s=>({Verified:{bg:C.greenBg,c:C.green},Uploaded:{bg:C.blueBg,c:C.blue},Pending:{bg:C.amberBg,c:"#B',color:"#B8860B"},Scanned:{bg:C.blueBg,c:C.blue}}[s]||{bg:"rgba(0,0,0,0.05)",c:C.inkLo});
+  const stC=s=>({Verified:{bg:C.greenBg,c:C.green},Uploaded:{bg:C.blueBg,c:C.blue},Pending:{bg:C.amberBg,c:"#B8860B"},Scanned:{bg:C.blueBg,c:C.blue}}[s]||{bg:"rgba(0,0,0,0.05)",c:C.inkLo});
   return(
     <div dir={dir} style={{background:"#F7F5F2",minHeight:"100%"}}>
       <div style={{background:"linear-gradient(145deg,#0A1628,#0D1E3A)",padding:"78px 22px 28px"}}>
@@ -1197,7 +1170,7 @@ export default function App(){
             <Badge bg={C.greenBg} color={C.green} small>● {t.live}</Badge>
           </div>
         )}
-        <div id="main-scroll" style={{flex:1,overflowY:"auto",overscrollBehavior:"contain",WebkitOverflowScrolling:"touch",transform:"translateZ(0)"}}
+        <div id="main-scroll" style={{flex:1,overflowY:"auto",overscrollBehavior:"contain",WebkitOverflowScrolling:"touch",transform:"translateZ(0)",paddingTop:56}}
           onScroll={e=>{const y=e.currentTarget.scrollTop;const bar=document.getElementById("top-bar");if(!bar){lastScrollY.current=y;return;}if(y<=2){if(scrollHidden.current){bar.style.transform="translateY(0)";scrollHidden.current=false;}}else if(y>lastScrollY.current&&!scrollHidden.current){bar.style.transform="translateY(-100%)";scrollHidden.current=true;}lastScrollY.current=y;}}>
           <div className="page-enter" key={tab+lang}>
             {!client&&tab==="home"   &&<PublicHome setTab={setTab} t={t} lang={lang}/>}
