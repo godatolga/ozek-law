@@ -35,6 +35,11 @@ a{-webkit-user-select:none;user-select:none}
 .field::placeholder{color:rgba(255,255,255,0.32)}.field:focus{border-color:rgba(201,168,76,0.45)}
 [dir="rtl"]{font-family:'Noto Sans Arabic','Inter',sans-serif}
 .lang-zh{font-family:'Noto Sans SC','Inter',sans-serif}
+@keyframes fogIn{0%{opacity:0;filter:blur(40px);transform:scale(1.15)}60%{opacity:1;filter:blur(6px);transform:scale(1.02)}100%{opacity:1;filter:blur(0px);transform:scale(1)}}
+@keyframes fogOut{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(0.98)}}
+@keyframes ringExpand{0%{transform:scale(0.4);opacity:0.9}100%{transform:scale(2.8);opacity:0}}
+@keyframes particleDrift{0%{transform:translateY(0) translateX(0);opacity:0}20%{opacity:0.7}80%{opacity:0.2}100%{transform:translateY(-100px) translateX(var(--dx,0px));opacity:0}}
+@keyframes glowPulse{0%,100%{opacity:0.15}50%{opacity:0.4}}
 `;
 
 const LANGS={en:{code:"en",label:"EN",name:"English",dir:"ltr"},tr:{code:"tr",label:"TR",name:"Türkçe",dir:"ltr"},ar:{code:"ar",label:"عر",name:"العربية",dir:"rtl"},es:{code:"es",label:"ES",name:"Español",dir:"ltr"},ru:{code:"ru",label:"РУ",name:"Русский",dir:"ltr"},zh:{code:"zh",label:"中文",name:"中文",dir:"ltr"}};
@@ -1223,7 +1228,30 @@ function BillingPage({t,lang}){
   );
 }
 
+
+function SplashScreen({onDone}){
+  useEffect(()=>{const t=setTimeout(onDone,2800);return()=>clearTimeout(t);},[]);
+  const particles=[{l:"38%",t:"45%",dx:"-30px"},{l:"55%",t:"42%",dx:"25px"},{l:"42%",t:"55%",dx:"-15px"},{l:"52%",t:"58%",dx:"20px"},{l:"35%",t:"50%",dx:"-40px"},{l:"62%",t:"48%",dx:"35px"},{l:"46%",t:"38%",dx:"-10px"},{l:"58%",t:"52%",dx:"18px"},{l:"40%",t:"60%",dx:"-22px"},{l:"56%",t:"44%",dx:"28px"},{l:"44%",t:"47%",dx:"-35px"},{l:"60%",t:"55%",dx:"12px"}];
+  return(
+    <div style={{position:"fixed",inset:0,zIndex:99999,background:"#080F1E",display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",animation:"fogOut 0.5s ease 2.3s both"}}>
+      {[0,1,2].map(i=>(
+        <div key={i} style={{position:"absolute",width:220,height:220,borderRadius:"50%",border:"1px solid rgba(201,168,76,0.3)",animation:`ringExpand ${1.4+i*0.5}s ease-out ${i*0.35}s infinite`}}/>
+      ))}
+      <div style={{position:"absolute",width:160,height:160,borderRadius:"50%",background:"radial-gradient(circle,rgba(201,168,76,0.18) 0%,transparent 70%)",animation:"glowPulse 2s ease-in-out infinite"}}/>
+      {particles.map((p,i)=>(
+        <div key={i} style={{position:"absolute",width:3,height:3,borderRadius:"50%",background:`rgba(201,168,76,${0.4+i*0.04})`,left:p.l,top:p.t,"--dx":p.dx,animation:`particleDrift ${1.8+i*0.15}s ease-out ${i*0.08}s both`}}/>
+      ))}
+      <img src="https://ozeklaw.com/wp-content/uploads/2026/03/Ozek-Law-Firm-Logo-white-transparent.png" alt="Ozek Law"
+        style={{height:110,objectFit:"contain",position:"relative",zIndex:1,animation:"fogIn 1.8s cubic-bezier(0.22,1,0.36,1) 0.2s both",filter:"drop-shadow(0 0 24px rgba(201,168,76,0.45))"}}/>
+      <div style={{marginTop:14,fontSize:10,letterSpacing:3.5,textTransform:"uppercase",color:"rgba(201,168,76,0.65)",fontWeight:500,position:"relative",zIndex:1,animation:"fogIn 1.8s cubic-bezier(0.22,1,0.36,1) 0.7s both"}}>
+        Immigration · Business · Litigation
+      </div>
+    </div>
+  );
+}
+
 export default function App(){
+  const[splash,setSplash]=useState(true);
   const[tab,setTab]=useState("home");
   const[client,setClient]=useState(null);
   const[lang,setLang]=useState("en");
@@ -1245,6 +1273,7 @@ export default function App(){
   return(
     <>
       <style>{FONTS}{css}</style>
+      {splash&&<SplashScreen onDone={()=>setSplash(false)}/>}
       <div dir={dir} className={lang==="zh"?"lang-zh":""} style={{display:"flex",flexDirection:"column",height:"100vh",background:C.bg0,overflow:"hidden"}}>
         <TopBar lang={lang} setLang={setLang} client={client} setClient={setClient} setTab={setTab} t={t}/>
         {client&&isClient&&(
