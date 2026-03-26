@@ -1,9 +1,7 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
-
 const FONTS = `
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Noto+Sans+Arabic:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;700&display=swap');
 `;
-
 const C = {
   bg0:"#080F1E", bg1:"#0D1628", bg2:"#111D33", bg3:"rgba(255,255,255,0.96)", bgCard:"rgba(255,255,255,0.07)",
   gold:"#C9A84C", goldHi:"#E8C96A", goldDim:"#9A7A2E", goldGlow:"rgba(201,168,76,0.22)", goldPale:"rgba(201,168,76,0.10)", goldBorder:"rgba(201,168,76,0.28)",
@@ -12,7 +10,6 @@ const C = {
   amber:"#FFD60A", amberBg:"rgba(255,214,10,0.10)", purple:"#BF5AF2", purpleBg:"rgba(191,90,242,0.10)",
   lineHi:"rgba(255,255,255,0.14)", lineLo:"rgba(255,255,255,0.06)", inkLine:"rgba(0,0,0,0.07)",
 };
-
 const css = `
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html,body{height:100%;width:100%;overflow:hidden}
@@ -36,17 +33,8 @@ a{-webkit-user-select:none;user-select:none}
 .field::placeholder{color:rgba(255,255,255,0.32)}.field:focus{border-color:rgba(201,168,76,0.45)}
 [dir="rtl"]{font-family:'Noto Sans Arabic','Inter',sans-serif}
 .lang-zh{font-family:'Noto Sans SC','Inter',sans-serif}
-
-@keyframes fogIn{0%{opacity:0;filter:blur(40px);transform:scale(1.15)}60%{opacity:1;filter:blur(6px);transform:scale(1.02)}100%{opacity:1;filter:blur(0px);transform:scale(1)}}
-@keyframes fogOut{0%{opacity:1}100%{opacity:0;transform:scale(0.98)}}
-@keyframes particleDrift{0%{transform:translateY(0) translateX(0);opacity:0}20%{opacity:0.6}80%{opacity:0.3}100%{transform:translateY(-120px) translateX(var(--dx));opacity:0}}
-@keyframes glowPulse{0%,100%{box-shadow:0 0 60px 20px rgba(201,168,76,0.15)}50%{box-shadow:0 0 120px 50px rgba(201,168,76,0.35)}}
-@keyframes ringExpand{0%{transform:scale(0.5);opacity:0.8}100%{transform:scale(2.5);opacity:0}}
-
 `;
-
 const LANGS={en:{code:"en",label:"EN",name:"English",dir:"ltr"},tr:{code:"tr",label:"TR",name:"Türkçe",dir:"ltr"},ar:{code:"ar",label:"عر",name:"العربية",dir:"rtl"},es:{code:"es",label:"ES",name:"Español",dir:"ltr"},ru:{code:"ru",label:"РУ",name:"Русский",dir:"ltr"},zh:{code:"zh",label:"中文",name:"中文",dir:"ltr"}};
-
 const EN={
   tagline:"Immigration · Business · Litigation",heroTitle:"Your Path to",heroEm:"Legal Clarity",
   heroSub:"Immigration, business law, litigation, and corporate counsel — a full-service firm guiding individuals and companies through every legal challenge.",
@@ -84,11 +72,10 @@ const I18N={
   en:EN,
   ar:Object.assign({},EN,{tagline:"هجرة · أعمال · تقاضٍ",heroTitle:"طريقك إلى",heroEm:"الوضوح القانوني",heroSub:"هجرة، قانون أعمال، تقاضٍ — مكتب متكامل.",clientLogin:"بوابة العملاء",scheduleNow:"احجز الآن",home:"الرئيسية",news:"الأخبار",rules:"اللوائح",portal:"البوابة",dash:"الرئيسية",tasks:"المهام",docs:"المستندات",forms:"النماذج",ask:"اسأل",bills:"الفواتير",signOut:"خروج",goodMorning:"صباح الخير،",signIn:"تسجيل الدخول",back:"رجوع",askAttorney:"اسأل المحامي",billing:"الفواتير",practiceList:[{icon:"🛂",title:"الهجرة",sub:"تأشيرات"},{icon:"⚖️",title:"التقاضي",sub:"المحاكم"},{icon:"🏢",title:"قانون الأعمال",sub:"التأسيس"},{icon:"📑",title:"الشركات",sub:"العقود"},{icon:"🛡️",title:"الدفاع",sub:"الاستئنافات"},{icon:"🤝",title:"اللجوء",sub:"إنساني"}],statLabels:{Done:"مكتمل",Pending:"معلّق",Progress:"قيد التنفيذ",Scheduled:"مجدول"}}),
   tr:Object.assign({},EN,{tagline:"Göçmenlik · İş · Dava",heroTitle:"Hukuki Netliğe",heroEm:"Giden Yolunuz",heroSub:"Göçmenlik, iş hukuku, dava ve kurumsal danışmanlık — bireylere ve şirketlere her hukuki süreçte rehberlik eden tam hizmet hukuk bürosu.",home:"Ana",news:"Haberler",rules:"Kurallar",portal:"Portal",dash:"Ana",tasks:"Görevler",docs:"Belgeler",forms:"Formlar",ask:"Sor",bills:"Faturalar",signOut:"Çıkış",team:"Ekibimiz",bookSlot:"📅 Takvimi İncele",statApproval:"Onay",statYears:"Yıl",statAreas:"Alan",statCountries:"Ülke",goodMorning:"Günaydın,",signIn:"Giriş Yap",back:"Geri",billing:"Faturalar",scheduleNow:"WhatsApp Üzerinden Randevu Alın",consultation:"Danışma",practiceAreas:"Uygulama Alanları",latestUpdates:"Son Haberler",seeAll:"Tümünü gör →",newsTitle:"Haberler ve Güncellemeler",newsSub:"Göçmenlik, iş hukuku ve dava haberleri",newsletter:"Haftalık Bülten",newsletterSub:"Politika güncellemeleri ve içtihat uyarıları",joinBtn:"Katıl",subscribed:"✓ Abone oldunuz!",articles:"Makaleler",visaBulletin:"Vize Bülteni",visaBulletinSub:"Aylık DOS vize müsaitlik güncellemeleri",uscisTitle:"USCIS Dava Durumu",uscisSub:"Göçmenlik davanızı gerçek zamanlı takip edin",receiptNumber:"Makbuz Numarası",receiptPlaceholder:"ör. WAC2315151234",checkStatus:"Durumu Kontrol Et",checking:"Kontrol ediliyor…",orVisit:"Ya da ziyaret edin",statusFound:"Durum Bulundu",receiptGuide:"Makbuz Ön Eki Rehberi",processingTimesTitle:"İşlem Süreleri",selectForm:"Form Seçin",viewTimes:"Resmi Süreleri Gör ↗",regsTitle:"İş ve Mevzuat",regsSub:"Girişimciler ve işletmeler için kaynaklar",clientAlerts:"Müvekkil Uyarıları",practiceAreasTitle:"Uygulama Alanı Makaleleri",portalTitle:"Müvekkil Portalı",portalSub:"Docketwise üzerinden güvenli erişim",clientIdLabel:"Müvekkil Kimliği",clientIdPlaceholder:"ör. OZ001",passwordLabel:"Şifre",passwordPlaceholder:"••••••••",signIn:"Giriş Yap → Docketwise",signingIn:"Portal açılıyor…",incorrectCreds:"Hatalı kimlik veya şifre",nextAction:"Sonraki Adım",openTasks:"Açık Görevler",amountDue:"Borç Tutarı",matters:"Davalar",newDocs:"Yeni Belgeler",quickActions:"Hızlı İşlemler",upload:"Yükle",askAtty:"Avukata Sor",formsLabel:"Formlar",docketwise:"Docketwise",yourMatters:"Davalarınız",syncedWith:"Docketwise ile Senkronize",syncedSub:"Görevler ve son tarihler canlı güncellenir.",open:"Aç ↗",activeMatter:"Aktif",myTasks:"Görevlerim",syncedFrom:"Docketwise'den Senkronize",live:"Canlı",documents:"Belgeler",docsSub:"Dava dosyalarınızı yükleyin ve yönetin",uploadFile:"Yükle",pdfTypes:"PDF · JPG · PNG",scanDoc:"Tara",useCamera:"Kamera kullan",scanning:"Taranıyor…",allFiles:"Tüm Dosyalar",legalForms:"Hukuki Formlar",formsSub:"Göçmenlik, iş ve dava formları",submitToAtty:"Avukata Gönder",submitted:"Gönderildi!",submittedSub:"Formunuz inceleme için avukatınıza iletildi.",submitAnother:"Başka Form Gönder",askAttorney:"Avukat Tolga Ozek'e Sor",askSub:"Mesajlar doğrudan WhatsApp üzerinden gönderilir",askPlaceholder:"Hukuki sorunuzu yazın…",sendBtn:"Gönder",whatsappSent:"Avukat Tolga Ozek için WhatsApp açılıyor…",billingSub:"Hesap özeti ve faturalar",paymentRequired:"Ödeme Gerekli",payNow:"Şimdi Öde",invoices:"Faturalar",practiceList:[{icon:"🛂",title:"Göçmenlik",sub:"Vize"},{icon:"⚖️",title:"Dava",sub:"Mahkemeler"},{icon:"🏢",title:"Şirketler Hukuku",sub:"Kuruluş ve Uyum"},{icon:"📑",title:"Kurumsal",sub:"Sözleşmeler"},{icon:"🛡️",title:"Sınır Dışı Etme Savunması",sub:"İtirazlar"},{icon:"🤝",title:"İltica",sub:"İnsani Yardım"}],statLabels:{Done:"Tamamlandı",Pending:"Bekliyor",Progress:"Devam Ediyor",Scheduled:"Planlandı"}}),
-  es:Object.assign({},EN,{tagline:"Inmigración · Negocios · Litigios",heroTitle:"Su Camino hacia la",heroEm:"Claridad Legal",home:"Inicio",news:"Noticias",rules:"Normas",dash:"Inicio",tasks:"Tareas",docs:"Docs",forms:"Formularios",ask:"Preguntar",bills:"Facturas",signOut:"Salir",goodMorning:"Buenos días,",signIn:"Iniciar Sesión",back:"Volver",billing:"Facturación",practiceList:[{icon:"🛂",title:"Inmigración",sub:"Visas"},{icon:"⚖️",title:"Litigios",sub:"Tribunales"},{icon:"🏢",title:"Empresarial",sub:"Constitución"},{icon:"📑",title:"Corporativo",sub:"Contratos"},{icon:"🛡️",title:"Deportación",sub:"Apelaciones"},{icon:"🤝",title:"Asilo",sub:"Humanitario"}],statLabels:{Done:"Completado",Pending:"Pendiente",Progress:"En Progreso",Scheduled:"Programado"}}),
-  ru:Object.assign({},EN,{tagline:"Иммиграция · Бизнес · Суд",heroTitle:"Ваш путь к",heroEm:"правовой ясности",home:"Главная",news:"Новости",rules:"Нормы",dash:"Главная",tasks:"Задачи",docs:"Документы",forms:"Формы",ask:"Вопрос",bills:"Счета",signOut:"Выйти",goodMorning:"Доброе утро,",signIn:"Войти",back:"Назад",billing:"Счета",practiceList:[{icon:"🛂",title:"Иммиграция",sub:"Визы"},{icon:"⚖️",title:"Суд",sub:"Споры"},{icon:"🏢",title:"Корпоративное",sub:"Регистрация"},{icon:"📑",title:"Контракты",sub:"Сделки"},{icon:"🛡️",title:"Депортация",sub:"Защита"},{icon:"🤝",title:"Убежище",sub:"Гуманитарное"}],statLabels:{Done:"Завершено",Pending:"Ожидает",Progress:"В процессе",Scheduled:"Запланировано"}}),
-  zh:Object.assign({},EN,{tagline:"移民 · 商业 · 诉讼",heroTitle:"通往",heroEm:"法律清晰之路",home:"首页",news:"新闻",rules:"法规",dash:"首页",tasks:"任务",docs:"文件",forms:"表格",ask:"提问",bills:"账单",signOut:"退出",goodMorning:"早上好，",signIn:"登录",back:"返回",billing:"账单",practiceList:[{icon:"🛂",title:"移民",sub:"签证"},{icon:"⚖️",title:"诉讼",sub:"法院"},{icon:"🏢",title:"商业法",sub:"成立"},{icon:"📑",title:"企业",sub:"合同"},{icon:"🛡️",title:"驱逐辩护",sub:"上诉"},{icon:"🤝",title:"庇护",sub:"人道"}],statLabels:{Done:"已完成",Pending:"待处理",Progress:"进行中",Scheduled:"已安排"}}),
-};
-
+  es:Object.assign({},EN,{tagline:"Inmigración · Negocios · Litigios",heroTitle:"Su Camino hacia la",heroEm:"Claridad Legal",heroSub:"Inmigración, derecho empresarial y litigios.",home:"Inicio",news:"Noticias",portal:"Portal",dash:"Inicio",tasks:"Tareas",docs:"Docs",forms:"Formularios",ask:"Preguntar",bills:"Facturas",signOut:"Salir",scheduleNow:"Agendar",consultation:"Consulta",practiceAreas:"Áreas de Práctica",goodMorning:"Buenos días,",signIn:"Iniciar Sesión",back:"Volver",billing:"Facturación",practiceList:[{icon:"🛂",title:"Inmigración",sub:"Visas"},{icon:"⚖️",title:"Litigios",sub:"Tribunales"},{icon:"🏢",title:"Empresarial",sub:"Constitución"},{icon:"📑",title:"Corporativo",sub:"Contratos"},{icon:"🛡️",title:"Deportación",sub:"Apelaciones"},{icon:"🤝",title:"Asilo",sub:"Humanitario"}],statLabels:{Done:"Completado",Pending:"Pendiente",Progress:"En Progreso",Scheduled:"Programado"}}),
+  ru:Object.assign({},EN,{tagline:"Иммиграция · Бизнес · Суд",heroTitle:"Ваш путь к",heroEm:"правовой ясности",heroSub:"Иммиграция, бизнес-право и судебные споры.",home:"Главная",news:"Новости",portal:"Портал",dash:"Главная",tasks:"Задачи",docs:"Документы",forms:"Формы",ask:"Вопрос",bills:"Счета",signOut:"Выйти",scheduleNow:"Записаться",consultation:"Консультация",practiceAreas:"Практика",goodMorning:"Доброе утро,",signIn:"Войти",back:"Назад",billing:"Счета",practiceList:[{icon:"🛂",title:"Иммиграция",sub:"Визы"},{icon:"⚖️",title:"Суд",sub:"Споры"},{icon:"🏢",title:"Корпоративное",sub:"Регистрация"},{icon:"📑",title:"Контракты",sub:"Сделки"},{icon:"🛡️",title:"Депортация",sub:"Защита"},{icon:"🤝",title:"Убежище",sub:"Гуманитарное"}],statLabels:{Done:"Завершено",Pending:"Ожидает",Progress:"В процессе",Scheduled:"Запланировано"}}),
+  zh:Object.assign({},EN,{tagline:"移民 · 商业 · 诉讼",heroTitle:"通往",heroEm:"法律清晰之路",heroSub:"移民、商业法、诉讼及企业法律顾问。",home:"首页",news:"新闻",portal:"门户",dash:"首页",tasks:"任务",docs:"文件",forms:"表格",ask:"提问",bills:"账单",signOut:"退出",scheduleNow:"预约",consultation:"咨询",practiceAreas:"业务领域",goodMorning:"早上好，",signIn:"登录",back:"返回",billing:"账单",practiceList:[{icon:"🛂",title:"移民",sub:"签证"},{icon:"⚖️",title:"诉讼",sub:"法院"},{icon:"🏢",title:"商业法",sub:"成立"},{icon:"📑",title:"企业",sub:"合同"},{icon:"🛡️",title:"驱逐辩护",sub:"上诉"},{icon:"🤝",title:"庇护",sub:"人道"}],statLabels:{Done:"已完成",Pending:"待处理",Progress:"进行中",Scheduled:"已安排"}}),
+}};
 const USCIS_FORMS=["I-90","I-130","I-131","I-140","I-485","I-526","I-539","I-589","I-601A","I-751","I-765","I-821","I-821D","N-400","N-565","N-600"];
 const CLIENTS=[
   {id:"OZ001",name:"Maria Garcia",pass:"garcia2024",caseNum:"WAC2315151234",matters:["Family-Based I-130","I-485 Adjustment"],atty:"Tolga Ozek",avatar:"MG",next:"Apr 10 – Submit I-485 Docs"},
@@ -109,7 +96,7 @@ const BILLS=[
   {id:"INV-091",date:"Apr 1",desc:"Legal Services – Mar 2026",amt:2800,status:"Soon"},
 ];
 const ARTICLES_META=[{emoji:"📋",cat:"Immigration",read:"3 min"},{emoji:"🏢",cat:"Work Visas",read:"5 min"},{emoji:"⚖️",cat:"Litigation",read:"5 min"},{emoji:"📊",cat:"Business Law",read:"4 min"},{emoji:"🛡️",cat:"Policy",read:"4 min"},{emoji:"📑",cat:"Corporate",read:"6 min"}];
-const ARTICLE_TITLES={en:["New USCIS Fee Schedule 2026","H-1B Cap Season: Full Breakdown","Commercial Litigation: What to Expect","LLC vs S-Corp: Which Is Right?","DACA: Recent Court Decisions","Contract Disputes & Breach"],ar:["جدول رسوم USCIS","موسم H-1B","التقاضي التجاري","LLC مقابل S-Corp","DACA","نزاعات العقود"],tr:["USCIS Tarifesi","H-1B Sezonu","Ticari Dava","LLC mi S-Corp mi?","DACA","Sözleşme"],es:["Arancel USCIS 2026","Temporada H-1B","Litigio Comercial","LLC vs S-Corp","DACA","Disputas"],ru:["Тариф USCIS 2026","Сезон H-1B","Коммерческий спор","LLC или S-Corp","DACA","Нарушение договора"],zh:["USCIS新费用","H-1B配额季","商业诉讼","LLC还是S-Corp","DACA裁决","合同纠纷"]};
+const ARTICLE_TITLES={en:["New USCIS Fee Schedule 2026","H-1B Cap Season","Commercial Litigation","LLC vs S-Corp","DACA Update","Contract Disputes"],tr:["USCIS Tarifesi","H-1B Sezonu","Ticari Dava","LLC mi S-Corp?","DACA","Sözleşme"],ar:["رسوم USCIS","موسم H-1B","التقاضي","LLC مقابل S-Corp","DACA","العقود"]};
 const CLIENT_ALERTS=[
   {emoji:"⚠️",tag:"ALERT",color:C.red,tagBg:C.redBg,date:"Mar 2026",title:"Corporate Transparency Act – BOI Deadline",body:"FinCEN BOI reporting now required for most LLCs and corporations. Non-compliance may result in significant civil and criminal penalties."},
   {emoji:"🏛️",tag:"UPDATE",color:C.blue,tagBg:C.blueBg,date:"Mar 2026",title:"USCIS Fee Increases – April 1, 2026",body:"New fees for I-485, I-130, I-140. Review your case timeline to avoid delays."},
@@ -133,19 +120,15 @@ const TIMELINE=[
   {step:"Interview",date:"May 15",icon:"🏛️",done:false},
   {step:"Decision",date:"Jun 2026",icon:"⚖️",done:false},
 ];
-
 const priColor=p=>({High:{bg:C.redBg,c:C.red},Med:{bg:C.amberBg,c:"#B8860B"},Low:{bg:C.greenBg,c:C.green}}[p]||{bg:"rgba(255,255,255,0.08)",c:C.md});
 const statColor=s=>({Done:{bg:C.greenBg,c:C.green},Pending:{bg:C.amberBg,c:"#B8860B"},Progress:{bg:C.blueBg,c:C.blue},Scheduled:{bg:C.purpleBg,c:C.purple}}[s]||{bg:"rgba(255,255,255,0.08)",c:C.md});
-
 function Badge({children,color,bg,small}){return <span style={{display:"inline-flex",alignItems:"center",background:bg||"rgba(255,255,255,0.10)",color:color||C.md,fontSize:small?9:10,fontWeight:600,padding:small?"2px 7px":"3px 10px",borderRadius:99,letterSpacing:0.3,whiteSpace:"nowrap"}}>{children}</span>;}
 function Divider({light}){return <div style={{height:"1px",background:light?"rgba(0,0,0,0.07)":"rgba(255,255,255,0.07)"}}/>;}
 function Avatar({initials,size=40,gold=false}){return <div style={{width:size,height:size,borderRadius:size/2,flexShrink:0,background:gold?C.gold:"rgba(201,168,76,0.16)",border:gold?"none":"1px solid rgba(201,168,76,0.22)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:size*0.33,fontWeight:700,color:gold?"#0F1923":C.gold}}>{initials}</div>;}
-
 function GoldBtn({children,onPress,full,sm,outline,style={}}){
   const[p,setP]=useState(false);
   return <button onMouseDown={()=>setP(true)} onMouseUp={()=>setP(false)} onMouseLeave={()=>setP(false)} onTouchStart={()=>setP(true)} onTouchEnd={()=>setP(false)} onClick={onPress} style={{background:outline?"rgba(201,168,76,0.12)":C.gold,border:outline?"1.5px solid rgba(201,168,76,0.40)":"none",color:outline?C.gold:"#0F1923",borderRadius:sm?12:16,padding:sm?"9px 18px":"15px 24px",fontSize:sm?13:15,fontWeight:700,width:full?"100%":"auto",transform:p?"scale(0.97)":"scale(1)",transition:"all 0.14s cubic-bezier(0.34,1.2,0.64,1)",display:"inline-flex",alignItems:"center",justifyContent:"center",boxShadow:outline?"none":`0 4px 18px ${C.goldGlow}`,letterSpacing:0.2,...style}}>{children}</button>;
 }
-
 function BookingModal({onClose}){
   const[selDay,setSelDay]=useState(null);
   const[selTime,setSelTime]=useState(null);
@@ -208,57 +191,6 @@ function BookingModal({onClose}){
     </div>
   );
 }
-
-function CaseTimeline({client}){
-  const[expanded,setExpanded]=useState(false);
-  const done=TIMELINE.filter(s=>s.done).length;
-  const pct=Math.round((done/TIMELINE.length)*100);
-  const r=44,circum=2*Math.PI*r,dash=circum-(pct/100)*circum;
-  return(
-    <div style={{background:"#FFFFFF",borderRadius:20,padding:"18px",border:"1px solid rgba(0,0,0,0.05)",boxShadow:"0 1px 12px rgba(0,0,0,0.06)",marginBottom:14}}>
-      <div style={{display:"flex",gap:14,alignItems:"center",cursor:"pointer"}} onClick={()=>setExpanded(e=>!e)}>
-        <div style={{position:"relative",flexShrink:0,width:90,height:90}}>
-          <svg width={90} height={90} style={{transform:"rotate(-90deg)"}}>
-            <circle cx={45} cy={45} r={r} fill="none" stroke="rgba(0,0,0,0.07)" strokeWidth={6}/>
-            <circle cx={45} cy={45} r={r} fill="none" stroke="#C9A84C" strokeWidth={6} strokeDasharray={circum} strokeDashoffset={dash} strokeLinecap="round" style={{transition:"stroke-dashoffset 1s cubic-bezier(0.22,1,0.36,1)"}}/>
-          </svg>
-          <div style={{position:"absolute",inset:0,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center"}}>
-            <div style={{fontSize:18,fontWeight:800,color:"#C9A84C",fontFamily:"'Playfair Display',serif",lineHeight:1}}>{pct}%</div>
-            <div style={{fontSize:8,color:"#8492A6",marginTop:2,letterSpacing:0.5}}>DONE</div>
-          </div>
-        </div>
-        <div style={{flex:1}}>
-          <div style={{fontSize:9,letterSpacing:2,textTransform:"uppercase",color:"#C9A84C",fontWeight:600,marginBottom:4}}>CASE PROGRESS</div>
-          <div style={{fontSize:13,fontWeight:700,color:"#0F1923",marginBottom:3,lineHeight:1.3}}>{client.matters[0]}</div>
-          <div style={{fontSize:11,color:"#8492A6",marginBottom:6}}>{done} of {TIMELINE.length} milestones complete</div>
-          {TIMELINE.find(s=>s.active)&&<div style={{background:"rgba(201,168,76,0.10)",border:"1px solid rgba(201,168,76,0.22)",borderRadius:10,padding:"5px 10px",fontSize:10,color:"#9A7A2E",fontWeight:600,display:"inline-block"}}>Next: {TIMELINE.find(s=>s.active).step}</div>}
-        </div>
-        <div style={{color:"#C9A84C",fontSize:12,transform:expanded?"rotate(180deg)":"rotate(0deg)",transition:"transform 0.2s",flexShrink:0}}>▾</div>
-      </div>
-      {expanded&&(
-        <div className="pop-in">
-          <div style={{height:1,background:"rgba(0,0,0,0.06)",margin:"14px 0"}}/>
-          <div style={{position:"relative",paddingLeft:4}}>
-            <div style={{position:"absolute",left:14,top:0,bottom:0,width:2,background:"rgba(0,0,0,0.06)",borderRadius:1}}/>
-            {TIMELINE.map((s,i)=>(
-              <div key={i} style={{display:"flex",gap:14,alignItems:"flex-start",marginBottom:i<TIMELINE.length-1?14:0,position:"relative"}}>
-                <div style={{width:28,height:28,borderRadius:"50%",flexShrink:0,background:s.done?"#C9A84C":s.active?"rgba(201,168,76,0.15)":"rgba(0,0,0,0.05)",border:s.active?"2px solid #C9A84C":"2px solid transparent",display:"flex",alignItems:"center",justifyContent:"center",fontSize:12,zIndex:1,boxShadow:s.done?"0 2px 8px rgba(201,168,76,0.25)":s.active?"0 0 0 4px rgba(201,168,76,0.12)":"none"}}>
-                  {s.done?"✓":s.icon}
-                </div>
-                <div style={{paddingTop:3}}>
-                  <div style={{fontSize:12,fontWeight:s.active||s.done?700:500,color:s.done?"#0F1923":s.active?"#9A7A2E":"#8492A6",marginBottom:1}}>{s.step}</div>
-                  <div style={{fontSize:10,color:"#8492A6"}}>{s.date}</div>
-                  {s.active&&<span style={{background:"rgba(201,168,76,0.12)",color:"#9A7A2E",fontSize:9,fontWeight:700,padding:"2px 8px",borderRadius:99,letterSpacing:0.5,marginTop:4,display:"inline-block"}}>IN PROGRESS</span>}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
-
 function BillingDonut({paid,due,soon}){
   const total=(paid+due+soon)||1,r=52,cx=72,cy=72,circum=2*Math.PI*r;
   const paidD=paid/total*circum,dueD=due/total*circum,soonD=soon/total*circum,gap=3;
@@ -281,7 +213,6 @@ function BillingDonut({paid,due,soon}){
     </div>
   );
 }
-
 function LangSwitcher({lang,setLang}){
   const[open,setOpen]=useState(false);
   return(
@@ -302,11 +233,9 @@ function LangSwitcher({lang,setLang}){
     </div>
   );
 }
-
 function TopBar({lang,setLang,client,setClient,setTab,t}){
   return(
     <>
-      {/* Fixed bar that slides up */}
       <div id="top-bar" style={{
         position:"fixed",top:0,left:0,right:0,
         display:"flex",alignItems:"center",justifyContent:"space-between",
@@ -326,12 +255,9 @@ function TopBar({lang,setLang,client,setClient,setTab,t}){
           <LangSwitcher lang={lang} setLang={setLang}/>
         </div>
       </div>
-
     </>
   );
 }
-
-
 function BottomNav({tab,setTab,isClient,t}){
   const pub=[{id:"home",icon:"⚖️",label:t.home},{id:"news",icon:"📰",label:t.news},{id:"team",icon:"👥",label:t.team||"Team"},{id:"uscis",icon:"🛠️",label:"Tools"},{id:"portal",icon:"🔐",label:t.portal}];
   const cli=[{id:"dash",icon:"🏠",label:t.dash},{id:"tasks",icon:"✅",label:t.tasks},{id:"docs",icon:"📁",label:t.docs},{id:"forms",icon:"📋",label:t.formsLabel},{id:"chat",icon:"💬",label:t.ask},{id:"billing",icon:"💳",label:t.bills}];
@@ -352,7 +278,6 @@ function BottomNav({tab,setTab,isClient,t}){
     </nav>
   );
 }
-
 function PublicHome({setTab,t,lang}){
   const[showBooking,setShowBooking]=useState(false);
   const dir=LANGS[lang].dir;
@@ -392,7 +317,6 @@ function PublicHome({setTab,t,lang}){
           ))}
         </div>
       </div>
-
       <div style={{padding:"28px 22px 28px",background:"#FFFFFF"}}>
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-end",marginBottom:16}}>
           <div>
@@ -413,7 +337,6 @@ function PublicHome({setTab,t,lang}){
           ))}
         </div>
       </div>
-
       <div style={{padding:"0 22px",background:"#FFFFFF"}}>
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-end",marginBottom:16}}>
           <div>
@@ -436,7 +359,6 @@ function PublicHome({setTab,t,lang}){
           </div>
         ))}
       </div>
-
       <div style={{margin:"0",padding:"28px 22px 28px",background:"#FFFFFF"}}>
         <div style={{background:"rgba(201,168,76,0.13)",backdropFilter:"blur(28px)",WebkitBackdropFilter:"blur(28px)",border:"1px solid rgba(201,168,76,0.32)",boxShadow:"inset 0 1px 0 rgba(255,220,100,0.20),0 8px 40px rgba(0,0,0,0.25)",borderRadius:24,padding:"24px 22px",position:"relative",overflow:"hidden"}}>
           <div style={{position:"absolute",top:-24,right:-24,width:100,height:100,borderRadius:"50%",background:"rgba(201,168,76,0.10)"}}/>
@@ -453,20 +375,56 @@ function PublicHome({setTab,t,lang}){
     </>
   );
 }
-
-
 const TEAM=[
   {name:"Tolga Ozek",role:"Managing Attorney",wa:"+12023047872",photo:"https://ozeklaw.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-15-2026-at-01_53_25-PM-e1773597506924.png"},
   {name:"Gizem Ersahin",role:"Attorney",wa:"+12027534306",photo:"https://ozeklaw.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-15-2026-at-01_54_00-PM-e1773597532429.png"},
   {name:"Ecem Mistikoglu",role:"Legal Associate",wa:"+12402344444",photo:"https://ozeklaw.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-15-2026-at-01_22_04-PM.png"},
   {name:"Ofeliya Ahmadzada",role:"Legal Associate",wa:"+12028711621",photo:"https://ozeklaw.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-15-2026-at-01_20_59-PM.png"},
 ];
-
 function NewsPage({t,lang}){
   const[sub,setSub]=useState("");const[done,setDone]=useState(false);
   const[newsTab,setNewsTab]=useState("news");
   const dir=LANGS[lang].dir;
   if(newsTab==="regs") return <RegsPage t={t} lang={lang} onBack={()=>setNewsTab("news")}/>;
+  // Visa Bulletin data (April 2026)
+  const VB_FAMILY=[
+    {cat:"F1",desc:"Unmarried Sons/Daughters of USCs",final:"01JAN16",file:"01AUG16"},
+    {cat:"F2A",desc:"Spouses & Children of PRs",final:"Current",file:"Current"},
+    {cat:"F2B",desc:"Unmarried Sons/Daughters of PRs",final:"01JAN16",file:"01SEP16"},
+    {cat:"F3",desc:"Married Sons/Daughters of USCs",final:"01JAN08",file:"01JAN08"},
+    {cat:"F4",desc:"Brothers/Sisters of USCs",final:"01MAY05",file:"01MAY05"},
+  ];
+  const VB_EMPLOYMENT=[
+    {cat:"EB-1",desc:"Priority Workers",final:"Current",file:"Current"},
+    {cat:"EB-2",desc:"Adv. Degree / Exceptional Ability",final:"01JAN22",file:"01JAN22"},
+    {cat:"EB-3",desc:"Skilled Workers & Professionals",final:"01JAN22",file:"01FEB22"},
+    {cat:"EB-4",desc:"Special Immigrants",final:"01MAR20",file:"01MAR20"},
+    {cat:"EB-5",desc:"Immigrant Investors",final:"01JAN19",file:"01JAN19"},
+  ];
+  const VBChart=({rows,title})=>(
+    <div style={{marginBottom:18}}>
+      <div style={{fontSize:12,fontWeight:700,color:C.ink,marginBottom:8}}>{title}</div>
+      {rows.map(r=>(
+        <div key={r.cat} style={{background:"#FFFFFF",borderRadius:14,padding:"12px 14px",marginBottom:6,border:"1px solid rgba(0,0,0,0.05)"}}>
+          <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:4}}>
+            <span style={{background:"#0A1628",color:"#FFF",padding:"3px 9px",borderRadius:8,fontSize:10,fontWeight:700}}>{r.cat}</span>
+            <div style={{textAlign:"right"}}>
+              <div style={{fontSize:9,color:C.inkLo,marginBottom:1}}>FINAL ACTION</div>
+              <div style={{fontSize:11,fontWeight:700,color:r.final==="Current"?C.green:C.ink}}>{r.final}</div>
+            </div>
+          </div>
+          <div style={{fontSize:11,color:C.inkMd,marginBottom:4,lineHeight:1.3}}>{r.desc}</div>
+          <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+            <div style={{fontSize:9,color:C.inkLo}}>FILE DATE</div>
+            <div style={{fontSize:11,fontWeight:600,color:r.file==="Current"?C.green:C.goldDim}}>{r.file}</div>
+          </div>
+        </div>
+      ))}
+      <a href="https://www.uscis.gov/green-card/green-card-processes-and-procedures/visa-availability-priority-dates/adjustment-of-status-filing-charts-from-the-visa-bulletin" target="_blank" rel="noreferrer" style={{display:"block",textDecoration:"none",marginTop:4}}>
+        <div style={{background:"rgba(201,168,76,0.10)",border:"1px solid rgba(201,168,76,0.25)",borderRadius:12,padding:"10px 14px",fontSize:11,fontWeight:600,color:C.goldDim,textAlign:"center"}}>View Full Bulletin on USCIS.gov ↗</div>
+      </a>
+    </div>
+  );
   return(
     <div dir={dir} style={{background:"#F7F5F2",minHeight:"100%"}}>
       <div style={{background:"linear-gradient(145deg,#0A1628,#0D1E3A)",padding:"78px 22px 0",position:"relative",overflow:"hidden"}}>
@@ -474,128 +432,263 @@ function NewsPage({t,lang}){
         <div style={{position:"relative"}}>
           <div style={{fontSize:9,letterSpacing:2.5,textTransform:"uppercase",color:C.gold,fontWeight:600,marginBottom:8}}>UPDATES</div>
           <h1 style={{fontFamily:"'Playfair Display',serif",fontSize:26,fontWeight:700,color:C.hi,letterSpacing:-0.5,marginBottom:12}}>{t.newsTitle}</h1>
-          <div style={{display:"flex",gap:8,paddingBottom:16}}>
-            {[["news","📰","News"],["regs","🏛️","Rules & Regs"]].map(([id,icon,label])=>(
-              <button key={id} onClick={()=>setNewsTab(id)} style={{padding:"7px 16px",borderRadius:99,fontSize:12,fontWeight:600,cursor:"pointer",border:"none",background:newsTab===id?C.gold:"rgba(255,255,255,0.12)",color:newsTab===id?"#0F1923":"rgba(255,255,255,0.75)",transition:"all 0.2s"}}>{icon} {label}</button>
+          <div style={{display:"flex",gap:6,overflowX:"auto",paddingBottom:16,scrollbarWidth:"none"}}>
+            {[["news","📰","News"],["visa","📅","Visa Bulletin"],["instagram","📸","Instagram"],["linkedin","💼","LinkedIn"],["regs","🏛️","Rules & Regs"]].map(([id,icon,label])=>(
+              <button key={id} onClick={()=>setNewsTab(id)} style={{padding:"7px 14px",borderRadius:99,fontSize:11,fontWeight:600,cursor:"pointer",border:"none",background:newsTab===id?C.gold:"rgba(255,255,255,0.12)",color:newsTab===id?"#0F1923":"rgba(255,255,255,0.75)",transition:"all 0.2s",flexShrink:0,whiteSpace:"nowrap"}}>{icon} {label}</button>
             ))}
           </div>
         </div>
       </div>
-      <div style={{padding:"20px 18px 100px"}}>
-        <div style={{background:"#FFFFFF",borderRadius:20,padding:"18px",marginBottom:18,boxShadow:"0 1px 12px rgba(0,0,0,0.06)",border:"1px solid rgba(0,0,0,0.05)"}}>
-          <div style={{display:"flex",gap:10,alignItems:"flex-start",marginBottom:12}}>
-            <div style={{width:38,height:38,borderRadius:12,background:"rgba(201,168,76,0.12)",border:"1px solid rgba(201,168,76,0.20)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:18,flexShrink:0}}>📬</div>
-            <div><div style={{fontSize:13,fontWeight:700,color:C.ink}}>{t.newsletter}</div><div style={{fontSize:11,color:C.inkMd,marginTop:2}}>{t.newsletterSub}</div></div>
-          </div>
-          {done?<div style={{background:"rgba(48,209,88,0.10)",borderRadius:12,padding:"11px 14px",color:C.green,fontSize:13,fontWeight:600}}>{t.subscribed}</div>:(
-            <div style={{display:"flex",gap:8}}>
-              <input value={sub} onChange={e=>setSub(e.target.value)} placeholder={t.emailPlaceholder} style={{flex:1,background:"rgba(0,0,0,0.04)",border:"1.5px solid rgba(0,0,0,0.07)",borderRadius:12,padding:"11px 14px",fontSize:13,color:C.ink,outline:"none"}}/>
-              <GoldBtn onPress={()=>sub&&setDone(true)} sm style={{color:"#FFF"}}>{t.joinBtn}</GoldBtn>
+      {newsTab==="news"&&(
+        <div style={{padding:"20px 18px 100px"}}>
+          <div style={{background:"#FFFFFF",borderRadius:20,padding:"18px",marginBottom:18,boxShadow:"0 1px 12px rgba(0,0,0,0.06)",border:"1px solid rgba(0,0,0,0.05)"}}>
+            <div style={{display:"flex",gap:10,alignItems:"flex-start",marginBottom:12}}>
+              <div style={{width:38,height:38,borderRadius:12,background:"rgba(201,168,76,0.12)",border:"1px solid rgba(201,168,76,0.20)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:18,flexShrink:0}}>📬</div>
+              <div><div style={{fontSize:13,fontWeight:700,color:C.ink}}>{t.newsletter}</div><div style={{fontSize:11,color:C.inkMd,marginTop:2}}>{t.newsletterSub}</div></div>
             </div>
-          )}
+            {done?<div style={{background:"rgba(48,209,88,0.10)",borderRadius:12,padding:"11px 14px",color:C.green,fontSize:13,fontWeight:600}}>{t.subscribed}</div>:(
+              <div style={{display:"flex",gap:8}}>
+                <input value={sub} onChange={e=>setSub(e.target.value)} placeholder={t.emailPlaceholder} style={{flex:1,background:"rgba(0,0,0,0.04)",border:"1.5px solid rgba(0,0,0,0.07)",borderRadius:12,padding:"11px 14px",fontSize:13,color:C.ink,outline:"none"}}/>
+                <GoldBtn onPress={()=>sub&&setDone(true)} sm style={{color:"#FFF"}}>{t.joinBtn}</GoldBtn>
+              </div>
+            )}
+          </div>
+          <div style={{fontSize:14,fontWeight:700,color:C.ink,marginBottom:12}}>{t.articles}</div>
+          {ARTICLES_META.map((a,i)=>(
+            <div key={i} onClick={()=>window.open("https://ozeklaw.com/newsletter/","_blank")} style={{display:"flex",gap:12,alignItems:"center",background:"#FFFFFF",borderRadius:18,padding:"14px",marginBottom:9,border:"1px solid rgba(0,0,0,0.05)",cursor:"pointer"}}>
+              <div style={{width:44,height:44,borderRadius:12,background:"rgba(201,168,76,0.10)",border:"1px solid rgba(201,168,76,0.18)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:20,flexShrink:0}}>{a.emoji}</div>
+              <div style={{flex:1}}>
+                <div style={{display:"flex",gap:6,marginBottom:4}}><Badge bg="rgba(201,168,76,0.12)" color={C.goldDim}>{a.cat}</Badge><span style={{fontSize:10,color:C.inkLo}}>{a.read}</span></div>
+                <div style={{fontSize:13,fontWeight:600,color:C.ink,lineHeight:1.3}}>{(ARTICLE_TITLES[lang]||ARTICLE_TITLES.en)[i]}</div>
+              </div>
+              <span style={{color:C.gold,fontSize:16,opacity:0.7}}>›</span>
+            </div>
+          ))}
         </div>
-        <div style={{fontSize:14,fontWeight:700,color:C.ink,marginBottom:12}}>{t.articles}</div>
-        {ARTICLES_META.map((a,i)=>(
-          <div key={i} onClick={()=>window.open("https://ozeklaw.com/newsletter/","_blank")} style={{display:"flex",gap:12,alignItems:"center",background:"#FFFFFF",borderRadius:18,padding:"14px",marginBottom:9,boxShadow:"0 1px 8px rgba(0,0,0,0.05)",border:"1px solid rgba(0,0,0,0.05)",cursor:"pointer"}}>
-            <div style={{width:44,height:44,borderRadius:12,background:"rgba(201,168,76,0.10)",border:"1px solid rgba(201,168,76,0.18)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:20,flexShrink:0}}>{a.emoji}</div>
-            <div style={{flex:1}}>
-              <div style={{display:"flex",gap:6,marginBottom:4}}><Badge bg="rgba(201,168,76,0.12)" color={C.goldDim}>{a.cat}</Badge><span style={{fontSize:10,color:C.inkLo}}>{a.read}</span></div>
-              <div style={{fontSize:13,fontWeight:600,color:C.ink,lineHeight:1.3}}>{(ARTICLE_TITLES[lang]||ARTICLE_TITLES.en)[i]}</div>
+      )}
+      {newsTab==="visa"&&(
+        <div style={{padding:"20px 18px 100px"}}>
+          <div style={{background:"linear-gradient(135deg,rgba(201,168,76,0.15),rgba(201,168,76,0.05))",border:"1px solid rgba(201,168,76,0.30)",borderRadius:20,padding:"16px",marginBottom:18}}>
+            <div style={{display:"flex",gap:10,alignItems:"center",marginBottom:8}}>
+              <div style={{width:36,height:36,borderRadius:10,background:"rgba(201,168,76,0.20)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:18,flexShrink:0}}>📅</div>
+              <div>
+                <div style={{fontSize:13,fontWeight:700,color:C.ink}}>April 2026 Visa Bulletin</div>
+                <div style={{fontSize:11,color:C.inkLo}}>Adjustment of Status Filing Charts</div>
+              </div>
             </div>
-            <span style={{color:C.gold,fontSize:16,opacity:0.7}}>›</span>
+            <div style={{fontSize:11,color:C.inkMd,lineHeight:1.5}}>Priority dates show when you can file. <strong style={{color:C.goldDim}}>"Current"</strong> = file now.</div>
           </div>
-        ))}
-        <a href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html" target="_blank" rel="noreferrer" style={{display:"block",textDecoration:"none",marginTop:20}}>
-          <div style={{background:"linear-gradient(135deg,#0A1628,#1A2F50)",borderRadius:20,padding:"18px",display:"flex",gap:14,alignItems:"center"}}>
-            <div style={{width:48,height:48,borderRadius:14,background:"rgba(201,168,76,0.18)",border:"1px solid rgba(201,168,76,0.30)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,fontSize:22}}>📅</div>
-            <div style={{flex:1}}>
-              <div style={{fontSize:13,fontWeight:700,color:C.hi,marginBottom:3}}>{t.visaBulletin}</div>
-              <div style={{fontSize:11,color:C.md}}>{t.visaBulletinSub}</div>
-              <div style={{fontSize:10,color:C.gold,marginTop:5,fontWeight:600}}>travel.state.gov ↗</div>
+          <VBChart rows={VB_FAMILY} title="Family-Sponsored Preferences"/>
+          <VBChart rows={VB_EMPLOYMENT} title="Employment-Based Preferences"/>
+          <div style={{background:"rgba(10,132,255,0.08)",border:"1px solid rgba(10,132,255,0.20)",borderRadius:16,padding:"14px",marginTop:8}}>
+            <div style={{fontSize:12,fontWeight:700,color:C.blue,marginBottom:6}}>📌 When to File</div>
+            <div style={{fontSize:11,color:C.inkMd,lineHeight:1.6}}>File your I-485 when your priority date is earlier than the "File Date" above. Contact Ozek Law to confirm eligibility.</div>
+            <div style={{display:"flex",gap:8,marginTop:12}}>
+              <a href="https://www.uscis.gov/green-card/green-card-processes-and-procedures/visa-availability-priority-dates/when-to-file-your-adjustment-of-status-application-for-family-sponsored-or-employment-based-123" target="_blank" rel="noreferrer" style={{flex:1,textDecoration:"none"}}>
+                <div style={{background:"rgba(10,132,255,0.12)",borderRadius:10,padding:"9px",fontSize:10,fontWeight:600,color:C.blue,textAlign:"center"}}>Family Chart ↗</div>
+              </a>
+              <a href="https://www.uscis.gov/green-card/green-card-processes-and-procedures/visa-availability-priority-dates/when-to-file-your-adjustment-of-status-application-for-family-sponsored-or-employment-based-122" target="_blank" rel="noreferrer" style={{flex:1,textDecoration:"none"}}>
+                <div style={{background:"rgba(10,132,255,0.12)",borderRadius:10,padding:"9px",fontSize:10,fontWeight:600,color:C.blue,textAlign:"center"}}>Employment Chart ↗</div>
+              </a>
             </div>
           </div>
-        </a>
-      </div>
+        </div>
+      )}
+      {newsTab==="instagram"&&(
+        <div style={{padding:"20px 18px 100px"}}>
+          <div style={{background:"linear-gradient(135deg,#E1306C,#833AB4,#F77737)",borderRadius:20,padding:"20px",marginBottom:18,textAlign:"center"}}>
+            <div style={{fontSize:36,marginBottom:8}}>📸</div>
+            <div style={{fontSize:16,fontWeight:700,color:"#FFF",marginBottom:4}}>@ozeklaw</div>
+            <div style={{fontSize:12,color:"rgba(255,255,255,0.8)",marginBottom:14}}>Follow us for immigration tips, legal news & firm updates</div>
+            <a href="https://www.instagram.com/ozeklaw/" target="_blank" rel="noreferrer" style={{textDecoration:"none"}}>
+              <div style={{background:"rgba(255,255,255,0.2)",border:"1px solid rgba(255,255,255,0.4)",borderRadius:12,padding:"11px 24px",fontSize:13,fontWeight:700,color:"#FFF",display:"inline-block"}}>Open Instagram ↗</div>
+            </a>
+          </div>
+          {[
+            {emoji:"⚖️",title:"Immigration Law Updates",desc:"Policy & case law updates"},
+            {emoji:"🏢",title:"Business Law Tips",desc:"Business law tips"},
+            {emoji:"📋",title:"Form Guides",desc:"Immigration form guides"},
+            {emoji:"🌍",title:"Client Success Stories",desc:"Client success stories"},
+            {emoji:"💡",title:"Know Your Rights",desc:"Know your rights"},
+          ].map((p,i)=>(
+            <a key={i} href="https://www.instagram.com/ozeklaw/" target="_blank" rel="noreferrer" style={{display:"block",textDecoration:"none",marginBottom:10}}>
+              <div style={{background:"#FFFFFF",borderRadius:18,padding:"14px 16px",display:"flex",gap:14,alignItems:"center",border:"1px solid rgba(0,0,0,0.05)"}}>
+                <div style={{width:44,height:44,borderRadius:12,background:"linear-gradient(135deg,rgba(225,48,108,0.15),rgba(131,58,180,0.15))",display:"flex",alignItems:"center",justifyContent:"center",fontSize:22,flexShrink:0}}>{p.emoji}</div>
+                <div style={{flex:1}}><div style={{fontSize:13,fontWeight:600,color:C.ink,marginBottom:2}}>{p.title}</div><div style={{fontSize:11,color:C.inkLo}}>{p.desc}</div></div>
+                <span style={{fontSize:14,opacity:0.4}}>›</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      )}
+      {newsTab==="linkedin"&&(
+        <div style={{padding:"20px 18px 100px"}}>
+          <div style={{background:"linear-gradient(135deg,#0077B5,#00A0DC)",borderRadius:20,padding:"20px",marginBottom:18,textAlign:"center"}}>
+            <div style={{fontSize:36,marginBottom:8}}>💼</div>
+            <div style={{fontSize:16,fontWeight:700,color:"#FFF",marginBottom:4}}>Ozek Law Firm</div>
+            <div style={{fontSize:12,color:"rgba(255,255,255,0.85)",marginBottom:14}}>Professional updates, legal insights & firm news</div>
+            <a href="https://www.linkedin.com/company/ozek-law-firm" target="_blank" rel="noreferrer" style={{textDecoration:"none"}}>
+              <div style={{background:"rgba(255,255,255,0.2)",border:"1px solid rgba(255,255,255,0.4)",borderRadius:12,padding:"11px 24px",fontSize:13,fontWeight:700,color:"#FFF",display:"inline-block"}}>View on LinkedIn ↗</div>
+            </a>
+          </div>
+          {[
+            {emoji:"📰",title:"Legal News & Analysis",desc:"Law analysis & updates"},
+            {emoji:"🏆",title:"Case Results & Wins",desc:"Client success stories"},
+            {emoji:"🎤",title:"Speaking Engagements",desc:"Speaking engagements"},
+            {emoji:"📊",title:"Industry Insights",desc:"Industry insights"},
+            {emoji:"🤝",title:"Community & Pro Bono",desc:"Community & pro bono"},
+          ].map((p,i)=>(
+            <a key={i} href="https://www.linkedin.com/company/ozek-law-firm" target="_blank" rel="noreferrer" style={{display:"block",textDecoration:"none",marginBottom:10}}>
+              <div style={{background:"#FFFFFF",borderRadius:18,padding:"14px 16px",display:"flex",gap:14,alignItems:"center",border:"1px solid rgba(0,0,0,0.05)"}}>
+                <div style={{width:44,height:44,borderRadius:12,background:"linear-gradient(135deg,rgba(0,119,181,0.12),rgba(0,160,220,0.12))",display:"flex",alignItems:"center",justifyContent:"center",fontSize:22,flexShrink:0}}>{p.emoji}</div>
+                <div style={{flex:1}}><div style={{fontSize:13,fontWeight:600,color:C.ink,marginBottom:2}}>{p.title}</div><div style={{fontSize:11,color:C.inkLo}}>{p.desc}</div></div>
+                <span style={{fontSize:14,opacity:0.4}}>›</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
-
 function USCISPage({t,lang}){
   const[num,setNum]=useState("");const[res,setRes]=useState(null);const[loading,setLoading]=useState(false);
   const[selForm,setSelForm]=useState("I-485");
   const[uscisTab,setUscisTab]=useState("tools");
+  const[selState,setSelState]=useState(null);
   const dir=LANGS[lang].dir;
   const check=()=>{if(!num.trim())return;setLoading(true);setRes(null);setTimeout(()=>{setRes({status:"Case Was Received and A Receipt Notice Was Emailed",updated:"March 18, 2026",form:"I-485",center:"Nebraska Service Center"});setLoading(false);},1400);};
-  const TOOLS=[
-    {icon:"🔐",title:"USCIS Online Account",sub:"Sign in to manage your case",url:"https://myaccount.uscis.gov/sign-in",color:C.blueBg,border:"rgba(10,132,255,0.22)"},
-    {icon:"✈️",title:"Travel History",sub:"Find your I-94 travel records",url:"https://i94.cbp.dhs.gov/search/history-search",color:"rgba(48,209,88,0.08)",border:"rgba(48,209,88,0.22)"},
-    {icon:"📋",title:"I-94 Latest Entry",sub:"View your most recent arrival",url:"https://i94.cbp.dhs.gov/search/recent-search",color:"rgba(48,209,88,0.08)",border:"rgba(48,209,88,0.22)"},
-    {icon:"📅",title:"Visa Bulletin",sub:"Adjustment of status filing charts",url:"https://www.uscis.gov/green-card/green-card-processes-and-procedures/visa-availability-priority-dates/adjustment-of-status-filing-charts-from-the-visa-bulletin",color:C.goldPale,border:C.goldBorder},
-    {icon:"⏱️",title:"Dept. of Labor Processing Times",sub:"PERM & prevailing wage timelines",url:"https://flag.dol.gov/processingtimes",color:"rgba(191,90,242,0.08)",border:"rgba(191,90,242,0.22)"},
+  const TOOL_GROUPS=[
+    {
+      label:"Case & Account",
+      icon:"🗂️",
+      items:[
+        {icon:"🔐",title:"USCIS Online Account",sub:"Manage your case online",url:"https://myaccount.uscis.gov/sign-in",color:"rgba(10,132,255,0.10)",border:"rgba(10,132,255,0.25)"},
+        {icon:"📬",title:"Check Case Status",sub:"Enter your receipt number to track",url:"https://egov.uscis.gov/casestatus/landing.do",color:"rgba(10,132,255,0.07)",border:"rgba(10,132,255,0.18)"},
+        {icon:"📮",title:"USCIS Service Request",sub:"Submit a case inquiry",url:"https://egov.uscis.gov/e-request",color:"rgba(10,132,255,0.07)",border:"rgba(10,132,255,0.18)"},
+        {icon:"📍",title:"USCIS Address Change",sub:"Update your address (AR-11)",url:"https://www.uscis.gov/ar-11",color:"rgba(255,69,58,0.08)",border:"rgba(255,69,58,0.22)"},
+      ]
+    },
+    {
+      label:"Travel & Entry",
+      icon:"✈️",
+      items:[
+        {icon:"✈️",title:"Travel History (I-94)",sub:"View entry & exit records",url:"https://i94.cbp.dhs.gov/search/history-search",color:"rgba(48,209,88,0.08)",border:"rgba(48,209,88,0.22)"},
+        {icon:"📋",title:"I-94 Latest Entry",sub:"Most recent arrival info",url:"https://i94.cbp.dhs.gov/search/recent-search",color:"rgba(48,209,88,0.08)",border:"rgba(48,209,88,0.22)"},
+      ]
+    },
+    {
+      label:"Green Card",
+      icon:"💚",
+      items:[
+        {icon:"📅",title:"Visa Bulletin",sub:"Monthly priority dates",url:"https://www.uscis.gov/green-card/green-card-processes-and-procedures/visa-availability-priority-dates/adjustment-of-status-filing-charts-from-the-visa-bulletin",color:"rgba(201,168,76,0.10)",border:"rgba(201,168,76,0.28)"},
+        {icon:"🏥",title:"Find a Civil Surgeon",sub:"Find accredited doctors",url:"https://www.uscis.gov/tools/find-a-civil-surgeon",color:"rgba(48,209,88,0.10)",border:"rgba(48,209,88,0.28)"},
+      ]
+    },
+    {
+      label:"Processing & Work",
+      icon:"⏱️",
+      items:[
+        {icon:"⏱️",title:"USCIS Processing Times",sub:"Current processing timeline",url:"https://egov.uscis.gov/processing-times/",color:"rgba(191,90,242,0.08)",border:"rgba(191,90,242,0.22)"},
+        {icon:"💼",title:"Dept. of Labor Processing",sub:"PERM & wage timelines",url:"https://flag.dol.gov/processingtimes",color:"rgba(191,90,242,0.08)",border:"rgba(191,90,242,0.22)"},
+      ]
+    },
+  ];
+  const US_STATES=["AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY","DC"];
+  const STATE_NAMES={"AL":"Alabama","AK":"Alaska","AZ":"Arizona","AR":"Arkansas","CA":"California","CO":"Colorado","CT":"Connecticut","DE":"Delaware","FL":"Florida","GA":"Georgia","HI":"Hawaii","ID":"Idaho","IL":"Illinois","IN":"Indiana","IA":"Iowa","KS":"Kansas","KY":"Kentucky","LA":"Louisiana","ME":"Maine","MD":"Maryland","MA":"Massachusetts","MI":"Michigan","MN":"Minnesota","MS":"Mississippi","MO":"Missouri","MT":"Montana","NE":"Nebraska","NV":"Nevada","NH":"New Hampshire","NJ":"New Jersey","NM":"New Mexico","NY":"New York","NC":"North Carolina","ND":"North Dakota","OH":"Ohio","OK":"Oklahoma","OR":"Oregon","PA":"Pennsylvania","RI":"Rhode Island","SC":"South Carolina","SD":"South Dakota","TN":"Tennessee","TX":"Texas","UT":"Utah","VT":"Vermont","VA":"Virginia","WA":"Washington","WV":"West Virginia","WI":"Wisconsin","WY":"Wyoming","DC":"Washington D.C."};
+  const STATE_OFFICES={
+    "CA":{uscis:"Los Angeles Field Office\n1 World Way, Los Angeles CA 90045",court:"LA Immigration Court\n606 S Olive St, Los Angeles CA 90014"},
+    "NY":{uscis:"New York Field Office\n26 Federal Plaza, New York NY 10278",court:"NY Immigration Court\n26 Federal Plaza, New York NY 10278"},
+    "TX":{uscis:"Houston Field Office\n126 Northpoint Dr, Houston TX 77060",court:"Houston Immigration Court\n126 Northpoint Dr, Houston TX 77060"},
+    "FL":{uscis:"Miami Field Office\n8801 NW 7th Ave, Miami FL 33150",court:"Miami Immigration Court\n333 S Miami Ave, Miami FL 33130"},
+    "IL":{uscis:"Chicago Field Office\n101 W Congress Pkwy, Chicago IL 60605",court:"Chicago Immigration Court\n55 E Monroe St, Chicago IL 60603"},
+    "VA":{uscis:"Arlington Field Office\n2306 Mt. Vernon Ave, Alexandria VA 22301",court:"Arlington Immigration Court\n1901 S Bell St, Arlington VA 22202"},
+    "MD":{uscis:"Baltimore Field Office\n31 Hopkins Plaza, Baltimore MD 21201",court:"Baltimore Immigration Court\n31 Hopkins Plaza, Baltimore MD 21201"},
+    "NJ":{uscis:"Newark Field Office\n970 Broad St, Newark NJ 07102",court:"Newark Immigration Court\n970 Broad St, Newark NJ 07102"},
+    "MA":{uscis:"Boston Field Office\n15 New Sudbury St, Boston MA 02203",court:"Boston Immigration Court\n15 New Sudbury St, Boston MA 02203"},
+    "WA":{uscis:"Seattle Field Office\n12500 Tukwila Intl Blvd, Seattle WA 98168",court:"Seattle Immigration Court\n1000 2nd Ave, Seattle WA 98104"},
+    "DC":{uscis:"Washington DC Field Office\n2675 Prosperity Ave, Fairfax VA 22031",court:"Arlington Immigration Court\n1901 S Bell St, Arlington VA 22202"},
+  };
+    const DEFAULT_OFFICE={uscis:"Contact USCIS National Customer Service
+1-800-375-5283 (Mon–Fri 8am–8pm)
+egov.uscis.gov to find your local office",court:"Contact EOIR National Customer Service
+1-800-898-7180
+www.justice.gov/eoir to find your local court"};
+  const FEDERAL_RESOURCES=[
+    {icon:"📜",title:"USCIS Policy Manual",sub:"Federal immigration policy & guidance",url:"https://www.uscis.gov/policy-manual"},
+    {icon:"⚖️",title:"Immigration Court (EOIR)",sub:"Case info & hearing locations",url:"https://www.justice.gov/eoir"},
+    {icon:"🛂",title:"CBP Border Information",sub:"Ports of entry & travel requirements",url:"https://www.cbp.gov"},
+    {icon:"🌐",title:"State Dept. Visa Info",sub:"Nonimmigrant & immigrant visas",url:"https://travel.state.gov"},
   ];
   return(
     <div dir={dir} style={{background:"#F7F5F2",minHeight:"100%"}}>
       <div style={{background:"linear-gradient(145deg,#0A1628,#0D1E3A)",padding:"78px 22px 0"}}>
         <div style={{fontSize:9,letterSpacing:2.5,textTransform:"uppercase",color:C.gold,fontWeight:600,marginBottom:8}}>IMMIGRATION</div>
         <h1 style={{fontFamily:"'Playfair Display',serif",fontSize:26,fontWeight:700,color:C.hi,letterSpacing:-0.5,marginBottom:12}}>Useful Tools</h1>
-        <div style={{display:"flex",gap:8,paddingBottom:16}}>
-          {[["tools","🛠️","Tools"],["case","📋","Case Status"]].map(([id,icon,label])=>(
-            <button key={id} onClick={()=>setUscisTab(id)} style={{padding:"7px 16px",borderRadius:99,fontSize:12,fontWeight:600,cursor:"pointer",border:"none",background:uscisTab===id?C.gold:"rgba(255,255,255,0.12)",color:uscisTab===id?"#0F1923":"rgba(255,255,255,0.75)",transition:"all 0.2s"}}>{icon} {label}</button>
+        <div style={{display:"flex",gap:8,overflowX:"auto",paddingBottom:16,scrollbarWidth:"none"}}>
+          {[["tools","🛠️","Tools"],["case","📋","Case Status"],["map","🗺️","Find Offices"]].map(([id,icon,label])=>(
+            <button key={id} onClick={()=>setUscisTab(id)} style={{padding:"7px 16px",borderRadius:99,fontSize:12,fontWeight:600,cursor:"pointer",border:"none",background:uscisTab===id?C.gold:"rgba(255,255,255,0.12)",color:uscisTab===id?"#0F1923":"rgba(255,255,255,0.75)",transition:"all 0.2s",flexShrink:0}}>{icon} {label}</button>
           ))}
         </div>
       </div>
-
       {uscisTab==="tools"&&(
         <div style={{padding:"20px 18px 100px"}}>
-          {TOOLS.map(r=>(
-            <a key={r.title} href={r.url} target="_blank" rel="noreferrer" style={{display:"block",textDecoration:"none",marginBottom:10}}>
-              <div style={{background:r.color,border:`1px solid ${r.border}`,borderRadius:18,padding:"16px",display:"flex",gap:14,alignItems:"center"}}>
-                <div style={{width:44,height:44,borderRadius:13,background:"rgba(255,255,255,0.8)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:22,flexShrink:0}}>{r.icon}</div>
-                <div style={{flex:1}}>
-                  <div style={{fontSize:13,fontWeight:700,color:C.ink,marginBottom:3}}>{r.title}</div>
-                  <div style={{fontSize:11,color:C.inkLo}}>{r.sub}</div>
-                </div>
-                <span style={{color:C.gold,fontSize:18,opacity:0.8}}>↗</span>
+          {TOOL_GROUPS.map(g=>(
+            <div key={g.label} style={{marginBottom:24}}>
+              <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:12}}>
+                <span style={{fontSize:16}}>{g.icon}</span>
+                <div style={{fontSize:13,fontWeight:700,color:C.ink}}>{g.label}</div>
               </div>
-            </a>
+              {g.items.map(r=>(
+                <a key={r.title} href={r.url} target="_blank" rel="noreferrer" style={{display:"block",textDecoration:"none",marginBottom:8}}>
+                  <div style={{background:r.color,border:`1px solid ${r.border}`,borderRadius:16,padding:"14px 16px",display:"flex",gap:14,alignItems:"center"}}>
+                    <div style={{width:40,height:40,borderRadius:12,background:"rgba(255,255,255,0.8)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:20,flexShrink:0}}>{r.icon}</div>
+                    <div style={{flex:1}}>
+                      <div style={{fontSize:13,fontWeight:700,color:C.ink,marginBottom:2}}>{r.title}</div>
+                      <div style={{fontSize:11,color:C.inkLo}}>{r.sub}</div>
+                    </div>
+                    <span style={{color:C.gold,fontSize:16,opacity:0.8,flexShrink:0}}>↗</span>
+                  </div>
+                </a>
+              ))}
+            </div>
           ))}
         </div>
       )}
-
       {uscisTab==="case"&&(
         <div style={{padding:"20px 18px 100px"}}>
           <div style={{background:"#FFFFFF",borderRadius:20,padding:"18px",marginBottom:14,boxShadow:"0 1px 12px rgba(0,0,0,0.06)",border:"1px solid rgba(0,0,0,0.05)"}}>
-            <div style={{fontSize:10,color:C.inkLo,letterSpacing:1,textTransform:"uppercase",marginBottom:8}}>{t.receiptNumber}</div>
-            <input value={num} onChange={e=>setNum(e.target.value.toUpperCase())} placeholder={t.receiptPlaceholder} style={{width:"100%",background:"rgba(0,0,0,0.04)",border:"1.5px solid rgba(0,0,0,0.08)",borderRadius:13,padding:"13px 16px",color:C.ink,fontSize:15,outline:"none",letterSpacing:1.5,marginBottom:12,fontFamily:"monospace"}}/>
-            <GoldBtn full onPress={check} style={{color:"#0F1923"}}>{loading?t.checking:t.checkStatus}</GoldBtn>
-            <div style={{textAlign:"center",marginTop:10,fontSize:11,color:C.inkLo}}>{t.orVisit} <a href="https://egov.uscis.gov/casestatus/landing.do" target="_blank" rel="noreferrer" style={{color:C.goldDim,fontWeight:600}}>USCIS.gov ↗</a></div>
+            <div style={{fontSize:10,color:C.inkLo,letterSpacing:1,textTransform:"uppercase",marginBottom:8}}>Receipt Number</div>
+            <input value={num} onChange={e=>setNum(e.target.value.toUpperCase())} placeholder="e.g. WAC2315151234" style={{width:"100%",background:"rgba(0,0,0,0.04)",border:"1.5px solid rgba(0,0,0,0.08)",borderRadius:13,padding:"13px 16px",color:C.ink,fontSize:15,outline:"none",letterSpacing:1.5,marginBottom:12,fontFamily:"monospace"}}/>
+            <GoldBtn full onPress={check} style={{color:"#0F1923"}}>{loading?"Checking…":"Check Status"}</GoldBtn>
+            <div style={{textAlign:"center",marginTop:10,fontSize:11,color:C.inkLo}}>Or visit <a href="https://egov.uscis.gov/casestatus/landing.do" target="_blank" rel="noreferrer" style={{color:C.goldDim,fontWeight:600}}>USCIS.gov ↗</a></div>
           </div>
-          {loading&&<div style={{textAlign:"center",padding:20}}><div style={{width:28,height:28,borderRadius:14,border:`3px solid ${C.gold}`,borderTopColor:"transparent",margin:"0 auto 8px",animation:"spin 0.8s linear infinite"}}/></div>}
+          {loading&&<div style={{textAlign:"center",padding:20}}><div style={{width:28,height:28,borderRadius:14,border:`3px solid ${C.gold}`,borderTopColor:"transparent",margin:"0 auto",animation:"spin 0.8s linear infinite"}}/></div>}
           {res&&!loading&&(
             <div style={{background:"#FFFFFF",borderRadius:20,padding:"18px",marginBottom:14,border:"1.5px solid rgba(201,168,76,0.25)"}}>
-              <Badge bg={C.greenBg} color={C.green}>● {t.statusFound}</Badge>
+              <Badge bg={C.greenBg} color={C.green}>● Status Found</Badge>
               <div style={{fontFamily:"'Playfair Display',serif",fontSize:14,color:C.ink,lineHeight:1.55,margin:"12px 0 14px"}}>{res.status}</div>
               <Divider light/><div style={{height:12}}/>
               {[["Receipt",num],["Form",res.form],["Center",res.center],["Updated",res.updated]].map(([l,v])=>(
                 <div key={l} style={{display:"flex",justifyContent:"space-between",marginBottom:8}}>
                   <span style={{fontSize:11,color:C.inkLo}}>{l}</span>
-                  <span style={{fontSize:11,fontWeight:600,color:C.ink,textAlign:"right",maxWidth:"60%"}}>{v}</span>
+                  <span style={{fontSize:11,fontWeight:600,color:C.ink}}>{v}</span>
                 </div>
               ))}
             </div>
           )}
           <div style={{background:"rgba(201,168,76,0.09)",borderRadius:20,padding:"18px",marginBottom:20,border:"1px solid rgba(201,168,76,0.22)"}}>
-            <div style={{fontSize:13,fontWeight:700,color:C.ink,marginBottom:10}}>{t.processingTimesTitle}</div>
+            <div style={{fontSize:13,fontWeight:700,color:C.ink,marginBottom:10}}>Processing Times</div>
             <div style={{position:"relative",marginBottom:12}}>
               <select value={selForm} onChange={e=>setSelForm(e.target.value)} style={{width:"100%",background:"#FFF",border:"1.5px solid rgba(201,168,76,0.30)",borderRadius:13,padding:"12px 36px 12px 14px",color:C.ink,fontSize:14,outline:"none",cursor:"pointer"}}>
                 {USCIS_FORMS.map(f=><option key={f} value={f}>{f}</option>)}
               </select>
               <span style={{position:"absolute",right:13,top:"50%",transform:"translateY(-50%)",color:C.gold,pointerEvents:"none",fontSize:12}}>▾</span>
             </div>
-            <GoldBtn full onPress={()=>window.open("https://egov.uscis.gov/processing-times/","_blank")} style={{color:"#0F1923"}}>{t.viewTimes}</GoldBtn>
+            <GoldBtn full onPress={()=>window.open("https://egov.uscis.gov/processing-times/","_blank")} style={{color:"#0F1923"}}>View Official Times ↗</GoldBtn>
           </div>
-          <div style={{fontSize:13,fontWeight:700,color:C.ink,marginBottom:12}}>{t.receiptGuide}</div>
-          {[["EAC","Vermont SC"],["LIN","Nebraska SC"],["SRC","Texas SC"],["WAC","California SC"],["NBC","National Benefits Center"],["IOE","Online / Electronic"]].map(([code,name])=>(
+          <div style={{fontSize:13,fontWeight:700,color:C.ink,marginBottom:12}}>Receipt Prefix Guide</div>
+          {[["EAC","Vermont Service Center"],["LIN","Nebraska Service Center"],["SRC","Texas Service Center"],["WAC","California Service Center"],["NBC","National Benefits Center"],["IOE","Online / Electronic Filing"]].map(([code,name])=>(
             <div key={code} style={{display:"flex",gap:12,alignItems:"center",padding:"11px 0",borderBottom:"1px solid rgba(0,0,0,0.06)"}}>
               <span style={{background:"#0A1628",color:"#FFF",padding:"5px 10px",borderRadius:8,fontSize:10,fontWeight:700,fontFamily:"monospace"}}>{code}</span>
               <span style={{fontSize:13,color:C.ink}}>{name}</span>
@@ -603,11 +696,72 @@ function USCISPage({t,lang}){
           ))}
         </div>
       )}
+      {uscisTab==="map"&&(
+        <div style={{padding:"20px 18px 100px"}}>
+          <div style={{background:"#FFFFFF",borderRadius:20,padding:"18px",marginBottom:16,border:"1px solid rgba(0,0,0,0.05)"}}>
+            <div style={{fontSize:13,fontWeight:700,color:C.ink,marginBottom:4}}>Select Your State</div>
+            <div style={{fontSize:11,color:C.inkLo,marginBottom:12}}>Find local USCIS offices and immigration courts</div>
+            <div style={{position:"relative"}}>
+              <select value={selState||""} onChange={e=>setSelState(e.target.value||null)} style={{width:"100%",background:"#FFF",border:"1.5px solid rgba(201,168,76,0.30)",borderRadius:13,padding:"13px 36px 13px 14px",color:selState?C.ink:C.inkLo,fontSize:14,outline:"none",cursor:"pointer"}}>
+                <option value="">— Choose a state —</option>
+                {US_STATES.map(s=><option key={s} value={s}>{STATE_NAMES[s]||s}</option>)}
+              </select>
+              <span style={{position:"absolute",right:13,top:"50%",transform:"translateY(-50%)",color:C.gold,pointerEvents:"none",fontSize:12}}>▾</span>
+            </div>
+          </div>
+          {!selState&&(
+            <div style={{display:"grid",gridTemplateColumns:"repeat(5,1fr)",gap:6,marginBottom:20}}>
+              {["CA","NY","TX","FL","IL","VA","MD","NJ","MA","WA"].map(s=>(
+                <button key={s} onClick={()=>setSelState(s)} style={{padding:"10px 4px",borderRadius:12,background:"linear-gradient(135deg,#0A1628,#0D1E3A)",border:"1px solid rgba(201,168,76,0.20)",color:C.gold,fontSize:11,fontWeight:700,cursor:"pointer"}}>{s}</button>
+              ))}
+            </div>
+          )}
+          {selState&&(()=>{
+            const office=STATE_OFFICES[selState]||DEFAULT_OFFICE;
+            return(
+              <div className="pop-in">
+                <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14}}>
+                  <div style={{fontSize:16,fontWeight:700,color:C.ink}}>{STATE_NAMES[selState]||selState}</div>
+                  <button onClick={()=>setSelState(null)} style={{fontSize:12,color:C.goldDim,fontWeight:600,background:"none",border:"none",cursor:"pointer"}}>← Change</button>
+                </div>
+                <div style={{background:"rgba(10,132,255,0.08)",border:"1px solid rgba(10,132,255,0.22)",borderRadius:18,padding:"16px",marginBottom:12}}>
+                  <div style={{display:"flex",gap:10,alignItems:"flex-start",marginBottom:8}}>
+                    <div style={{width:36,height:36,borderRadius:10,background:"rgba(10,132,255,0.15)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:18,flexShrink:0}}>🏛️</div>
+                    <div><div style={{fontSize:13,fontWeight:700,color:C.ink}}>USCIS Field Office</div><div style={{fontSize:11,color:C.inkLo}}>Local immigration services</div></div>
+                  </div>
+                  <div style={{fontSize:12,color:C.inkMd,lineHeight:1.7,whiteSpace:"pre-line",marginBottom:10}}>{office.uscis}</div>
+                  <a href={`https://www.uscis.gov/about-us/find-a-uscis-office/field-offices`} target="_blank" rel="noreferrer" style={{textDecoration:"none"}}>
+                    <div style={{fontSize:11,color:C.blue,fontWeight:600}}>Find all USCIS offices ↗</div>
+                  </a>
+                </div>
+                <div style={{background:"rgba(191,90,242,0.08)",border:"1px solid rgba(191,90,242,0.22)",borderRadius:18,padding:"16px",marginBottom:12}}>
+                  <div style={{display:"flex",gap:10,alignItems:"flex-start",marginBottom:8}}>
+                    <div style={{width:36,height:36,borderRadius:10,background:"rgba(191,90,242,0.15)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:18,flexShrink:0}}>⚖️</div>
+                    <div><div style={{fontSize:13,fontWeight:700,color:C.ink}}>Immigration Court (EOIR)</div><div style={{fontSize:11,color:C.inkLo}}>Hearings & removal proceedings</div></div>
+                  </div>
+                  <div style={{fontSize:12,color:C.inkMd,lineHeight:1.7,whiteSpace:"pre-line",marginBottom:10}}>{office.court}</div>
+                  <a href="https://www.justice.gov/eoir/eoir-immigration-court-listing" target="_blank" rel="noreferrer" style={{textDecoration:"none"}}>
+                    <div style={{fontSize:11,color:C.purple,fontWeight:600}}>Find all immigration courts ↗</div>
+                  </a>
+                </div>
+                <div style={{fontSize:13,fontWeight:700,color:C.ink,margin:"18px 0 10px"}}>Federal Resources</div>
+                {FEDERAL_RESOURCES.map(r=>(
+                  <a key={r.title} href={r.url} target="_blank" rel="noreferrer" style={{display:"block",textDecoration:"none",marginBottom:8}}>
+                    <div style={{background:"#FFFFFF",border:"1px solid rgba(0,0,0,0.06)",borderRadius:14,padding:"13px 14px",display:"flex",gap:12,alignItems:"center"}}>
+                      <div style={{fontSize:20,flexShrink:0}}>{r.icon}</div>
+                      <div style={{flex:1}}><div style={{fontSize:12,fontWeight:600,color:C.ink}}>{r.title}</div><div style={{fontSize:11,color:C.inkLo}}>{r.sub}</div></div>
+                      <span style={{color:C.gold,fontSize:14,opacity:0.7}}>↗</span>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            );
+          })()}
+        </div>
+      )}
     </div>
   );
 }
-
-
 function RegsPage({t,lang,onBack}){
   const dir=LANGS[lang].dir;
   return(
@@ -646,7 +800,6 @@ function RegsPage({t,lang,onBack}){
     </div>
   );
 }
-
 function ClientLogin({setClient,setTab,t,lang}){
   const[id,setId]=useState("");const[pw,setPw]=useState("");const[err,setErr]=useState("");const[loading,setLoading]=useState(false);
   const dir=LANGS[lang].dir;
@@ -694,7 +847,6 @@ function ClientLogin({setClient,setTab,t,lang}){
     </div>
   );
 }
-
 function ClientDash({client,setTab,t,lang}){
   const[showBooking,setShowBooking]=useState(false);
   const pending=TASKS.filter(t=>t.status!=="Done").length;
@@ -745,7 +897,16 @@ function ClientDash({client,setTab,t,lang}){
             <Badge bg={C.greenBg} color={C.green}>{t.activeMatter}</Badge>
           </div>
         ))}
-        <CaseTimeline client={client}/>
+        <div style={{background:"#FFFFFF",borderRadius:20,padding:"16px",border:"1px solid rgba(0,0,0,0.05)",marginBottom:14}}>
+          <div style={{fontSize:9,letterSpacing:2,textTransform:"uppercase",color:C.gold,fontWeight:600,marginBottom:8}}>CASE PROGRESS</div>
+          <div style={{fontSize:13,fontWeight:700,color:C.ink,marginBottom:6}}>{client.matters[0]}</div>
+          <div style={{background:"rgba(0,0,0,0.06)",borderRadius:99,height:6,marginBottom:8}}>
+            <div style={{width:"43%",height:6,borderRadius:99,background:C.gold}}/>
+          </div>
+          <div style={{display:"flex",justifyContent:"space-between",fontSize:10,color:C.inkLo}}>
+            <span>3 of 7 milestones complete</span><span style={{color:C.goldDim,fontWeight:600}}>43%</span>
+          </div>
+        </div>
         <button onClick={()=>setShowBooking(true)} style={{width:"100%",display:"flex",gap:12,alignItems:"center",background:"linear-gradient(135deg,#0A1628,#0D1E3A)",borderRadius:18,padding:"14px 16px",border:"1px solid rgba(201,168,76,0.20)",marginBottom:14,cursor:"pointer"}}>
           <div style={{width:38,height:38,borderRadius:11,background:"rgba(201,168,76,0.18)",border:"1px solid rgba(201,168,76,0.28)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:18,flexShrink:0}}>📅</div>
           <div style={{flex:1,textAlign:"left"}}><div style={{fontSize:13,fontWeight:700,color:"#FFF",marginBottom:1}}>Schedule a Consultation</div><div style={{fontSize:11,color:"rgba(255,255,255,0.5)"}}>Book directly with Atty. Tolga Ozek</div></div>
@@ -766,7 +927,6 @@ function ClientDash({client,setTab,t,lang}){
     </>
   );
 }
-
 function TasksPage({t,lang}){
   const dir=LANGS[lang].dir;
   return(
@@ -802,7 +962,6 @@ function TasksPage({t,lang}){
     </div>
   );
 }
-
 function DocsPage({t,lang}){
   const[uploaded,setUploaded]=useState([]);const[scanning,setScanning]=useState(false);const fileRef=useRef();
   const dir=LANGS[lang].dir;
@@ -838,17 +997,16 @@ function DocsPage({t,lang}){
     </div>
   );
 }
-
 function FormsPage({t,lang}){
   const[sel,setSel]=useState(null);const[data,setData]=useState({});const[done,setDone]=useState(false);
   const dir=LANGS[lang].dir;
   const forms=[
-    {id:"i485",title:"Form I-485",sub:"Adjustment of Status",fields:["Full Legal Name","Date of Birth","Country of Birth","A-Number","Current Address","Phone Number","Date of Last Entry","Class of Admission"]},
-    {id:"i131",title:"Form I-131",sub:"Travel Document",fields:["Full Legal Name","Date of Birth","Reason for Travel","Document Type","Departure Date","Return Date"]},
-    {id:"g1145",title:"Form G-1145",sub:"E-Notification",fields:["Email Address","Phone Number","Preferred Contact"]},
-    {id:"biz01",title:"Business Intake",sub:"New Business Client",fields:["Business Name","Entity Type","State of Formation","EIN (if existing)","Primary Contact","Business Address","Nature of Matter","Urgency Level"]},
-    {id:"lit01",title:"Litigation Intake",sub:"Civil Dispute",fields:["Full Legal Name","Opposing Party","Court / Jurisdiction","Case Number","Brief Description","Desired Outcome","Key Dates","Documents Available"]},
+    {id:"i485",title:"Form I-485",sub:"Adjustment of Status",fields:["Full Legal Name","Date of Birth","Country of Birth","A-Number","Current Address","Date of Last Entry"]},
+    {id:"i131",title:"Form I-131",sub:"Travel Document",fields:["Full Legal Name","Date of Birth","Reason for Travel","Departure Date","Return Date"]},
+    {id:"biz01",title:"Business Intake",sub:"New Business Client",fields:["Business Name","Entity Type","State of Formation","Primary Contact","Nature of Matter"]},
+    {id:"lit01",title:"Litigation Intake",sub:"Civil Dispute",fields:["Full Legal Name","Opposing Party","Court / Jurisdiction","Brief Description","Desired Outcome"]},
   ];
+  
   if(done)return(<div dir={dir} style={{padding:"70px 24px",textAlign:"center",background:"#F7F5F2",minHeight:"100%"}}><div style={{fontSize:56,marginBottom:16}}>✅</div><h2 style={{fontFamily:"'Playfair Display',serif",fontSize:24,color:C.ink,marginBottom:8}}>{t.submitted}</h2><p style={{fontSize:14,color:C.inkMd,marginBottom:28,lineHeight:1.6}}>{t.submittedSub}</p><GoldBtn onPress={()=>{setDone(false);setSel(null);setData({})}} style={{color:"#0F1923"}}>{t.submitAnother}</GoldBtn></div>);
   if(sel)return(
     <div dir={dir} style={{background:"#F7F5F2",minHeight:"100%"}}>
@@ -886,7 +1044,6 @@ function FormsPage({t,lang}){
     </div>
   );
 }
-
 function ChatPage({client,t,lang}){
   const[msgs,setMsgs]=useState([{role:"assistant",content:`Hello ${client.name.split(" ")[0]}! I'm connected to Atty. Tolga Ozek's WhatsApp. Type your question and it'll be sent directly to him.\n\nCase: ${client.caseNum}`}]);
   const[input,setInput]=useState("");const[sent,setSent]=useState(false);
@@ -929,7 +1086,6 @@ function ChatPage({client,t,lang}){
     </div>
   );
 }
-
 function BillingPage({t,lang}){
   const due=BILLS.filter(b=>b.status==="Due").reduce((a,b)=>a+b.amt,0);
   const paid=BILLS.filter(b=>b.status==="Paid").reduce((a,b)=>a+b.amt,0);
@@ -974,7 +1130,6 @@ function BillingPage({t,lang}){
     </div>
   );
 }
-
 function TeamPage({lang}){
   const dir=LANGS[lang].dir;
   return(
@@ -990,13 +1145,11 @@ function TeamPage({lang}){
       <div style={{padding:"20px 18px 100px"}}>
         {TEAM.map(m=>(
           <div key={m.name} style={{background:"#FFFFFF",borderRadius:22,marginBottom:14,border:"1px solid rgba(0,0,0,0.06)",boxShadow:"0 2px 16px rgba(0,0,0,0.07)",overflow:"hidden"}}>
-            {/* Photo full-width top */}
             <div style={{width:"100%",height:200,overflow:"hidden",position:"relative",background:"#E8E4DE"}}>
               <img src={m.photo} alt={m.name}
                 style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"top"}}
                 onError={e=>{e.target.parentNode.style.background="rgba(201,168,76,0.12)";e.target.style.display="none";}}/>
             </div>
-            {/* Name + WhatsApp row */}
             <div style={{padding:"14px 16px",display:"flex",alignItems:"center",justifyContent:"space-between",gap:12}}>
               <div>
                 <div style={{fontSize:15,fontWeight:700,color:C.ink,marginBottom:2}}>{m.name}</div>
@@ -1019,89 +1172,13 @@ function TeamPage({lang}){
     </div>
   );
 }
-
-
-function SplashScreen({onDone}){
-  useEffect(()=>{
-    const t=setTimeout(onDone, 2800);
-    return()=>clearTimeout(t);
-  },[]);
-  return(
-    <div style={{
-      position:"fixed",inset:0,zIndex:99999,
-      background:"#080F1E",
-      display:"flex",alignItems:"center",justifyContent:"center",
-      flexDirection:"column",
-      animation:"fogOut 0.6s ease 2.3s both",
-    }}>
-      {/* Fog rings */}
-      {[0,1,2].map(i=>(
-        <div key={i} style={{
-          position:"absolute",
-          width:300,height:300,
-          borderRadius:"50%",
-          border:"1px solid rgba(201,168,76,0.25)",
-          animation:`ringExpand ${1.6+i*0.5}s ease-out ${i*0.3}s infinite`,
-        }}/>
-      ))}
-      {/* Floating particles */}
-      {Array.from({length:12},(_,i)=>(
-        <div key={i} style={{
-          position:"absolute",
-          width:3+Math.random()*3,
-          height:3+Math.random()*3,
-          borderRadius:"50%",
-          background:`rgba(201,168,76,${0.3+Math.random()*0.5})`,
-          left:`${30+Math.random()*40}%`,
-          top:`${40+Math.random()*20}%`,
-          "--dx":`${(Math.random()-0.5)*80}px`,
-          animation:`particleDrift ${2+Math.random()*1.5}s ease-out ${Math.random()*1}s both`,
-        }}/>
-      ))}
-      {/* Glow circle behind logo */}
-      <div style={{
-        position:"absolute",
-        width:180,height:180,
-        borderRadius:"50%",
-        background:"radial-gradient(circle, rgba(201,168,76,0.18) 0%, transparent 70%)",
-        animation:"glowPulse 2s ease-in-out infinite",
-      }}/>
-      {/* Logo */}
-      <img
-        src="https://ozeklaw.com/wp-content/uploads/2026/03/Ozek-Law-Firm-Logo-white-transparent.png"
-        alt="Ozek Law"
-        style={{
-          height:120,
-          objectFit:"contain",
-          position:"relative",
-          zIndex:1,
-          animation:"fogIn 1.8s cubic-bezier(0.22,1,0.36,1) 0.2s both",
-          filter:"drop-shadow(0 0 20px rgba(201,168,76,0.5))",
-        }}
-      />
-      {/* Tagline */}
-      <div style={{
-        marginTop:16,
-        fontSize:11,
-        letterSpacing:3,
-        textTransform:"uppercase",
-        color:"rgba(201,168,76,0.7)",
-        fontWeight:500,
-        animation:"fogIn 1.8s cubic-bezier(0.22,1,0.36,1) 0.6s both",
-      }}>Immigration · Business · Litigation</div>
-    </div>
-  );
-}
-
 export default function App(){
-  const[splash,setSplash]=useState(true);
   const[tab,setTab]=useState("home");
   const[client,setClient]=useState(null);
   const[lang,setLang]=useState("en");
   const lastScrollY=useRef(0);
   const scrollHidden=useRef(false);
   const t=I18N[lang]||I18N.en;
-
   useEffect(()=>{
     const el=document.getElementById("main-scroll");
     if(el) el.scrollTop=0;
@@ -1109,17 +1186,12 @@ export default function App(){
     scrollHidden.current=false;
     const bar=document.getElementById("top-bar");
     if(bar) bar.style.transform="translateY(0)";
-    
   },[tab]);
-
-
-
   const isClient=!!client&&["dash","tasks","docs","forms","chat","billing"].includes(tab);
   const dir=LANGS[lang].dir;
   return(
     <>
       <style>{FONTS}{css}</style>
-      {splash&&<SplashScreen onDone={()=>setSplash(false)}/>}
       <div dir={dir} className={lang==="zh"?"lang-zh":""} style={{display:"flex",flexDirection:"column",height:"100vh",background:C.bg0,overflow:"hidden"}}>
         <TopBar lang={lang} setLang={setLang} client={client} setClient={setClient} setTab={setTab} t={t}/>
         {client&&isClient&&(
