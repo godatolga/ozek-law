@@ -605,12 +605,91 @@ function USCISPage({t,lang}){
         <div style={{fontSize:9,letterSpacing:2.5,textTransform:"uppercase",color:C.gold,fontWeight:600,marginBottom:8}}>IMMIGRATION</div>
         <h1 style={{fontFamily:"'Playfair Display',serif",fontSize:26,fontWeight:700,color:C.hi,letterSpacing:-0.5,marginBottom:12}}>Useful Tools</h1>
         <div style={{display:"flex",gap:8,overflowX:"auto",paddingBottom:16,scrollbarWidth:"none"}}>
-          {[["tools","🛠️","Tools"],["case","📋","Case Status"],["map","🗺️","Find Offices"]].map(([id,icon,label])=>(
+          {[["tools","🛠️","Tools"],["forms","📝","Forms"],["case","📋","Case Status"],["map","🗺️","Find Offices"]].map(([id,icon,label])=>(
             <button key={id} onClick={()=>setUscisTab(id)} style={{padding:"7px 16px",borderRadius:99,fontSize:12,fontWeight:600,cursor:"pointer",border:"none",background:uscisTab===id?C.gold:"rgba(255,255,255,0.12)",color:uscisTab===id?"#0F1923":"rgba(255,255,255,0.75)",transition:"all 0.2s",flexShrink:0}}>{icon} {label}</button>
           ))}
         </div>
       </div>
-      {uscisTab==="tools"&&(
+      {uscisTab==="forms"&&(
+        <div style={{padding:"20px 18px 100px"}}>
+          <div style={{background:"rgba(201,168,76,0.10)",border:"1px solid rgba(201,168,76,0.25)",borderRadius:18,padding:"14px 16px",marginBottom:20}}>
+            <div style={{fontSize:12,fontWeight:700,color:C.goldDim,marginBottom:4}}>📋 Immigration Intake Forms</div>
+            <div style={{fontSize:11,color:C.inkLo,lineHeight:1.5}}>Click a form below to start your application. Your information will be reviewed by Ozek Law attorneys.</div>
+          </div>
+          {[
+            {
+              icon:"🏢",
+              cat:"H-1B / H-2B",
+              title:"H-1B Information Collection Form 2026",
+              sub:"Specialty Occupation Work Visa",
+              label:"Fill out form",
+              color:"rgba(10,132,255,0.10)",
+              border:"rgba(10,132,255,0.25)",
+              iconBg:"rgba(10,132,255,0.15)",
+              url:"https://ozeklaw.com/h1b-intake",
+            },
+            {
+              icon:"⭐",
+              cat:"O-1",
+              title:"O-1 Visa Eligibility Screening Form",
+              sub:"Extraordinary Ability / Achievement",
+              label:"Fill out form",
+              color:"rgba(191,90,242,0.10)",
+              border:"rgba(191,90,242,0.25)",
+              iconBg:"rgba(191,90,242,0.15)",
+              url:"https://ozeklaw.com/o1-screening",
+            },
+            {
+              icon:"💼",
+              cat:"E-1 / E-2",
+              title:"E-2 / E-1 Investor Visa Information Form",
+              sub:"E2/E1 Yatırımcı Vizesi Bilgi Toplama Formu",
+              label:"Fill out form",
+              color:"rgba(48,209,88,0.10)",
+              border:"rgba(48,209,88,0.25)",
+              iconBg:"rgba(48,209,88,0.15)",
+              url:"https://ozeklaw.com/e1e2-intake",
+            },
+            {
+              icon:"🌿",
+              cat:"EB-2 / EB-3",
+              title:"EB-2 / EB-3 Information Collection Form",
+              sub:"EB2/EB3 Bilgi Toplama Formu",
+              label:"Fill out form",
+              color:"rgba(201,168,76,0.10)",
+              border:"rgba(201,168,76,0.28)",
+              iconBg:"rgba(201,168,76,0.18)",
+              url:"https://ozeklaw.com/eb2eb3-intake",
+            },
+          ].map(f=>(
+            <a key={f.cat} href={f.url} target="_blank" rel="noreferrer" style={{display:"block",textDecoration:"none",marginBottom:12}}>
+              <div style={{background:f.color,border:`1px solid ${f.border}`,borderRadius:20,padding:"16px",display:"flex",gap:14,alignItems:"center"}}>
+                <div style={{width:48,height:48,borderRadius:14,background:f.iconBg,display:"flex",alignItems:"center",justifyContent:"center",fontSize:24,flexShrink:0}}>{f.icon}</div>
+                <div style={{flex:1}}>
+                  <Badge bg={f.iconBg} color={C.ink} small>{f.cat}</Badge>
+                  <div style={{fontSize:13,fontWeight:700,color:C.ink,margin:"5px 0 2px",lineHeight:1.3}}>{f.title}</div>
+                  <div style={{fontSize:11,color:C.inkLo,lineHeight:1.4}}>{f.sub}</div>
+                </div>
+                <div style={{flexShrink:0,background:C.gold,borderRadius:10,padding:"8px 12px",fontSize:11,fontWeight:700,color:"#0F1923",whiteSpace:"nowrap"}}>{f.label} →</div>
+              </div>
+            </a>
+          ))}
+          <div style={{background:"linear-gradient(135deg,#0A1628,#0D1E3A)",borderRadius:18,padding:"16px",border:"1px solid rgba(201,168,76,0.20)",marginTop:8}}>
+            <div style={{display:"flex",gap:12,alignItems:"center"}}>
+              <div style={{fontSize:22,flexShrink:0}}>💬</div>
+              <div style={{flex:1}}>
+                <div style={{fontSize:12,fontWeight:700,color:C.hi,marginBottom:2}}>Not sure which form?</div>
+                <div style={{fontSize:11,color:C.md}}>Contact Ozek Law for a free consultation</div>
+              </div>
+              <a href="https://wa.me/12023047872?text=Hello%2C+I+need+help+choosing+the+right+immigration+form." target="_blank" rel="noreferrer" style={{textDecoration:"none",flexShrink:0}}>
+                <div style={{background:"#25D366",borderRadius:10,padding:"8px 12px",fontSize:11,fontWeight:700,color:"#FFF"}}>WhatsApp</div>
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
+
+            {uscisTab==="tools"&&(
         <div style={{padding:"20px 18px 100px"}}>
           {TOOL_GROUPS.map(g=>(
             <div key={g.label} style={{marginBottom:22}}>
@@ -809,6 +888,34 @@ function USCISPage({t,lang}){
               </div>
             );
           })()}
+        </div>
+      )}
+      {uscisTab==="forms"&&(
+        <div style={{padding:"20px 18px 100px"}}>
+          <div style={{background:"rgba(201,168,76,0.09)",border:"1px solid rgba(201,168,76,0.22)",borderRadius:18,padding:"14px 16px",marginBottom:18}}>
+            <div style={{fontSize:12,fontWeight:700,color:C.goldDim,marginBottom:3}}>📋 Ozek Law Intake Forms</div>
+            <div style={{fontSize:11,color:C.inkLo,lineHeight:1.5}}>Click any form below to begin filling out your eligibility or intake information. Your responses go directly to our attorneys.</div>
+          </div>
+          {[
+            {icon:"🛂",cat:"Work Visa",title:"H-1B / H-2B Information Collection",subtitle:"H1B Information Collection Form 2026",color:"rgba(10,132,255,0.10)",border:"rgba(10,132,255,0.25)",url:"https://forms.office.com/Pages/ResponsePage.aspx?id=mXlhsannUkKIpbtUrWr3Is1VPcvPntZGo6DpXwlpdRVUM05HMU4yMUpLWkYyTTQyQzVMV1c2UTZONCQlQCN0PWcu"},
+            {icon:"🌟",cat:"Extraordinary Ability",title:"O-1 Visa Eligibility Screening",subtitle:"O-1 Visa Eligibility Screening Form",color:"rgba(191,90,242,0.10)",border:"rgba(191,90,242,0.28)",url:"https://forms.office.com/Pages/ResponsePage.aspx?id=mXlhsannUkKIpbtUrWr3Is1VPcvPntZGo6DpXwlpdRVUNjhLQ1VJNllDMllDUTRWNlYyRjBFUkhJUCQlQCN0PWcu"},
+            {icon:"💼",cat:"Investor Visa",title:"E-1 / E-2 Investor Visa Information",subtitle:"E2/E1 Yatırımcı Vizesi Bilgi Toplama Formu",color:"rgba(48,209,88,0.10)",border:"rgba(48,209,88,0.28)",url:"https://forms.office.com/Pages/ResponsePage.aspx?id=mXlhsannUkKIpbtUrWr3Is1VPcvPntZGo6DpXwlpdRVUOEJNVFZaS0M2TERQNTdVOFlaUVZKSjA2NCQlQCN0PWcu"},
+            {icon:"🏆",cat:"Exceptional Ability",title:"EB-1 Eligibility Review",subtitle:"EB1 Uygunluk İnceleme Formu",color:"rgba(255,214,10,0.10)",border:"rgba(255,214,10,0.30)",url:"https://forms.office.com/Pages/ResponsePage.aspx?id=mXlhsannUkKIpbtUrWr3Is1VPcvPntZGo6DpXwlpdRVUQVZGMEpFNlRMNFpLWVhGRTVYUjVBNkJQRSQlQCN0PWcu"},
+            {icon:"🎓",cat:"National Interest Waiver",title:"EB-2 NIW Eligibility Review",subtitle:"EB2 NIW Uygunluk İnceleme Formu",color:"rgba(255,214,10,0.10)",border:"rgba(255,214,10,0.30)",url:"https://forms.office.com/Pages/ResponsePage.aspx?id=mXlhsannUkKIpbtUrWr3Is1VPcvPntZGo6DpXwlpdRVUMkZLRFMyMUJKVUwwRjM0TDE2VlFNNVpHNyQlQCN0PWcu"},
+            {icon:"📋",cat:"Employment Green Card",title:"EB-2 / EB-3 PERM Information",subtitle:"EB2/EB3 Information Collection Form | Bilgi Toplama Formu",color:"rgba(10,132,255,0.08)",border:"rgba(10,132,255,0.22)",url:"https://forms.office.com/r/4vx12CKV02"},
+          ].map((f,i)=>(
+            <a key={i} href={f.url} target="_blank" rel="noreferrer" style={{display:"block",textDecoration:"none",marginBottom:12}}>
+              <div style={{background:f.color,border:`1px solid ${f.border}`,borderRadius:18,padding:"16px",display:"flex",gap:14,alignItems:"center"}}>
+                <div style={{width:46,height:46,borderRadius:13,background:"rgba(255,255,255,0.85)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:22,flexShrink:0}}>{f.icon}</div>
+                <div style={{flex:1}}>
+                  <div style={{fontSize:9,letterSpacing:1.5,textTransform:"uppercase",color:C.goldDim,fontWeight:600,marginBottom:3}}>{f.cat}</div>
+                  <div style={{fontSize:13,fontWeight:700,color:C.ink,marginBottom:2}}>{f.title}</div>
+                  <div style={{fontSize:10,color:C.inkLo}}>{f.subtitle}</div>
+                </div>
+                <div style={{flexShrink:0,background:C.gold,borderRadius:10,padding:"7px 12px",fontSize:11,fontWeight:700,color:"#0F1923"}}>Fill Out ↗</div>
+              </div>
+            </a>
+          ))}
         </div>
       )}
     </div>
