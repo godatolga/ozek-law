@@ -662,9 +662,95 @@ function USCISPage({t,lang}){
       )}
       {uscisTab==="map"&&(
         <div style={{padding:"20px 18px 100px"}}>
+          {/* Interactive US Map */}
+          <div style={{background:"linear-gradient(145deg,#0A1628,#0D1E3A)",borderRadius:20,padding:"14px 10px 10px",marginBottom:14,border:"1px solid rgba(201,168,76,0.20)"}}>
+            <div style={{fontSize:11,fontWeight:600,color:C.gold,marginBottom:8,textAlign:"center",letterSpacing:1}}>TAP A STATE</div>
+            <svg viewBox="0 0 960 620" style={{width:"100%",height:"auto"}} xmlns="http://www.w3.org/2000/svg">
+              {[
+                ["AL","M 636,300 L 648,300 L 656,320 L 648,390 L 636,390 L 628,340 Z"],
+                ["AK","M 70,460 L 165,460 L 182,480 L 175,530 L 140,545 L 95,530 L 68,500 Z"],
+                ["AZ","M 178,288 L 264,303 L 272,400 L 216,400 L 180,390 Z"],
+                ["AR","M 580,288 L 640,288 L 640,340 L 578,340 Z"],
+                ["CA","M 108,195 L 168,175 L 178,288 L 145,375 L 108,355 Z"],
+                ["CO","M 310,248 L 430,248 L 428,308 L 308,308 Z"],
+                ["CT","M 826,152 L 852,148 L 852,168 L 826,170 Z"],
+                ["DE","M 832,183 L 848,180 L 852,200 L 832,202 Z"],
+                ["FL","M 650,388 L 720,388 L 740,430 L 728,480 L 706,502 L 680,480 L 658,435 Z"],
+                ["GA","M 648,300 L 710,300 L 718,388 L 650,388 L 640,355 Z"],
+                ["HI","M 230,530 L 330,530 L 330,570 L 230,570 Z"],
+                ["ID","M 186,80 L 268,70 L 272,190 L 232,210 L 186,195 Z"],
+                ["IL","M 580,188 L 620,185 L 622,268 L 578,270 Z"],
+                ["IN","M 620,185 L 658,183 L 660,258 L 618,260 Z"],
+                ["IA","M 520,160 L 586,158 L 580,218 L 518,220 Z"],
+                ["KS","M 430,248 L 558,248 L 554,308 L 428,308 Z"],
+                ["KY","M 648,230 L 754,225 L 758,260 L 646,265 Z"],
+                ["LA","M 560,360 L 640,355 L 645,400 L 608,418 L 565,408 Z"],
+                ["ME","M 880,58 L 916,50 L 928,80 L 908,110 L 875,100 Z"],
+                ["MD","M 776,195 L 830,188 L 835,215 L 780,218 Z"],
+                ["MA","M 832,135 L 888,128 L 892,152 L 828,158 Z"],
+                ["MI","M 638,100 L 698,88 L 704,148 L 668,158 L 636,145 Z"],
+                ["MN","M 516,65 L 596,58 L 598,158 L 514,160 Z"],
+                ["MS","M 596,295 L 640,295 L 636,390 L 594,390 Z"],
+                ["MO","M 546,220 L 650,215 L 652,288 L 544,290 Z"],
+                ["MT","M 200,65 L 420,55 L 422,148 L 198,152 Z"],
+                ["NE","M 424,190 L 552,185 L 550,248 L 422,250 Z"],
+                ["NV","M 142,158 L 206,148 L 215,268 L 178,290 L 140,260 Z"],
+                ["NH","M 858,85 L 878,80 L 882,128 L 854,132 Z"],
+                ["NJ","M 824,168 L 842,163 L 845,200 L 822,202 Z"],
+                ["NM","M 284,308 L 408,308 L 408,398 L 280,400 Z"],
+                ["NY","M 748,110 L 828,98 L 832,138 L 824,170 L 776,175 L 750,155 Z"],
+                ["NC","M 716,255 L 826,245 L 828,278 L 712,280 Z"],
+                ["ND","M 388,65 L 516,58 L 516,125 L 386,128 Z"],
+                ["OH","M 658,165 L 720,160 L 724,230 L 656,235 Z"],
+                ["OK","M 390,308 L 555,305 L 556,360 L 388,362 Z"],
+                ["OR","M 107,112 L 215,100 L 210,185 L 106,192 Z"],
+                ["PA","M 726,148 L 826,138 L 828,180 L 724,185 Z"],
+                ["RI","M 868,148 L 884,145 L 886,165 L 868,167 Z"],
+                ["SC","M 714,280 L 770,275 L 768,315 L 712,318 Z"],
+                ["SD","M 386,128 L 516,122 L 514,190 L 384,192 Z"],
+                ["TN","M 610,260 L 754,255 L 752,288 L 608,292 Z"],
+                ["TX","M 388,362 L 558,360 L 565,410 L 538,480 L 452,500 L 380,455 Z"],
+                ["UT","M 228,210 L 310,205 L 314,308 L 226,310 Z"],
+                ["VT","M 840,80 L 858,78 L 858,128 L 838,130 Z"],
+                ["VA","M 748,218 L 832,212 L 832,248 L 746,252 Z"],
+                ["WA","M 106,60 L 215,55 L 215,105 L 106,112 Z"],
+                ["WV","M 716,195 L 774,190 L 776,228 L 714,232 Z"],
+                ["WI","M 565,95 L 640,88 L 645,165 L 562,168 Z"],
+                ["WY","M 270,152 L 420,145 L 422,248 L 268,250 Z"],
+                ["DC","M 806,212 L 816,210 L 816,222 L 806,222 Z"],
+              ].map(([abbr,path])=>{
+                const sel=selState===abbr;
+                const hasOffice=!!STATE_OFFICES[abbr];
+                return(
+                  <g key={abbr} onClick={()=>setSelState(sel?null:abbr)} style={{cursor:"pointer"}}>
+                    <path d={path}
+                      fill={sel?"#C9A84C":hasOffice?"rgba(201,168,76,0.20)":"rgba(255,255,255,0.07)"}
+                      stroke={sel?"#E8C96A":"rgba(201,168,76,0.35)"}
+                      strokeWidth={sel?"2":"0.8"}
+                      style={{transition:"all 0.15s"}}
+                    />
+                    {["TX","CA","MT","WY","CO","NM","AZ","NV","OR","WA","ID","UT","MN","ND","SD","NE","KS","OK","MO","AR","IA","IL","WI","MI","IN","OH","PA","NY","VA","NC","GA","FL","TN","AL","MS","LA","KY","WV","MD","SC"].includes(abbr)&&(
+                      <text
+                        x={{"TX":468,"CA":138,"MT":308,"WY":342,"CO":368,"NM":340,"AZ":224,"NV":172,"OR":158,"WA":158,"ID":228,"UT":268,"MN":555,"ND":450,"SD":448,"NE":486,"KS":490,"OK":470,"MO":596,"AR":608,"IA":550,"IL":598,"WI":602,"MI":668,"IN":638,"OH":688,"PA":774,"NY":784,"VA":786,"NC":766,"GA":678,"FL":690,"TN":680,"AL":640,"MS":616,"LA":600,"KY":700,"WV":742,"MD":802,"SC":738}[abbr]||0}
+                        y={{"TX":425,"CA":270,"MT":100,"WY":200,"CO":278,"NM":354,"AZ":344,"NV":218,"OR":148,"WA":82,"ID":138,"UT":258,"MN":108,"ND":95,"SD":158,"NE":220,"KS":278,"OK":334,"MO":252,"AR":315,"IA":188,"IL":228,"WI":128,"MI":122,"IN":222,"OH":198,"PA":163,"NY":138,"VA":235,"NC":265,"GA":345,"FL":438,"TN":275,"AL":345,"MS":342,"LA":386,"KY":248,"WV":212,"MD":202,"SC":298}[abbr]||0}
+                        textAnchor="middle" fontSize={sel?"11":"9"}
+                        fill={sel?"#0F1923":"rgba(255,255,255,0.85)"}
+                        fontWeight={sel?"700":"500"}
+                        style={{pointerEvents:"none"}}
+                      >{abbr}</text>
+                    )}
+                  </g>
+                );
+              })}
+              {/* AK & HI labels */}
+              <text x="118" y="495" textAnchor="middle" fontSize="9" fill="rgba(255,255,255,0.7)" style={{pointerEvents:"none"}}>AK</text>
+              <text x="280" y="552" textAnchor="middle" fontSize="9" fill="rgba(255,255,255,0.7)" style={{pointerEvents:"none"}}>HI</text>
+            </svg>
+            {selState&&<div style={{textAlign:"center",fontSize:11,color:C.gold,fontWeight:600,marginTop:2,paddingBottom:4}}>{STATE_NAMES[selState]||selState} selected ✓</div>}
+          </div>
+
           <div style={{background:"#FFFFFF",borderRadius:20,padding:"18px",marginBottom:14,border:"1px solid rgba(0,0,0,0.05)"}}>
-            <div style={{fontSize:13,fontWeight:700,color:C.ink,marginBottom:4}}>Select Your State</div>
-            <div style={{fontSize:11,color:C.inkLo,marginBottom:12}}>Find USCIS offices and immigration courts near you</div>
+            <div style={{fontSize:13,fontWeight:700,color:C.ink,marginBottom:4}}>Or search by state</div>
             <div style={{position:"relative"}}>
               <select value={selState||""} onChange={e=>setSelState(e.target.value||null)} style={{width:"100%",background:"#FFF",border:"1.5px solid rgba(201,168,76,0.30)",borderRadius:13,padding:"13px 36px 13px 14px",color:selState?C.ink:C.inkLo,fontSize:14,outline:"none",cursor:"pointer"}}>
                 <option value="">— Choose a state —</option>
