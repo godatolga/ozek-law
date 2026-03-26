@@ -360,10 +360,10 @@ function PublicHome({setTab,t,lang}){
           </div>
           <div style={{display:"flex",gap:10,marginBottom:32}}>
             <button onClick={()=>window.open("https://outlook.office.com/book/OzeklawTolgaOzekConsultations@NETORGFT7968746.onmicrosoft.com/?ismsaljsauthenabled","_blank")} style={{flex:3,background:C.gold,color:"#0F1923",border:"none",borderRadius:14,padding:"14px 0",fontSize:14,fontWeight:700,cursor:"pointer"}}>{t.scheduleNow} ↗</button>
-            <button onClick={()=>setShowBooking(true)} style={{flex:2,background:"rgba(255,255,255,0.07)",backdropFilter:"blur(12px)",WebkitBackdropFilter:"blur(12px)",color:C.md,border:"1px solid rgba(255,255,255,0.12)",borderRadius:14,padding:"14px 0",fontSize:12,fontWeight:500,cursor:"pointer"}}>📅 Book Slot</button>
+            <button onClick={()=>setShowBooking(true)} style={{flex:2,background:"rgba(255,255,255,0.12)",backdropFilter:"blur(20px) saturate(180%)",WebkitBackdropFilter:"blur(20px) saturate(180%)",color:"rgba(255,255,255,0.90)",border:"1px solid rgba(255,255,255,0.22)",boxShadow:"inset 0 1px 0 rgba(255,255,255,0.14),0 4px 16px rgba(0,0,0,0.15)",borderRadius:14,padding:"14px 0",fontSize:12,fontWeight:500,cursor:"pointer"}}>📅 Book Slot</button>
           </div>
         </div>
-        <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",background:"rgba(255,255,255,0.05)",backdropFilter:"blur(20px)",WebkitBackdropFilter:"blur(20px)",borderTop:"1px solid rgba(255,255,255,0.08)",padding:"14px 0"}}>
+        <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",background:"rgba(255,255,255,0.08)",backdropFilter:"blur(28px) saturate(180%)",WebkitBackdropFilter:"blur(28px) saturate(180%)",borderTop:"1px solid rgba(255,255,255,0.18)",boxShadow:"inset 0 1px 0 rgba(255,255,255,0.12)",padding:"14px 0"}}>
           {[["98%","Approval"],["15+","Years"],["20+","Areas"],["42","Countries"]].map(([n,l],i)=>(
             <div key={l} style={{textAlign:"center",borderRight:i<3?"1px solid rgba(255,255,255,0.07)":"none"}}>
               <div style={{fontSize:20,fontWeight:800,color:C.gold,fontFamily:"'Playfair Display',serif",lineHeight:1}}>{n}</div>
@@ -437,18 +437,18 @@ function NewsPage({t,lang}){
   const dir=LANGS[lang].dir;
   if(newsTab==="regs") return <RegsPage t={t} lang={lang} onBack={()=>setNewsTab("news")}/>;
   const VB_FAM=[
-    {cat:"F1",desc:"Unmarried Sons/Daughters of USCs",final:"01JAN16",file:"01AUG16"},
-    {cat:"F2A",desc:"Spouses & Children of PRs",final:"Current",file:"Current"},
-    {cat:"F2B",desc:"Unmarried Sons/Daughters of PRs",final:"01JAN16",file:"01SEP16"},
-    {cat:"F3",desc:"Married Sons/Daughters of USCs",final:"01JAN08",file:"01JAN08"},
-    {cat:"F4",desc:"Brothers/Sisters of USCs",final:"01MAY05",file:"01MAY05"},
+    {cat:"F1",desc:"Unmarried Adult Children of USCs",final:"01JUL18",file:"01JAN19"},
+    {cat:"F2A",desc:"Spouses & Minor Children of PRs",final:"Current",file:"Current"},
+    {cat:"F2B",desc:"Unmarried Adult Children of PRs",final:"01MAR18",file:"01AUG18"},
+    {cat:"F3",desc:"Married Sons/Daughters of USCs",final:"01MAR13",file:"01AUG13"},
+    {cat:"F4",desc:"Brothers/Sisters of USCs",final:"01MAY09",file:"01NOV09"},
   ];
   const VB_EMP=[
-    {cat:"EB-1",desc:"Priority Workers",final:"Current",file:"Current"},
-    {cat:"EB-2",desc:"Adv. Degree / Exceptional Ability",final:"01JAN22",file:"01JAN22"},
-    {cat:"EB-3",desc:"Skilled Workers & Professionals",final:"01JAN22",file:"01FEB22"},
-    {cat:"EB-4",desc:"Special Immigrants",final:"01MAR20",file:"01MAR20"},
-    {cat:"EB-5",desc:"Immigrant Investors",final:"01JAN19",file:"01JAN19"},
+    {cat:"EB-1",desc:"Priority Workers (China/India: 01APR23)",final:"01APR23*",file:"01DEC23*"},
+    {cat:"EB-2",desc:"Adv. Degree (India: 15JUL14, China: 01SEP21)",final:"Current*",file:"Current*"},
+    {cat:"EB-3",desc:"Skilled Workers (India: 15NOV13, China: 15JUN21)",final:"01JUN24*",file:"Current*"},
+    {cat:"EB-4",desc:"Special Immigrants",final:"01OCT19",file:"01OCT19"},
+    {cat:"EB-5",desc:"Investor Visas (China: 01SEP16)",final:"Current*",file:"Current*"},
   ];
   const VBRow=({r})=>(
     <div style={{background:"#FFFFFF",borderRadius:14,padding:"12px 14px",marginBottom:6,border:"1px solid rgba(0,0,0,0.05)"}}>
@@ -503,7 +503,7 @@ function NewsPage({t,lang}){
           <div style={{background:"linear-gradient(135deg,rgba(201,168,76,0.15),rgba(201,168,76,0.05))",border:"1px solid rgba(201,168,76,0.30)",borderRadius:20,padding:"16px",marginBottom:18}}>
             <div style={{display:"flex",gap:10,alignItems:"center",marginBottom:8}}>
               <div style={{width:36,height:36,borderRadius:10,background:"rgba(201,168,76,0.20)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:18,flexShrink:0}}>📅</div>
-              <div><div style={{fontSize:13,fontWeight:700,color:C.ink}}>April 2026 Visa Bulletin</div><div style={{fontSize:11,color:C.inkLo}}>Adjustment of Status Filing Charts</div></div>
+              <div><div style={{fontSize:13,fontWeight:700,color:C.ink}}>April 2026 Visa Bulletin</div><div style={{fontSize:11,color:C.inkLo}}>Dates for Filing Chart (USCIS authorized)</div></div>
             </div>
             <div style={{fontSize:11,color:C.inkMd,lineHeight:1.5}}>Priority dates show when you can file. <strong style={{color:C.goldDim}}>"Current"</strong> = file now.</div>
           </div>
@@ -512,6 +512,7 @@ function NewsPage({t,lang}){
           <div style={{fontSize:13,fontWeight:700,color:C.ink,margin:"16px 0 10px"}}>Employment-Based</div>
           {VB_EMP.map(r=><VBRow key={r.cat} r={r}/>)}
           <div style={{background:"rgba(10,132,255,0.08)",border:"1px solid rgba(10,132,255,0.20)",borderRadius:16,padding:"14px",marginTop:12}}>
+            <div style={{fontSize:11,color:C.inkLo,marginBottom:10}}>* Dates vary by country. China & India have earlier cutoffs. See USCIS for country-specific dates.</div>
             <div style={{fontSize:12,fontWeight:700,color:C.blue,marginBottom:6}}>📌 When to File</div>
             <div style={{fontSize:11,color:C.inkMd,lineHeight:1.6,marginBottom:10}}>File your I-485 when your priority date is earlier than the "File Date" above. Contact Ozek Law to confirm eligibility.</div>
             <div style={{display:"flex",gap:8}}>
@@ -670,7 +671,7 @@ function USCISPage({t,lang}){
           {/* Interactive US Map */}
           <div style={{background:"linear-gradient(145deg,#0A1628,#0D1E3A)",borderRadius:20,padding:"14px 10px 10px",marginBottom:14,border:"1px solid rgba(201,168,76,0.20)"}}>
             <div style={{fontSize:11,fontWeight:600,color:C.gold,marginBottom:8,textAlign:"center",letterSpacing:1}}>TAP A STATE</div>
-            <svg viewBox="0 0 960 620" style={{width:"100%",height:"auto"}} xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="100 30 780 520" style={{width:"100%",height:"auto"}} xmlns="http://www.w3.org/2000/svg">
               {[
                 ["AL","M 636,300 L 648,300 L 656,320 L 648,390 L 636,390 L 628,340 Z"],
                 ["AK","M 70,460 L 165,460 L 182,480 L 175,530 L 140,545 L 95,530 L 68,500 Z"],
