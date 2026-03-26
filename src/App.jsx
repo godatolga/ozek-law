@@ -612,84 +612,42 @@ function USCISPage({t,lang}){
       </div>
       {uscisTab==="forms"&&(
         <div style={{padding:"20px 18px 100px"}}>
-          <div style={{background:"rgba(201,168,76,0.10)",border:"1px solid rgba(201,168,76,0.25)",borderRadius:18,padding:"14px 16px",marginBottom:20}}>
-            <div style={{fontSize:12,fontWeight:700,color:C.goldDim,marginBottom:4}}>📋 Immigration Intake Forms</div>
-            <div style={{fontSize:11,color:C.inkLo,lineHeight:1.5}}>Click a form below to start your application. Your information will be reviewed by Ozek Law attorneys.</div>
-          </div>
-          {[
-            {
-              icon:"🏢",
-              cat:"H-1B / H-2B",
-              title:"H-1B Information Collection Form 2026",
-              sub:"Specialty Occupation Work Visa",
-              label:"Fill out form",
-              color:"rgba(10,132,255,0.10)",
-              border:"rgba(10,132,255,0.25)",
-              iconBg:"rgba(10,132,255,0.15)",
-              url:"https://ozeklaw.com/h1b-intake",
-            },
-            {
-              icon:"⭐",
-              cat:"O-1",
-              title:"O-1 Visa Eligibility Screening Form",
-              sub:"Extraordinary Ability / Achievement",
-              label:"Fill out form",
-              color:"rgba(191,90,242,0.10)",
-              border:"rgba(191,90,242,0.25)",
-              iconBg:"rgba(191,90,242,0.15)",
-              url:"https://ozeklaw.com/o1-screening",
-            },
-            {
-              icon:"💼",
-              cat:"E-1 / E-2",
-              title:"E-2 / E-1 Investor Visa Information Form",
-              sub:"E2/E1 Yatırımcı Vizesi Bilgi Toplama Formu",
-              label:"Fill out form",
-              color:"rgba(48,209,88,0.10)",
-              border:"rgba(48,209,88,0.25)",
-              iconBg:"rgba(48,209,88,0.15)",
-              url:"https://ozeklaw.com/e1e2-intake",
-            },
-            {
-              icon:"🌿",
-              cat:"EB-2 / EB-3",
-              title:"EB-2 / EB-3 Information Collection Form",
-              sub:"EB2/EB3 Bilgi Toplama Formu",
-              label:"Fill out form",
-              color:"rgba(201,168,76,0.10)",
-              border:"rgba(201,168,76,0.28)",
-              iconBg:"rgba(201,168,76,0.18)",
-              url:"https://ozeklaw.com/eb2eb3-intake",
-            },
-          ].map(f=>(
-            <a key={f.cat} href={f.url} target="_blank" rel="noreferrer" style={{display:"block",textDecoration:"none",marginBottom:12}}>
-              <div style={{background:f.color,border:`1px solid ${f.border}`,borderRadius:20,padding:"16px",display:"flex",gap:14,alignItems:"center"}}>
-                <div style={{width:48,height:48,borderRadius:14,background:f.iconBg,display:"flex",alignItems:"center",justifyContent:"center",fontSize:24,flexShrink:0}}>{f.icon}</div>
-                <div style={{flex:1}}>
-                  <Badge bg={f.iconBg} color={C.ink} small>{f.cat}</Badge>
-                  <div style={{fontSize:13,fontWeight:700,color:C.ink,margin:"5px 0 2px",lineHeight:1.3}}>{f.title}</div>
-                  <div style={{fontSize:11,color:C.inkLo,lineHeight:1.4}}>{f.sub}</div>
-                </div>
-                <div style={{flexShrink:0,background:C.gold,borderRadius:10,padding:"8px 12px",fontSize:11,fontWeight:700,color:"#0F1923",whiteSpace:"nowrap"}}>{f.label} →</div>
-              </div>
-            </a>
-          ))}
-          <div style={{background:"linear-gradient(135deg,#0A1628,#0D1E3A)",borderRadius:18,padding:"16px",border:"1px solid rgba(201,168,76,0.20)",marginTop:8}}>
+
+          <div style={{background:"linear-gradient(135deg,#0A1628,#0D1E3A)",borderRadius:18,padding:"16px",border:"1px solid rgba(201,168,76,0.20)",marginBottom:12}}>
             <div style={{display:"flex",gap:12,alignItems:"center"}}>
               <div style={{fontSize:22,flexShrink:0}}>💬</div>
               <div style={{flex:1}}>
                 <div style={{fontSize:12,fontWeight:700,color:C.hi,marginBottom:2}}>Not sure which form?</div>
                 <div style={{fontSize:11,color:C.md}}>Contact Ozek Law for a free consultation</div>
               </div>
-              <a href="https://wa.me/12023047872?text=Hello%2C+I+need+help+choosing+the+right+immigration+form." target="_blank" rel="noreferrer" style={{textDecoration:"none",flexShrink:0}}>
+              <a href="https://wa.me/12028548545?text=Hello%2C+I+need+help+choosing+the+right+immigration+form." target="_blank" rel="noreferrer" style={{textDecoration:"none",flexShrink:0}}>
                 <div style={{background:"#25D366",borderRadius:10,padding:"8px 12px",fontSize:11,fontWeight:700,color:"#FFF"}}>WhatsApp</div>
               </a>
             </div>
           </div>
+{[
+            {icon:"🛂",cat:"Work Visa",title:"H-1B / H-2B Information Collection",subtitle:"H1B Information Collection Form 2026",color:"rgba(10,132,255,0.10)",border:"rgba(10,132,255,0.25)",url:"https://forms.office.com/Pages/ResponsePage.aspx?id=mXlhsannUkKIpbtUrWr3Is1VPcvPntZGo6DpXwlpdRVUM05HMU4yMUpLWkYyTTQyQzVMV1c2UTZONCQlQCN0PWcu"},
+            {icon:"🌟",cat:"Extraordinary Ability",title:"O-1 Visa Eligibility Screening",subtitle:"O-1 Visa Eligibility Screening Form",color:"rgba(191,90,242,0.10)",border:"rgba(191,90,242,0.28)",url:"https://forms.office.com/Pages/ResponsePage.aspx?id=mXlhsannUkKIpbtUrWr3Is1VPcvPntZGo6DpXwlpdRVUNjhLQ1VJNllDMllDUTRWNlYyRjBFUkhJUCQlQCN0PWcu"},
+            {icon:"💼",cat:"Investor Visa",title:"E-1 / E-2 Investor Visa Information",subtitle:"E2/E1 Yatırımcı Vizesi Bilgi Toplama Formu",color:"rgba(48,209,88,0.10)",border:"rgba(48,209,88,0.28)",url:"https://forms.office.com/Pages/ResponsePage.aspx?id=mXlhsannUkKIpbtUrWr3Is1VPcvPntZGo6DpXwlpdRVUOEJNVFZaS0M2TERQNTdVOFlaUVZKSjA2NCQlQCN0PWcu"},
+            {icon:"🏆",cat:"Exceptional Ability",title:"EB-1 Eligibility Review",subtitle:"EB1 Uygunluk İnceleme Formu",color:"rgba(255,214,10,0.10)",border:"rgba(255,214,10,0.30)",url:"https://forms.office.com/Pages/ResponsePage.aspx?id=mXlhsannUkKIpbtUrWr3Is1VPcvPntZGo6DpXwlpdRVUQVZGMEpFNlRMNFpLWVhGRTVYUjVBNkJQRSQlQCN0PWcu"},
+            {icon:"🎓",cat:"National Interest Waiver",title:"EB-2 NIW Eligibility Review",subtitle:"EB2 NIW Uygunluk İnceleme Formu",color:"rgba(255,214,10,0.10)",border:"rgba(255,214,10,0.30)",url:"https://forms.office.com/Pages/ResponsePage.aspx?id=mXlhsannUkKIpbtUrWr3Is1VPcvPntZGo6DpXwlpdRVUMkZLRFMyMUJKVUwwRjM0TDE2VlFNNVpHNyQlQCN0PWcu"},
+            {icon:"📋",cat:"Employment Green Card",title:"EB-2 / EB-3 PERM Information",subtitle:"EB2/EB3 Information Collection Form | Bilgi Toplama Formu",color:"rgba(10,132,255,0.08)",border:"rgba(10,132,255,0.22)",url:"https://forms.office.com/r/4vx12CKV02"},
+          ].map((f,i)=>(
+            <a key={i} href={f.url} target="_blank" rel="noreferrer" style={{display:"block",textDecoration:"none",marginBottom:12}}>
+              <div style={{background:f.color,border:`1px solid ${f.border}`,borderRadius:18,padding:"16px",display:"flex",gap:14,alignItems:"center"}}>
+                <div style={{width:46,height:46,borderRadius:13,background:"rgba(255,255,255,0.85)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:22,flexShrink:0}}>{f.icon}</div>
+                <div style={{flex:1}}>
+                  <div style={{fontSize:9,letterSpacing:1.5,textTransform:"uppercase",color:C.goldDim,fontWeight:600,marginBottom:3}}>{f.cat}</div>
+                  <div style={{fontSize:13,fontWeight:700,color:C.ink,marginBottom:2}}>{f.title}</div>
+                  <div style={{fontSize:10,color:C.inkLo}}>{f.subtitle}</div>
+                </div>
+                <div style={{flexShrink:0,background:C.gold,borderRadius:10,padding:"7px 12px",fontSize:11,fontWeight:700,color:"#0F1923"}}>Fill Out ↗</div>
+              </div>
+            </a>
+          ))}
         </div>
-      )}
-
-            {uscisTab==="tools"&&(
+      )}}
+      {uscisTab==="tools"&&(
         <div style={{padding:"20px 18px 100px"}}>
           {TOOL_GROUPS.map(g=>(
             <div key={g.label} style={{marginBottom:22}}>
@@ -747,93 +705,18 @@ function USCISPage({t,lang}){
       )}
       {uscisTab==="map"&&(
         <div style={{padding:"20px 18px 100px"}}>
-          {/* Interactive US Map */}
           <div style={{background:"linear-gradient(145deg,#0A1628,#0D1E3A)",borderRadius:20,padding:"14px 10px 10px",marginBottom:14,border:"1px solid rgba(201,168,76,0.20)"}}>
             <div style={{fontSize:11,fontWeight:600,color:C.gold,marginBottom:8,textAlign:"center",letterSpacing:1}}>TAP A STATE</div>
             <svg viewBox="100 30 780 520" style={{width:"100%",height:"auto"}} xmlns="http://www.w3.org/2000/svg">
-              {[
-                ["AL","M 636,300 L 648,300 L 656,320 L 648,390 L 636,390 L 628,340 Z"],
-                ["AK","M 70,460 L 165,460 L 182,480 L 175,530 L 140,545 L 95,530 L 68,500 Z"],
-                ["AZ","M 178,288 L 264,303 L 272,400 L 216,400 L 180,390 Z"],
-                ["AR","M 580,288 L 640,288 L 640,340 L 578,340 Z"],
-                ["CA","M 108,195 L 168,175 L 178,288 L 145,375 L 108,355 Z"],
-                ["CO","M 310,248 L 430,248 L 428,308 L 308,308 Z"],
-                ["CT","M 826,152 L 852,148 L 852,168 L 826,170 Z"],
-                ["DE","M 832,183 L 848,180 L 852,200 L 832,202 Z"],
-                ["FL","M 650,388 L 720,388 L 740,430 L 728,480 L 706,502 L 680,480 L 658,435 Z"],
-                ["GA","M 648,300 L 710,300 L 718,388 L 650,388 L 640,355 Z"],
-                ["HI","M 230,530 L 330,530 L 330,570 L 230,570 Z"],
-                ["ID","M 186,80 L 268,70 L 272,190 L 232,210 L 186,195 Z"],
-                ["IL","M 580,188 L 620,185 L 622,268 L 578,270 Z"],
-                ["IN","M 620,185 L 658,183 L 660,258 L 618,260 Z"],
-                ["IA","M 520,160 L 586,158 L 580,218 L 518,220 Z"],
-                ["KS","M 430,248 L 558,248 L 554,308 L 428,308 Z"],
-                ["KY","M 648,230 L 754,225 L 758,260 L 646,265 Z"],
-                ["LA","M 560,360 L 640,355 L 645,400 L 608,418 L 565,408 Z"],
-                ["ME","M 880,58 L 916,50 L 928,80 L 908,110 L 875,100 Z"],
-                ["MD","M 776,195 L 830,188 L 835,215 L 780,218 Z"],
-                ["MA","M 832,135 L 888,128 L 892,152 L 828,158 Z"],
-                ["MI","M 638,100 L 698,88 L 704,148 L 668,158 L 636,145 Z"],
-                ["MN","M 516,65 L 596,58 L 598,158 L 514,160 Z"],
-                ["MS","M 596,295 L 640,295 L 636,390 L 594,390 Z"],
-                ["MO","M 546,220 L 650,215 L 652,288 L 544,290 Z"],
-                ["MT","M 200,65 L 420,55 L 422,148 L 198,152 Z"],
-                ["NE","M 424,190 L 552,185 L 550,248 L 422,250 Z"],
-                ["NV","M 142,158 L 206,148 L 215,268 L 178,290 L 140,260 Z"],
-                ["NH","M 858,85 L 878,80 L 882,128 L 854,132 Z"],
-                ["NJ","M 824,168 L 842,163 L 845,200 L 822,202 Z"],
-                ["NM","M 284,308 L 408,308 L 408,398 L 280,400 Z"],
-                ["NY","M 748,110 L 828,98 L 832,138 L 824,170 L 776,175 L 750,155 Z"],
-                ["NC","M 716,255 L 826,245 L 828,278 L 712,280 Z"],
-                ["ND","M 388,65 L 516,58 L 516,125 L 386,128 Z"],
-                ["OH","M 658,165 L 720,160 L 724,230 L 656,235 Z"],
-                ["OK","M 390,308 L 555,305 L 556,360 L 388,362 Z"],
-                ["OR","M 107,112 L 215,100 L 210,185 L 106,192 Z"],
-                ["PA","M 726,148 L 826,138 L 828,180 L 724,185 Z"],
-                ["RI","M 868,148 L 884,145 L 886,165 L 868,167 Z"],
-                ["SC","M 714,280 L 770,275 L 768,315 L 712,318 Z"],
-                ["SD","M 386,128 L 516,122 L 514,190 L 384,192 Z"],
-                ["TN","M 610,260 L 754,255 L 752,288 L 608,292 Z"],
-                ["TX","M 388,362 L 558,360 L 565,410 L 538,480 L 452,500 L 380,455 Z"],
-                ["UT","M 228,210 L 310,205 L 314,308 L 226,310 Z"],
-                ["VT","M 840,80 L 858,78 L 858,128 L 838,130 Z"],
-                ["VA","M 748,218 L 832,212 L 832,248 L 746,252 Z"],
-                ["WA","M 106,60 L 215,55 L 215,105 L 106,112 Z"],
-                ["WV","M 716,195 L 774,190 L 776,228 L 714,232 Z"],
-                ["WI","M 565,95 L 640,88 L 645,165 L 562,168 Z"],
-                ["WY","M 270,152 L 420,145 L 422,248 L 268,250 Z"],
-                ["DC","M 806,212 L 816,210 L 816,222 L 806,222 Z"],
-              ].map(([abbr,path])=>{
-                const sel=selState===abbr;
-                const hasOffice=!!STATE_OFFICES[abbr];
-                return(
-                  <g key={abbr} onClick={()=>setSelState(sel?null:abbr)} style={{cursor:"pointer"}}>
-                    <path d={path}
-                      fill={sel?"#C9A84C":hasOffice?"rgba(201,168,76,0.20)":"rgba(255,255,255,0.07)"}
-                      stroke={sel?"#E8C96A":"rgba(201,168,76,0.35)"}
-                      strokeWidth={sel?"2":"0.8"}
-                      style={{transition:"all 0.15s"}}
-                    />
-                    {["TX","CA","MT","WY","CO","NM","AZ","NV","OR","WA","ID","UT","MN","ND","SD","NE","KS","OK","MO","AR","IA","IL","WI","MI","IN","OH","PA","NY","VA","NC","GA","FL","TN","AL","MS","LA","KY","WV","MD","SC"].includes(abbr)&&(
-                      <text
-                        x={{"TX":468,"CA":138,"MT":308,"WY":342,"CO":368,"NM":340,"AZ":224,"NV":172,"OR":158,"WA":158,"ID":228,"UT":268,"MN":555,"ND":450,"SD":448,"NE":486,"KS":490,"OK":470,"MO":596,"AR":608,"IA":550,"IL":598,"WI":602,"MI":668,"IN":638,"OH":688,"PA":774,"NY":784,"VA":786,"NC":766,"GA":678,"FL":690,"TN":680,"AL":640,"MS":616,"LA":600,"KY":700,"WV":742,"MD":802,"SC":738}[abbr]||0}
-                        y={{"TX":425,"CA":270,"MT":100,"WY":200,"CO":278,"NM":354,"AZ":344,"NV":218,"OR":148,"WA":82,"ID":138,"UT":258,"MN":108,"ND":95,"SD":158,"NE":220,"KS":278,"OK":334,"MO":252,"AR":315,"IA":188,"IL":228,"WI":128,"MI":122,"IN":222,"OH":198,"PA":163,"NY":138,"VA":235,"NC":265,"GA":345,"FL":438,"TN":275,"AL":345,"MS":342,"LA":386,"KY":248,"WV":212,"MD":202,"SC":298}[abbr]||0}
-                        textAnchor="middle" fontSize={sel?"11":"9"}
-                        fill={sel?"#0F1923":"rgba(255,255,255,0.85)"}
-                        fontWeight={sel?"700":"500"}
-                        style={{pointerEvents:"none"}}
-                      >{abbr}</text>
-                    )}
-                  </g>
-                );
+              {[["AL","M 636,300 L 648,300 L 656,320 L 648,390 L 636,390 L 628,340 Z"],["AK","M 70,460 L 165,460 L 182,480 L 175,530 L 140,545 L 95,530 L 68,500 Z"],["AZ","M 178,288 L 264,303 L 272,400 L 216,400 L 180,390 Z"],["AR","M 580,288 L 640,288 L 640,340 L 578,340 Z"],["CA","M 108,195 L 168,175 L 178,288 L 145,375 L 108,355 Z"],["CO","M 310,248 L 430,248 L 428,308 L 308,308 Z"],["CT","M 826,152 L 852,148 L 852,168 L 826,170 Z"],["DE","M 832,183 L 848,180 L 852,200 L 832,202 Z"],["FL","M 650,388 L 720,388 L 740,430 L 728,480 L 706,502 L 680,480 L 658,435 Z"],["GA","M 648,300 L 710,300 L 718,388 L 650,388 L 640,355 Z"],["HI","M 230,530 L 330,530 L 330,570 L 230,570 Z"],["ID","M 186,80 L 268,70 L 272,190 L 232,210 L 186,195 Z"],["IL","M 580,188 L 620,185 L 622,268 L 578,270 Z"],["IN","M 620,185 L 658,183 L 660,258 L 618,260 Z"],["IA","M 520,160 L 586,158 L 580,218 L 518,220 Z"],["KS","M 430,248 L 558,248 L 554,308 L 428,308 Z"],["KY","M 648,230 L 754,225 L 758,260 L 646,265 Z"],["LA","M 560,360 L 640,355 L 645,400 L 608,418 L 565,408 Z"],["ME","M 880,58 L 916,50 L 928,80 L 908,110 L 875,100 Z"],["MD","M 776,195 L 830,188 L 835,215 L 780,218 Z"],["MA","M 832,135 L 888,128 L 892,152 L 828,158 Z"],["MI","M 638,100 L 698,88 L 704,148 L 668,158 L 636,145 Z"],["MN","M 516,65 L 596,58 L 598,158 L 514,160 Z"],["MS","M 596,295 L 640,295 L 636,390 L 594,390 Z"],["MO","M 546,220 L 650,215 L 652,288 L 544,290 Z"],["MT","M 200,65 L 420,55 L 422,148 L 198,152 Z"],["NE","M 424,190 L 552,185 L 550,248 L 422,250 Z"],["NV","M 142,158 L 206,148 L 215,268 L 178,290 L 140,260 Z"],["NH","M 858,85 L 878,80 L 882,128 L 854,132 Z"],["NJ","M 824,168 L 842,163 L 845,200 L 822,202 Z"],["NM","M 284,308 L 408,308 L 408,398 L 280,400 Z"],["NY","M 748,110 L 828,98 L 832,138 L 824,170 L 776,175 L 750,155 Z"],["NC","M 716,255 L 826,245 L 828,278 L 712,280 Z"],["ND","M 388,65 L 516,58 L 516,125 L 386,128 Z"],["OH","M 658,165 L 720,160 L 724,230 L 656,235 Z"],["OK","M 390,308 L 555,305 L 556,360 L 388,362 Z"],["OR","M 107,112 L 215,100 L 210,185 L 106,192 Z"],["PA","M 726,148 L 826,138 L 828,180 L 724,185 Z"],["RI","M 868,148 L 884,145 L 886,165 L 868,167 Z"],["SC","M 714,280 L 770,275 L 768,315 L 712,318 Z"],["SD","M 386,128 L 516,122 L 514,190 L 384,192 Z"],["TN","M 610,260 L 754,255 L 752,288 L 608,292 Z"],["TX","M 388,362 L 558,360 L 565,410 L 538,480 L 452,500 L 380,455 Z"],["UT","M 228,210 L 310,205 L 314,308 L 226,310 Z"],["VT","M 840,80 L 858,78 L 858,128 L 838,130 Z"],["VA","M 748,218 L 832,212 L 832,248 L 746,252 Z"],["WA","M 106,60 L 215,55 L 215,105 L 106,112 Z"],["WV","M 716,195 L 774,190 L 776,228 L 714,232 Z"],["WI","M 565,95 L 640,88 L 645,165 L 562,168 Z"],["WY","M 270,152 L 420,145 L 422,248 L 268,250 Z"],["DC","M 806,212 L 816,210 L 816,222 L 806,222 Z"]].map(([abbr,path])=>{
+                const sel=selState===abbr;const hasOffice=!!STATE_OFFICES[abbr];
+                return(<g key={abbr} onClick={()=>setSelState(sel?null:abbr)} style={{cursor:"pointer"}}><path d={path} fill={sel?"#C9A84C":hasOffice?"rgba(201,168,76,0.20)":"rgba(255,255,255,0.07)"} stroke={sel?"#E8C96A":"rgba(201,168,76,0.35)"} strokeWidth={sel?"2":"0.8"} style={{transition:"all 0.15s"}}/>{["TX","CA","MT","WY","CO","NM","AZ","NV","OR","WA","ID","UT","MN","ND","SD","NE","KS","OK","MO","AR","IA","IL","WI","MI","IN","OH","PA","NY","VA","NC","GA","FL","TN","AL","MS","LA","KY","WV","MD","SC"].includes(abbr)&&(<text x={{"TX":468,"CA":138,"MT":308,"WY":342,"CO":368,"NM":340,"AZ":224,"NV":172,"OR":158,"WA":158,"ID":228,"UT":268,"MN":555,"ND":450,"SD":448,"NE":486,"KS":490,"OK":470,"MO":596,"AR":608,"IA":550,"IL":598,"WI":602,"MI":668,"IN":638,"OH":688,"PA":774,"NY":784,"VA":786,"NC":766,"GA":678,"FL":690,"TN":680,"AL":640,"MS":616,"LA":600,"KY":700,"WV":742,"MD":802,"SC":738}[abbr]||0} y={{"TX":425,"CA":270,"MT":100,"WY":200,"CO":278,"NM":354,"AZ":344,"NV":218,"OR":148,"WA":82,"ID":138,"UT":258,"MN":108,"ND":95,"SD":158,"NE":220,"KS":278,"OK":334,"MO":252,"AR":315,"IA":188,"IL":228,"WI":128,"MI":122,"IN":222,"OH":198,"PA":163,"NY":138,"VA":235,"NC":265,"GA":345,"FL":438,"TN":275,"AL":345,"MS":342,"LA":386,"KY":248,"WV":212,"MD":202,"SC":298}[abbr]||0} textAnchor="middle" fontSize={sel?"11":"9"} fill={sel?"#0F1923":"rgba(255,255,255,0.85)"} fontWeight={sel?"700":"500"} style={{pointerEvents:"none"}}>{abbr}</text>)}</g>);
               })}
-              {/* AK & HI labels */}
               <text x="118" y="495" textAnchor="middle" fontSize="9" fill="rgba(255,255,255,0.7)" style={{pointerEvents:"none"}}>AK</text>
               <text x="280" y="552" textAnchor="middle" fontSize="9" fill="rgba(255,255,255,0.7)" style={{pointerEvents:"none"}}>HI</text>
             </svg>
             {selState&&<div style={{textAlign:"center",fontSize:11,color:C.gold,fontWeight:600,marginTop:2,paddingBottom:4}}>{STATE_NAMES[selState]||selState} selected ✓</div>}
           </div>
-
           <div style={{background:"#FFFFFF",borderRadius:20,padding:"18px",marginBottom:14,border:"1px solid rgba(0,0,0,0.05)"}}>
             <div style={{fontSize:13,fontWeight:700,color:C.ink,marginBottom:4}}>Or search by state</div>
             <div style={{position:"relative"}}>
@@ -844,78 +727,8 @@ function USCISPage({t,lang}){
               <span style={{position:"absolute",right:13,top:"50%",transform:"translateY(-50%)",color:C.gold,pointerEvents:"none",fontSize:12}}>▾</span>
             </div>
           </div>
-          {!selState&&(
-            <div style={{display:"grid",gridTemplateColumns:"repeat(5,1fr)",gap:6,marginBottom:16}}>
-              {["CA","NY","TX","FL","IL","VA","MD","NJ","MA","WA"].map(s=>(
-                <button key={s} onClick={()=>setSelState(s)} style={{padding:"10px 4px",borderRadius:12,background:"linear-gradient(135deg,#0A1628,#0D1E3A)",border:"1px solid rgba(201,168,76,0.20)",color:C.gold,fontSize:11,fontWeight:700,cursor:"pointer"}}>{s}</button>
-              ))}
-            </div>
-          )}
-          {selState&&(()=>{
-            const o=STATE_OFFICES[selState]||DEF_OFFICE;
-            return(
-              <div className="pop-in">
-                <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14}}>
-                  <div style={{fontSize:16,fontWeight:700,color:C.ink}}>{STATE_NAMES[selState]||selState}</div>
-                  <button onClick={()=>setSelState(null)} style={{fontSize:12,color:C.goldDim,fontWeight:600,background:"none",border:"none",cursor:"pointer"}}>← Change</button>
-                </div>
-                <div style={{background:"rgba(10,132,255,0.08)",border:"1px solid rgba(10,132,255,0.22)",borderRadius:18,padding:"16px",marginBottom:12}}>
-                  <div style={{display:"flex",gap:10,alignItems:"flex-start",marginBottom:8}}>
-                    <div style={{width:36,height:36,borderRadius:10,background:"rgba(10,132,255,0.15)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:18,flexShrink:0}}>🏛️</div>
-                    <div><div style={{fontSize:13,fontWeight:700,color:C.ink}}>USCIS Field Office</div><div style={{fontSize:11,color:C.inkLo}}>Local immigration services</div></div>
-                  </div>
-                  <div style={{fontSize:12,color:C.inkMd,lineHeight:1.7,whiteSpace:"pre-line",marginBottom:8}}>{o.uscis}</div>
-                  <a href="https://www.uscis.gov/about-us/find-a-uscis-office/field-offices" target="_blank" rel="noreferrer" style={{textDecoration:"none"}}><div style={{fontSize:11,color:C.blue,fontWeight:600}}>Find all USCIS offices ↗</div></a>
-                </div>
-                <div style={{background:"rgba(191,90,242,0.08)",border:"1px solid rgba(191,90,242,0.22)",borderRadius:18,padding:"16px",marginBottom:12}}>
-                  <div style={{display:"flex",gap:10,alignItems:"flex-start",marginBottom:8}}>
-                    <div style={{width:36,height:36,borderRadius:10,background:"rgba(191,90,242,0.15)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:18,flexShrink:0}}>⚖️</div>
-                    <div><div style={{fontSize:13,fontWeight:700,color:C.ink}}>Immigration Court (EOIR)</div><div style={{fontSize:11,color:C.inkLo}}>Hearings & removal proceedings</div></div>
-                  </div>
-                  <div style={{fontSize:12,color:C.inkMd,lineHeight:1.7,whiteSpace:"pre-line",marginBottom:8}}>{o.court}</div>
-                  <a href="https://www.justice.gov/eoir/eoir-immigration-court-listing" target="_blank" rel="noreferrer" style={{textDecoration:"none"}}><div style={{fontSize:11,color:C.purple,fontWeight:600}}>Find all immigration courts ↗</div></a>
-                </div>
-                <div style={{fontSize:13,fontWeight:700,color:C.ink,margin:"16px 0 10px"}}>Federal Resources</div>
-                {FEDERAL.map(r=>(
-                  <a key={r.title} href={r.url} target="_blank" rel="noreferrer" style={{display:"block",textDecoration:"none",marginBottom:8}}>
-                    <div style={{background:"#FFFFFF",border:"1px solid rgba(0,0,0,0.06)",borderRadius:14,padding:"13px 14px",display:"flex",gap:12,alignItems:"center"}}>
-                      <div style={{fontSize:20,flexShrink:0}}>{r.icon}</div>
-                      <div style={{flex:1}}><div style={{fontSize:12,fontWeight:600,color:C.ink}}>{r.title}</div><div style={{fontSize:11,color:C.inkLo}}>{r.sub}</div></div>
-                      <span style={{color:C.gold,fontSize:14,opacity:0.7}}>↗</span>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            );
-          })()}
-        </div>
-      )}
-      {uscisTab==="forms"&&(
-        <div style={{padding:"20px 18px 100px"}}>
-          <div style={{background:"rgba(201,168,76,0.09)",border:"1px solid rgba(201,168,76,0.22)",borderRadius:18,padding:"14px 16px",marginBottom:18}}>
-            <div style={{fontSize:12,fontWeight:700,color:C.goldDim,marginBottom:3}}>📋 Ozek Law Intake Forms</div>
-            <div style={{fontSize:11,color:C.inkLo,lineHeight:1.5}}>Click any form below to begin filling out your eligibility or intake information. Your responses go directly to our attorneys.</div>
-          </div>
-          {[
-            {icon:"🛂",cat:"Work Visa",title:"H-1B / H-2B Information Collection",subtitle:"H1B Information Collection Form 2026",color:"rgba(10,132,255,0.10)",border:"rgba(10,132,255,0.25)",url:"https://forms.office.com/Pages/ResponsePage.aspx?id=mXlhsannUkKIpbtUrWr3Is1VPcvPntZGo6DpXwlpdRVUM05HMU4yMUpLWkYyTTQyQzVMV1c2UTZONCQlQCN0PWcu"},
-            {icon:"🌟",cat:"Extraordinary Ability",title:"O-1 Visa Eligibility Screening",subtitle:"O-1 Visa Eligibility Screening Form",color:"rgba(191,90,242,0.10)",border:"rgba(191,90,242,0.28)",url:"https://forms.office.com/Pages/ResponsePage.aspx?id=mXlhsannUkKIpbtUrWr3Is1VPcvPntZGo6DpXwlpdRVUNjhLQ1VJNllDMllDUTRWNlYyRjBFUkhJUCQlQCN0PWcu"},
-            {icon:"💼",cat:"Investor Visa",title:"E-1 / E-2 Investor Visa Information",subtitle:"E2/E1 Yatırımcı Vizesi Bilgi Toplama Formu",color:"rgba(48,209,88,0.10)",border:"rgba(48,209,88,0.28)",url:"https://forms.office.com/Pages/ResponsePage.aspx?id=mXlhsannUkKIpbtUrWr3Is1VPcvPntZGo6DpXwlpdRVUOEJNVFZaS0M2TERQNTdVOFlaUVZKSjA2NCQlQCN0PWcu"},
-            {icon:"🏆",cat:"Exceptional Ability",title:"EB-1 Eligibility Review",subtitle:"EB1 Uygunluk İnceleme Formu",color:"rgba(255,214,10,0.10)",border:"rgba(255,214,10,0.30)",url:"https://forms.office.com/Pages/ResponsePage.aspx?id=mXlhsannUkKIpbtUrWr3Is1VPcvPntZGo6DpXwlpdRVUQVZGMEpFNlRMNFpLWVhGRTVYUjVBNkJQRSQlQCN0PWcu"},
-            {icon:"🎓",cat:"National Interest Waiver",title:"EB-2 NIW Eligibility Review",subtitle:"EB2 NIW Uygunluk İnceleme Formu",color:"rgba(255,214,10,0.10)",border:"rgba(255,214,10,0.30)",url:"https://forms.office.com/Pages/ResponsePage.aspx?id=mXlhsannUkKIpbtUrWr3Is1VPcvPntZGo6DpXwlpdRVUMkZLRFMyMUJKVUwwRjM0TDE2VlFNNVpHNyQlQCN0PWcu"},
-            {icon:"📋",cat:"Employment Green Card",title:"EB-2 / EB-3 PERM Information",subtitle:"EB2/EB3 Information Collection Form | Bilgi Toplama Formu",color:"rgba(10,132,255,0.08)",border:"rgba(10,132,255,0.22)",url:"https://forms.office.com/r/4vx12CKV02"},
-          ].map((f,i)=>(
-            <a key={i} href={f.url} target="_blank" rel="noreferrer" style={{display:"block",textDecoration:"none",marginBottom:12}}>
-              <div style={{background:f.color,border:`1px solid ${f.border}`,borderRadius:18,padding:"16px",display:"flex",gap:14,alignItems:"center"}}>
-                <div style={{width:46,height:46,borderRadius:13,background:"rgba(255,255,255,0.85)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:22,flexShrink:0}}>{f.icon}</div>
-                <div style={{flex:1}}>
-                  <div style={{fontSize:9,letterSpacing:1.5,textTransform:"uppercase",color:C.goldDim,fontWeight:600,marginBottom:3}}>{f.cat}</div>
-                  <div style={{fontSize:13,fontWeight:700,color:C.ink,marginBottom:2}}>{f.title}</div>
-                  <div style={{fontSize:10,color:C.inkLo}}>{f.subtitle}</div>
-                </div>
-                <div style={{flexShrink:0,background:C.gold,borderRadius:10,padding:"7px 12px",fontSize:11,fontWeight:700,color:"#0F1923"}}>Fill Out ↗</div>
-              </div>
-            </a>
-          ))}
+          {!selState&&(<div style={{display:"grid",gridTemplateColumns:"repeat(5,1fr)",gap:6,marginBottom:16}}>{["CA","NY","TX","FL","IL","VA","MD","NJ","MA","WA"].map(s=>(<button key={s} onClick={()=>setSelState(s)} style={{padding:"10px 4px",borderRadius:12,background:"linear-gradient(135deg,#0A1628,#0D1E3A)",border:"1px solid rgba(201,168,76,0.20)",color:C.gold,fontSize:11,fontWeight:700,cursor:"pointer"}}>{s}</button>))}</div>)}
+          {selState&&(()=>{const o=STATE_OFFICES[selState]||DEF_OFFICE;return(<div className="pop-in"><div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14}}><div style={{fontSize:16,fontWeight:700,color:C.ink}}>{STATE_NAMES[selState]||selState}</div><button onClick={()=>setSelState(null)} style={{fontSize:12,color:C.goldDim,fontWeight:600,background:"none",border:"none",cursor:"pointer"}}>← Change</button></div><div style={{background:"rgba(10,132,255,0.08)",border:"1px solid rgba(10,132,255,0.22)",borderRadius:18,padding:"16px",marginBottom:12}}><div style={{display:"flex",gap:10,alignItems:"flex-start",marginBottom:8}}><div style={{width:36,height:36,borderRadius:10,background:"rgba(10,132,255,0.15)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:18,flexShrink:0}}>🏛️</div><div><div style={{fontSize:13,fontWeight:700,color:C.ink}}>USCIS Field Office</div><div style={{fontSize:11,color:C.inkLo}}>Local immigration services</div></div></div><div style={{fontSize:12,color:C.inkMd,lineHeight:1.7,whiteSpace:"pre-line",marginBottom:8}}>{o.uscis}</div><a href="https://www.uscis.gov/about-us/find-a-uscis-office/field-offices" target="_blank" rel="noreferrer" style={{textDecoration:"none"}}><div style={{fontSize:11,color:C.blue,fontWeight:600}}>Find all USCIS offices ↗</div></a></div><div style={{background:"rgba(191,90,242,0.08)",border:"1px solid rgba(191,90,242,0.22)",borderRadius:18,padding:"16px",marginBottom:12}}><div style={{display:"flex",gap:10,alignItems:"flex-start",marginBottom:8}}><div style={{width:36,height:36,borderRadius:10,background:"rgba(191,90,242,0.15)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:18,flexShrink:0}}>⚖️</div><div><div style={{fontSize:13,fontWeight:700,color:C.ink}}>Immigration Court (EOIR)</div><div style={{fontSize:11,color:C.inkLo}}>Hearings & removal proceedings</div></div></div><div style={{fontSize:12,color:C.inkMd,lineHeight:1.7,whiteSpace:"pre-line",marginBottom:8}}>{o.court}</div><a href="https://www.justice.gov/eoir/eoir-immigration-court-listing" target="_blank" rel="noreferrer" style={{textDecoration:"none"}}><div style={{fontSize:11,color:C.purple,fontWeight:600}}>Find all immigration courts ↗</div></a></div><div style={{fontSize:13,fontWeight:700,color:C.ink,margin:"16px 0 10px"}}>Federal Resources</div>{FEDERAL.map(r=>(<a key={r.title} href={r.url} target="_blank" rel="noreferrer" style={{display:"block",textDecoration:"none",marginBottom:8}}><div style={{background:"#FFFFFF",border:"1px solid rgba(0,0,0,0.06)",borderRadius:14,padding:"13px 14px",display:"flex",gap:12,alignItems:"center"}}><div style={{fontSize:20,flexShrink:0}}>{r.icon}</div><div style={{flex:1}}><div style={{fontSize:12,fontWeight:600,color:C.ink}}>{r.title}</div><div style={{fontSize:11,color:C.inkLo}}>{r.sub}</div></div><span style={{color:C.gold,fontSize:14,opacity:0.7}}>↗</span></div></a>))}</div>);})()}
         </div>
       )}
     </div>
