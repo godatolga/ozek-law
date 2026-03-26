@@ -646,7 +646,7 @@ function USCISPage({t,lang}){
             </a>
           ))}
         </div>
-      )}}
+      )}
       {uscisTab==="tools"&&(
         <div style={{padding:"20px 18px 100px"}}>
           {TOOL_GROUPS.map(g=>(
