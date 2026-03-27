@@ -618,10 +618,10 @@ function USCISPage({t,lang}){
               <div style={{fontSize:22,flexShrink:0}}>💬</div>
               <div style={{flex:1}}>
                 <div style={{fontSize:12,fontWeight:700,color:C.hi,marginBottom:2}}>Not sure which form?</div>
-                <div style={{fontSize:11,color:C.md}}>Contact Ozek Law for a free consultation</div>
+                <div style={{fontSize:11,color:C.md}}>Contact Ozek Law for a consultation</div>
               </div>
-              <a href="https://wa.me/12028548545?text=Hello%2C+I+need+help+choosing+the+right+immigration+form." target="_blank" rel="noreferrer" style={{textDecoration:"none",flexShrink:0}}>
-                <div style={{background:"#25D366",borderRadius:10,padding:"8px 12px",fontSize:11,fontWeight:700,color:"#FFF"}}>WhatsApp</div>
+              <a href="https://forms.office.com/r/EsAdj00xFP" target="_blank" rel="noreferrer" style={{textDecoration:"none",flexShrink:0}}>
+                <div style={{background:C.gold,borderRadius:10,padding:"8px 12px",fontSize:11,fontWeight:700,color:"#0F1923"}}>Fill Out ↗</div>
               </a>
             </div>
           </div>
@@ -1151,7 +1151,34 @@ function BillingPage({t,lang}){
 
 
 function SplashScreen({onDone}){
-  useEffect(()=>{const t=setTimeout(onDone,2800);return()=>clearTimeout(t);},[]);
+  useEffect(()=>{
+    const t=setTimeout(onDone,2800);
+    // Water drop sound via Web Audio API
+    try{
+      const ctx=new(window.AudioContext||window.webkitAudioContext)();
+      const play=(delay)=>{
+        const osc=ctx.createOscillator();
+        const gain=ctx.createGain();
+        const filter=ctx.createBiquadFilter();
+        filter.type="bandpass";
+        filter.frequency.setValueAtTime(800,ctx.currentTime+delay);
+        filter.frequency.exponentialRampToValueAtTime(200,ctx.currentTime+delay+0.18);
+        filter.Q.value=8;
+        osc.type="sine";
+        osc.frequency.setValueAtTime(900,ctx.currentTime+delay);
+        osc.frequency.exponentialRampToValueAtTime(180,ctx.currentTime+delay+0.22);
+        gain.gain.setValueAtTime(0,ctx.currentTime+delay);
+        gain.gain.linearRampToValueAtTime(0.28,ctx.currentTime+delay+0.01);
+        gain.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+delay+0.28);
+        osc.connect(filter);filter.connect(gain);gain.connect(ctx.destination);
+        osc.start(ctx.currentTime+delay);
+        osc.stop(ctx.currentTime+delay+0.3);
+      };
+      play(0.5);   // first drop
+      play(0.82);  // echo ripple
+    }catch(e){}
+    return()=>clearTimeout(t);
+  },[]);
   const particles=[{l:"38%",t:"45%",dx:"-30px"},{l:"55%",t:"42%",dx:"25px"},{l:"42%",t:"55%",dx:"-15px"},{l:"52%",t:"58%",dx:"20px"},{l:"35%",t:"50%",dx:"-40px"},{l:"62%",t:"48%",dx:"35px"},{l:"46%",t:"38%",dx:"-10px"},{l:"58%",t:"52%",dx:"18px"},{l:"40%",t:"60%",dx:"-22px"},{l:"56%",t:"44%",dx:"28px"},{l:"44%",t:"47%",dx:"-35px"},{l:"60%",t:"55%",dx:"12px"}];
   return(
     <div style={{position:"fixed",inset:0,zIndex:99999,background:"#080F1E",display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",animation:"fogOut 0.5s ease 2.3s both"}}>
