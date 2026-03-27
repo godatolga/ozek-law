@@ -12,7 +12,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 .site-header{background:var(--navy-deep);position:relative;overflow:hidden;}
 .hdr-pattern{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 30px,rgba(184,150,46,.04) 30px,rgba(184,150,46,.04) 31px),repeating-linear-gradient(-45deg,transparent,transparent 30px,rgba(184,150,46,.04) 30px,rgba(184,150,46,.04) 31px);}
 .hdr-inner{position:relative;max-width:960px;margin:0 auto;padding:36px 32px 32px;display:flex;align-items:center;gap:24px;}
-.logo-wrap{flex-shrink:0;height:auto;display:flex;align-items:center;}
+.logo-wrap{flex-shrink:0;height:60px;display:flex;align-items:center;}
 .logo-wrap img{height:60px;width:auto;object-fit:contain;mix-blend-mode:screen;}
 .hdr-text{flex:1;}
 .page-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--white);line-height:1.2;margin-bottom:8px;}
@@ -372,7 +372,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
     <div style="font-size:13px;color:var(--text-muted);margin-bottom:14px;" data-i18n="contactSub">Ozek Law Firm is here to guide you every step of the way.</div>
     <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
       <a href="tel:+12028548545" class="btn btn-primary">&#x1F4DE; +1 (202) 854-8545</a>
-      <a href="/cdn-cgi/l/email-protection#3b52555d547b54415e50575a4c15585456" class="btn btn-gold">&#x2709;&#xFE0F; info&#64;ozeklaw.com</a>
+      <a href="mailto:info@ozeklaw.com" class="btn btn-gold">&#x2709;&#xFE0F; info&#64;ozeklaw.com</a>
     </div>
   </div>
 </div>
@@ -387,7 +387,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ── LANGUAGE DATA ──
 var lang = "en";
 
@@ -803,4 +803,13 @@ function updateScoreboard() {
   var pct = answered > 0 ? Math.round((score.correct/answered)*100)+"%" : "\u2014";
   document.getElementById("sc-correct").textContent = score.correct;
   document.getElementById("sc-incorrect").textContent = score.incorrect;
-  document.getElementById("sc-remaining")
+  document.getElementById("sc-remaining").textContent = remaining;
+  document.getElementById("sc-pct").textContent = pct;
+}
+
+// Init
+renderCard();
+updateStats();
+</script>
+</body>
+</html>
