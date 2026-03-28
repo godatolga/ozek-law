@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employment-Based AOS Interview Prep | Ozek Law Firm</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=EB+Garamond:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B2B4B;--navy-deep:#0F1C35;--navy-mid:#243560;--gold:#B8962E;--gold-light:#D4AF5A;--gold-pale:#F0E0A8;--cream:#F4F1EC;--cream-dark:#E8E3D8;--white:#FFFFFF;--text-dark:#1a1a2e;--text-muted:#7a7a8c;--success:#2e7d52;--success-light:#e8f5ee;--danger:#8b1f1f;--danger-light:#fde8e8;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:"DM Sans",sans-serif;background:var(--cream);color:var(--text-dark);min-height:100vh;overflow-x:hidden;}
+.site-header{background:var(--navy-deep);position:relative;overflow:hidden;}
+.hdr-pattern{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 30px,rgba(184,150,46,.04) 30px,rgba(184,150,46,.04) 31px),repeating-linear-gradient(-45deg,transparent,transparent 30px,rgba(184,150,46,.04) 30px,rgba(184,150,46,.04) 31px);}
+.hdr-inner{position:relative;max-width:960px;margin:0 auto;padding:28px 32px 24px;display:flex;align-items:center;gap:24px;}
+.logo-wrap{flex-shrink:0;height:64px;display:flex;align-items:center;}
+.logo-wrap img{height:64px;width:auto;object-fit:contain;}
+.hdr-text{flex:1;}
+.page-title{font-family:"Playfair Display",serif;font-size:24px;font-weight:700;color:var(--white);line-height:1.2;margin-bottom:6px;}
+.page-subtitle{font-size:12px;font-weight:300;color:rgba(255,255,255,.6);line-height:1.5;}
+.hdr-right{display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0;}
+.hdr-badge{background:rgba(184,150,46,.15);border:1px solid rgba(184,150,46,.4);border-radius:8px;padding:10px 16px;text-align:center;}
+.badge-num{font-family:"Playfair Display",serif;font-size:24px;font-weight:700;color:var(--gold);display:block;line-height:1;}
+.badge-lbl{font-size:10px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:1px;margin-top:3px;display:block;}
+.lang-btn{background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.25);border-radius:8px;padding:7px 14px;cursor:pointer;display:flex;align-items:center;gap:7px;transition:all .2s;color:var(--white);font-family:"DM Sans",sans-serif;font-size:12px;font-weight:600;letter-spacing:.5px;}
+.lang-btn:hover{background:rgba(184,150,46,.2);border-color:var(--gold);}
+.overall-prog{background:var(--navy);padding:10px 32px;display:flex;align-items:center;gap:16px;}
+.prog-label{font-size:12px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:1px;white-space:nowrap;}
+.prog-track{flex:1;height:6px;background:rgba(255,255,255,.1);border-radius:3px;overflow:hidden;}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:3px;transition:width .6s cubic-bezier(.4,0,.2,1);width:0%;}
+.prog-pct{font-size:13px;font-weight:600;color:var(--gold);min-width:36px;text-align:right;}
+.cat-wrap{background:var(--navy-mid);}
+.cat-switcher{max-width:960px;margin:0 auto;padding:10px 32px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.cat-label{font-size:12px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:1px;white-space:nowrap;}
+.cat-pills{display:flex;gap:6px;flex-wrap:wrap;}
+.cat-pill{padding:6px 16px;border-radius:20px;border:1.5px solid rgba(184,150,46,.35);background:transparent;color:rgba(255,255,255,.6);font-family:"DM Sans",sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s;}
+.cat-pill.active{background:var(--gold);border-color:var(--gold);color:var(--white);}
+.cat-pill:not(.active):hover{border-color:var(--gold-light);color:var(--white);}
+.tab-bar{background:var(--white);border-bottom:1px solid var(--cream-dark);display:flex;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.06);}
+.tab-btn{flex:1;padding:15px 10px;border:none;background:transparent;cursor:pointer;font-family:"DM Sans",sans-serif;font-size:12px;font-weight:500;color:var(--text-muted);display:flex;align-items:center;justify-content:center;gap:7px;border-bottom:3px solid transparent;transition:all .25s ease;}
+.tab-btn:hover{color:var(--navy);background:var(--cream);}
+.tab-btn.active{color:var(--navy);border-bottom-color:var(--gold);font-weight:600;background:rgba(184,150,46,.04);}
+.tab-ico{font-size:15px;}
+.tab-badge{background:var(--gold);color:var(--white);font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;min-width:18px;text-align:center;}
+.main{max-width:960px;margin:0 auto;padding:32px 24px 60px;}
+.tab-panel{display:none;animation:fadeUp .35s ease;}
+.tab-panel.active{display:block;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+.sec-hdr{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--cream-dark);gap:16px;flex-wrap:wrap;}
+.sec-title{font-family:"Playfair Display",serif;font-size:24px;font-weight:700;color:var(--navy);}
+.sec-desc{font-size:13px;color:var(--text-muted);margin-top:4px;line-height:1.5;}
+.sec-actions{display:flex;gap:10px;flex-wrap:wrap;}
+.btn{padding:9px 18px;border-radius:6px;font-family:"DM Sans",sans-serif;font-size:13px;font-weight:500;cursor:pointer;border:none;display:inline-flex;align-items:center;gap:6px;transition:all .2s ease;white-space:nowrap;text-decoration:none;}
+.btn-primary{background:var(--navy);color:var(--white);}
+.btn-primary:hover{background:var(--navy-mid);transform:translateY(-1px);}
+.btn-gold{background:var(--gold);color:var(--white);}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-1px);}
+.btn-outline{background:transparent;border:1.5px solid var(--cream-dark);color:var(--text-muted);}
+.btn-outline:hover{border-color:var(--navy);color:var(--navy);}
+.btn-sm{padding:6px 12px;font-size:12px;}
+.cl-group{margin-bottom:28px;}
+.grp-title{font-family:"Playfair Display",serif;font-size:15px;font-weight:600;color:var(--navy);margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+.grp-title::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--cream-dark),transparent);}
+.grp-cnt{font-size:11px;font-weight:600;color:var(--text-muted);background:var(--cream-dark);padding:2px 8px;border-radius:10px;}
+.cl-item{display:flex;align-items:flex-start;gap:14px;padding:13px 16px;background:var(--white);border:1.5px solid var(--cream-dark);border-radius:8px;margin-bottom:8px;cursor:pointer;transition:all .22s ease;position:relative;overflow:hidden;}
+.cl-item::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--cream-dark);transition:background .22s ease;}
+.cl-item:hover{border-color:var(--gold-pale);box-shadow:0 2px 10px rgba(0,0,0,.05);}
+.cl-item.checked{background:var(--success-light);border-color:#a8d8c0;}
+.cl-item.checked::before{background:var(--success);}
+.cl-item.checked .item-text{color:#4a7a5a;text-decoration:line-through;opacity:.7;}
+.cl-item.ifa{background:#fafaf7;}
+.chk-box{width:22px;height:22px;flex-shrink:0;border:2px solid var(--cream-dark);border-radius:5px;display:flex;align-items:center;justify-content:center;transition:all .2s ease;margin-top:1px;background:var(--white);}
+.cl-item.checked .chk-box{background:var(--success);border-color:var(--success);}
+.chkmark{color:var(--white);font-size:13px;opacity:0;transition:opacity .15s ease;font-weight:700;}
+.cl-item.checked .chkmark{opacity:1;}
+.item-body{flex:1;}
+.item-text{font-size:14px;color:var(--text-dark);line-height:1.5;}
+.itag{display:inline-block;font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;text-transform:uppercase;letter-spacing:.5px;margin-top:4px;margin-right:4px;}
+.tag-req{background:#fff3cd;color:#856404;border:1px solid #ffc107;}
+.tag-ifa{background:#e7f3ff;color:#0056b3;border:1px solid #b8d8f5;}
+.tag-orig{background:#f3e8ff;color:#6b21a8;border:1px solid #d8b4fe;}
+.tag-trans{background:#fde8d8;color:#9a3412;border:1px solid #fdba74;}
+.cl-stats{display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap;}
+.stat-card{flex:1;min-width:120px;background:var(--white);border:1.5px solid var(--cream-dark);border-radius:10px;padding:14px 18px;text-align:center;}
+.stat-num{font-family:"Playfair Display",serif;font-size:28px;font-weight:700;color:var(--navy);display:block;line-height:1;}
+.stat-lbl{font-size:11px;color:var(--text-muted);margin-top:4px;text-transform:uppercase;letter-spacing:.5px;}
+.alert{border-radius:10px;padding:16px 20px;display:flex;gap:14px;align-items:flex-start;margin-bottom:20px;font-size:13px;line-height:1.6;}
+.alert.info{background:#e8f3ff;border:1px solid #b8d4f5;color:#1e3a5f;}
+.alert.warn{background:#fff8e1;border:1px solid #ffe082;color:#5d4037;}
+.alert.danger{background:var(--danger-light);border:1px solid #f5b8b8;color:#8b1f1f;}
+.alert-ico{font-size:18px;flex-shrink:0;margin-top:1px;}
+.congrats{text-align:center;padding:40px 20px;display:none;}
+.congrats-emoji{font-size:56px;margin-bottom:12px;}
+.congrats-title{font-family:"Playfair Display",serif;font-size:26px;color:var(--navy);margin-bottom:8px;}
+.congrats-sub{font-size:14px;color:var(--text-muted);}
+.qa-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;}
+.qa-pill{padding:6px 14px;border-radius:20px;font-size:12px;font-weight:500;cursor:pointer;border:1.5px solid var(--cream-dark);background:var(--white);color:var(--text-muted);transition:all .2s;}
+.qa-pill:hover,.qa-pill.active{background:var(--navy);color:var(--white);border-color:var(--navy);}
+.fc-controls{display:flex;align-items:center;gap:12px;margin-bottom:24px;flex-wrap:wrap;}
+.mode-sel{display:flex;gap:4px;background:var(--cream-dark);border-radius:8px;padding:3px;}
+.mode-btn{padding:7px 14px;border-radius:6px;border:none;font-family:"DM Sans",sans-serif;font-size:12px;font-weight:500;cursor:pointer;transition:all .2s;color:var(--text-muted);background:transparent;}
+.mode-btn.active{background:var(--white);color:var(--navy);box-shadow:0 1px 4px rgba(0,0,0,.08);}
+.fc-arena{perspective:1200px;margin-bottom:24px;}
+.fc-wrapper{position:relative;width:100%;max-width:640px;height:310px;margin:0 auto;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.4,0,.2,1);cursor:pointer;}
+.fc-wrapper.flipped{transform:rotateY(180deg);}
+.card-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:28px;text-align:center;}
+.card-front{background:var(--navy);border:2px solid rgba(184,150,46,.3);box-shadow:0 8px 40px rgba(15,28,53,.25);}
+.card-back{background:var(--white);border:2px solid var(--gold-pale);box-shadow:0 8px 40px rgba(184,150,46,.12);transform:rotateY(180deg);}
+.card-lbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;}
+.card-front .card-lbl{color:rgba(184,150,46,.8);}
+.card-back .card-lbl{color:var(--gold);}
+.card-qnum{font-size:11px;color:rgba(255,255,255,.3);margin-bottom:10px;}
+.card-q{font-family:"Playfair Display",serif;font-size:19px;font-weight:600;color:var(--white);line-height:1.4;}
+.card-cat-badge{margin-top:12px;padding:3px 10px;border-radius:12px;font-size:10px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;}
+.card-hint{margin-top:10px;font-size:12px;color:rgba(255,255,255,.4);font-style:italic;}
+.card-a-title{font-size:12px;color:var(--text-muted);margin-bottom:8px;font-weight:500;}
+.card-a{font-family:"EB Garamond",serif;font-size:15px;color:var(--text-dark);line-height:1.6;}
+.card-tip{margin-top:12px;font-size:12px;color:var(--text-muted);background:var(--cream);padding:8px 14px;border-radius:6px;border-left:3px solid var(--gold);text-align:left;width:100%;}
+.card-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:20px;}
+.nav-btn{width:44px;height:44px;border-radius:50%;border:2px solid var(--cream-dark);background:var(--white);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s ease;color:var(--navy);}
+.nav-btn:hover{border-color:var(--navy);background:var(--navy);color:var(--white);transform:scale(1.08);}
+.nav-btn:disabled{opacity:.3;cursor:not-allowed;}
+.card-ctr{font-size:13px;font-weight:500;color:var(--text-muted);min-width:70px;text-align:center;}
+.score-row{display:flex;gap:10px;justify-content:center;margin-bottom:24px;flex-wrap:wrap;}
+.score-btn{padding:10px 24px;border-radius:8px;border:none;font-family:"DM Sans",sans-serif;font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px;transition:all .2s;}
+.score-yes{background:var(--success-light);color:var(--success);border:2px solid #a8d8c0;}
+.score-yes:hover{background:var(--success);color:var(--white);transform:translateY(-2px);}
+.score-no{background:var(--danger-light);color:var(--danger);border:2px solid #f5b8b8;}
+.score-no:hover{background:var(--danger);color:var(--white);transform:translateY(-2px);}
+.scoreboard{background:var(--white);border:1.5px solid var(--cream-dark);border-radius:12px;padding:20px 24px;display:flex;gap:20px;align-items:center;flex-wrap:wrap;}
+.sb-item{text-align:center;flex:1;min-width:80px;}
+.sb-val{font-family:"Playfair Display",serif;font-size:30px;font-weight:700;display:block;}
+.sb-val.c{color:var(--success);}.sb-val.i{color:var(--danger);}.sb-val.r{color:var(--gold);}.sb-val.p{color:var(--navy);}
+.sb-lbl{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;}
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:28px;}
+.tip-card{background:var(--white);border:1.5px solid var(--cream-dark);border-radius:12px;padding:22px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s;}
+.tip-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.08);}
+.tip-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;}
+.tip-card.gold::before{background:linear-gradient(90deg,var(--gold),var(--gold-light));}
+.tip-card.navy::before{background:linear-gradient(90deg,var(--navy),var(--navy-mid));}
+.tip-card.green::before{background:linear-gradient(90deg,#2e7d52,#4caf50);}
+.tip-card.red::before{background:linear-gradient(90deg,#8b1f1f,#c62828);}
+.tip-ico{font-size:28px;margin-bottom:12px;display:block;}
+.tip-title{font-family:"Playfair Display",serif;font-size:16px;font-weight:600;color:var(--navy);margin-bottom:8px;}
+.tip-body{font-size:13px;color:var(--text-muted);line-height:1.65;}
+.legal-req-box{background:var(--navy);border-radius:12px;padding:24px 28px;margin-bottom:24px;}
+.legal-req-title{font-family:"Playfair Display",serif;font-size:17px;color:var(--gold);margin-bottom:16px;}
+.legal-req-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;}
+.legal-req-item{display:flex;gap:10px;align-items:flex-start;}
+.req-num{background:rgba(184,150,46,.15);border-radius:50%;width:28px;height:28px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:700;font-size:12px;}
+.req-text{color:rgba(255,255,255,.75);font-size:12px;line-height:1.5;}
+.req-text strong{color:var(--white);}
+.confetti-piece{position:fixed;width:8px;height:12px;border-radius:2px;animation:cffall 2.5s ease-in forwards;pointer-events:none;z-index:9999;}
+@keyframes cffall{0%{opacity:1;transform:translateY(-20px) rotate(0deg);}100%{opacity:0;transform:translateY(100vh) rotate(720deg);}}
+@media(max-width:600px){.hdr-inner{padding:12px 14px 10px;gap:10px;}.logo-wrap img{height:48px;}.page-title{font-size:16px;}.hdr-badge{display:none;}.tab-txt{display:none;}.fc-wrapper{height:260px;}.card-q{font-size:16px;}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="hdr-pattern"></div>
+  <div class="hdr-inner">
+    <div class="logo-wrap"><img src="https://ozeklaw.com/wp-content/uploads/2026/03/Ozek-Law-Firm-Logo-white-transparent.png" alt="Ozek Law Firm"></div>
+    <div class="hdr-text">
+      <h1 class="page-title" id="hdr-title">Employment-Based Adjustment of Status<br>Interview Preparation Guide</h1>
+      <p class="page-subtitle" id="hdr-sub">Form I-485 &middot; Document checklist &middot; Practice Q&amp;A &middot; Interview strategy<br><span style="color:rgba(184,150,46,.7);font-size:11px;">Tel: +1 (202) 854-8545 &nbsp;&middot;&nbsp; ozeklaw.com</span></p>
+    </div>
+    <div class="hdr-right">
+      <div class="hdr-badge"><span class="badge-num" id="badge-num">0</span><span class="badge-lbl" id="badge-lbl">Prepared</span></div>
+      <button class="lang-btn" id="lang-btn"><span id="lang-flag">&#x1F1F9;&#x1F1F7;</span><span id="lang-label">T&uuml;rk&ccedil;e</span></button>
+    </div>
+  </div>
+  <div class="overall-prog">
+    <span class="prog-label" id="prog-label">Interview Readiness</span>
+    <div class="prog-track"><div class="prog-fill" id="overall-fill"></div></div>
+    <span class="prog-pct" id="overall-pct">0%</span>
+  </div>
+</header>
+
+<div class="cat-wrap">
+  <div class="cat-switcher">
+    <span class="cat-label" id="cat-label">Petition Category:</span>
+    <div class="cat-pills">
+      <button class="cat-pill active" id="cat-all">All Categories</button>
+      <button class="cat-pill" id="cat-self">EB-1A / EB-2 NIW</button>
+      <button class="cat-pill" id="cat-eb1b">EB-1B / EB-1C</button>
+      <button class="cat-pill" id="cat-perm">EB-2 / EB-3 PERM</button>
+      <button class="cat-pill" id="cat-eb5">EB-5 Investor</button>
+    </div>
+  </div>
+</div>
+
+<nav class="tab-bar">
+  <button class="tab-btn active" id="tbtn-docs"><span class="tab-ico">&#x1F4CB;</span><span class="tab-txt" id="tt1">Documents</span><span class="tab-badge" id="docs-badge">0</span></button>
+  <button class="tab-btn" id="tbtn-legal"><span class="tab-ico">&#x2696;&#xFE0F;</span><span class="tab-txt" id="tt2">Legal Requirements</span></button>
+  <button class="tab-btn" id="tbtn-practice"><span class="tab-ico">&#x1F0CF;</span><span class="tab-txt" id="tt3">Practice Q&amp;A</span></button>
+  <button class="tab-btn" id="tbtn-tips"><span class="tab-ico">&#x1F4A1;</span><span class="tab-txt" id="tt4">Interview Tips</span></button>
+</nav>
+
+<main class="main">
+
+<!-- DOCUMENTS TAB -->
+<div id="tab-docs" class="tab-panel active">
+  <div class="sec-hdr">
+    <div><h2 class="sec-title" id="doc-title">Document Checklist</h2><p class="sec-desc" id="doc-desc">Check off each document as you gather it. Bring originals and one clean copy of each. All non-English documents require a certified English translation.</p></div>
+    <div class="sec-actions"><button class="btn btn-outline btn-sm" id="btn-reset">&#x21BA; Reset</button><button class="btn btn-primary btn-sm" id="btn-print">&#x1F5A8; Print</button></div>
+  </div>
+  <div class="cl-stats">
+    <div class="stat-card"><span class="stat-num" id="stat-checked">0</span><div class="stat-lbl" id="stat-lbl-prep">Prepared</div></div>
+    <div class="stat-card"><span class="stat-num" id="stat-remaining">0</span><div class="stat-lbl" id="stat-lbl-rem">Remaining</div></div>
+    <div class="stat-card"><span class="stat-num" id="stat-pct">0%</span><div class="stat-lbl" id="stat-lbl-comp">Complete</div></div>
+  </div>
+  <div class="alert info"><span class="alert-ico">&#x2139;&#xFE0F;</span><div id="doc-alert">Bring <strong>originals + one photocopy</strong> of every document. Do not assume USCIS has your originals. Organize in a tabbed folder so you can find any document within seconds. Items marked <span class="itag tag-ifa" style="display:inline">If Applicable</span> may not apply to your case.</div></div>
+
+  <!-- Group 1: Core -->
+  <div class="cl-group">
+    <div class="grp-title"><span id="g1-title">&#x1F4C4; Interview &amp; Identity Documents</span><span class="grp-cnt" id="g1-cnt">0/7</span></div>
+    <div class="cl-item" data-group="1"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d1_1">USCIS Interview Appointment Notice (Form I-797C)</div><span class="itag tag-req">Required</span></div></div>
+    <div class="cl-item" data-group="1"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d1_2">All passports — current (valid) AND all expired passports</div><span class="itag tag-req">Required</span><span class="itag tag-orig">Originals</span></div></div>
+    <div class="cl-item" data-group="1"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d1_3">Form I-94 printout — retrieve at cbp.dhs.gov/I94 (most recent entry)</div><span class="itag tag-req">Required</span></div></div>
+    <div class="cl-item ifa" data-group="1"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d1_4">EAD (Employment Authorization Document) card, if issued</div><span class="itag tag-ifa">If Issued</span></div></div>
+    <div class="cl-item ifa" data-group="1"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d1_5">Advance Parole document or I-131 approval notice, if applicable</div><span class="itag tag-ifa">If Issued</span></div></div>
+    <div class="cl-item" data-group="1"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d1_6">Driver's license or state-issued government photo ID</div><span class="itag tag-req">Required</span></div></div>
+    <div class="cl-item ifa" data-group="1"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d1_7">Any prior USCIS approval notices (I-797) for past petitions or applications</div><span class="itag tag-ifa">If Applicable</span></div></div>
+  </div>
+
+  <!-- Group 2: I-485 -->
+  <div class="cl-group">
+    <div class="grp-title"><span id="g2-title">&#x1F4DD; I-485 Application Materials</span><span class="grp-cnt" id="g2-cnt">0/5</span></div>
+    <div class="cl-item" data-group="2"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d2_1">Copy of the filed I-485 and all supplements/attachments</div><span class="itag tag-req">Required</span></div></div>
+    <div class="cl-item" data-group="2"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d2_2">I-485 receipt notice (Form I-797C)</div><span class="itag tag-req">Required</span></div></div>
+    <div class="cl-item ifa" data-group="2"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d2_3">All I-485 RFE responses filed (with USCIS receipt confirmation), if any</div><span class="itag tag-ifa">If Applicable</span></div></div>
+    <div class="cl-item" data-group="2"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d2_4">Form I-693 Medical Examination — in original sealed envelope from the civil surgeon. Do NOT open it.</div><span class="itag tag-req">Required</span></div></div>
+    <div class="cl-item ifa" data-group="2"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d2_5">Form I-864 Affidavit of Support (if specifically requested by USCIS for your case)</div><span class="itag tag-ifa">If Requested</span></div></div>
+  </div>
+
+  <!-- Group 3: I-140 -->
+  <div class="cl-group">
+    <div class="grp-title"><span id="g3-title">&#x2B50; I-140 Petition &amp; Priority Date</span><span class="grp-cnt" id="g3-cnt">0/5</span></div>
+    <div class="cl-item" data-group="3"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d3_1">I-140 approval notice (Form I-797) — the original approval</div><span class="itag tag-req">Required</span></div></div>
+    <div class="cl-item" data-group="3"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d3_2">Copy of the filed I-140 petition and all supporting materials</div><span class="itag tag-req">Required</span></div></div>
+    <div class="cl-item ifa" data-group="3"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d3_3">I-140 RFE and the response filed, if any</div><span class="itag tag-ifa">If Applicable</span></div></div>
+    <div class="cl-item ifa" data-group="3"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d3_4">PERM labor certification approval (ETA-9089) — for EB-2/EB-3 employer-sponsored cases</div><span class="itag tag-ifa">EB-2/EB-3 PERM</span></div></div>
+    <div class="cl-item ifa" data-group="3"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d3_5">If priority date was ported from a prior I-140: documentation of both petitions and AC21 portability letter</div><span class="itag tag-ifa">If Porting Priority Date</span></div></div>
+  </div>
+
+  <!-- Group 4: Employment Evidence (filtered by category) -->
+  <div class="cl-group">
+    <div class="grp-title"><span id="g4-title">&#x1F4BC; Employment &amp; Petition Category Evidence</span><span class="grp-cnt" id="g4-cnt">0/6</span></div>
+    <div class="cl-item" data-group="4"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d4_1">Current employment offer letter on company letterhead confirming position, salary, and continued availability</div><span class="itag tag-req">Required</span></div></div>
+    <div class="cl-item" data-group="4"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d4_2">Most recent 2-3 pay stubs (if currently employed by the sponsoring employer)</div><span class="itag tag-req">Required</span></div></div>
+    <div class="cl-item" data-group="4"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d4_3">Most recent 2 years of federal tax returns (IRS Form 1040) with W-2s</div><span class="itag tag-req">Required</span></div></div>
+    <div class="cl-item ifa" data-group="4" id="d4_4-row"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d4_4">EB-1A / EB-2 NIW: Updated CV, recent awards, publications, citations, invitations, and media since petition filing</div><span class="itag tag-ifa">EB-1A / NIW Only</span></div></div>
+    <div class="cl-item ifa" data-group="4" id="d4_5-row"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d4_5">EB-1B / EB-1C: Department letter confirming permanent/tenure-track position or multinational executive role</div><span class="itag tag-ifa">EB-1B / EB-1C Only</span></div></div>
+    <div class="cl-item ifa" data-group="4" id="d4_6-row"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d4_6">EB-5: Investment documentation, proof of job creation, source of funds, regional center documents if applicable</div><span class="itag tag-ifa">EB-5 Only</span></div></div>
+  </div>
+
+  <!-- Group 5: Civil Documents -->
+  <div class="cl-group">
+    <div class="grp-title"><span id="g5-title">&#x1F4C6; Civil Documents</span><span class="grp-cnt" id="g5-cnt">0/5</span></div>
+    <div class="cl-item" data-group="5"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d5_1">Birth certificate with certified English translation</div><span class="itag tag-req">Required</span><span class="itag tag-trans">+ Translation</span></div></div>
+    <div class="cl-item" data-group="5"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d5_2">Marriage certificate (if married), with certified translation if not in English</div><span class="itag tag-req">If Married</span><span class="itag tag-trans">+ Translation</span></div></div>
+    <div class="cl-item ifa" data-group="5"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d5_3">Certified divorce decree(s) for ALL prior marriages, with translations if applicable</div><span class="itag tag-ifa">If Prior Marriages</span></div></div>
+    <div class="cl-item ifa" data-group="5"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d5_4">Name change order/decree, if your legal name differs from your birth certificate</div><span class="itag tag-ifa">If Name Changed</span></div></div>
+    <div class="cl-item ifa" data-group="5"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d5_5">Selective Service registration confirmation (males who entered the U.S. before age 26) — verify at sss.gov/verify</div><span class="itag tag-ifa">If Applicable</span></div></div>
+  </div>
+
+  <!-- Group 6: Criminal -->
+  <div class="cl-group">
+    <div class="grp-title"><span id="g6-title">&#x26A0;&#xFE0F; Criminal &amp; Legal History (Even If Dismissed or Expunged)</span><span class="grp-cnt" id="g6-cnt">0/3</span></div>
+    <div class="cl-item ifa" data-group="6"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d6_1">Certified court disposition for EVERY arrest, charge, or conviction in any jurisdiction or country</div><span class="itag tag-ifa">If Any History</span></div></div>
+    <div class="cl-item ifa" data-group="6"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d6_2">Evidence of completed sentence, probation, community service, or rehabilitation programs</div><span class="itag tag-ifa">If Applicable</span></div></div>
+    <div class="cl-item ifa" data-group="6"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d6_3">Police clearance letters from all countries where you have lived (if requested by USCIS)</div><span class="itag tag-ifa">If Requested</span></div></div>
+  </div>
+
+  <div class="alert danger"><span class="alert-ico">&#x1F6A8;</span><div id="doc-warn">An expungement or sealed record under state law does <strong>NOT</strong> eliminate the conviction for immigration purposes. USCIS requires disclosure of ALL arrests, charges, and convictions — including dismissed cases and those you completed community service for. Failure to disclose is misrepresentation, which is itself a permanent ground of inadmissibility. Bring certified court dispositions for everything.</div></div>
+
+  <div class="congrats" id="congrats"><div class="congrats-emoji">&#x1F389;</div><div class="congrats-title" id="congrats-title">All documents prepared!</div><div class="congrats-sub" id="congrats-sub">You are ready for your USCIS interview. Contact Ozek Law Firm with any last-minute questions.</div></div>
+</div>
+
+<!-- LEGAL TAB -->
+<div id="tab-legal" class="tab-panel">
+  <div class="sec-hdr"><div><h2 class="sec-title" id="legal-title">Legal Requirements &mdash; Know Your Case</h2><p class="sec-desc" id="legal-desc">The USCIS officer will evaluate each element below. Know how you satisfy each one before walking into the interview room.</p></div></div>
+
+  <div class="legal-req-box">
+    <div class="legal-req-title" id="ina245-title">&#x2696;&#xFE0F; INA 245(a) &mdash; General Adjustment of Status Requirements</div>
+    <div class="legal-req-grid">
+      <div class="legal-req-item"><div class="req-num">1</div><div class="req-text"><strong id="r1h">Inspected &amp; Admitted or Paroled</strong><br><span id="r1b">You must have been lawfully admitted or paroled into the United States. Entry without inspection (EWI) generally bars adjustment under 245(a).</span></div></div>
+      <div class="legal-req-item"><div class="req-num">2</div><div class="req-text"><strong id="r2h">Maintained Lawful Status</strong><br><span id="r2b">You must have maintained continuous lawful status since your entry, with limited exceptions under INA 245(k) for employment-based applicants (up to 180 aggregate days of violation).</span></div></div>
+      <div class="legal-req-item"><div class="req-num">3</div><div class="req-text"><strong id="r3h">Eligible for Immigrant Visa</strong><br><span id="r3b">An immigrant visa must be immediately available to you. Your priority date must be current in the Visa Bulletin at the time of filing and at interview.</span></div></div>
+      <div class="legal-req-item"><div class="req-num">4</div><div class="req-text"><strong id="r4h">Approved I-140 Petition</strong><br><span id="r4b">Your I-140 petition must be approved or approvable. For self-petitioners, the petition must remain valid.</span></div></div>
+      <div class="legal-req-item"><div class="req-num">5</div><div class="req-num-inner"></div><div class="req-text"><strong id="r5h">Not Subject to Bars</strong><br><span id="r5b">You must not be subject to grounds of inadmissibility under INA 212(a) that have not been waived. This includes criminal, health-related, security, fraud, and public charge grounds.</span></div></div>
+    </div>
+  </div>
+
+  <div class="tips-grid">
+    <div class="tip-card gold"><span class="tip-ico">&#x1F4C5;</span><div class="tip-title" id="lt1t">The 245(k) Exception</div><div class="tip-body" id="lt1b">If you are an employment-based applicant and had periods out of status, unauthorized work, or status violations, you may still adjust if the aggregate total of those violations does not exceed 180 days. This exception only applies if the violations occurred AFTER your last lawful admission. Know your history — your attorney should have analyzed this.</div></div>
+    <div class="tip-card navy"><span class="tip-ico">&#x1F504;</span><div class="tip-title" id="lt2t">AC21 Portability</div><div class="tip-body" id="lt2b">If your I-485 has been pending 180 days or more, you may change employers or job positions under INA 204(j) (AC21 portability), as long as the new job is in the same or similar occupational classification. Your attorney must have a portability letter on file. Know whether this applies to you.</div></div>
+    <div class="tip-card green"><span class="tip-ico">&#x1F4CB;</span><div class="tip-title" id="lt3t">Study Your Application</div><div class="tip-body" id="lt3b">Re-read your entire I-485, your I-140, and the supporting documents before the interview. The officer's questions come directly from your application. Inconsistent answers — even unintentional — raise red flags.</div></div>
+    <div class="tip-card red"><span class="tip-ico">&#x1F6AB;</span><div class="tip-title" id="lt4t">Bars to Adjustment</div><div class="tip-body" id="lt4b">Certain grounds of inadmissibility are permanent bars — including willful misrepresentation, fraud in a prior immigration proceeding, a prior removal order without a waiver, aggravated felony convictions, and certain controlled substance offenses. If any of these apply, discuss with your attorney before the interview.</div></div>
+  </div>
+
+  <div class="sec-hdr" style="margin-top:32px;"><div><h2 class="sec-title" style="color:var(--danger);" id="oath-title">&#x2696;&#xFE0F; You Will Be Under Oath — What That Means</h2><p class="sec-desc" id="oath-desc">The USCIS officer will place you under oath before asking a single question. Everything you say from that moment is sworn testimony. This has serious legal consequences.</p></div></div>
+  <div class="alert danger"><span class="alert-ico">&#x1F6A8;</span><div id="oath-alert">Lying under oath to a federal officer is a federal crime under 18 U.S.C. 1001 and 18 U.S.C. 1621. It is also an independent ground of inadmissibility under INA 212(a)(6)(C). A single false statement can result in a permanent bar to all immigration benefits — regardless of the underlying merits of your petition. If you believe a question may touch on a sensitive issue in your history, discuss it with your attorney <strong>before the interview</strong>, not during it.</div></div>
+  <div class="tips-grid" style="margin-top:20px;">
+    <div class="tip-card red"><span class="tip-ico">&#x1F4AC;</span><div class="tip-title" id="ot1t">If You Are Unsure of an Answer</div><div class="tip-body" id="ot1b">It is always acceptable to say "I do not remember" or "I would need to check my records." The officer may ask for your best estimate — at which point clarify that you are not certain. An honest uncertainty is far better than a confident incorrect answer.</div></div>
+    <div class="tip-card red"><span class="tip-ico">&#x1F50D;</span><div class="tip-title" id="ot2t">Consistency Is Critical</div><div class="tip-body" id="ot2b">Your oral answers must be consistent with what is in your written application. USCIS officers have your complete file on screen. If you say something different from your application, the officer will note it and it may trigger an RFE, a NOID, or denial.</div></div>
+    <div class="tip-card red"><span class="tip-ico">&#x1F4C4;</span><div class="tip-title" id="ot3t">If Your Application Has an Error</div><div class="tip-body" id="ot3b">Do NOT lie at the interview to match a mistake in your application. The interview is the correct time to correct an error. Tell the officer: "I need to correct an answer on my application." Your attorney should be notified of any errors before the interview date.</div></div>
+    <div class="tip-card red"><span class="tip-ico">&#x260E;&#xFE0F;</span><div class="tip-title" id="ot4t">After the Interview</div><div class="tip-body" id="ot4b">Write down everything immediately after leaving. If the officer issues an RFE, NOID, or requests additional evidence, contact Ozek Law Firm the same day. Do not respond to any USCIS correspondence without your attorney.</div></div>
+  </div>
+</div>
+
+<!-- PRACTICE Q&A TAB -->
+<div id="tab-practice" class="tab-panel">
+  <div class="sec-hdr"><div><h2 class="sec-title" id="qa-title">Interview Practice Q&amp;A</h2><p class="sec-desc" id="qa-desc">Flip each card to reveal the model answer guidance. Use Quiz Mode to track your readiness score. All questions are under oath — practice until your answers are natural and consistent.</p></div></div>
+  <div class="qa-pills" id="qa-pills">
+    <div class="qa-pill active" id="qcat-all">All Questions</div>
+    <div class="qa-pill" id="qcat-personal">&#x1F464; Personal Info</div>
+    <div class="qa-pill" id="qcat-admission">&#x2708;&#xFE0F; Admission &amp; History</div>
+    <div class="qa-pill" id="qcat-status">&#x1F4C5; Status Maintenance</div>
+    <div class="qa-pill" id="qcat-work">&#x1F4BC; Employment &amp; Work Auth</div>
+    <div class="qa-pill" id="qcat-petition">&#x2B50; Your Petition</div>
+    <div class="qa-pill" id="qcat-criminal">&#x2696;&#xFE0F; Criminal History</div>
+    <div class="qa-pill" id="qcat-medical">&#x1F3E5; Medical &amp; Security</div>
+  </div>
+  <div class="fc-controls">
+    <div class="mode-sel">
+      <button class="mode-btn active" id="mode-study">&#x1F4D6; Study</button>
+      <button class="mode-btn" id="mode-quiz">&#x1F3C6; Quiz</button>
+    </div>
+    <button class="btn btn-outline btn-sm" id="btn-shuffle">&#x1F500; Shuffle</button>
+    <button class="btn btn-outline btn-sm" id="btn-reset-score">&#x21BA; Reset Score</button>
+  </div>
+  <div class="fc-arena">
+    <div class="fc-wrapper" id="flashcard">
+      <div class="card-face card-front">
+        <div class="card-qnum" id="card-qnum">Question 1 of 40</div>
+        <div class="card-lbl" id="card-front-lbl">USCIS Interview Question</div>
+        <div class="card-q" id="card-q">Loading...</div>
+        <div class="card-cat-badge" id="card-cat-badge"></div>
+        <div class="card-hint" id="card-hint">Click card to reveal answer guidance</div>
+      </div>
+      <div class="card-face card-back">
+        <div class="card-lbl" id="card-back-lbl">Model Answer Guidance</div>
+        <div class="card-a-title" id="card-how-to">How to answer:</div>
+        <div class="card-a" id="card-a"></div>
+        <div class="card-tip" id="card-tip"></div>
+      </div>
+    </div>
+  </div>
+  <div class="card-nav">
+    <button class="nav-btn" id="btn-prev">&#x2039;</button>
+    <span class="card-ctr" id="card-ctr">1 / 40</span>
+    <button class="nav-btn" id="btn-next">&#x203A;</button>
+  </div>
+  <div class="score-row" id="score-row" style="display:none;">
+    <button class="score-btn score-yes" id="btn-knew">&#x2713; I knew it!</button>
+    <button class="score-btn score-no" id="btn-practice-more">&#x2717; Need more practice</button>
+  </div>
+  <div class="scoreboard">
+    <div class="sb-item"><span class="sb-val c" id="sc-correct">0</span><div class="sb-lbl" id="sb-correct">Correct</div></div>
+    <div class="sb-item"><span class="sb-val i" id="sc-incorrect">0</span><div class="sb-lbl" id="sb-practice">Practice More</div></div>
+    <div class="sb-item"><span class="sb-val r" id="sc-remaining">40</span><div class="sb-lbl" id="sb-remaining">Remaining</div></div>
+    <div class="sb-item"><span class="sb-val p" id="sc-pct">&mdash;</span><div class="sb-lbl" id="sb-score">Score</div></div>
+  </div>
+</div>
+
+<!-- TIPS TAB -->
+<div id="tab-tips" class="tab-panel">
+  <div class="sec-hdr"><div><h2 class="sec-title" id="tips-title">Interview Tips &amp; Strategy</h2><p class="sec-desc" id="tips-desc">From the desk of Tolga Ozek, Esq. &mdash; what to know before you walk into the USCIS interview room.</p></div></div>
+  <div class="alert warn"><span class="alert-ico">&#x26A0;&#xFE0F;</span><div id="tips-alert"><strong>Important:</strong> Always consult with Ozek Law Firm before your interview. If your attorney will not be present, confirm this arrangement in advance. Call <strong>+1 (202) 854-8545</strong> with any questions.</div></div>
+  <div class="tips-grid">
+    <div class="tip-card gold"><span class="tip-ico">&#x1F91D;</span><div class="tip-title" id="tip1t">Understand Your Attorney's Role</div><div class="tip-body" id="tip1b">Your attorney cannot answer questions for you. The officer will direct all questions to you. Your attorney is there to observe, correct miscommunications, and raise legal objections — not to coach you or signal answers. Do not look to your attorney for cues during the interview.</div></div>
+    <div class="tip-card navy"><span class="tip-ico">&#x1F5E3;&#xFE0F;</span><div class="tip-title" id="tip2t">Answer Only What Is Asked</div><div class="tip-body" id="tip2b">Do not volunteer information that was not requested. Keep your answers concise. If a question can be answered with yes or no, answer with yes or no. Long unprompted answers create additional questions and extend the interview — sometimes into territory that causes problems.</div></div>
+    <div class="tip-card green"><span class="tip-ico">&#x1F4CB;</span><div class="tip-title" id="tip3t">Know Your Application Cold</div><div class="tip-body" id="tip3b">Review your I-485, I-140, and all supporting documents before the interview. The officer is reading from your file in real time. Know what your application says — especially dates, addresses, employer names, and job titles. Inconsistencies between oral answers and the written record are the most common source of problems.</div></div>
+    <div class="tip-card red"><span class="tip-ico">&#x1F6AB;</span><div class="tip-title" id="tip4t">Never Lie to a Federal Officer</div><div class="tip-body" id="tip4b">Misrepresentation to USCIS is a permanent ground of inadmissibility under INA 212(a)(6)(C) and a federal crime. If a sensitive question is anticipated — criminal record, status gap, prior unauthorized work — discuss the answer with your attorney before the interview. There is no such thing as a "small" lie in an immigration interview.</div></div>
+    <div class="tip-card gold"><span class="tip-ico">&#x23F0;</span><div class="tip-title" id="tip5t">Arrive Early &mdash; Know Where You Are Going</div><div class="tip-body" id="tip5b">Arrive 15-20 minutes before your appointment time. Know the exact USCIS office address. Know whether your attorney is meeting you there or attending by phone. Being late can result in your interview being rescheduled — a delay of months. Bring a government-issued photo ID for security screening.</div></div>
+    <div class="tip-card navy"><span class="tip-ico">&#x1F454;</span><div class="tip-title" id="tip6t">Dress Professionally</div><div class="tip-body" id="tip6b">Dress in business casual or better. Do not wear jeans, athletic clothing, t-shirts, or casual footwear. Your appearance sends a message about how seriously you are taking the process. Dress as you would for a professional job interview.</div></div>
+    <div class="tip-card green"><span class="tip-ico">&#x1F4C1;</span><div class="tip-title" id="tip7t">Organize Your Documents</div><div class="tip-body" id="tip7b">Organize your documents in a tabbed folder or binder in the same order as the checklist in this guide. If the officer asks for a specific document, you should be able to find it within seconds. Fumbling through papers creates a poor impression and can raise questions about whether your documents are genuine.</div></div>
+    <div class="tip-card red"><span class="tip-ico">&#x270D;&#xFE0F;</span><div class="tip-title" id="tip8t">Write Everything Down Immediately After</div><div class="tip-body" id="tip8b">The moment you leave the interview room, write down every question that was asked and every answer you gave — especially anything that surprised you. If the officer requested additional documents or expressed any concern, note it precisely. Contact Ozek Law Firm the same day: +1 (202) 854-8545.</div></div>
+  </div>
+  <div style="background:var(--navy);border-radius:14px;padding:28px 32px;margin-bottom:28px;">
+    <div style="font-family:'Playfair Display',serif;font-size:20px;color:var(--gold);margin-bottom:20px;" id="steps-title">What to Expect at the USCIS Office</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:20px;">
+      <div style="display:flex;gap:12px;align-items:flex-start;"><div style="background:rgba(184,150,46,.15);border-radius:50%;width:34px;height:34px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:700;">1</div><div><div style="color:#fff;font-size:13px;font-weight:600;margin-bottom:3px;" id="step1t">Security Screening</div><div style="color:rgba(255,255,255,.55);font-size:12px;line-height:1.5;" id="step1b">Government photo ID required. Electronics and large bags may be restricted. Arrive early to allow for security.</div></div></div>
+      <div style="display:flex;gap:12px;align-items:flex-start;"><div style="background:rgba(184,150,46,.15);border-radius:50%;width:34px;height:34px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:700;">2</div><div><div style="color:#fff;font-size:13px;font-weight:600;margin-bottom:3px;" id="step2t">Check In &amp; Wait</div><div style="color:rgba(255,255,255,.55);font-size:12px;line-height:1.5;" id="step2b">Present your appointment notice at the front desk. Wait in the waiting area. Officers may observe the waiting room.</div></div></div>
+      <div style="display:flex;gap:12px;align-items:flex-start;"><div style="background:rgba(184,150,46,.15);border-radius:50%;width:34px;height:34px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:700;">3</div><div><div style="color:#fff;font-size:13px;font-weight:600;margin-bottom:3px;" id="step3t">The Oath</div><div style="color:rgba(255,255,255,.55);font-size:12px;line-height:1.5;" id="step3b">You will be sworn in before any questions are asked. Everything you say is sworn testimony from this point forward.</div></div></div>
+      <div style="display:flex;gap:12px;align-items:flex-start;"><div style="background:rgba(184,150,46,.15);border-radius:50%;width:34px;height:34px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:700;">4</div><div><div style="color:#fff;font-size:13px;font-weight:600;margin-bottom:3px;" id="step4t">The Interview</div><div style="color:rgba(255,255,255,.55);font-size:12px;line-height:1.5;" id="step4b">Typically 20-60 minutes for employment-based cases. The officer reads from your file and asks questions from it.</div></div></div>
+      <div style="display:flex;gap:12px;align-items:flex-start;"><div style="background:rgba(184,150,46,.15);border-radius:50%;width:34px;height:34px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:700;">5</div><div><div style="color:#fff;font-size:13px;font-weight:600;margin-bottom:3px;" id="step5t">Decision or Pending</div><div style="color:rgba(255,255,255,.55);font-size:12px;line-height:1.5;" id="step5b">Case may be approved on the spot, sent for further processing, or trigger an RFE. An RFE is NOT a denial.</div></div></div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:24px;background:var(--cream-dark);border-radius:12px;">
+    <div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--navy);margin-bottom:6px;" id="contact-title">Questions before your interview?</div>
+    <div style="font-size:13px;color:var(--text-muted);margin-bottom:14px;" id="contact-sub">Ozek Law Firm is here to guide you every step of the way.</div>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+      <a href="tel:+12028548545" class="btn btn-primary">&#x1F4DE; +1 (202) 854-8545</a>
+      <a href="https://ozeklaw.com" target="_blank" class="btn btn-gold">&#x1F310; ozeklaw.com</a>
+    </div>
+  </div>
+</div>
+
+</main>
+<footer style="background:var(--navy-deep);padding:20px 32px;text-align:center;">
+  <div style="font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.5px;line-height:1.8;">
+    Ozek Law Firm, LLC &nbsp;&middot;&nbsp; 2 Wisconsin Cir., Suite 700, Chevy Chase, MD 20815<br>
+    Tolga Ozek, Esq. &nbsp;&middot;&nbsp; EOIR ID: XX895411 &nbsp;&middot;&nbsp; Licensed in NY, MD &amp; D.C.<br>
+    <span style="color:rgba(255,255,255,.2);" id="footer-text">This tool is for client preparation only and does not constitute legal advice. Confidential &mdash; Attorney-Client Privileged. &copy; 2025 Ozek Law Firm, LLC.</span>
+  </div>
+</footer>
+<script>
+var lang = 'en';
+var curCat = 'all';
+var filteredQ = [];
+var curIdx = 0, isFlipped = false, quizMode = false;
+var score = {correct:0, incorrect:0};
+var currentQCat = 'all';
+
+var T = {
+en:{
+  hdrTitle:'Employment-Based Adjustment of Status<br>Interview Preparation Guide',
+  hdrSub:'Form I-485 &middot; Document checklist &middot; Practice Q&amp;A &middot; Interview strategy',
+  badgeLbl:'Prepared', progLabel:'Interview Readiness',
+  catLabel:'Petition Category:',
+  catAll:'All Categories', catSelf:'EB-1A / EB-2 NIW', catEB1B:'EB-1B / EB-1C', catPERM:'EB-2 / EB-3 PERM', catEB5:'EB-5 Investor',
+  tt1:'Documents', tt2:'Legal Requirements', tt3:'Practice Q&amp;A', tt4:'Interview Tips',
+  docTitle:'Document Checklist', docDesc:'Check off each document as you gather it. Bring originals and one clean copy of each. All non-English documents require a certified English translation.',
+  btnReset:'&#x21BA; Reset', btnPrint:'&#x1F5A8; Print',
+  statPrep:'Prepared', statRem:'Remaining', statComp:'Complete',
+  docAlert:'Bring <strong>originals + one photocopy</strong> of every document. Do not assume USCIS has your originals. Organize in a tabbed folder so you can find any document within seconds.',
+  g1:'&#x1F4C4; Interview &amp; Identity Documents', g2:'&#x1F4DD; I-485 Application Materials', g3:'&#x2B50; I-140 Petition &amp; Priority Date',
+  g4:'&#x1F4BC; Employment &amp; Petition Category Evidence', g5:'&#x1F4C6; Civil Documents', g6:'&#x26A0;&#xFE0F; Criminal &amp; Legal History',
+  d1_1:'USCIS Interview Appointment Notice (Form I-797C)',
+  d1_2:'All passports — current (valid) AND all expired passports',
+  d1_3:'Form I-94 printout — retrieve at cbp.dhs.gov/I94 (most recent entry)',
+  d1_4:'EAD (Employment Authorization Document) card, if issued',
+  d1_5:'Advance Parole document or I-131 approval notice, if applicable',
+  d1_6:"Driver's license or state-issued government photo ID",
+  d1_7:'Any prior USCIS approval notices (I-797) for past petitions or applications',
+  d2_1:'Copy of the filed I-485 and all supplements/attachments',
+  d2_2:'I-485 receipt notice (Form I-797C)',
+  d2_3:'All I-485 RFE responses filed (with USCIS receipt confirmation), if any',
+  d2_4:'Form I-693 Medical Examination — in original sealed envelope from the civil surgeon. Do NOT open it.',
+  d2_5:'Form I-864 Affidavit of Support (if specifically requested by USCIS for your case)',
+  d3_1:'I-140 approval notice (Form I-797) — the original approval',
+  d3_2:'Copy of the filed I-140 petition and all supporting materials',
+  d3_3:'I-140 RFE and the response filed, if any',
+  d3_4:'PERM labor certification approval (ETA-9089) — for EB-2/EB-3 employer-sponsored cases',
+  d3_5:'If priority date was ported from a prior I-140: documentation of both petitions and AC21 portability letter',
+  d4_1:'Current employment offer letter on company letterhead confirming position, salary, and continued availability',
+  d4_2:'Most recent 2-3 pay stubs (if currently employed by the sponsoring employer)',
+  d4_3:'Most recent 2 years of federal tax returns (IRS Form 1040) with W-2s',
+  d4_4:'EB-1A / EB-2 NIW: Updated CV, recent awards, publications, citations, invitations, and media since petition filing',
+  d4_5:'EB-1B / EB-1C: Department letter confirming permanent/tenure-track position or multinational executive role',
+  d4_6:'EB-5: Investment documentation, proof of job creation, source of funds, regional center documents if applicable',
+  d5_1:'Birth certificate with certified English translation',
+  d5_2:'Marriage certificate (if married), with certified translation if not in English',
+  d5_3:'Certified divorce decree(s) for ALL prior marriages, with translations if applicable',
+  d5_4:'Name change order/decree, if your legal name differs from your birth certificate',
+  d5_5:'Selective Service registration confirmation (males who entered the U.S. before age 26)',
+  d6_1:'Certified court disposition for EVERY arrest, charge, or conviction in any jurisdiction or country',
+  d6_2:'Evidence of completed sentence, probation, community service, or rehabilitation programs',
+  d6_3:'Police clearance letters from all countries where you have lived (if requested by USCIS)',
+  congratsTitle:'All documents prepared!', congratsSub:'You are ready for your USCIS interview. Contact Ozek Law Firm with any last-minute questions.',
+  docWarn:'An expungement or sealed record under state law does <strong>NOT</strong> eliminate the conviction for immigration purposes. USCIS requires disclosure of ALL arrests, charges, and convictions. Failure to disclose is misrepresentation — itself a permanent ground of inadmissibility.',
+  legalTitle:'Legal Requirements &mdash; Know Your Case', legalDesc:'The USCIS officer will evaluate each element below. Know how you satisfy each one before walking into the interview room.',
+  'ina245-title':'&#x2696;&#xFE0F; INA 245(a) &mdash; General Adjustment of Status Requirements',
+  r1h:'Inspected &amp; Admitted or Paroled', r1b:'You must have been lawfully admitted or paroled into the United States. Entry without inspection (EWI) generally bars adjustment under 245(a).',
+  r2h:'Maintained Lawful Status', r2b:'You must have maintained continuous lawful status since entry, with limited exceptions under INA 245(k) for employment-based applicants (up to 180 aggregate days of violation).',
+  r3h:'Eligible for Immigrant Visa', r3b:'An immigrant visa must be immediately available. Your priority date must be current in the Visa Bulletin at the time of filing and at interview.',
+  r4h:'Approved I-140 Petition', r4b:'Your I-140 petition must be approved or approvable. For self-petitioners, the petition must remain valid.',
+  r5h:'Not Subject to Bars', r5b:'You must not be subject to unwaived grounds of inadmissibility under INA 212(a): criminal, health-related, security, fraud, and public charge grounds.',
+  lt1t:'The 245(k) Exception', lt1b:'If you had periods out of status or unauthorized work, you may still adjust if the aggregate total does not exceed 180 days since your last lawful admission. Know your history.',
+  lt2t:'AC21 Portability', lt2b:'If your I-485 has been pending 180+ days, you may change employers under INA 204(j) if the new job is the same or similar occupational classification. A portability letter must be on file.',
+  lt3t:'Study Your Application', lt3b:'Re-read your I-485, I-140, and all supporting documents. The officer reads from your file in real time. Inconsistencies between oral answers and the written record raise red flags.',
+  lt4t:'Bars to Adjustment', lt4b:'Permanent bars include willful misrepresentation, fraud, prior removal without a waiver, aggravated felony convictions, and controlled substance offenses. Discuss any concerns with your attorney.',
+  'oath-title':'&#x2696;&#xFE0F; You Will Be Under Oath — What That Means',
+  'oath-desc':'The USCIS officer will place you under oath before asking a single question. Everything you say from that moment is sworn testimony with serious legal consequences.',
+  'oath-alert':'Lying under oath to a federal officer is a federal crime under 18 U.S.C. 1001 and 18 U.S.C. 1621. It is also a permanent ground of inadmissibility. A single false statement can permanently bar all immigration benefits. Discuss any sensitive issues with your attorney <strong>before</strong> the interview.',
+  ot1t:'If You Are Unsure of an Answer', ot1b:'"I do not remember" or "I would need to check my records" are always acceptable. The officer may ask for your best estimate — clarify that you are not certain. Honest uncertainty is far better than a wrong confident answer.',
+  ot2t:'Consistency Is Critical', ot2b:'Your oral answers must be consistent with your written application. USCIS officers have your complete file on screen. Inconsistencies raise red flags and can trigger an RFE or denial.',
+  ot3t:'If Your Application Has an Error', ot3b:'Do NOT lie to match a mistake in your application. Tell the officer: "I need to correct an answer on my application." Notify your attorney of any errors before the interview date.',
+  ot4t:'After the Interview', ot4b:'Write down everything immediately. If the officer issues an RFE, NOID, or requests evidence, contact Ozek Law Firm the same day. Do not respond to any USCIS correspondence without your attorney.',
+  qaTitle:'Interview Practice Q&amp;A', qaDesc:'Flip each card to reveal the model answer guidance. Use Quiz Mode to track your readiness score.',
+  qcatAll:'All Questions', qcatPersonal:'&#x1F464; Personal Info', qcatAdmission:'&#x2708;&#xFE0F; Admission &amp; History',
+  qcatStatus:'&#x1F4C5; Status Maintenance', qcatWork:'&#x1F4BC; Employment &amp; Work Auth',
+  qcatPetition:'&#x2B50; Your Petition', qcatCriminal:'&#x2696;&#xFE0F; Criminal History', qcatMedical:'&#x1F3E5; Medical &amp; Security',
+  modeStudy:'&#x1F4D6; Study', modeQuiz:'&#x1F3C6; Quiz', btnShuffle:'&#x1F500; Shuffle', btnResetScore:'&#x21BA; Reset Score',
+  cardFrontLbl:'USCIS Interview Question', cardHint:'Click card to reveal answer guidance', cardBackLbl:'Model Answer Guidance', cardHowTo:'How to answer:',
+  btnKnew:'&#x2713; I knew it!', btnPracticeMore:'&#x2717; Need more practice',
+  sbCorrect:'Correct', sbPractice:'Practice More', sbRemaining:'Remaining', sbScore:'Score',
+  tipsTitle:'Interview Tips &amp; Strategy', tipsDesc:'From the desk of Tolga Ozek, Esq. &mdash; what to know before you walk into the USCIS interview room.',
+  tipsAlert:'<strong>Important:</strong> Always consult with Ozek Law Firm before your interview. Call <strong>+1 (202) 854-8545</strong> with any questions.',
+  tip1t:'Understand Your Attorney\'s Role', tip1b:'Your attorney cannot answer questions for you. The officer directs all questions to you. Your attorney observes, corrects miscommunications, and raises legal objections — not coach you during the interview.',
+  tip2t:'Answer Only What Is Asked', tip2b:'Do not volunteer information. Keep answers concise. Yes or no when appropriate. Long unprompted answers create additional questions and extend the interview into problematic territory.',
+  tip3t:'Know Your Application Cold', tip3b:'Review your I-485, I-140, and all supporting documents before the interview. The officer reads from your file in real time. Inconsistencies between oral answers and the record are the most common source of problems.',
+  tip4t:'Never Lie to a Federal Officer', tip4b:'Misrepresentation to USCIS is a permanent ground of inadmissibility and a federal crime. Discuss any sensitive issue with your attorney before the interview — there is no such thing as a small lie in an immigration interview.',
+  tip5t:'Arrive Early — Know Where You Are Going', tip5b:'Arrive 15-20 minutes before your appointment. Know the exact USCIS office address. Being late can result in the interview being rescheduled — a delay of months.',
+  tip6t:'Dress Professionally', tip6b:'Business casual or better. No jeans, athletic clothing, or t-shirts. Dress as you would for a professional job interview.',
+  tip7t:'Organize Your Documents', tip7b:'Organize documents in a tabbed folder in the same order as the checklist. If the officer asks for a document, find it within seconds. Fumbling creates a poor impression.',
+  tip8t:'Write Everything Down Immediately After', tip8b:'Write down every question and answer the moment you leave the interview room. If the officer requested documents or expressed concern, note it precisely. Call Ozek Law Firm the same day.',
+  stepsTitle:'What to Expect at the USCIS Office',
+  step1t:'Security Screening', step1b:'Government photo ID required. Electronics and large bags may be restricted. Arrive early.',
+  step2t:'Check In &amp; Wait', step2b:'Present your appointment notice at the front desk. Wait in the waiting area.',
+  step3t:'The Oath', step3b:'You will be sworn in before any questions are asked. Everything you say is sworn testimony.',
+  step4t:'The Interview', step4b:'Typically 20-60 minutes. The officer reads from your file and asks questions from it.',
+  step5t:'Decision or Pending', step5b:'Case may be approved on the spot, sent for processing, or trigger an RFE. An RFE is NOT a denial.',
+  contactTitle:'Questions before your interview?', contactSub:'Ozek Law Firm is here to guide you every step of the way.',
+  footerText:'This tool is for client preparation only and does not constitute legal advice. Confidential &mdash; Attorney-Client Privileged. &copy; 2025 Ozek Law Firm, LLC.',
+  tipPrefix:'Attorney Tip:'
+},
+tr:{
+  hdrTitle:'Istihdam Temelli Oturma Izni (I-485)<br>Mulakat Hazirlik Rehberi',
+  hdrSub:'Form I-485 &middot; Belge kontrol listesi &middot; Soru-Cevap pratigi &middot; Mulakat stratejisi',
+  badgeLbl:'Hazir', progLabel:'Mulakat Hazirlik Durumu',
+  catLabel:'Dilekce Kategorisi:',
+  catAll:'Tum Kategoriler', catSelf:'EB-1A / EB-2 NIW', catEB1B:'EB-1B / EB-1C', catPERM:'EB-2 / EB-3 PERM', catEB5:'EB-5 Yatirimci',
+  tt1:'Belgeler', tt2:'Hukuki Gereklilikler', tt3:'Soru-Cevap Pratigi', tt4:'Mulakat Ipuclari',
+  docTitle:'Belge Kontrol Listesi', docDesc:'Her belgeyi hazirladiginizda isaretleyin. Orijinaller ve her belgeden birer fotokopi getirin. Ingilizce olmayan belgeler icin onayli tercume zorunludur.',
+  btnReset:'&#x21BA; Sifirla', btnPrint:'&#x1F5A8; Yazdir',
+  statPrep:'Hazir', statRem:'Eksik', statComp:'Tamamlanan',
+  docAlert:'Her belgeden <strong>orijinal ve birer fotokopi</strong> gotirin. USCIS\'in elinde belgelerinizin oldugunu varsaymayin. Sekmeli klasor kullanin — her belgeyi saniyelerde bulabilmelisiniz.',
+  g1:'&#x1F4C4; Mulakat ve Kimlik Belgeleri', g2:'&#x1F4DD; I-485 Basvuru Materyalleri', g3:'&#x2B50; I-140 Dilekce ve Oncelik Tarihi',
+  g4:'&#x1F4BC; Istihdam ve Dilekce Kaniti', g5:'&#x1F4C6; Nufus Belgeleri', g6:'&#x26A0;&#xFE0F; Adli Gecmis (Silinmis Olsa Dahi)',
+  d1_1:'USCIS Mulakat Randevu Bildirimi (Form I-797C)',
+  d1_2:'Tum pasaportlar — gecerli VE suresi dolmus tum pasaportlar',
+  d1_3:'I-94 ciktisi — cbp.dhs.gov/I94 adresinden alinacak (en son giris)',
+  d1_4:'EAD (Calisma Izin Belgesi) karti, varsa',
+  d1_5:'Advance Parole belgesi veya I-131 onay bildirimi, varsa',
+  d1_6:'Ehliyyet veya devlet tarafindan verilen fotografi resmi kimlik',
+  d1_7:'Onceki USCIS onay bildirimleri (I-797), varsa',
+  d2_1:'Sunulan I-485 formu ve tum eklerin kopyasi',
+  d2_2:'I-485 makbuz bildirimi (Form I-797C)',
+  d2_3:'Sunulan tum I-485 Ek Kanit Talep (RFE) yanıtlari, varsa',
+  d2_4:'Form I-693 Tibbi Muayene — sivil cerrahin muhurlu orijinal zarfinda. ZARFI ACMAYIN.',
+  d2_5:'Form I-864 Destek Taahhutnamesi (yalnizca USCIS tarafindan talep edildiyse)',
+  d3_1:'I-140 onay bildirimi (Form I-797) — orijinal onay belgesi',
+  d3_2:'Sunulan I-140 dilekce ve tum destekleyici materyallerin kopyasi',
+  d3_3:'I-140 RFE ve sunulan yanıt, varsa',
+  d3_4:'PERM is piyasasi sertifikasyonu onayi (ETA-9089) — EB-2/EB-3 ise veren sponsorlu davalar icin',
+  d3_5:'Oncelik tarihi onceki bir I-140\'tan aktarilmissa: her iki dilekce belgesi ve AC21 tasınabilirlik mektubu',
+  d4_1:'Is vereni antetli kagidinda: unvan, maas ve pozisyonun hala mevcut oldugunu onaylayan guncel is teklif mektubu',
+  d4_2:'Son 2-3 aylik maas bordrolari (sponsor is verende calisilyorsa)',
+  d4_3:'Son 2 yilin federal vergi beyannamesi (IRS Form 1040) ve W-2\'ler',
+  d4_4:'EB-1A / EB-2 NIW: Guncel CV, dilekce tarihinden bu yana yeni oduller, yayinlar, alintılar, davetler ve medya haberleri',
+  d4_5:'EB-1B / EB-1C: Surekli/academ kadrolu pozisyonu veya cok uluslu yonetici rolunu teyit eden bolum mektubu',
+  d4_6:'EB-5: Yatirim belgeleri, is yaratimi kaniti, fon kaynaklari, varsa bolgesel merkez belgeleri',
+  d5_1:'Onayli Ingilizce tercumesiyle birlikte nufus cuzdani/dogum belgesi',
+  d5_2:'Evlilik cuzdani (evliyse), Ingilizce degilse onayli tercumesiyle',
+  d5_3:'Tum onceki evlilikler icin kesinlesmis bosanma kararlari, varsa tercumeleriyle',
+  d5_4:'Yasal adiniz dogum belgesinden farkliysa isim degisikligi karari',
+  d5_5:'Mecburi askerlik (Selective Service) tescil belgesi — 26 yas oncesi ABD\'ye giren erkekler icin',
+  d6_1:'Herhangi bir ulke veya yargı cevresi icindeki TUM tutuklanma, suc isnat veya mahkumiyetler icin onaylanmis mahkeme karari',
+  d6_2:'Tamamlanan ceza, denemeli serbest bırakma, toplum hizmeti veya rehabilitasyon belgeleri',
+  d6_3:'Yasadıgınız tum ulkelerden sabika kaydı belgesi (USCIS tarafindan talep edildiyse)',
+  congratsTitle:'Tum belgeler hazir!', congratsSub:'USCIS mulakatiniza hazirsiniz. Son dakika sorularınız icin Ozek Law Firm ile iletisime gecin.',
+  docWarn:'Eyalet hukukundaki bir silme veya gizleme kaydi, goc hukuku acisindan mahkumiyeti <strong>ORTADAN KALDIRMAZ</strong>. USCIS, dusurulen davalar dahil TUM tutuklanma, suc isnat ve mahkumiyetlerin bildirilmesini zorunlu kilar. Bildirge vermemek yaniltma sayilir.',
+  legalTitle:'Hukuki Gereklilikler — Davanizi Bilin', legalDesc:'USCIS memuru asagidaki her unsuru degerlendireccektir. Mulakat odasina girmeden once her birini nasil karsiladigınızı bilin.',
+  'ina245-title':'&#x2696;&#xFE0F; INA 245(a) — Genel Oturma Izni Gereklilikleri',
+  r1h:'Denetimli Giris veya Serbest Bırakma', r1b:'Kanuni yollarla kabul edilmis veya serbest birakilmis olmalisiniz. Denetimsiz giris (EWI) genellikle 245(a) kapsaminda ayarlamayi engeller.',
+  r2h:'Yasali Statusun Korunmasi', r2b:'Giristenjeri sureli yasal statunuzu korumus olmalisiniz; istihdam temelli basvurucular icin INA 245(k) uyarinca toplamda 180 gunus istisnasi vardir.',
+  r3h:'Gocmen Vizeye Hak Kazanma', r3b:'Basvuru ve mulakat aninda bir gocmen vize derhal kullanilabilir olmalidir. Oncelik tarihinizin Vize Bulteninde guncel olmasi gerekir.',
+  r4h:'Onaylı I-140 Dilekce', r4b:'I-140 dilekconizin onaylanmis veya onaylanabilir olmasi gerekir. Kendi adina basvuranlar icin dilekce gecerli olmali.',
+  r5h:'Kabul Engellerine Tabi Olmamak', r5b:'INA 212(a) kapsamindaki feragat edilmemis kabul engellerine tabi olmamalisiniz: cezai, saglik, guvenlik, sahtecilik ve kamu harcamasi engelleri.',
+  lt1t:'245(k) Istisnasi', lt1b:'Statunuzu koruyamamisaniz veya izinsiz calistiysaniz, son yasali kabulunuzden bu yana toplam ihlallerin 180 gunu gecmemesi kosuyyla yine de uyum saglayabilirsiniz.',
+  lt2t:'AC21 Tasınabilirlik', lt2b:'I-485 basvurunuz 180+ gun beklemedeyse, yeni is ayni veya benzer mesleki siniflamadaysa INA 204(j) uyarinca ise verenin degistirebilirsiniz. Bir tasınabilirlik mektubu dosyada olmali.',
+  lt3t:'Basvurunuzu Ezberleyin', lt3b:'I-485, I-140 ve tum destekleyici belgeleri yeniden okuyun. Memur dosyanizi gercek zamanli olarak okuyor. Sozlu yanıtlar ile yazili kayıtlar arasindaki tutarsizliklar suphe uyandırır.',
+  lt4t:'Uyum Engelleri', lt4b:'Kalici engeller: kasitli yaniltma, dolandıricilik, feragat edilmemis onceki sinir disi karari, agirlasmis suctan mahkumiyet ve uyusturucu madde suclari. Her turlu endiseyi avukatinizla tartişin.',
+  'oath-title':'&#x2696;&#xFE0F; Yemin Edersiniz — Bu Ne Anlama Gelir',
+  'oath-desc':'USCIS memuru tek soru sormadan once sizi yemin ettirecektir. O andan itibaren soylediginiz her sey yeminli ifadedir ve ciddi hukuki sonuclari vardir.',
+  'oath-alert':'Federal bir memura yemin altında yalan soylemek 18 U.S.C. 1001 ve 18 U.S.C. 1621 uyarinca federal suctir ve INA 212(a)(6)(C) uyarinca kalici bir kabul engeli teskil eder. Hassas bir konuya dair sorunuzu mulakattan <strong>once</strong> avukatinizla tartışın.',
+  ot1t:'Bir Sorunun Yanitini Bilmiyorsaniz', ot1b:'"Hatirlamiyorum" veya "Kayıtlarıma bakmam gerekiyor" her zaman kabul edilebilir bir yanıttır. Yanlis eminden yanıt vermekten cok daha iyidir.',
+  ot2t:'Tutarlilik Kritiktir', ot2b:'Sozlu yanitlariniz yazili basvurunuzla tutarli olmali. Memur tam dosyanizi ekranda goruyor. Tutarsizliklar RFE veya redde yol acabilir.',
+  ot3t:'Basvurunuzda Hata Varsa', ot3b:'Basvurunuzdaki hatayi esleslemek icin YALAN SOYLEMEYINIZ. Memura soyleyin: "Basvurumdaki bir yaniti duzeltmem gerekiyor." Hatalari mulakattan once avukatiniza bildirin.',
+  ot4t:'Mulakat Sonrasi', ot4b:'Hemen not alin. Memur RFE, NOID veya ek kanit talep ettiyse ayni gun Ozek Law Firm ile iletisime gecin. Hic bir USCIS yazismasına avukatiniz olmadan yanit vermeyin.',
+  qaTitle:'Mulakat Soru-Cevap Pratigi', qaDesc:'Cevabi gormek icin karti cevirin. Test modunu kullanarak hazirlik puaninizi takip edin.',
+  qcatAll:'Tum Sorular', qcatPersonal:'&#x1F464; Kisisel Bilgi', qcatAdmission:'&#x2708;&#xFE0F; Giris ve Gecmis',
+  qcatStatus:'&#x1F4C5; Status Korunmasi', qcatWork:'&#x1F4BC; Istihdam ve Calisma Izni',
+  qcatPetition:'&#x2B50; Dilekconuz', qcatCriminal:'&#x2696;&#xFE0F; Adli Gecmis', qcatMedical:'&#x1F3E5; Saglik ve Guvenlik',
+  modeStudy:'&#x1F4D6; Calisma', modeQuiz:'&#x1F3C6; Test', btnShuffle:'&#x1F500; Karistir', btnResetScore:'&#x21BA; Skoru Sifirla',
+  cardFrontLbl:'USCIS Mulakat Sorusu', cardHint:'Cevabi gormek icin karti tiklayin', cardBackLbl:'Model Cevap Rehberi', cardHowTo:'Nasil cevaplayin:',
+  btnKnew:'&#x2713; Bildim!', btnPracticeMore:'&#x2717; Daha cok pratik gerekiyor',
+  sbCorrect:'Dogru', sbPractice:'Pratik Lazim', sbRemaining:'Kalan', sbScore:'Puan',
+  tipsTitle:'Mulakat Ipuclari ve Stratejisi', tipsDesc:'Tolga Ozek, Esq. masasindan — USCIS mulakat odasına girmeden once bilmeniz gerekenler.',
+  tipsAlert:'<strong>Onemli:</strong> Mulakattan once mutlaka Ozek Law Firm ile gorusun. Tel: <strong>+1 (202) 854-8545</strong>',
+  tip1t:'Avukatinizin Rolunu Anlayin', tip1b:'Avukatiniz sorulari sizin yerinize yanıtlayamaz. Memur tum sorulari size yonlendirir. Avukat gozlemler, yanlis anlasmalari duzeltir ve hukuki itiraz yapar — mulakat sirasinda sizi yonlendiremez.',
+  tip2t:'Yalnizca Sorulan Soruyu Cevaplayin', tip2b:'Istenmeyen bilgi vermeyin. Yanitlarınızı kısa tutun. Evet veya hayir yeterliyse evet veya hayir deyin. Uzun istenmeyen yanıtlar ek sorulara yol acar.',
+  tip3t:'Basvurunuzu Ezberleyin', tip3b:'I-485, I-140 ve tum belgelerinizi mulakattan once yeniden okuyun. Memur dosyanizi gercek zamanli okuyor. Sozlu yanıtlar ile yazılı kayıtlar arasindaki tutarsizliklar ciddi sorunlara yol acar.',
+  tip4t:'Asla Yanlis Bilgi Vermeyin', tip4b:'USCIS\'e yanlis beyanda bulunmak INA 212(a)(6)(C) uyarinca kalici kabul engeli ve federal suctir. Hassas konulari mulakattan once avukatinizla tartışın.',
+  tip5t:'Erken Gidin — Nereye Gideceginizi Bilin', tip5b:'Randevunuzdan 15-20 dakika once orada olun. Tam USCIS adresi bilin. Gec kalmak mulakatin ertelenmesine — aylarca gecikmeye — yol acabilir.',
+  tip6t:'Profesyonel Giyinin', tip6b:'Is gunlugu veya daha resmi kiyafet. Kot, sporlu kiyafet veya tisort giymeyiniz. Profesyonel bir is goresmesine gider gibi giyinin.',
+  tip7t:'Belgelerinizi Duzenleyin', tip7b:'Belgeleri kontrol listesiyle ayni sirada sekmeli klasorde duzenlleyin. Memur bir belge istediginde saniyeleri icinde bulabilmelisiniz.',
+  tip8t:'Mulakat Sonrasi Hemen Not Alin', tip8b:'Mulakat odasından cıkar cıkmaz her soruyu ve yanıtı not edin. Memur ek kanit istedi veya endise ifade ettiyse ayni gun Ozek Law Firm\'i arayin.',
+  stepsTitle:'USCIS Ofisinde Sizi Ne Bekliyor?',
+  step1t:'Guvenlik Taramas', step1b:'Resmi fotografi kimlik gerekli. Elektronik cihazlar ve buyuk cantalar kisitli olabilir. Erken gelin.',
+  step2t:'Kayit ve Bekleme', step2b:'On masaya randevu bildirimi gosterin. Bekleme alaninda oturun.',
+  step3t:'Yemin', step3b:'Herhangi bir soru sormadan once yemin ettirileceksiniz. O andan itibaren her sey yeminli ifadedir.',
+  step4t:'Mulakat', step4b:'Istihdam temelli davalarda genellikle 20-60 dakika. Memur dosyanizdan okuyarak soru sorar.',
+  step5t:'Karar veya Bekleme', step5b:'Dava o an onaylanabilir, isleme alinabilir veya RFE dogurabikir. RFE RED degildir.',
+  contactTitle:'Mulakattan once sorularınız mi var?', contactSub:'Ozek Law Firm her adimda yanınızdadir.',
+  footerText:'Bu arac yalnizca musteri hazırligına yoneliktir ve hukuki tavsiye niteliginde degildir. Gizli — Avukat-Muvekkil Imtiyazi. &copy; 2025 Ozek Law Firm, LLC.',
+  tipPrefix:'Avukat Ipucu:'
+}
+};
+
+var QUESTIONS = {
+en:[
+  {cat:'personal',q:'Please state your full legal name as it appears on your passport.',a:'State the exact name on your passport. If your passport has a different order (surname first) than typical English convention, clarify. If you use a middle name, include it. Disclose any aliases, prior names, or name changes.',tip:'Your name must be consistent across your I-485, I-140, passport, and all other documents. Any variation will be asked about.'},
+  {cat:'personal',q:'Have you ever used any other names, aliases, or nicknames?',a:'Disclose all: prior surnames (including maiden name), anglicized versions, nicknames used on any official document, and any name changes ordered by a court.',tip:'This includes names used in another country. If your name appears differently on a foreign document, disclose it.'},
+  {cat:'personal',q:'What is your current home address? Have you moved since filing your I-485?',a:'State your current address. If you moved after filing, confirm whether you filed Form AR-11 (change of address) and notified USCIS. Inconsistency here can raise questions.',tip:'Check your I-485 before the interview. If the address is outdated, tell your attorney so it can be corrected at the interview.'},
+  {cat:'personal',q:'What is your current immigration status? When does your authorized stay expire?',a:'Know your current nonimmigrant status (H-1B, L-1, O-1, F-1 OPT, etc.) and the expiration date on your I-94. Note: the I-94 governs your authorized period of admission, not the visa stamp.',tip:'Print your current I-94 at cbp.dhs.gov/I94 before the interview. Know the exact expiration date.'},
+  {cat:'personal',q:'Are you married? What is your spouse\'s immigration status?',a:'Answer accurately. State your spouse\'s nationality and current immigration status. If your spouse is also filing an I-485 as a derivative, know the status of their application.',tip:'If your spouse is a U.S. citizen or LPR, you should know their citizenship/LPR status. If they are abroad, state that clearly.'},
+  {cat:'admission',q:'How and when did you first enter the United States?',a:'State your first entry date, port of entry, and visa type precisely. Example: "I entered on an H-1B visa through JFK on [date]." Your I-94 printout will confirm your most recent entry.',tip:'Your I-94 travel history (available at cbp.dhs.gov/I94) shows all recorded entries. Review it before the interview to ensure your oral answer matches the record.'},
+  {cat:'admission',q:'Trace your visa and immigration status history from first entry to today.',a:'Walk through each status chronologically: student visa, OPT, H-1B, change of employer, etc. If there were gaps between statuses, be honest and let your attorney explain the legal basis for adjustment.',tip:'Know the exact dates of each status change. The officer will compare your oral history to the I-94 travel records and the I-485 application.'},
+  {cat:'admission',q:'Did you travel outside the United States after filing your I-485?',a:'If yes, confirm you traveled on valid Advance Parole (Form I-131). Travel while I-485 is pending without Advance Parole may have abandoned the application. Know whether AP was valid for each trip.',tip:'If you traveled without Advance Parole, discuss the consequences with your attorney before the interview. This is a potentially serious issue.'},
+  {cat:'admission',q:'Have you ever entered the United States without inspection — crossing the border unlawfully?',a:'Answer truthfully. Entry without inspection (EWI) generally bars adjustment under INA 245(a). Limited exceptions exist, including INA 245(i). If this applies, your attorney must have addressed it in the filing.',tip:'Do not guess or minimize. If EWI applies to your case, your attorney will have identified any available remedy.'},
+  {cat:'admission',q:'Have you ever been placed in removal, deportation, or exclusion proceedings?',a:'Disclose any prior immigration court proceedings, even if old or resolved. If there was a final removal order, bring documentation of any waiver or relief granted. Know your immigration court history.',tip:'Prior proceedings are in USCIS and EOIR databases. The officer will have access to this information. Omission will be detected.'},
+  {cat:'admission',q:'Have you ever been refused entry to the United States at a port of entry?',a:'Disclose any CBP refusals or denials of entry at a land, air, or sea port. Include voluntary returns and expedited removals at the border.',tip:'Port of entry refusals are on record in CBP databases. Be honest even if the incident was years ago.'},
+  {cat:'status',q:'Have you maintained lawful status continuously since your entry into the United States?',a:'Think carefully before answering. Lawful status means authorized presence at all times: student, worker, dependent, or otherwise. If there were gaps, be honest. Your attorney should have analyzed whether 245(k) or another exception applies.',tip:'The I-94 travel history and USCIS records will reflect any gaps. Review your complete immigration history before the interview.'},
+  {cat:'status',q:'Were there any periods when your authorized stay expired before you obtained new status?',a:'This includes: the gap between graduation and OPT approval, the grace period after I-20 expiration, the gap between H-1B employers, or any period between status changes. Be honest and specific about dates.',tip:'Employment-based applicants may use the 245(k) exception if aggregate status violations do not exceed 180 days since the last lawful admission.'},
+  {cat:'status',q:'Did you ever remain in the United States beyond the expiration of your I-94?',a:'The I-94 controls your authorized period of stay — not the visa stamp. Many people confuse the visa stamp expiration date with their authorized stay. The visa stamp is simply an entry document; the I-94 governs your stay.',tip:'If your I-94 expired while you had a pending status extension or change, that period may be covered. Discuss the specifics with your attorney.'},
+  {cat:'status',q:'Did you ever change employers while on an H-1B visa without a new H-1B petition being approved?',a:'For H-1B holders: starting work with a new employer requires an approved H-1B transfer (I-129). Working for a new employer before the transfer was approved may be a status violation. If AC21 portability applies (I-485 pending 180+ days), the rules differ.',tip:'AC21 portability under INA 204(j) is a defense that your attorney should have documented. Know whether it applies to your situation.'},
+  {cat:'work',q:'Have you ever worked in the United States without authorization?',a:'This includes: working before receiving your EAD or H-1B approval; working for an employer not authorized on your visa; cash work; self-employment without authorization; or working during a gap in status. Answer truthfully.',tip:'USCIS cross-references employment history with tax records. Unauthorized employment also counts toward the 245(k) aggregate calculation. Disclose fully and let your attorney address the legal consequences.'},
+  {cat:'work',q:'Have you filed U.S. federal income tax returns for each year you lived in the United States?',a:'Confirm whether you filed tax returns for all years you were required to do so. If you had years with no filing obligation (e.g., as a student with no income), state that. Bring your most recent 2-3 years of returns.',tip:'The officer may ask about your income history, employment, and whether your tax returns are consistent with your work history. Be prepared for follow-up questions.'},
+  {cat:'work',q:'Are you currently employed? By whom? What is your job title and salary?',a:'For PERM-based cases (EB-2/EB-3): you must have a bona fide job offer from the sponsoring employer. Confirm the position, salary, and location are consistent with the PERM application. For self-petitioners (EB-1A, EB-2 NIW): describe your current work and how it continues in the same field.',tip:'If you have changed employers, confirm whether you are exercising AC21 portability and that your attorney has documentation on file.'},
+  {cat:'work',q:'Is the job offered in your I-140 still available at the sponsoring employer?',a:'For PERM-based cases: the sponsoring employer must still be in business and the job must still be available. If the employer has closed, been acquired, or the job no longer exists, this is a serious issue. If you have invoked AC21 portability, the original job offer is no longer required.',tip:'If you have any doubt about whether your sponsoring employer is still viable, discuss with your attorney before the interview.'},
+  {cat:'work',q:'If you changed jobs since filing your I-485, is the new job in the same or similar occupational classification?',a:'Under AC21 (INA 204(j)), if your I-485 has been pending 180+ days, the new job must be in the same or similar occupational classification (same SOC code or substantially similar duties, skills, and salary). Be prepared to describe your new job duties in comparison to the petitioned position.',tip:'Your attorney should have filed a portability letter. Know the SOC code of your petitioned position and the new position.'},
+  {cat:'petition',q:'Describe your educational background and the qualifications that formed the basis of your I-140 petition.',a:'State your degrees, institutions, and graduation years. Describe the specific expertise, skills, or accomplishments that qualified you for the petition category. Be consistent with the petition.',tip:'Review the cover letter from your I-140 before the interview. Your oral description must be consistent with what was argued in the petition.'},
+  {cat:'petition',q:'[EB-1A / EB-2 NIW] What extraordinary ability work or national interest contributions have you made since your petition was filed?',a:'Describe updated accomplishments: new peer-reviewed publications, citation counts, research grants, invited lectures, editorial board memberships, awards, patent approvals, or media coverage. Be specific and factual.',tip:'The officer may ask how your work continues to benefit the United States. Be prepared to articulate this connection concisely.'},
+  {cat:'petition',q:'[EB-1B] Is your research position still permanent or on a tenure track at a qualifying institution?',a:'Confirm that you remain in a permanent or tenure-track research position. If you have changed institutions, confirm the new institution qualifies and that the position is still permanent in nature. Bring a letter from your department.',tip:'The EB-1B requires a specific job offer for a permanent research position. A postdoctoral or visiting scholar position does not qualify. Know your employment status precisely.'},
+  {cat:'petition',q:'[EB-1C] Are you still employed as an executive or manager in a qualifying multinational capacity?',a:'Confirm your continued employment in a qualifying multinational executive or managerial role. Describe your supervisory authority, decision-making scope, and the multinational nature of your company. Be specific.',tip:'EB-1C requires a qualifying relationship between U.S. and foreign entities. Know the organizational chart and the connection between the U.S. and foreign operations.'},
+  {cat:'petition',q:'[EB-5] How much did you invest? Where did the funds come from? How many U.S. jobs have been created or preserved?',a:'State the exact investment amount. Trace the funds from their source to the investment. Know the number of qualifying full-time U.S. employees created or preserved. If invested through a regional center, know the project details.',tip:'Source-of-funds documentation is the most scrutinized element of EB-5 cases. Know every step of the funds trace.'},
+  {cat:'criminal',q:'Have you EVER been arrested, cited, charged, or detained by any law enforcement officer for any reason?',a:'Disclose EVERY incident in any jurisdiction or country: DUIs, domestic disputes, disorderly conduct, drug offenses, theft, assault, traffic violations resulting in arrest. If arrested but not charged, disclose the arrest. If charged but acquitted, disclose the charge and acquittal. Bring certified court dispositions.',tip:'There is no such thing as "too minor to mention" in immigration. USCIS officers access national and international criminal databases. Omission is treated as misrepresentation.'},
+  {cat:'criminal',q:'Have you ever been convicted of any crime, including a crime for which you received only a fine or probation?',a:'Disclose all convictions: misdemeanors, felonies, traffic offenses resulting in conviction, and any offense where you were adjudicated guilty in any jurisdiction. Know whether the offense is a Crime Involving Moral Turpitude (CIMT), a drug offense, or an aggravated felony.',tip:'Your attorney should have completed an immigration-law analysis of any criminal history. Know the result of that analysis before the interview.'},
+  {cat:'criminal',q:'Have you ever had a conviction expunged, sealed, dismissed, or vacated?',a:'Answer truthfully: Yes, if any of these apply. Expungement under state law does NOT eliminate the conviction for immigration purposes. USCIS still requires disclosure. Bring the original conviction record AND the expungement/dismissal order.',tip:'This is one of the most common sources of misrepresentation findings in adjustment cases. Never assume an expungement means you do not need to disclose.'},
+  {cat:'criminal',q:'Have you ever violated, or attempted to violate, any law or regulation relating to controlled substances?',a:'Disclose any marijuana use, possession, or distribution — even in states where marijuana is legal. Federal law (Schedule I) governs immigration, not state law. Any controlled substance offense is a potentially permanent bar requiring a waiver.',tip:'This includes marijuana. Cannabis remaining Schedule I under federal law means any admission of use, possession, or distribution creates serious inadmissibility issues.'},
+  {cat:'criminal',q:'Have you ever been charged with, or convicted of, any crime in any country outside the United States?',a:'Disclose all foreign criminal history. Foreign convictions count for immigration purposes. Include minor offenses, dismissed charges, and offenses for which you received a pardon. Bring translated certified copies of all foreign court records.',tip:'USCIS requests police clearance letters from foreign countries in many cases. Be prepared for your foreign criminal history to be checked.'},
+  {cat:'criminal',q:'Have you ever been a member of, or associated with, a terrorist organization or extremist group?',a:'This is asked of all I-485 applicants. Answer truthfully. Certain associations — even indirect or involuntary — can trigger security-related bars. If this applies to you in any way, discuss with your attorney well in advance.',tip:'Any hesitation on this question will be noted. Know that truthful disclosure with an explanation is always better than an omission discovered later.'},
+  {cat:'medical',q:'Have you completed the medical examination with a USCIS-designated civil surgeon?',a:'If not already filed, bring Form I-693 in its original sealed envelope. Do not open the envelope. If the exam was completed more than 2 years ago, it may have expired and you may need a new one. Confirm with your attorney.',tip:'The validity of the I-693 is calculated from the date of the civil surgeon signature. Check whether your exam is still within the 2-year validity window.'},
+  {cat:'medical',q:'Have you been diagnosed with any communicable disease of public health significance?',a:'Answer consistently with what is in your I-693. The civil surgeon\'s findings govern. Tuberculosis (TB) and certain other conditions may require additional follow-up or a waiver. Bring documentation of any follow-up treatment.',tip:'If your I-693 reflects any condition requiring a waiver or follow-up, your attorney should have addressed this in the filing.'},
+  {cat:'medical',q:'Have you received all required vaccinations?',a:'The civil surgeon\'s I-693 should document vaccination status. If any vaccinations were deferred or you qualify for a religious or medical exemption, this should be reflected in the I-693. Know your vaccination status.',tip:'USCIS requires vaccination against specific communicable diseases as a condition of adjustment. The civil surgeon is responsible for documenting this.'},
+  {cat:'medical',q:'Have you ever registered with the Selective Service?',a:'Males who entered the United States before age 26 and who were between ages 18 and 25 at any time were required to register with the Selective Service. Verify your registration at sss.gov/verify or bring your registration card. Failure to register can affect both adjustment and future naturalization.',tip:'If you did not register and were required to do so, discuss remedial options with your attorney before the interview.'},
+  {cat:'medical',q:'Have you ever claimed to be a U.S. citizen, or voted in any U.S. election?',a:'Claiming U.S. citizenship (even innocently, such as on an I-9 form) is a permanent bar under INA 212(a)(6)(C)(ii). Voting as a non-citizen in a U.S. federal or state election is similarly a bar. Answer with complete truthfulness.',tip:'Many people have inadvertently claimed U.S. citizenship on employment I-9 forms. If this applies to you, discuss it with your attorney before the interview — there may be specific defenses available.'},
+  {cat:'medical',q:'Have you ever submitted a false, altered, or fraudulent document to a U.S. government agency?',a:'Answer with complete truthfulness. Willful misrepresentation to obtain an immigration benefit is a permanent bar under INA 212(a)(6)(C). If there is any concern about documents submitted in any prior proceeding, discuss with your attorney well in advance.',tip:'This includes visa applications, prior I-485 filings, consular processing cases, and employment verification forms. Disclose any concerns to your attorney.'},
+  {cat:'medical',q:'Do you intend to remain permanently in the United States? What are your plans after obtaining a green card?',a:'Employment-based green cards do NOT require a showing of nonimmigrant intent — unlike E-1/E-2 visas. You may answer honestly: "Yes, I intend to make the United States my permanent home." However, be prepared to describe your continued work in the field of your petition.',tip:'For EB-1A and EB-2 NIW, you must continue working in the field that formed the basis of the national interest finding. Be prepared to describe your current and planned work in that field.'}
+],
+tr:[
+  {cat:'personal',q:'Pasaportunuzda yazildigi sekliyle tam yasal adinizi soyleyin.',a:'Pasaportunuzdaki tam adi belirtin. Soyadiniz once geliyorsa aciklayin. Orta adiniz varsa dahil edin. Diger adlar, takma adlar veya ad degisikliklerini aciklayin.',tip:'Adiniz I-485, I-140, pasaport ve diger tum belgelerde tutarli olmalidir.'},
+  {cat:'personal',q:'Hic baska ad, takma ad veya kisaltma kullandiniz mi?',a:'Onceki soyadlar (evlilik oncesi soyadi dahil), resmi belgede kullanilan anglize versiyonlar ve mahkeme kararıyla yapilan ad degisikliklerini aciklayin.',tip:'Baska bir ulkedeki belgelerde farkli gorunen adlar dahil hepsini belirtin.'},
+  {cat:'personal',q:'Mevcut adresiniz nedir? I-485 dosyalamasindan bu yana tasındınız mi?',a:'Mevcut adresinizi belirtin. Tasindiysaniz Form AR-11 ve USCIS adres degisikligi bildirimini yapip yapmadiginizi teyit edin.',tip:'Mulakattan once I-485\'i kontrol edin. Adres eskiyse avukatiniza bildirin.'},
+  {cat:'personal',q:'Mevcut goc statusunuz nedir? Yetkilendirilmis kalisiniz ne zaman bitiyor?',a:'Mevcut gocmen olmayan statunuzu (H-1B, L-1, O-1, F-1 OPT vb.) ve I-94 uzerindeki bitis tarihini bilin. Not: I-94 yetkili kalisinizi yonetir, vize damgasi degil.',tip:'Mulakattan once cbp.dhs.gov/I94 adresinden guncel I-94\'unuzu yazdirin.'},
+  {cat:'personal',q:'Evli misiniz? Esinis goc statusu nedir?',a:'Dogru cevaplayin. Esinizin milliyetini ve mevcut goc statusunu belirtin. Esiniz de turemis olarak I-485 dosyaladiysa basvurusunun durumunu bilin.',tip:'Esiniz ABD vatandasi veya daimi ikamet sahibiyse bu bilgiyi bilin. Yurt disindaysa bunu acikca belirtin.'},
+  {cat:'admission',q:'ABD\'ye ilk ne zaman ve nasil girdınız?',a:'Ilk giris tarihinizi, giris limanini ve vize turunu kesin olarak belirtin. Ornek: "H-1B vizesiyle [tarihte] JFK uzerinden girdim." I-94 ciktiniz en son girisizi teyit eder.',tip:'cbp.dhs.gov/I94 adresindeki I-94 seyahat gecmisiniz tum kayitli girisleri gostermektedir. Mulakattan once inceleyin.'},
+  {cat:'admission',q:'Ilk giristenjeri bugunuze kadar vize ve goc statusu gecmisinizi aktarin.',a:'Her statusu kronolojik olarak anlatin: ogrenci vizesi, OPT, H-1B, ise veren degisikligi vb. Statular arasinda bosluklar olduysa donustu olun.',tip:'Her status degisikliginin kesin tarihlerini bilin. Memur I-94 seyahat kayitlarıyla karsilastiracak.'},
+  {cat:'admission',q:'I-485 dosyalamasindan sonra ABD\'den ayrıldınız mi?',a:'Evet ise gecerli Advance Parole (Form I-131) ile seyahat ettiginizi teyit edin. AP olmadan yapilan seyahat basvuruyu iptal etmis olabilir. Her seyahat icin AP\'nin gecerli olup olmadigini bilin.',tip:'AP olmadan seyahat ettiyseniz mulakattan once avukatinizla olasiliklari tartışın.'},
+  {cat:'admission',q:'Hic ABD\'ye denetimsiz giris — siniri yasadisi yoldan gecmek — yaptiniz mi?',a:'Donustu cevaplayin. Denetimsiz giris (EWI) genellikle INA 245(a) kapsaminda ayarlamayi engeller. INA 245(i) gibi sinirli istisnalar mevcuttur. Bu durumunuza uygulaniyorsa avukatiniz dosyalamada ele almis olmali.',tip:'Tahmin etmeyin veya kucumsemeyin. EWI durumunuza uygulaniyorsa avukatiniz mevcut cozumler icin hazirlik yapmis olmali.'},
+  {cat:'admission',q:'Hic uzaklastirma, sinir disi etme veya kabul reddi islemlerine tabi tutuldunuz mu?',a:'Eski veya cozumlenmus olsa bile tum onceki gocmenlik mahkemesi islemlerini aciklayin. Kesinlesmis uzaklastirma karari varsa verilen herhangi bir feragat veya koruma belgesini getirin.',tip:'Onceki islemler USCIS ve EOIR veritabanlarindadir. Memur bu bilgilere erismektedir. Eksik bildirim tespit edilecektir.'},
+  {cat:'admission',q:'Hic ABD giris noktasinda giris reddedildi mi?',a:'Kara, hava veya deniz giris noktasindaki CBP reddlerini veya giris inkarllarini aciklayin. Sinirda gonullu donusler ve hizlandirilmis uzaklastirmalari dahil edin.',tip:'Giris noktasi reddleri CBP veritabanlarinda kayitlidir. Olay yillar once olsa bile donustu olun.'},
+  {cat:'status',q:'ABD\'ye giristenjeri surekli yasali statusunuzu korudunuz mu?',a:'Yanitlamadan once dikkatli dusunun. Yasali status, her zaman yetkili varlik anlamina gelir: ogrenci, calisan, bagimli veya baska turlu. Bosluklar olduysa donustu olun. Avukatiniz 245(k) veya baska istisnanin uygulanip uygulanmadigini analiz etmis olmali.',tip:'I-94 seyahat gecmisi ve USCIS kayitlari olasi boslukları yansitacaktir. Mulakattan once tam goc gecmisinizi gozden gecirin.'},
+  {cat:'status',q:'Yeni status elde etmeden onceki yetkili kalisinizin sona erdig donemler oldu mu?',a:'Bunlara dahildir: mezuniyet ile OPT onayi arasindaki bosluk, I-20 suresi bittikten sonraki ograce suresi, H-1B ise verenler arasindaki bosluk. Her konuda tarihler konusunda donustu ve spesifik olun.',tip:'Istihdam temelli basvurucular, son yasali kabulden bu yana toplam ihlaller 180 gunu gecmiyorsa 245(k) istisnasini kullanabilir.'},
+  {cat:'status',q:'Hic I-94 suresi bittikten sonra ABD\'de kaldınız mi?',a:'I-94, kalisinizin yetkili suresini kontrol eder — vize damgasi degil. Vize damgasinin bitis tarihini yetkili kali suresiyle karistirmak yaygin bir hatdir. Vize damgasi yalnizca giris belgesidir; I-94 kalisinizi yonetir.',tip:'Status uzatma veya degisiklik beklemedeyken I-94\'unuz sona erdiyse, bu sure kapsama alinmis olabilir. Avukatinizla ayrintiları tartışın.'},
+  {cat:'status',q:'H-1B vizesiyle calisirken yeni bir H-1B dilekce onaylanmadan ise veren degistirdiniz mi?',a:'H-1B sahipleri icin: yeni bir ise verene gecmek, onaylanmis bir H-1B transferi (I-129) gerektirir. Transfer onaylanmadan yeni ise verende calismak bir status ihlali olabilir. I-485 180+ gun beklemedeyse AC21 kuralları gecerli olabilir.',tip:'INA 204(j) kapsamindaki AC21 tasınabilirlik avukatinizin belgelemis olmasi gereken bir savunmadır. Durumunuza uygulanip uygulanmadigini bilin.'},
+  {cat:'work',q:'Hic ABD\'de yetkisiz calisginiz var mi?',a:'Bunlara dahildir: EAD veya H-1B onayi alınmadan calismak; vizenizde yetkili olmayan bir ise verende calismak; nakit calismak; yetkisiz serbest meslek; veya status boslugu sirasında calismak. Donustu cevaplayin.',tip:'USCIS istihdam gecmisini vergi kayitlarıyla capraz referanslar. Yetkisiz istihdam 245(k) toplam hesaplamasına da dahildir. Tam aciklama yapin.'},
+  {cat:'work',q:'ABD\'de bulundugunuz her yil icin federal gelir vergisi beyannamesi verdınız mi?',a:'Beyan etmek zorunda oldugunuz tum yillar icin beyanname verip vermediginizi teyit edin. Geliri olmayan bir ogrenci olarak dosyalama yukumlulugununuz olmayan yillar icin bunu belirtin. Son 2-3 yilin beyannamelerini getirin.',tip:'Memur gelir gecmisinizi, istihdamı ve vergi beyannamelerinizin is gecmisinizle tutarli olup olmadigini sorabilir.'},
+  {cat:'work',q:'Simdi calisiyor musunuz? Kim icin? Unvaniniz ve maasınız nedir?',a:'PERM davalari icin (EB-2/EB-3): sponsor ise verenden iyi niyetli is teklifiniz olmali. Pozisyon, maas ve lokasyonun PERM basvurusuyla tutarli olduğunu teyit edin. Kendi adina basvuranlar (EB-1A, NIW) icin: mevcut calisman ve ayni alanda devam ettigini aciklayin.',tip:'Ise veren degistirdiyseniz AC21 tasınabilirligini uygulayip uygulamadiginizi ve avukatinizin dosyada belgesi olup olmadigini teyit edin.'},
+  {cat:'work',q:'I-140\'ta teklif edilen pozisyon sponsor ise verende hala mevcut mu?',a:'PERM davalari icin: sponsor ise verenin hala faaliyette olmasi ve pozisyonun hala mevcut olmasi gerekir. Ise veren kapandiysa, devralindiysa veya pozisyon artik yoksa bu ciddi bir sorun. AC21 tasınabilirligi uyguluyorsaniz orijinal is teklifi artik gerekli degil.',tip:'Sponsor ise verenin hala faaliyette olup olmadigi konusunda herhangi bir supheniz varsa mulakattan once avukatinizla gorüsün.'},
+  {cat:'work',q:'I-485 dosyalamasindan bu yana ise geciştiyseniz, yeni is ayni veya benzer mesleki siniflamada mi?',a:'INA 204(j) uyarinca I-485 180+ gun beklemedeyse, yeni is ayni veya benzer mesleki siniflamada olmalidir (ayni SOC kodu veya benzer gorevler). Dilekce pozisyonuyla karsilastirmali olarak yeni is gorevlerinizi aciklamaya hazir olun.',tip:'Avukatiniz bir tasınabilirlik mektubu dosyalamis olmali. Dilekce pozisyonunun ve yeni pozisyonun SOC kodunu bilin.'},
+  {cat:'petition',q:'Egitim gecmisinizi ve I-140 dilekconizin dayanagini olusturan nitelikleri aciklayin.',a:'Derecelerinizi, kurumlarinizi ve mezuniyet yillarinizi belirtin. Sizi bu dilekce kategorisine nitelendiren spesifik uzmanligi, becerileri veya basarilari aciklayin. Dilekceyle tutarli olun.',tip:'Mulakattan once I-140 on yazisini inceleyin. Sozlu aciklamaniz dilekce ile tutarli olmalidir.'},
+  {cat:'petition',q:'[EB-1A / EB-2 NIW] Dilekce dosyalamasindan bu yana hangi olaganustu yetenekli calismayi veya ulusal cikar katkilarini sagladiniz?',a:'Guncel basarilari aciklayin: yeni hakemli yayinlar, atif sayilari, arastirma hibeleri, davetli dersler, editoryel kurul uyeligleri, oduller, patent onaylari veya medya haberleri. Somut ve donustu olun.',tip:'Memur calismanizin ABD\'ye nasil faydali olmaya devam ettigini sorabilir. Bu baglantıyı ozluce ifade etmeye hazir olun.'},
+  {cat:'petition',q:'[EB-1B] Arastirma pozisyonunuz nitelikli bir kurumda hala surekli/akademik kadro mu?',a:'Surekli veya kadro izleme arastirma pozisyonunda kalmaya devam ettigini teyit edin. Kurum degistirdiyseniz yeni kurumun nitelikli ve pozisyonun surekli nitelikte olduğunu teyit edin. Bolumunuzden mektup getirin.',tip:'EB-1B surekli bir arastirma pozisyonu icin spesifik is teklifi gerektirmektedir. Doktora sonrası veya ziyaretci ogretim uyesi pozisyonu nitelik tasimiyor.'},
+  {cat:'petition',q:'[EB-5] Ne kadar yatirim yaptiniz? Fonlar nereden geldi? Kac ABD is yeri yaratildi veya korundu?',a:'Kesin yatirim tutarini belirtin. Fonlari kaynagindan yatirima kadar takip edin. Yaratilan veya korunan nitelikli tam zamanli ABD calisanlarinin sayisini bilin.',tip:'Fon kaynaklari EB-5 davalarda en cok incelenen unsurdur. Fon izinin her adimini bilin.'},
+  {cat:'criminal',q:'Herhangi bir nedenden dolayi hic tutuklandınız, para cezasina carptırıldınız veya herhangi bir kolluk kuvveti tarafindan gozaltina alındınız mi?',a:'Her olayi HERHANGI bir yargı cevresi veya ulkede aciklayin: DUI, aile ici anlasmazliklar, uyusturucu suclari, hirsizlik, saldiri. Tutuklandıysaniz ancak suclanmadıysaniz tutuklanmayı aciklayin. Onaylanmis mahkeme kararlarini getirin.',tip:'Goc hukukunda "soylemeye degmeyecek kadar kucuk" diye bir sey yoktur. Eksik bildirim yaniltma sayilir.'},
+  {cat:'criminal',q:'Hic suclandırıldınız mi — yalnizca para cezasi veya denetimli serbest birakmayla sonuclananlar dahil?',a:'Tum mahkumiyetleri aciklayin: kabahatsizlik, agır suc, herhangi bir yargı cevresi. Sucucun Ahlak Bozan Suc (CIMT), uyusturucu sucu veya agirlasmis suc olup olmadigini bilin.',tip:'Avukatiniz herhangibir adli gecmişin gocmenlik hukuku analizini tamamlamis olmali. Mulakattan once bu analizin sonucunu bilin.'},
+  {cat:'criminal',q:'Hic silinen, kapanan, dusurulen veya bozulan bir mahkumiyet yasadiniz mi?',a:'Bu durumlardan herhangi biri uygulaniyorsa donustu cevaplayin: Evet. Eyalet hukuku kapsamindaki silme, goc hukuku acisindan mahkumiyeti ortadan kaldirmaz. Hem orijinal mahkumiyet kaydini hem de silme/dusurum kararini getirin.',tip:'Goc davalarinda yaniltma bulgularinin en yaygin kaynaklarindan biridir. Silme isleminin aciklama zorunlulugunu ortadan kaldirdigini hic asla varsaymayin.'},
+  {cat:'criminal',q:'Uyusturucu maddelere iliskin herhangibir kanun veya yonetmeligi hic ihlal ettiniz veya ihlaline tesebbus ettiniz mi?',a:'Marihuananin yasal oldugu eyaletlerde dahi marijuana kullanimi, bulundurma veya dagitimi aciklayin. Federal hukuk (Cetele I) goc hukukunu yonetir, eyalet hukuku degil. Herhangi bir uyusturucu sucu potansiyel olarak kalici bir engel teskil eder.',tip:'Bu marihuanayı kapsamaktadir. Federal duzeyinde Cetele I olarak kalmasi, herhangi bir kullanim, bulundurma veya dagitim kabulunun ciddi kabul edilemezlik sorunlari yarattigi anlamina gelir.'},
+  {cat:'criminal',q:'ABD disindaki herhangibir ulkede suc isnat edildınız veya mahkum edildiniz mi?',a:'Tum yabanci adli gecmisi aciklayin. Yabanci mahkumiyetler goc hukuku acisindan gecerlidir. Bagilanmis suclari ve af alinanlar dahil kucuk suclari dahil edin.',tip:'USCIS pek cok davada yabanci ulkelerden sabika kaydı belgesi talep eder. Yabanci adli gecmisinizin kontrol edilmeye hazir olun.'},
+  {cat:'medical',q:'USCIS tarafindan belirlenmis bir sivil cerrahi ile tibbi muayenenizi tamamladiniz mi?',a:'Henz dosyalanmadiysa Form I-693\'u sivil cerrahin orijinal muhurlu zarfında getirin. Zarfi acmayin. Muayene 2 yildan fazla onceyse suresi dolmus olabilir ve yenisine ihtiyaciniz olabilir.',tip:'I-693\'un gecerliligi sivil cerrahi imza tarihinden itibaren hesaplanir. Muayenenizin hala 2 yillik gecerlilik penceresi icerisinde olup olmadigini kontrol edin.'},
+  {cat:'medical',q:'Halk sagligi acisindan onem tasıyan herhangi bir bulasici hastalik teshis edildi mi?',a:'I-693\'unuzdakiyle tutarli cevaplayin. Sivil cerrahin bulgulari belirleyicidir. TB gibi durumlar ek takip veya feragat gerektirebilir.',tip:'I-693 herhangi bir feragat veya takip gerektiren bir durumu yansitiyorsa avukatiniz dosyalamada ele almis olmali.'},
+  {cat:'medical',q:'Zorunlu askerlik (Selective Service) kaydı yaptırdınız mi?',a:'26 yas oncesi ABD\'ye giren ve bu sure zarfında 18-25 yas arasinda olan erkeklerin Selective Service\'e kayit yaptirmasi zorunluydu. sss.gov/verify adresinde kaydinizi dogrulayın veya kayit kartinizi getirin.',tip:'Kayit yaptirmadıysanız ve yaptirmak zorundaysanız mulakattan once duzeltici secenekleri avukatinizla tartışın.'},
+  {cat:'medical',q:'Hic ABD vatandası oldugunuzu iddia ettiniz mi veya herhangibir ABD seciminde oy kullandinız mi?',a:'ABD vatandasligini talep etmek (hata ile bile, ornegin I-9 formunda) INA 212(a)(6)(C)(ii) uyarinca kalici bir engeldir. ABD federal veya eyalet seciminde gocmen olmayan olarak oy kullanmak da benzer sekilde engeldir.',tip:'Pek cok kisi is I-9 formlarinda yanlislikla ABD vatandasligini talep etmistir. Bu durumunuza uygulaniyorsa mulakattan once avukatinizla konusun.'}
+]
+};
+
+// ── LANG TOGGLE ──
+function toggleLang() {
+  lang = lang === 'en' ? 'tr' : 'en';
+  var t = T[lang];
+  document.getElementById('lang-flag').innerHTML = lang === 'en' ? '&#x1F1F9;&#x1F1F7;' : '&#x1F1FA;&#x1F1F8;';
+  document.getElementById('lang-label').textContent = lang === 'en' ? 'T\u00FCrk\u00E7e' : 'English';
+  var map = {
+    'hdr-title':t.hdrTitle,'hdr-sub':t.hdrSub,'badge-lbl':t.badgeLbl,'prog-label':t.progLabel,
+    'cat-label':t.catLabel,'cat-all':t.catAll,'cat-self':t.catSelf,'cat-eb1b':t.catEB1B,'cat-perm':t.catPERM,'cat-eb5':t.catEB5,
+    'tt1':t.tt1,'tt2':t.tt2,'tt3':t.tt3,'tt4':t.tt4,
+    'doc-title':t.docTitle,'doc-desc':t.docDesc,'btn-reset':t.btnReset,'btn-print':t.btnPrint,
+    'stat-lbl-prep':t.statPrep,'stat-lbl-rem':t.statRem,'stat-lbl-comp':t.statComp,
+    'doc-alert':t.docAlert,
+    'g1-title':t.g1,'g2-title':t.g2,'g3-title':t.g3,'g4-title':t.g4,'g5-title':t.g5,'g6-title':t.g6,
+    'd1_1':t.d1_1,'d1_2':t.d1_2,'d1_3':t.d1_3,'d1_4':t.d1_4,'d1_5':t.d1_5,'d1_6':t.d1_6,'d1_7':t.d1_7,
+    'd2_1':t.d2_1,'d2_2':t.d2_2,'d2_3':t.d2_3,'d2_4':t.d2_4,'d2_5':t.d2_5,
+    'd3_1':t.d3_1,'d3_2':t.d3_2,'d3_3':t.d3_3,'d3_4':t.d3_4,'d3_5':t.d3_5,
+    'd4_1':t.d4_1,'d4_2':t.d4_2,'d4_3':t.d4_3,'d4_4':t.d4_4,'d4_5':t.d4_5,'d4_6':t.d4_6,
+    'd5_1':t.d5_1,'d5_2':t.d5_2,'d5_3':t.d5_3,'d5_4':t.d5_4,'d5_5':t.d5_5,
+    'd6_1':t.d6_1,'d6_2':t.d6_2,'d6_3':t.d6_3,
+    'congrats-title':t.congratsTitle,'congrats-sub':t.congratsSub,'doc-warn':t.docWarn,
+    'legal-title':t.legalTitle,'legal-desc':t.legalDesc,'ina245-title':t['ina245-title'],
+    'r1h':t.r1h,'r1b':t.r1b,'r2h':t.r2h,'r2b':t.r2b,'r3h':t.r3h,'r3b':t.r3b,'r4h':t.r4h,'r4b':t.r4b,'r5h':t.r5h,'r5b':t.r5b,
+    'lt1t':t.lt1t,'lt1b':t.lt1b,'lt2t':t.lt2t,'lt2b':t.lt2b,'lt3t':t.lt3t,'lt3b':t.lt3b,'lt4t':t.lt4t,'lt4b':t.lt4b,
+    'oath-title':t['oath-title'],'oath-desc':t['oath-desc'],'oath-alert':t['oath-alert'],
+    'ot1t':t.ot1t,'ot1b':t.ot1b,'ot2t':t.ot2t,'ot2b':t.ot2b,'ot3t':t.ot3t,'ot3b':t.ot3b,'ot4t':t.ot4t,'ot4b':t.ot4b,
+    'qa-title':t.qaTitle,'qa-desc':t.qaDesc,
+    'qcat-all':t.qcatAll,'qcat-personal':t.qcatPersonal,'qcat-admission':t.qcatAdmission,
+    'qcat-status':t.qcatStatus,'qcat-work':t.qcatWork,'qcat-petition':t.qcatPetition,'qcat-criminal':t.qcatCriminal,'qcat-medical':t.qcatMedical,
+    'mode-study':t.modeStudy,'mode-quiz':t.modeQuiz,'btn-shuffle':t.btnShuffle,'btn-reset-score':t.btnResetScore,
+    'card-front-lbl':t.cardFrontLbl,'card-hint':t.cardHint,'card-back-lbl':t.cardBackLbl,'card-how-to':t.cardHowTo,
+    'btn-knew':t.btnKnew,'btn-practice-more':t.btnPracticeMore,
+    'sb-correct':t.sbCorrect,'sb-practice':t.sbPractice,'sb-remaining':t.sbRemaining,'sb-score':t.sbScore,
+    'tips-title':t.tipsTitle,'tips-desc':t.tipsDesc,'tips-alert':t.tipsAlert,
+    'tip1t':t.tip1t,'tip1b':t.tip1b,'tip2t':t.tip2t,'tip2b':t.tip2b,'tip3t':t.tip3t,'tip3b':t.tip3b,
+    'tip4t':t.tip4t,'tip4b':t.tip4b,'tip5t':t.tip5t,'tip5b':t.tip5b,'tip6t':t.tip6t,'tip6b':t.tip6b,
+    'tip7t':t.tip7t,'tip7b':t.tip7b,'tip8t':t.tip8t,'tip8b':t.tip8b,
+    'steps-title':t.stepsTitle,'step1t':t.step1t,'step1b':t.step1b,'step2t':t.step2t,'step2b':t.step2b,
+    'step3t':t.step3t,'step3b':t.step3b,'step4t':t.step4t,'step4b':t.step4b,'step5t':t.step5t,'step5b':t.step5b,
+    'contact-title':t.contactTitle,'contact-sub':t.contactSub,'footer-text':t.footerText
+  };
+  Object.keys(map).forEach(function(id){ var el=document.getElementById(id); if(el) el.innerHTML=map[id]; });
+  applyQFilter();
+}
+
+// ── CATEGORY ──
+function setCat(cat, el) {
+  curCat = cat;
+  document.querySelectorAll('.cat-pill').forEach(function(p){ p.classList.remove('active'); });
+  el.classList.add('active');
+  var showSelf = (cat === 'all' || cat === 'self');
+  var showEB1B = (cat === 'all' || cat === 'eb1b');
+  var showPERM = (cat === 'all' || cat === 'perm');
+  var showEB5  = (cat === 'all' || cat === 'eb5');
+  var r4 = document.getElementById('d4_4-row');
+  var r5 = document.getElementById('d4_5-row');
+  var r6 = document.getElementById('d4_6-row');
+  if(r4) r4.style.display = showSelf ? '' : 'none';
+  if(r5) r5.style.display = showEB1B ? '' : 'none';
+  if(r6) r6.style.display = showEB5 ? '' : 'none';
+  updateStats();
+}
+
+// ── TABS ──
+function switchTab(name, el) {
+  document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+  document.getElementById('tab-' + name).classList.add('active');
+  el.classList.add('active');
+}
+
+// ── CHECKLIST ──
+function toggleCheck(el) { el.classList.toggle('checked'); updateStats(); }
+function updateStats() {
+  var items = Array.from(document.querySelectorAll('.cl-item')).filter(function(e){ return e.style.display !== 'none'; });
+  var checked = items.filter(function(e){ return e.classList.contains('checked'); });
+  var n = checked.length, total = items.length, pct = total > 0 ? Math.round((n/total)*100) : 0;
+  document.getElementById('stat-checked').textContent = n;
+  document.getElementById('stat-remaining').textContent = total - n;
+  document.getElementById('stat-pct').textContent = pct + '%';
+  document.getElementById('docs-badge').textContent = n;
+  document.getElementById('badge-num').textContent = n;
+  document.getElementById('overall-fill').style.width = pct + '%';
+  document.getElementById('overall-pct').textContent = pct + '%';
+  for(var g = 1; g <= 6; g++) {
+    var cntEl = document.getElementById('g' + g + '-cnt');
+    if(!cntEl) continue;
+    var gi = Array.from(document.querySelectorAll("[data-group='" + g + "']")).filter(function(e){ return e.style.display !== 'none'; });
+    var gc = gi.filter(function(e){ return e.classList.contains('checked'); });
+    cntEl.textContent = gc.length + '/' + gi.length;
+  }
+  var cong = document.getElementById('congrats');
+  if(n > 0 && n === total){ cong.style.display = 'block'; launchConfetti(); } else { cong.style.display = 'none'; }
+}
+function clearAll() { document.querySelectorAll('.cl-item').forEach(function(e){ e.classList.remove('checked'); }); updateStats(); }
+function launchConfetti() {
+  var colors = ['#B8962E','#1B2B4B','#D4AF5A','#F4F1EC','#2e7d52'];
+  for(var i = 0; i < 60; i++) {
+    (function(i){ setTimeout(function(){
+      var c = document.createElement('div'); c.className = 'confetti-piece';
+      c.style.left = (Math.random()*100) + 'vw'; c.style.top = '-20px';
+      c.style.background = colors[Math.floor(Math.random()*colors.length)];
+      c.style.transform = 'rotate(' + (Math.random()*360) + 'deg)';
+      c.style.animationDuration = (2 + Math.random()*1.5) + 's';
+      document.body.appendChild(c); setTimeout(function(){ c.remove(); }, 4000);
+    }, i * 40); })(i);
+  }
+}
+
+// ── FLASHCARDS ──
+var CAT_BG = {personal:'rgba(27,43,75,.15)',admission:'rgba(0,86,179,.15)',status:'rgba(133,100,4,.15)',work:'rgba(46,125,82,.15)',petition:'rgba(107,33,168,.15)',criminal:'rgba(139,31,31,.15)',medical:'rgba(0,128,128,.15)'};
+var CAT_FG = {personal:'#1B2B4B',admission:'#0056b3',status:'#856404',work:'#2e7d52',petition:'#6b21a8',criminal:'#8b1f1f',medical:'#007070'};
+var CAT_LBL_EN = {personal:'Personal Info',admission:'Admission & History',status:'Status Maintenance',work:'Employment & Work Auth',petition:'Your Petition',criminal:'Criminal History',medical:'Medical & Security'};
+var CAT_LBL_TR = {personal:'Kisisel Bilgi',admission:'Giris ve Gecmis',status:'Status Korunmasi',work:'Istihdam ve Calisma Izni',petition:'Dilekconuz',criminal:'Adli Gecmis',medical:'Saglik ve Guvenlik'};
+
+function applyQFilter() {
+  var qs = QUESTIONS[lang];
+  if(currentQCat !== 'all') qs = qs.filter(function(q){ return q.cat === currentQCat; });
+  filteredQ = qs.slice();
+  curIdx = 0; isFlipped = false;
+  document.getElementById('flashcard').classList.remove('flipped');
+  document.getElementById('score-row').style.display = 'none';
+  renderCard();
+}
+
+function filterQCat(cat, el) {
+  document.querySelectorAll('.qa-pill').forEach(function(p){ p.classList.remove('active'); });
+  el.classList.add('active');
+  currentQCat = cat;
+  applyQFilter();
+}
+
+function renderCard() {
+  if(!filteredQ.length){ document.getElementById('card-q').textContent = 'No questions match this filter.'; return; }
+  var q = filteredQ[curIdx];
+  document.getElementById('card-q').textContent = q.q;
+  document.getElementById('card-a').textContent = q.a;
+  var pfx = T[lang].tipPrefix || 'Attorney Tip:';
+  document.getElementById('card-tip').innerHTML = '&#x1F4A1; <strong>' + pfx + '</strong> ' + q.tip;
+  var badge = document.getElementById('card-cat-badge');
+  var labels = lang === 'en' ? CAT_LBL_EN : CAT_LBL_TR;
+  badge.textContent = labels[q.cat] || q.cat;
+  badge.style.background = CAT_BG[q.cat] || 'rgba(255,255,255,.1)';
+  badge.style.color = CAT_FG[q.cat] || '#fff';
+  badge.style.border = '1px solid ' + (CAT_FG[q.cat] || '#fff');
+  var ql = lang === 'en' ? 'Question ' : 'Soru ';
+  document.getElementById('card-qnum').textContent = ql + (curIdx+1) + ' / ' + filteredQ.length;
+  document.getElementById('card-ctr').textContent = (curIdx+1) + ' / ' + filteredQ.length;
+  document.getElementById('btn-prev').disabled = curIdx === 0;
+  document.getElementById('btn-next').disabled = curIdx === filteredQ.length - 1;
+  updateScoreboard();
+}
+
+function flipCard() {
+  isFlipped = !isFlipped;
+  document.getElementById('flashcard').classList.toggle('flipped', isFlipped);
+  if(quizMode && isFlipped) document.getElementById('score-row').style.display = 'flex';
+}
+function nextCard() {
+  if(curIdx < filteredQ.length - 1){ curIdx++; isFlipped = false; document.getElementById('flashcard').classList.remove('flipped'); document.getElementById('score-row').style.display = 'none'; renderCard(); }
+}
+function prevCard() {
+  if(curIdx > 0){ curIdx--; isFlipped = false; document.getElementById('flashcard').classList.remove('flipped'); document.getElementById('score-row').style.display = 'none'; renderCard(); }
+}
+function shuffleCards() {
+  for(var i = filteredQ.length-1; i > 0; i--){ var j = Math.floor(Math.random()*(i+1)); var t = filteredQ[i]; filteredQ[i] = filteredQ[j]; filteredQ[j] = t; }
+  curIdx = 0; isFlipped = false; document.getElementById('flashcard').classList.remove('flipped'); document.getElementById('score-row').style.display = 'none'; renderCard();
+}
+function setMode(mode, el) {
+  document.querySelectorAll('.mode-btn').forEach(function(b){ b.classList.remove('active'); });
+  el.classList.add('active');
+  quizMode = mode === 'quiz';
+  document.getElementById('score-row').style.display = 'none';
+  resetQuiz();
+}
+function markCard(correct) {
+  if(correct) score.correct++; else score.incorrect++;
+  document.getElementById('score-row').style.display = 'none';
+  updateScoreboard();
+  if(curIdx < filteredQ.length - 1) setTimeout(nextCard, 200);
+}
+function resetQuiz() {
+  score = {correct:0, incorrect:0}; curIdx = 0; isFlipped = false;
+  document.getElementById('flashcard').classList.remove('flipped');
+  document.getElementById('score-row').style.display = 'none';
+  renderCard();
+}
+function updateScoreboard() {
+  var ans = score.correct + score.incorrect;
+  var pct = ans > 0 ? Math.round((score.correct/ans)*100) + '%' : '\u2014';
+  document.getElementById('sc-correct').textContent = score.correct;
+  document.getElementById('sc-incorrect').textContent = score.incorrect;
+  document.getElementById('sc-remaining').textContent = filteredQ.length - ans;
+  document.getElementById('sc-pct').textContent = pct;
+}
+
+// ── INIT ──
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('lang-btn').addEventListener('click', toggleLang);
+  document.getElementById('cat-all').addEventListener('click', function(){ setCat('all', this); });
+  document.getElementById('cat-self').addEventListener('click', function(){ setCat('self', this); });
+  document.getElementById('cat-eb1b').addEventListener('click', function(){ setCat('eb1b', this); });
+  document.getElementById('cat-perm').addEventListener('click', function(){ setCat('perm', this); });
+  document.getElementById('cat-eb5').addEventListener('click', function(){ setCat('eb5', this); });
+  document.getElementById('tbtn-docs').addEventListener('click', function(){ switchTab('docs', this); });
+  document.getElementById('tbtn-legal').addEventListener('click', function(){ switchTab('legal', this); });
+  document.getElementById('tbtn-practice').addEventListener('click', function(){ switchTab('practice', this); });
+  document.getElementById('tbtn-tips').addEventListener('click', function(){ switchTab('tips', this); });
+  document.getElementById('btn-reset').addEventListener('click', clearAll);
+  document.getElementById('btn-print').addEventListener('click', function(){ window.print(); });
+  document.getElementById('btn-shuffle').addEventListener('click', shuffleCards);
+  document.getElementById('btn-reset-score').addEventListener('click', resetQuiz);
+  document.getElementById('flashcard').addEventListener('click', flipCard);
+  document.getElementById('btn-prev').addEventListener('click', prevCard);
+  document.getElementById('btn-next').addEventListener('click', nextCard);
+  document.getElementById('mode-study').addEventListener('click', function(){ setMode('study', this); });
+  document.getElementById('mode-quiz').addEventListener('click', function(){ setMode('quiz', this); });
+  document.getElementById('btn-knew').addEventListener('click', function(){ markCard(true); });
+  document.getElementById('btn-practice-more').addEventListener('click', function(){ markCard(false); });
+  document.querySelectorAll('.cl-item').forEach(function(el){ el.addEventListener('click', function(){ toggleCheck(this); }); });
+  document.getElementById('qcat-all').addEventListener('click', function(){ filterQCat('all', this); });
+  document.getElementById('qcat-personal').addEventListener('click', function(){ filterQCat('personal', this); });
+  document.getElementById('qcat-admission').addEventListener('click', function(){ filterQCat('admission', this); });
+  document.getElementById('qcat-status').addEventListener('click', function(){ filterQCat('status', this); });
+  document.getElementById('qcat-work').addEventListener('click', function(){ filterQCat('work', this); });
+  document.getElementById('qcat-petition').addEventListener('click', function(){ filterQCat('petition', this); });
+  document.getElementById('qcat-criminal').addEventListener('click', function(){ filterQCat('criminal', this); });
+  document.getElementById('qcat-medical').addEventListener('click', function(){ filterQCat('medical', this); });
+  applyQFilter();
+  updateStats();
+});
+</script>
+</body>
+</html>
