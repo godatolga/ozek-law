@@ -158,10 +158,10 @@ body{font-family:"DM Sans",sans-serif;background:var(--cream);color:var(--text-d
 <header class="site-header">
   <div class="hdr-pattern"></div>
   <div class="hdr-inner">
-    <div class="logo-wrap"><img src="./Ozek-Law-Firm-Logo-white-transparent.png" alt="Ozek Law Firm"></div>
+    <div class="logo-wrap"><img src="https://ozeklaw.com/wp-content/uploads/2026/03/Ozek-Law-Firm-Logo-white-transparent.png" alt="Ozek Law Firm"></div>
     <div class="hdr-text">
       <h1 class="page-title" id="hdr-title">E-1 / E-2 Treaty Visa<br>Consular Interview Preparation</h1>
-      <p class="page-subtitle" id="hdr-sub">Document checklist &middot; Practice Q&amp;A &middot; Interview strategy<br><span style="color:rgba(184,150,46,.7);font-size:11px;">Tel: +1 (202) 854-8545 &nbsp;&middot;&nbsp; <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0773686b606647687d626c6b66702964686a">[email&#160;protected]</a> &nbsp;&middot;&nbsp; ozeklaw.com</span></p>
+      <p class="page-subtitle" id="hdr-sub">Document checklist &middot; Practice Q&amp;A &middot; Interview strategy<br><span style="color:rgba(184,150,46,.7);font-size:11px;">Tel: +1 (202) 854-8545 &nbsp;&middot;&nbsp; tolga&#64;ozeklaw&#46;com &nbsp;&middot;&nbsp; ozeklaw.com</span></p>
     </div>
     <div class="hdr-right">
       <div class="hdr-badge"><span class="badge-num" id="badge-num">0</span><span class="badge-lbl" id="badge-lbl">Prepared</span></div>
@@ -263,7 +263,7 @@ body{font-family:"DM Sans",sans-serif;background:var(--cream);color:var(--text-d
   </div>
 
   <div class="congrats" id="congrats"><div class="congrats-emoji">&#x1F389;</div><div class="congrats-title" id="congrats-title">All documents prepared!</div><div class="congrats-sub" id="congrats-sub">You are ready for your consular interview. Contact Ozek Law Firm with any last-minute questions.</div></div>
-  <div class="alert warn"><span class="alert-ico">&#x26A0;&#xFE0F;</span><div id="doc-warn">This checklist is a general guide. Individual embassies may have specific requirements. Always confirm with Ozek Law Firm before attending. Call <strong>+1 (202) 854-8545</strong> or email <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7a0e15161d1b3a15001f11161b0d54191517">[email&#160;protected]</a></strong>.</div></div>
+  <div class="alert warn"><span class="alert-ico">&#x26A0;&#xFE0F;</span><div id="doc-warn">This checklist is a general guide. Individual embassies may have specific requirements. Always confirm with Ozek Law Firm before attending. Call <strong>+1 (202) 854-8545</strong> or email <strong>tolga&#64;ozeklaw&#46;com</strong>.</div></div>
 </div>
 
 <!-- LEGAL -->
@@ -395,7 +395,7 @@ body{font-family:"DM Sans",sans-serif;background:var(--cream);color:var(--text-d
     <div style="font-size:13px;color:var(--text-muted);margin-bottom:14px;" id="contact-sub">Ozek Law Firm is here to guide you every step of the way.</div>
     <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
       <a href="tel:+12028548545" class="btn btn-primary">&#x1F4DE; +1 (202) 854-8545</a>
-      <a href="/cdn-cgi/l/email-protection#30445f5c5751705f4a555b5c51471e535f5d" class="btn btn-gold">&#x2709;&#xFE0F; <span class="__cf_email__" data-cfemail="25514a494244654a5f404e4944520b464a48">[email&#160;protected]</span></a>
+      <a href="mailto:tolga&#64;ozeklaw&#46;com" class="btn btn-gold">&#x2709;&#xFE0F; tolga&#64;ozeklaw&#46;com</a>
       <a href="https://ozeklaw.com" target="_blank" class="btn btn-outline">&#x1F310; ozeklaw.com</a>
     </div>
   </div>
@@ -408,7 +408,7 @@ body{font-family:"DM Sans",sans-serif;background:var(--cream);color:var(--text-d
     <span style="color:rgba(255,255,255,.2);" id="footer-text">This tool is for client preparation only and does not constitute legal advice. &copy; 2025 Ozek Law Firm, LLC.</span>
   </div>
 </footer>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ── ALL EVENT LISTENERS ATTACHED VIA JS — NO INLINE ONCLICK ──
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -931,4 +931,17 @@ function resetQuiz() {
   score = {correct:0, incorrect:0}; curIdx = 0; isFlipped = false;
   document.getElementById('flashcard').classList.remove('flipped');
   document.getElementById('score-row').style.display = 'none';
-  renderCard
+  renderCard();
+}
+function updateScoreboard() {
+  var ans = score.correct + score.incorrect;
+  var rem = filteredQ.length - ans;
+  var pct = ans > 0 ? Math.round((score.correct/ans)*100) + '%' : '\u2014';
+  document.getElementById('sc-correct').textContent = score.correct;
+  document.getElementById('sc-incorrect').textContent = score.incorrect;
+  document.getElementById('sc-remaining').textContent = rem;
+  document.getElementById('sc-pct').textContent = pct;
+}
+</script>
+</body>
+</html>
