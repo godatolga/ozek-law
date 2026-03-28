@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L-1 Visa Consular Interview Prep | Ozek Law Firm</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=EB+Garamond:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B2B4B;--navy-deep:#0F1C35;--navy-mid:#243560;--gold:#B8962E;--gold-light:#D4AF5A;--gold-pale:#F0E0A8;--cream:#F4F1EC;--cream-dark:#E8E3D8;--white:#FFFFFF;--text-dark:#1a1a2e;--text-muted:#7a7a8c;--success:#2e7d52;--success-light:#e8f5ee;--danger:#8b1f1f;--danger-light:#fde8e8;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:"DM Sans",sans-serif;background:var(--cream);color:var(--text-dark);min-height:100vh;overflow-x:hidden;}
+.site-header{background:var(--navy-deep);position:relative;overflow:hidden;}
+.hdr-pattern{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 30px,rgba(184,150,46,.04) 30px,rgba(184,150,46,.04) 31px),repeating-linear-gradient(-45deg,transparent,transparent 30px,rgba(184,150,46,.04) 30px,rgba(184,150,46,.04) 31px);}
+.hdr-inner{position:relative;max-width:960px;margin:0 auto;padding:28px 32px 24px;display:flex;align-items:center;gap:24px;}
+.logo-wrap{flex-shrink:0;height:64px;display:flex;align-items:center;}
+.logo-wrap img{height:64px;width:auto;object-fit:contain;}
+.hdr-text{flex:1;}
+.page-title{font-family:"Playfair Display",serif;font-size:24px;font-weight:700;color:var(--white);line-height:1.2;margin-bottom:6px;}
+.page-subtitle{font-size:12px;font-weight:300;color:rgba(255,255,255,.6);line-height:1.5;}
+.hdr-right{display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0;}
+.hdr-badge{background:rgba(184,150,46,.15);border:1px solid rgba(184,150,46,.4);border-radius:8px;padding:10px 16px;text-align:center;}
+.badge-num{font-family:"Playfair Display",serif;font-size:24px;font-weight:700;color:var(--gold);display:block;line-height:1;}
+.badge-lbl{font-size:10px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:1px;margin-top:3px;display:block;}
+.lang-btn{background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.25);border-radius:8px;padding:7px 14px;cursor:pointer;display:flex;align-items:center;gap:7px;transition:all .2s;color:var(--white);font-family:"DM Sans",sans-serif;font-size:12px;font-weight:600;letter-spacing:.5px;}
+.lang-btn:hover{background:rgba(184,150,46,.2);border-color:var(--gold);}
+.overall-prog{background:var(--navy);padding:10px 32px;display:flex;align-items:center;gap:16px;}
+.prog-label{font-size:12px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:1px;white-space:nowrap;}
+.prog-track{flex:1;height:6px;background:rgba(255,255,255,.1);border-radius:3px;overflow:hidden;}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:3px;transition:width .6s cubic-bezier(.4,0,.2,1);width:0%;}
+.prog-pct{font-size:13px;font-weight:600;color:var(--gold);min-width:36px;text-align:right;}
+.vsw-wrap{background:var(--navy-mid);}
+.visa-switcher{max-width:960px;margin:0 auto;padding:10px 32px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.vsw-label{font-size:12px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:1px;white-space:nowrap;}
+.vsw-pills{display:flex;gap:6px;flex-wrap:wrap;}
+.vsw-pill{padding:7px 20px;border-radius:20px;border:1.5px solid rgba(184,150,46,.35);background:transparent;color:rgba(255,255,255,.6);font-family:"DM Sans",sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s;}
+.vsw-pill.active{background:var(--gold);border-color:var(--gold);color:var(--white);}
+.vsw-pill:not(.active):hover{border-color:var(--gold-light);color:var(--white);}
+.tab-bar{background:var(--white);border-bottom:1px solid var(--cream-dark);display:flex;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.06);}
+.tab-btn{flex:1;padding:15px 10px;border:none;background:transparent;cursor:pointer;font-family:"DM Sans",sans-serif;font-size:12px;font-weight:500;color:var(--text-muted);display:flex;align-items:center;justify-content:center;gap:7px;border-bottom:3px solid transparent;transition:all .25s ease;}
+.tab-btn:hover{color:var(--navy);background:var(--cream);}
+.tab-btn.active{color:var(--navy);border-bottom-color:var(--gold);font-weight:600;background:rgba(184,150,46,.04);}
+.tab-ico{font-size:15px;}
+.tab-badge{background:var(--gold);color:var(--white);font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;min-width:18px;text-align:center;}
+.main{max-width:960px;margin:0 auto;padding:32px 24px 60px;}
+.tab-panel{display:none;animation:fadeUp .35s ease;}
+.tab-panel.active{display:block;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+.sec-hdr{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--cream-dark);gap:16px;flex-wrap:wrap;}
+.sec-title{font-family:"Playfair Display",serif;font-size:24px;font-weight:700;color:var(--navy);}
+.sec-desc{font-size:13px;color:var(--text-muted);margin-top:4px;line-height:1.5;}
+.sec-actions{display:flex;gap:10px;}
+.btn{padding:9px 18px;border-radius:6px;font-family:"DM Sans",sans-serif;font-size:13px;font-weight:500;cursor:pointer;border:none;display:inline-flex;align-items:center;gap:6px;transition:all .2s ease;white-space:nowrap;text-decoration:none;}
+.btn-primary{background:var(--navy);color:var(--white);}
+.btn-primary:hover{background:var(--navy-mid);transform:translateY(-1px);}
+.btn-gold{background:var(--gold);color:var(--white);}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-1px);}
+.btn-outline{background:transparent;border:1.5px solid var(--cream-dark);color:var(--text-muted);}
+.btn-outline:hover{border-color:var(--navy);color:var(--navy);}
+.btn-sm{padding:6px 12px;font-size:12px;}
+.cl-group{margin-bottom:28px;}
+.grp-title{font-family:"Playfair Display",serif;font-size:15px;font-weight:600;color:var(--navy);margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+.grp-title::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--cream-dark),transparent);}
+.grp-cnt{font-size:11px;font-weight:600;color:var(--text-muted);background:var(--cream-dark);padding:2px 8px;border-radius:10px;}
+.cl-item{display:flex;align-items:flex-start;gap:14px;padding:13px 16px;background:var(--white);border:1.5px solid var(--cream-dark);border-radius:8px;margin-bottom:8px;cursor:pointer;transition:all .22s ease;position:relative;overflow:hidden;}
+.cl-item::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--cream-dark);transition:background .22s ease;}
+.cl-item:hover{border-color:var(--gold-pale);box-shadow:0 2px 10px rgba(0,0,0,.05);}
+.cl-item.checked{background:var(--success-light);border-color:#a8d8c0;}
+.cl-item.checked::before{background:var(--success);}
+.cl-item.checked .item-text{color:#4a7a5a;text-decoration:line-through;opacity:.7;}
+.cl-item.ifa{background:#fafaf7;}
+.chk-box{width:22px;height:22px;flex-shrink:0;border:2px solid var(--cream-dark);border-radius:5px;display:flex;align-items:center;justify-content:center;transition:all .2s ease;margin-top:1px;background:var(--white);}
+.cl-item.checked .chk-box{background:var(--success);border-color:var(--success);}
+.chkmark{color:var(--white);font-size:13px;opacity:0;transition:opacity .15s ease;font-weight:700;}
+.cl-item.checked .chkmark{opacity:1;}
+.item-body{flex:1;}
+.item-text{font-size:14px;color:var(--text-dark);line-height:1.5;}
+.itag{display:inline-block;font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;text-transform:uppercase;letter-spacing:.5px;margin-top:4px;margin-right:4px;}
+.tag-req{background:#fff3cd;color:#856404;border:1px solid #ffc107;}
+.tag-ifa{background:#e7f3ff;color:#0056b3;border:1px solid #b8d8f5;}
+.tag-orig{background:#f3e8ff;color:#6b21a8;border:1px solid #d8b4fe;}
+.tag-trans{background:#fde8d8;color:#9a3412;border:1px solid #fdba74;}
+.cl-stats{display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap;}
+.stat-card{flex:1;min-width:120px;background:var(--white);border:1.5px solid var(--cream-dark);border-radius:10px;padding:14px 18px;text-align:center;}
+.stat-num{font-family:"Playfair Display",serif;font-size:28px;font-weight:700;color:var(--navy);display:block;line-height:1;}
+.stat-lbl{font-size:11px;color:var(--text-muted);margin-top:4px;text-transform:uppercase;letter-spacing:.5px;}
+.alert{border-radius:10px;padding:16px 20px;display:flex;gap:14px;align-items:flex-start;margin-bottom:20px;font-size:13px;line-height:1.6;}
+.alert.info{background:#e8f3ff;border:1px solid #b8d4f5;color:#1e3a5f;}
+.alert.warn{background:#fff8e1;border:1px solid #ffe082;color:#5d4037;}
+.alert.danger{background:var(--danger-light);border:1px solid #f5b8b8;color:#8b1f1f;}
+.alert-ico{font-size:18px;flex-shrink:0;margin-top:1px;}
+.congrats{text-align:center;padding:40px 20px;display:none;}
+.congrats-emoji{font-size:56px;margin-bottom:12px;}
+.congrats-title{font-family:"Playfair Display",serif;font-size:26px;color:var(--navy);margin-bottom:8px;}
+.congrats-sub{font-size:14px;color:var(--text-muted);}
+.cat-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;}
+.cat-pill{padding:6px 14px;border-radius:20px;font-size:12px;font-weight:500;cursor:pointer;border:1.5px solid var(--cream-dark);background:var(--white);color:var(--text-muted);transition:all .2s;}
+.cat-pill:hover,.cat-pill.active{background:var(--navy);color:var(--white);border-color:var(--navy);}
+.fc-controls{display:flex;align-items:center;gap:12px;margin-bottom:24px;flex-wrap:wrap;}
+.mode-sel{display:flex;gap:4px;background:var(--cream-dark);border-radius:8px;padding:3px;}
+.mode-btn{padding:7px 14px;border-radius:6px;border:none;font-family:"DM Sans",sans-serif;font-size:12px;font-weight:500;cursor:pointer;transition:all .2s;color:var(--text-muted);background:transparent;}
+.mode-btn.active{background:var(--white);color:var(--navy);box-shadow:0 1px 4px rgba(0,0,0,.08);}
+.fc-arena{perspective:1200px;margin-bottom:24px;}
+.fc-wrapper{position:relative;width:100%;max-width:640px;height:310px;margin:0 auto;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.4,0,.2,1);cursor:pointer;}
+.fc-wrapper.flipped{transform:rotateY(180deg);}
+.card-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:28px;text-align:center;}
+.card-front{background:var(--navy);border:2px solid rgba(184,150,46,.3);box-shadow:0 8px 40px rgba(15,28,53,.25);}
+.card-back{background:var(--white);border:2px solid var(--gold-pale);box-shadow:0 8px 40px rgba(184,150,46,.12);transform:rotateY(180deg);}
+.card-lbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;}
+.card-front .card-lbl{color:rgba(184,150,46,.8);}
+.card-back .card-lbl{color:var(--gold);}
+.card-qnum{font-size:11px;color:rgba(255,255,255,.3);margin-bottom:10px;}
+.card-q{font-family:"Playfair Display",serif;font-size:19px;font-weight:600;color:var(--white);line-height:1.4;}
+.card-cat-badge{margin-top:12px;padding:3px 10px;border-radius:12px;font-size:10px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;}
+.card-hint{margin-top:10px;font-size:12px;color:rgba(255,255,255,.4);font-style:italic;}
+.card-a-title{font-size:12px;color:var(--text-muted);margin-bottom:8px;font-weight:500;}
+.card-a{font-family:"EB Garamond",serif;font-size:15px;color:var(--text-dark);line-height:1.6;}
+.card-tip{margin-top:12px;font-size:12px;color:var(--text-muted);background:var(--cream);padding:8px 14px;border-radius:6px;border-left:3px solid var(--gold);text-align:left;width:100%;}
+.card-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:20px;}
+.nav-btn{width:44px;height:44px;border-radius:50%;border:2px solid var(--cream-dark);background:var(--white);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s ease;color:var(--navy);}
+.nav-btn:hover{border-color:var(--navy);background:var(--navy);color:var(--white);transform:scale(1.08);}
+.nav-btn:disabled{opacity:.3;cursor:not-allowed;}
+.card-ctr{font-size:13px;font-weight:500;color:var(--text-muted);min-width:70px;text-align:center;}
+.score-row{display:flex;gap:10px;justify-content:center;margin-bottom:24px;flex-wrap:wrap;}
+.score-btn{padding:10px 24px;border-radius:8px;border:none;font-family:"DM Sans",sans-serif;font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px;transition:all .2s;}
+.score-yes{background:var(--success-light);color:var(--success);border:2px solid #a8d8c0;}
+.score-yes:hover{background:var(--success);color:var(--white);transform:translateY(-2px);}
+.score-no{background:var(--danger-light);color:var(--danger);border:2px solid #f5b8b8;}
+.score-no:hover{background:var(--danger);color:var(--white);transform:translateY(-2px);}
+.scoreboard{background:var(--white);border:1.5px solid var(--cream-dark);border-radius:12px;padding:20px 24px;display:flex;gap:20px;align-items:center;flex-wrap:wrap;}
+.sb-item{text-align:center;flex:1;min-width:80px;}
+.sb-val{font-family:"Playfair Display",serif;font-size:30px;font-weight:700;display:block;}
+.sb-val.c{color:var(--success);}.sb-val.i{color:var(--danger);}.sb-val.r{color:var(--gold);}.sb-val.p{color:var(--navy);}
+.sb-lbl{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;}
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:28px;}
+.tip-card{background:var(--white);border:1.5px solid var(--cream-dark);border-radius:12px;padding:22px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s;}
+.tip-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.08);}
+.tip-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;}
+.tip-card.gold::before{background:linear-gradient(90deg,var(--gold),var(--gold-light));}
+.tip-card.navy::before{background:linear-gradient(90deg,var(--navy),var(--navy-mid));}
+.tip-card.green::before{background:linear-gradient(90deg,#2e7d52,#4caf50);}
+.tip-card.red::before{background:linear-gradient(90deg,#8b1f1f,#c62828);}
+.tip-ico{font-size:28px;margin-bottom:12px;display:block;}
+.tip-title{font-family:"Playfair Display",serif;font-size:16px;font-weight:600;color:var(--navy);margin-bottom:8px;}
+.tip-body{font-size:13px;color:var(--text-muted);line-height:1.65;}
+.legal-req-box{background:var(--navy);border-radius:12px;padding:24px 28px;margin-bottom:24px;}
+.legal-req-title{font-family:"Playfair Display",serif;font-size:17px;color:var(--gold);margin-bottom:16px;}
+.legal-req-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;}
+.legal-req-item{display:flex;gap:10px;align-items:flex-start;}
+.req-num{background:rgba(184,150,46,.15);border-radius:50%;width:28px;height:28px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:700;font-size:12px;}
+.req-text{color:rgba(255,255,255,.75);font-size:12px;line-height:1.5;}
+.req-text strong{color:var(--white);}
+.confetti-piece{position:fixed;width:8px;height:12px;border-radius:2px;animation:cffall 2.5s ease-in forwards;pointer-events:none;z-index:9999;}
+@keyframes cffall{0%{opacity:1;transform:translateY(-20px) rotate(0deg);}100%{opacity:0;transform:translateY(100vh) rotate(720deg);}}
+@media(max-width:600px){.hdr-inner{padding:12px 14px 10px;gap:10px;}.logo-wrap img{height:48px;}.page-title{font-size:16px;}.hdr-badge{display:none;}.tab-txt{display:none;}.fc-wrapper{height:260px;}.card-q{font-size:16px;}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="hdr-pattern"></div>
+  <div class="hdr-inner">
+    <div class="logo-wrap"><img src="https://ozeklaw.com/wp-content/uploads/2026/03/Ozek-Law-Firm-Logo-white-transparent.png" alt="Ozek Law Firm"></div>
+    <div class="hdr-text">
+      <h1 class="page-title" id="hdr-title">L-1 Intracompany Transferee Visa<br>Consular Interview Preparation Guide</h1>
+      <p class="page-subtitle" id="hdr-sub">L-1A Manager / Executive &middot; L-1B Specialized Knowledge &middot; New Office<br><span style="color:rgba(184,150,46,.7);font-size:11px;">Tel: +1 (202) 854-8545 &nbsp;&middot;&nbsp; ozeklaw.com</span></p>
+    </div>
+    <div class="hdr-right">
+      <div class="hdr-badge"><span class="badge-num" id="badge-num">0</span><span class="badge-lbl" id="badge-lbl">Prepared</span></div>
+      <button class="lang-btn" id="lang-btn"><span id="lang-flag">&#x1F1F9;&#x1F1F7;</span><span id="lang-label">T&uuml;rk&ccedil;e</span></button>
+    </div>
+  </div>
+  <div class="overall-prog">
+    <span class="prog-label" id="prog-label">Interview Readiness</span>
+    <div class="prog-track"><div class="prog-fill" id="overall-fill"></div></div>
+    <span class="prog-pct" id="overall-pct">0%</span>
+  </div>
+</header>
+
+<div class="vsw-wrap">
+  <div class="visa-switcher">
+    <span class="vsw-label" id="vsw-label">Visa Category:</span>
+    <div class="vsw-pills">
+      <button class="vsw-pill active" id="pill-all">All L-1</button>
+      <button class="vsw-pill" id="pill-l1a">L-1A: Manager / Executive</button>
+      <button class="vsw-pill" id="pill-l1b">L-1B: Specialized Knowledge</button>
+      <button class="vsw-pill" id="pill-new">New Office L-1</button>
+    </div>
+  </div>
+</div>
+
+<nav class="tab-bar">
+  <button class="tab-btn active" id="tbtn-docs"><span class="tab-ico">&#x1F4CB;</span><span class="tab-txt" id="tt1">Documents</span><span class="tab-badge" id="docs-badge">0</span></button>
+  <button class="tab-btn" id="tbtn-legal"><span class="tab-ico">&#x2696;&#xFE0F;</span><span class="tab-txt" id="tt2">Legal Requirements</span></button>
+  <button class="tab-btn" id="tbtn-practice"><span class="tab-ico">&#x1F0CF;</span><span class="tab-txt" id="tt3">Practice Q&amp;A</span></button>
+  <button class="tab-btn" id="tbtn-tips"><span class="tab-ico">&#x1F4A1;</span><span class="tab-txt" id="tt4">Interview Tips</span></button>
+</nav>
+
+<main class="main">
+
+<!-- DOCUMENTS TAB -->
+<div id="tab-docs" class="tab-panel active">
+  <div class="sec-hdr">
+    <div><h2 class="sec-title" id="doc-title">Document Checklist</h2><p class="sec-desc" id="doc-desc">Bring originals and one clean photocopy of each document. All non-English documents require a certified English translation. Organize in a tabbed folder — know where every document is before you walk in.</p></div>
+    <div class="sec-actions"><button class="btn btn-outline btn-sm" id="btn-reset">&#x21BA; Reset</button><button class="btn btn-primary btn-sm" id="btn-print">&#x1F5A8; Print</button></div>
+  </div>
+  <div class="cl-stats">
+    <div class="stat-card"><span class="stat-num" id="stat-checked">0</span><div class="stat-lbl" id="stat-lbl-prep">Prepared</div></div>
+    <div class="stat-card"><span class="stat-num" id="stat-remaining">0</span><div class="stat-lbl" id="stat-lbl-rem">Remaining</div></div>
+    <div class="stat-card"><span class="stat-num" id="stat-pct">0%</span><div class="stat-lbl" id="stat-lbl-comp">Complete</div></div>
+  </div>
+  <div class="alert info"><span class="alert-ico">&#x2139;&#xFE0F;</span><div id="doc-alert">Bring <strong>originals + one photocopy</strong> of every document. Do not rely on the consulate having copies from the petition. Organize documents so you can locate any item within seconds. Items marked <span class="itag tag-ifa" style="display:inline">Category-Specific</span> show for the selected L-1 type.</div></div>
+
+  <!-- Group 1: Core Interview -->
+  <div class="cl-group">
+    <div class="grp-title"><span id="g1-title">&#x1F4C4; Core Interview Documents</span><span class="grp-cnt" id="g1-cnt">0/5</span></div>
+    <div class="cl-item" data-group="1"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d1_1">DS-160 Confirmation Page — for the principal applicant and each derivative (spouse, children)</div><span class="itag tag-req">Required</span></div></div>
+    <div class="cl-item" data-group="1"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d1_2">Interview Appointment Confirmation Page</div><span class="itag tag-req">Required</span></div></div>
+    <div class="cl-item" data-group="1"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d1_3">Valid passport — minimum 6 months validity beyond intended period of stay; all prior/expired passports</div><span class="itag tag-req">Required</span><span class="itag tag-orig">Originals</span></div></div>
+    <div class="cl-item" data-group="1"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d1_4">Two (2) passport-style photos per applicant — 2 in x 2 in, white background</div><span class="itag tag-req">Required</span></div></div>
+    <div class="cl-item" data-group="1"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d1_5">MRV (Machine-Readable Visa) fee receipt — paid before the appointment</div><span class="itag tag-req">Required</span></div></div>
+  </div>
+
+  <!-- Group 2: Petition Documents -->
+  <div class="cl-group">
+    <div class="grp-title"><span id="g2-title">&#x1F4DC; Petition &amp; Approval Documents</span><span class="grp-cnt" id="g2-cnt">0/4</span></div>
+    <div class="cl-item" data-group="2"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d2_1">I-129 Approval Notice (Form I-797) — for individual L-1 petitions approved by USCIS</div><span class="itag tag-req">Individual Petition</span></div></div>
+    <div class="cl-item ifa" data-group="2" id="d2_2-row"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d2_2">Blanket L Petition approval (I-797) and Form I-129S (Intracompany Transferee Under Blanket Petition)</div><span class="itag tag-ifa">Blanket L Only</span></div></div>
+    <div class="cl-item" data-group="2"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d2_3">Complete copy of the filed I-129 petition and all supporting exhibits</div><span class="itag tag-req">Required</span></div></div>
+    <div class="cl-item ifa" data-group="2"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d2_4">Any I-129 RFE and the response filed, if applicable</div><span class="itag tag-ifa">If Applicable</span></div></div>
+  </div>
+
+  <!-- Group 3: Corporate Relationship Evidence -->
+  <div class="cl-group">
+    <div class="grp-title"><span id="g3-title">&#x1F3E2; Qualifying Corporate Relationship Evidence</span><span class="grp-cnt" id="g3-cnt">0/6</span></div>
+    <div class="cl-item" data-group="3"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d3_1">Corporate organizational chart showing the relationship between the U.S. entity and foreign entity (parent, subsidiary, affiliate, or branch)</div><span class="itag tag-req">Required</span></div></div>
+    <div class="cl-item" data-group="3"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d3_2">Certificate of incorporation or registration for both the U.S. entity and the foreign entity</div><span class="itag tag-req">Required</span></div></div>
+    <div class="cl-item" data-group="3"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d3_3">Proof of ownership: shareholding records, stock certificates, or excerpts from the commercial register showing the qualifying relationship</div><span class="itag tag-req">Required</span></div></div>
+    <div class="cl-item ifa" data-group="3"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d3_4">Annual reports, audited financial statements, or SEC/EDGAR filings for both entities (if publicly traded or available)</div><span class="itag tag-ifa">If Available</span></div></div>
+    <div class="cl-item" data-group="3"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d3_5">Evidence of the U.S. entity's operations: office lease, business license, tax ID, bank statements, client list, or operational correspondence</div><span class="itag tag-req">Required</span></div></div>
+    <div class="cl-item ifa" data-group="3"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d3_6">Evidence of the U.S. entity's employees: payroll records, HR organizational chart, employee list with titles</div><span class="itag tag-ifa">If Applicable</span></div></div>
+  </div>
+
+  <!-- Group 4: Foreign Employment Evidence -->
+  <div class="cl-group">
+    <div class="grp-title"><span id="g4-title">&#x1F30D; Foreign Employment Evidence (1 Year in Past 3 Years)</span><span class="grp-cnt" id="g4-cnt">0/5</span></div>
+    <div class="cl-item" data-group="4"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d4_1">Employment verification letter from the foreign entity confirming your position, dates of employment, and job duties during the qualifying 1-year period</div><span class="itag tag-req">Required</span></div></div>
+    <div class="cl-item" data-group="4"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d4_2">Pay stubs, salary statements, or payroll records from the foreign entity for the qualifying employment period</div><span class="itag tag-req">Required</span></div></div>
+    <div class="cl-item ifa" data-group="4"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d4_3">Foreign employment contract or offer letter, with certified English translation</div><span class="itag tag-ifa">Recommended</span><span class="itag tag-trans">+ Translation</span></div></div>
+    <div class="cl-item ifa" data-group="4"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d4_4">Organizational chart for the foreign entity showing your position and reporting structure</div><span class="itag tag-ifa">Recommended</span></div></div>
+    <div class="cl-item ifa" data-group="4"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d4_5">Foreign income tax records or social security / pension contribution records confirming employment dates</div><span class="itag tag-ifa">If Available</span></div></div>
+  </div>
+
+  <!-- Group 5: U.S. Role Evidence (filtered by L-1A / L-1B) -->
+  <div class="cl-group">
+    <div class="grp-title"><span id="g5-title">&#x1F4BC; U.S. Role &amp; Capacity Evidence</span><span class="grp-cnt" id="g5-cnt">0/6</span></div>
+    <div class="cl-item" data-group="5"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d5_1">Detailed job description for the U.S. position: title, duties, reporting structure, salary, and location</div><span class="itag tag-req">Required</span></div></div>
+    <div class="cl-item" data-group="5"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d5_2">Organizational chart for the U.S. entity showing your position and the employees or functions you manage or direct</div><span class="itag tag-req">Required</span></div></div>
+    <div class="cl-item ifa" data-group="5" id="d5_3-row"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d5_3">L-1A: Evidence of managerial or executive authority — subordinate employee list with titles, evidence of supervisory responsibility, budget/decision-making authority documentation</div><span class="itag tag-ifa">L-1A Only</span></div></div>
+    <div class="cl-item ifa" data-group="5" id="d5_4-row"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d5_4">L-1B: Evidence of specialized knowledge — proprietary system documentation, patents, technical training records, certifications unique to the company, or evidence of advanced internal expertise</div><span class="itag tag-ifa">L-1B Only</span></div></div>
+    <div class="cl-item ifa" data-group="5" id="d5_5-row"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d5_5">New Office: Business plan with financial projections, signed office lease or purchase agreement, evidence of investment in the U.S. operation</div><span class="itag tag-ifa">New Office Only</span></div></div>
+    <div class="cl-item" data-group="5"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d5_6">Support letter from the U.S. petitioner on company letterhead: confirms the position, your qualifications, and your expected start date</div><span class="itag tag-req">Required</span></div></div>
+  </div>
+
+  <!-- Group 6: Personal & Derivative -->
+  <div class="cl-group">
+    <div class="grp-title"><span id="g6-title">&#x1F464; Personal &amp; Derivative Documents</span><span class="grp-cnt" id="g6-cnt">0/5</span></div>
+    <div class="cl-item" data-group="6"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d6_1">Your full CV / resume</div><span class="itag tag-req">Required</span></div></div>
+    <div class="cl-item" data-group="6"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d6_2">Educational degrees and transcripts, with certified English translations if not in English</div><span class="itag tag-req">Required</span><span class="itag tag-trans">+ Translation</span></div></div>
+    <div class="cl-item ifa" data-group="6"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d6_3">Marriage certificate and birth certificates for derivative applicants (spouse applying for L-2, children under 21 applying for L-2), with certified English translations</div><span class="itag tag-ifa">If Derivatives</span><span class="itag tag-trans">+ Translation</span></div></div>
+    <div class="cl-item ifa" data-group="6"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d6_4">Any prior U.S. visa approvals or denials, I-797 approval notices for prior U.S. petitions, and I-94 records from prior U.S. visits</div><span class="itag tag-ifa">If Applicable</span></div></div>
+    <div class="cl-item ifa" data-group="6"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" id="d6_5">Any prior L-1 visa, H-1B, or other U.S. work visa approvals and copies of stamps in passports</div><span class="itag tag-ifa">If Prior U.S. Status</span></div></div>
+  </div>
+
+  <div class="alert warn"><span class="alert-ico">&#x26A0;&#xFE0F;</span><div id="doc-warn">The consular officer will compare your oral answers to the documents in the petition package. Know your employment history, the corporate structure, and your job duties cold before you walk in. Any inconsistency between the documents and your answers will prompt additional scrutiny.</div></div>
+  <div class="congrats" id="congrats"><div class="congrats-emoji">&#x1F389;</div><div class="congrats-title" id="congrats-title">All documents prepared!</div><div class="congrats-sub" id="congrats-sub">You are ready for your consular interview. Contact Ozek Law Firm with any last-minute questions.</div></div>
+</div>
+
+<!-- LEGAL TAB -->
+<div id="tab-legal" class="tab-panel">
+  <div class="sec-hdr"><div><h2 class="sec-title" id="legal-title">Legal Requirements — Know Your Case</h2><p class="sec-desc" id="legal-desc">The consular officer will evaluate each element below. Know exactly how your case satisfies each requirement before walking into the interview.</p></div></div>
+
+  <div class="legal-req-box">
+    <div class="legal-req-title" id="l1-req-title">&#x1F4BC; L-1 Visa — Four Core Requirements (All Categories)</div>
+    <div class="legal-req-grid">
+      <div class="legal-req-item"><div class="req-num">1</div><div class="req-text"><strong id="r1h">Qualifying Organization</strong><br><span id="r1b">The U.S. employer and foreign employer must have a qualifying relationship: parent, subsidiary, affiliate, or branch of the same employer. At least 50% common ownership or control is required for affiliates.</span></div></div>
+      <div class="legal-req-item"><div class="req-num">2</div><div class="req-text"><strong id="r2h">One Year of Qualifying Employment</strong><br><span id="r2b">You must have been employed continuously for at least 1 year within the 3 years immediately preceding the petition with the qualifying foreign organization, in a managerial, executive, or specialized knowledge capacity.</span></div></div>
+      <div class="legal-req-item"><div class="req-num">3</div><div class="req-text"><strong id="r3h">Qualifying Capacity Abroad</strong><br><span id="r3b">Your foreign employment must have been in a managerial, executive, or specialized knowledge capacity — the same categories as the U.S. position. You cannot qualify based on ordinary operational work.</span></div></div>
+      <div class="legal-req-item"><div class="req-num">4</div><div class="req-text"><strong id="r4h">Qualifying Capacity in the U.S.</strong><br><span id="r4b">The U.S. position must be in a managerial capacity (L-1A), executive capacity (L-1A), or specialized knowledge capacity (L-1B). The officer will scrutinize whether the U.S. role genuinely meets these definitions.</span></div></div>
+    </div>
+  </div>
+
+  <!-- L-1A specific -->
+  <div id="legal-l1a-block">
+    <div class="legal-req-box" style="background:var(--navy-mid);">
+      <div class="legal-req-title" id="l1a-title">&#x1F451; L-1A: Manager or Executive — Key Definitions</div>
+      <div class="legal-req-grid">
+        <div class="legal-req-item"><div class="req-num">M</div><div class="req-text"><strong id="l1a-m-h">Manager</strong><br><span id="l1a-m-b">Manages the organization, a department, subdivision, function, or component. Supervises and controls work of professional employees, managers, or supervisors — OR manages an essential function at a senior level. Has authority to hire/fire or recommend such action. Exercises discretion over day-to-day operations.</span></div></div>
+        <div class="legal-req-item"><div class="req-num">E</div><div class="req-text"><strong id="l1a-e-h">Executive</strong><br><span id="l1a-e-b">Directs the management of the organization or a major component or function. Establishes goals and policies. Exercises wide latitude in discretionary decision-making. Receives only general supervision from higher-level executives, a board of directors, or stockholders.</span></div></div>
+      </div>
+    </div>
+    <div class="tips-grid">
+      <div class="tip-card gold"><span class="tip-ico">&#x1F4CA;</span><div class="tip-title" id="lt1t">Know Your Org Chart</div><div class="tip-body" id="lt1b">For L-1A, the officer will probe whether your role is genuinely managerial or executive. Know who reports to you, their titles and qualifications, and what decisions you make. If your team is small, be prepared to explain why the role is still managerial.</div></div>
+      <div class="tip-card navy"><span class="tip-ico">&#x1F3AF;</span><div class="tip-title" id="lt2t">Function Manager vs. People Manager</div><div class="tip-body" id="lt2b">If you manage a function rather than people, be ready to explain what essential function you manage, your seniority level, and why professional or supervisory staff carry out routine operational work under your oversight.</div></div>
+    </div>
+  </div>
+
+  <!-- L-1B specific -->
+  <div id="legal-l1b-block">
+    <div class="legal-req-box" style="background:var(--navy-mid);">
+      <div class="legal-req-title" id="l1b-title">&#x1F9E0; L-1B: Specialized Knowledge — Key Definition</div>
+      <div class="legal-req-grid">
+        <div class="legal-req-item"><div class="req-num">SK</div><div class="req-text"><strong id="l1b-sk-h">Specialized Knowledge</strong><br><span id="l1b-sk-b">Special knowledge of the petitioning organization's products, services, research, equipment, techniques, management, or other interests and its application in international markets — OR an advanced level of knowledge of the organization's processes and procedures. Must be genuinely proprietary or advanced — not generally available in the industry.</span></div></div>
+      </div>
+    </div>
+    <div class="tips-grid">
+      <div class="tip-card gold"><span class="tip-ico">&#x1F9EA;</span><div class="tip-title" id="lt3t">Proprietary vs. General Industry Knowledge</div><div class="tip-body" id="lt3b">Officers frequently challenge L-1B cases by arguing the knowledge is available in the open market. Be prepared to explain specifically what makes your knowledge proprietary to this company — internal systems, confidential processes, unique methodologies, or company-specific technology that cannot be found elsewhere.</div></div>
+      <div class="tip-card navy"><span class="tip-ico">&#x1F4D6;</span><div class="tip-title" id="lt4t">Be Specific, Not General</div><div class="tip-body" id="lt4b">Do not describe your role in generic industry terms. Use the company's proprietary names for systems, products, and processes. Describe training that is unique to the company, institutional knowledge built over years, and how your absence would specifically harm the U.S. operation.</div></div>
+    </div>
+  </div>
+
+  <!-- New Office specific -->
+  <div id="legal-new-block">
+    <div class="legal-req-box" style="background:var(--navy-mid);">
+      <div class="legal-req-title" id="new-title">&#x1F3D7;&#xFE0F; New Office L-1 — Additional Requirements</div>
+      <div class="legal-req-grid">
+        <div class="legal-req-item"><div class="req-num">1</div><div class="req-text"><strong id="new-r1-h">Physical Premises</strong><br><span id="new-r1-b">The U.S. entity must have secured physical premises where the new office will operate before the visa is issued. A signed lease or purchase agreement is required.</span></div></div>
+        <div class="legal-req-item"><div class="req-num">2</div><div class="req-text"><strong id="new-r2-h">Will Employ in Qualifying Capacity</strong><br><span id="new-r2-b">For new office L-1A, the officer will assess whether the U.S. operation will, within one year, support a managerial or executive position. A business plan demonstrating realistic growth is critical.</span></div></div>
+        <div class="legal-req-item"><div class="req-num">3</div><div class="req-text"><strong id="new-r3-h">One-Year Initial Period</strong><br><span id="new-r3-b">New office L-1 is issued initially for 1 year only (vs. 3 years for established offices). Extension requires evidence that the office is doing business and the qualifying capacity is being exercised.</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-hdr" style="margin-top:32px;"><div><h2 class="sec-title" style="color:var(--danger);" id="intent-title">&#x26A0; Nonimmigrant Intent — Critical for L-1</h2><p class="sec-desc" id="intent-desc">The L-1 is a nonimmigrant visa. You must demonstrate that you intend to depart the United States when your authorized status ends, unless you otherwise adjust status lawfully.</p></div></div>
+  <div class="alert danger"><span class="alert-ico">&#x1F6A8;</span><div id="intent-alert">The officer is watching for immigrant intent. Unlike the E-1/E-2, L-1 holders CAN have "dual intent" — they may simultaneously pursue permanent residence (EB-1C petition) without prejudicing the L-1 visa. However, you must demonstrate that you have ties to your home country, a continuing role in the foreign entity, and that you are not abandoning your foreign life. Prepare these answers carefully.</div></div>
+  <div class="tips-grid" style="margin-top:20px;">
+    <div class="tip-card red"><span class="tip-ico">&#x1F30D;</span><div class="tip-title" id="int1t">Ties to Home Country</div><div class="tip-body" id="int1b">Be prepared to describe concrete ties: home or property owned or leased abroad, family members who remain in the home country, continued ownership interest in the foreign entity, and other financial or professional connections. Specific ties are more persuasive than general statements.</div></div>
+    <div class="tip-card red"><span class="tip-ico">&#x1F4C4;</span><div class="tip-title" id="int2t">Dual Intent Is Permitted</div><div class="tip-body" id="int2b">L-1 visa holders are explicitly protected under INA 214(b) from denial based solely on a pending or intended immigrant petition. If an I-140 or EB-1C petition has been filed, you do not need to hide it. However, the visa officer may still probe the overall picture of your ties and plans.</div></div>
+    <div class="tip-card red"><span class="tip-ico">&#x1F3E2;</span><div class="tip-title" id="int3t">Continuing Role in Foreign Entity</div><div class="tip-body" id="int3b">Confirm that you have a continuing relationship with the foreign entity. The L-1 requires that you work for the qualifying organization in the U.S. — meaning the foreign entity must still exist and have a qualifying relationship with the U.S. entity throughout your authorized stay.</div></div>
+    <div class="tip-card red"><span class="tip-ico">&#x1F6AB;</span><div class="tip-title" id="int4t">Never Misrepresent</div><div class="tip-body" id="int4b">Never lie about your intent, your employment history, or the corporate structure. Misrepresentation to a consular officer is a permanent ground of inadmissibility under INA 212(a)(6)(C). If a question concerns a sensitive area, discuss it with your attorney before the interview.</div></div>
+  </div>
+</div>
+
+<!-- PRACTICE Q&A TAB -->
+<div id="tab-practice" class="tab-panel">
+  <div class="sec-hdr"><div><h2 class="sec-title" id="qa-title">Interview Practice Q&amp;A</h2><p class="sec-desc" id="qa-desc">Flip each card to reveal the model answer guidance. Practice until every answer is confident and consistent with your documents.</p></div></div>
+  <div class="cat-pills" id="cat-pills">
+    <div class="cat-pill active" id="qcat-all">All Questions</div>
+    <div class="cat-pill" id="qcat-corp">&#x1F3E2; Corporate Relationship</div>
+    <div class="cat-pill" id="qcat-foreign">&#x1F30D; Foreign Employment</div>
+    <div class="cat-pill" id="qcat-role">&#x1F4BC; U.S. Role &amp; Capacity</div>
+    <div class="cat-pill" id="qcat-intent">&#x1F3E0; Intent &amp; Ties</div>
+    <div class="cat-pill" id="qcat-background">&#x1F4CB; Background &amp; History</div>
+    <div class="cat-pill" id="qcat-newoffice">&#x1F3D7;&#xFE0F; New Office</div>
+  </div>
+  <div class="fc-controls">
+    <div class="mode-sel">
+      <button class="mode-btn active" id="mode-study">&#x1F4D6; Study</button>
+      <button class="mode-btn" id="mode-quiz">&#x1F3C6; Quiz</button>
+    </div>
+    <button class="btn btn-outline btn-sm" id="btn-shuffle">&#x1F500; Shuffle</button>
+    <button class="btn btn-outline btn-sm" id="btn-reset-score">&#x21BA; Reset Score</button>
+  </div>
+  <div class="fc-arena">
+    <div class="fc-wrapper" id="flashcard">
+      <div class="card-face card-front">
+        <div class="card-qnum" id="card-qnum">Question 1 of 40</div>
+        <div class="card-lbl" id="card-front-lbl">Consular Interview Question</div>
+        <div class="card-q" id="card-q">Loading...</div>
+        <div class="card-cat-badge" id="card-cat-badge"></div>
+        <div class="card-hint" id="card-hint">Click card to reveal answer guidance</div>
+      </div>
+      <div class="card-face card-back">
+        <div class="card-lbl" id="card-back-lbl">Model Answer Guidance</div>
+        <div class="card-a-title" id="card-how-to">How to answer:</div>
+        <div class="card-a" id="card-a"></div>
+        <div class="card-tip" id="card-tip"></div>
+      </div>
+    </div>
+  </div>
+  <div class="card-nav">
+    <button class="nav-btn" id="btn-prev">&#x2039;</button>
+    <span class="card-ctr" id="card-ctr">1 / 40</span>
+    <button class="nav-btn" id="btn-next">&#x203A;</button>
+  </div>
+  <div class="score-row" id="score-row" style="display:none;">
+    <button class="score-btn score-yes" id="btn-knew">&#x2713; I knew it!</button>
+    <button class="score-btn score-no" id="btn-practice-more">&#x2717; Need more practice</button>
+  </div>
+  <div class="scoreboard">
+    <div class="sb-item"><span class="sb-val c" id="sc-correct">0</span><div class="sb-lbl" id="sb-correct">Correct</div></div>
+    <div class="sb-item"><span class="sb-val i" id="sc-incorrect">0</span><div class="sb-lbl" id="sb-practice">Practice More</div></div>
+    <div class="sb-item"><span class="sb-val r" id="sc-remaining">40</span><div class="sb-lbl" id="sb-remaining">Remaining</div></div>
+    <div class="sb-item"><span class="sb-val p" id="sc-pct">&mdash;</span><div class="sb-lbl" id="sb-score">Score</div></div>
+  </div>
+</div>
+
+<!-- TIPS TAB -->
+<div id="tab-tips" class="tab-panel">
+  <div class="sec-hdr"><div><h2 class="sec-title" id="tips-title">Interview Tips &amp; Strategy</h2><p class="sec-desc" id="tips-desc">From the desk of Tolga Ozek, Esq. &mdash; what to know before you walk into the consulate for your L-1 interview.</p></div></div>
+  <div class="alert warn"><span class="alert-ico">&#x26A0;&#xFE0F;</span><div id="tips-alert"><strong>Important:</strong> Always consult with Ozek Law Firm before your consular interview. Call <strong>+1 (202) 854-8545</strong> with any questions.</div></div>
+  <div class="tips-grid">
+    <div class="tip-card gold"><span class="tip-ico">&#x1F4CA;</span><div class="tip-title" id="tip1t">Know the Corporate Structure Cold</div><div class="tip-body" id="tip1b">The L-1 lives or dies on the corporate relationship. Know the ownership percentages, the type of relationship (parent, subsidiary, affiliate, branch), and how it is documented. Be able to draw the corporate structure from memory — name each entity, its jurisdiction of incorporation, and who owns what.</div></div>
+    <div class="tip-card navy"><span class="tip-ico">&#x1F5E3;&#xFE0F;</span><div class="tip-title" id="tip2t">Answer Only What Is Asked</div><div class="tip-body" id="tip2b">Do not volunteer information beyond what the question requires. Keep answers concise and direct. Long, unprompted answers can introduce new issues and extend the interview into areas that cause problems.</div></div>
+    <div class="tip-card green"><span class="tip-ico">&#x1F454;</span><div class="tip-title" id="tip3t">Dress for Business</div><div class="tip-body" id="tip3b">You are representing yourself as a corporate manager, executive, or specialist. Dress accordingly: business professional or business formal. The consular officer makes quick judgments. Present yourself as the senior professional your petition describes.</div></div>
+    <div class="tip-card red"><span class="tip-ico">&#x1F6AB;</span><div class="tip-title" id="tip4t">Never Misrepresent</div><div class="tip-body" id="tip4b">Misrepresentation to a consular officer is a permanent ground of inadmissibility under INA 212(a)(6)(C). If any aspect of your employment history, the corporate structure, or your qualifications is complex or sensitive, discuss the correct answer with your attorney before the interview.</div></div>
+    <div class="tip-card gold"><span class="tip-ico">&#x23F0;</span><div class="tip-title" id="tip5t">Arrive No More Than 30 Minutes Early</div><div class="tip-body" id="tip5b">Most consulates will not admit you more than 30 minutes before your appointment. Plan your route in advance. Allow for transportation delays. Being late can result in your interview slot being forfeited.</div></div>
+    <div class="tip-card navy"><span class="tip-ico">&#x1F4CB;</span><div class="tip-title" id="tip6t">Know the Petition Package</div><div class="tip-body" id="tip6b">Study the table of contents of your petition package before the interview. Know where the corporate documents are, where the employment evidence is, and where your job description is. If the officer asks for a specific document, find it within seconds.</div></div>
+    <div class="tip-card green"><span class="tip-ico">&#x1F4BB;</span><div class="tip-title" id="tip7t">No Laptops or Large Electronics</div><div class="tip-body" id="tip7b">Most consulates do not permit laptops, tablets, or large backpacks inside. They will be confiscated at security. Bring only your documents organized in a folder, your photo ID, and your MRV fee receipt.</div></div>
+    <div class="tip-card red"><span class="tip-ico">&#x270D;&#xFE0F;</span><div class="tip-title" id="tip8t">Write Everything Down After</div><div class="tip-body" id="tip8b">The moment you leave the consulate, write down every question asked and every answer you gave — especially anything unexpected. If the officer expressed any concern or requested additional evidence, note it precisely and contact Ozek Law Firm the same day.</div></div>
+  </div>
+  <div style="background:var(--navy);border-radius:14px;padding:28px 32px;margin-bottom:28px;">
+    <div style="font-family:'Playfair Display',serif;font-size:20px;color:var(--gold);margin-bottom:20px;" id="steps-title">What to Expect at the Consulate</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:20px;">
+      <div style="display:flex;gap:12px;align-items:flex-start;"><div style="background:rgba(184,150,46,.15);border-radius:50%;width:34px;height:34px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:700;">1</div><div><div style="color:#fff;font-size:13px;font-weight:600;margin-bottom:3px;" id="step1t">Security</div><div style="color:rgba(255,255,255,.55);font-size:12px;line-height:1.5;" id="step1b">Airport-style X-ray. No laptops or backpacks. Arrive no more than 30 minutes early.</div></div></div>
+      <div style="display:flex;gap:12px;align-items:flex-start;"><div style="background:rgba(184,150,46,.15);border-radius:50%;width:34px;height:34px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:700;">2</div><div><div style="color:#fff;font-size:13px;font-weight:600;margin-bottom:3px;" id="step2t">Pre-Interview Check</div><div style="color:rgba(255,255,255,.55);font-size:12px;line-height:1.5;" id="step2b">Documents verified, sorted by visa type. Ask staff if unsure where to go.</div></div></div>
+      <div style="display:flex;gap:12px;align-items:flex-start;"><div style="background:rgba(184,150,46,.15);border-radius:50%;width:34px;height:34px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:700;">3</div><div><div style="color:#fff;font-size:13px;font-weight:600;margin-bottom:3px;" id="step3t">The Interview</div><div style="color:rgba(255,255,255,.55);font-size:12px;line-height:1.5;" id="step3b">L-1 interviews typically last 10-30 minutes. Strong packages often result in shorter interviews.</div></div></div>
+      <div style="display:flex;gap:12px;align-items:flex-start;"><div style="background:rgba(184,150,46,.15);border-radius:50%;width:34px;height:34px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:700;">4</div><div><div style="color:#fff;font-size:13px;font-weight:600;margin-bottom:3px;" id="step4t">Decision</div><div style="color:rgba(255,255,255,.55);font-size:12px;line-height:1.5;" id="step4b">Approval, 221(g) administrative processing, or denial. A 221(g) is NOT a denial.</div></div></div>
+      <div style="display:flex;gap:12px;align-items:flex-start;"><div style="background:rgba(184,150,46,.15);border-radius:50%;width:34px;height:34px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:700;">5</div><div><div style="color:#fff;font-size:13px;font-weight:600;margin-bottom:3px;" id="step5t">221(g) — Do Not Panic</div><div style="color:rgba(255,255,255,.55);font-size:12px;line-height:1.5;" id="step5b">Request for additional documents or administrative processing. Call Ozek Law Firm immediately: +1 (202) 854-8545.</div></div></div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:24px;background:var(--cream-dark);border-radius:12px;">
+    <div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--navy);margin-bottom:6px;" id="contact-title">Questions before your interview?</div>
+    <div style="font-size:13px;color:var(--text-muted);margin-bottom:14px;" id="contact-sub">Ozek Law Firm is here to guide you every step of the way.</div>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+      <a href="tel:+12028548545" class="btn btn-primary">&#x1F4DE; +1 (202) 854-8545</a>
+      <a href="https://ozeklaw.com" target="_blank" class="btn btn-gold">&#x1F310; ozeklaw.com</a>
+    </div>
+  </div>
+</div>
+</main>
+
+<footer style="background:var(--navy-deep);padding:20px 32px;text-align:center;">
+  <div style="font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.5px;line-height:1.8;">
+    Ozek Law Firm, LLC &nbsp;&middot;&nbsp; 2 Wisconsin Cir., Suite 700, Chevy Chase, MD 20815<br>
+    Tolga Ozek, Esq. &nbsp;&middot;&nbsp; EOIR ID: XX895411 &nbsp;&middot;&nbsp; Licensed in NY, MD &amp; D.C.<br>
+    <span style="color:rgba(255,255,255,.2);" id="footer-text">This tool is for client preparation only and does not constitute legal advice. Confidential &mdash; Attorney-Client Privileged. &copy; 2025 Ozek Law Firm, LLC.</span>
+  </div>
+</footer>
+
+<script>
+var lang = 'en';
+var curVisa = 'all';
+var filteredQ = [];
+var curIdx = 0, isFlipped = false, quizMode = false;
+var score = {correct:0, incorrect:0};
+var currentCat = 'all';
+
+// ── TRANSLATIONS ──
+var T = {
+en:{
+  hdrTitle:'L-1 Intracompany Transferee Visa<br>Consular Interview Preparation Guide',
+  hdrSub:'L-1A Manager / Executive &middot; L-1B Specialized Knowledge &middot; New Office',
+  badgeLbl:'Prepared', progLabel:'Interview Readiness',
+  vswLabel:'Visa Category:', pillAll:'All L-1', pillL1A:'L-1A: Manager / Executive', pillL1B:'L-1B: Specialized Knowledge', pillNew:'New Office L-1',
+  tt1:'Documents', tt2:'Legal Requirements', tt3:'Practice Q&amp;A', tt4:'Interview Tips',
+  docTitle:'Document Checklist', docDesc:'Bring originals and one clean photocopy of each document. All non-English documents require a certified English translation.',
+  btnReset:'&#x21BA; Reset', btnPrint:'&#x1F5A8; Print',
+  statPrep:'Prepared', statRem:'Remaining', statComp:'Complete',
+  docAlert:'Bring <strong>originals + one photocopy</strong> of every document. Do not rely on the consulate having copies from the petition. Organize documents so you can locate any item within seconds.',
+  g1:'&#x1F4C4; Core Interview Documents', g2:'&#x1F4DC; Petition &amp; Approval Documents',
+  g3:'&#x1F3E2; Qualifying Corporate Relationship Evidence', g4:'&#x1F30D; Foreign Employment Evidence (1 Year in Past 3 Years)',
+  g5:'&#x1F4BC; U.S. Role &amp; Capacity Evidence', g6:'&#x1F464; Personal &amp; Derivative Documents',
+  d1_1:'DS-160 Confirmation Page — for the principal applicant and each derivative (spouse, children)',
+  d1_2:'Interview Appointment Confirmation Page',
+  d1_3:'Valid passport — minimum 6 months validity beyond intended period of stay; all prior/expired passports',
+  d1_4:'Two (2) passport-style photos per applicant — 2 in x 2 in, white background',
+  d1_5:'MRV (Machine-Readable Visa) fee receipt — paid before the appointment',
+  d2_1:'I-129 Approval Notice (Form I-797) — for individual L-1 petitions approved by USCIS',
+  d2_2:'Blanket L Petition approval (I-797) and Form I-129S (Intracompany Transferee Under Blanket Petition)',
+  d2_3:'Complete copy of the filed I-129 petition and all supporting exhibits',
+  d2_4:'Any I-129 RFE and the response filed, if applicable',
+  d3_1:'Corporate organizational chart showing the relationship between the U.S. entity and foreign entity',
+  d3_2:'Certificate of incorporation or registration for both the U.S. entity and the foreign entity',
+  d3_3:'Proof of ownership: shareholding records, stock certificates, or commercial register excerpts showing the qualifying relationship',
+  d3_4:'Annual reports, audited financial statements, or SEC filings for both entities (if available)',
+  d3_5:"Evidence of the U.S. entity's operations: office lease, business license, tax ID, bank statements",
+  d3_6:"Evidence of the U.S. entity's employees: payroll records, HR organizational chart, employee list with titles",
+  d4_1:'Employment verification letter from the foreign entity confirming your position, dates, and job duties during the qualifying 1-year period',
+  d4_2:'Pay stubs, salary statements, or payroll records from the foreign entity for the qualifying employment period',
+  d4_3:'Foreign employment contract or offer letter, with certified English translation',
+  d4_4:'Organizational chart for the foreign entity showing your position and reporting structure',
+  d4_5:'Foreign income tax records or social security/pension contribution records confirming employment dates',
+  d5_1:'Detailed job description for the U.S. position: title, duties, reporting structure, salary, and location',
+  d5_2:'Organizational chart for the U.S. entity showing your position and the employees or functions you manage or direct',
+  d5_3:'L-1A: Evidence of managerial or executive authority — subordinate employee list, evidence of supervisory responsibility, budget/decision-making authority',
+  d5_4:'L-1B: Evidence of specialized knowledge — proprietary system documentation, patents, technical training records, certifications unique to the company',
+  d5_5:'New Office: Business plan with financial projections, signed office lease, evidence of investment in the U.S. operation',
+  d5_6:'Support letter from the U.S. petitioner on company letterhead confirming position, qualifications, and expected start date',
+  d6_1:'Your full CV / resume',
+  d6_2:'Educational degrees and transcripts, with certified English translations if not in English',
+  d6_3:'Marriage certificate and birth certificates for derivative applicants (L-2 spouse/children), with certified English translations',
+  d6_4:'Any prior U.S. visa approvals or denials, I-797 approval notices for prior U.S. petitions, I-94 records',
+  d6_5:'Any prior L-1, H-1B, or other U.S. work visa approvals and copies of stamps in passports',
+  congratsTitle:'All documents prepared!', congratsSub:'You are ready for your consular interview. Contact Ozek Law Firm with any last-minute questions.',
+  docWarn:'The consular officer will compare your oral answers to the documents in the petition package. Know your employment history, the corporate structure, and your job duties before you walk in. Any inconsistency will prompt additional scrutiny.',
+  legalTitle:'Legal Requirements — Know Your Case', legalDesc:'The consular officer will evaluate each element below. Know exactly how your case satisfies each requirement.',
+  'l1-req-title':'&#x1F4BC; L-1 Visa — Four Core Requirements (All Categories)',
+  r1h:'Qualifying Organization', r1b:'The U.S. and foreign employers must have a qualifying relationship: parent, subsidiary, affiliate, or branch. At least 50% common ownership or control is required for affiliates.',
+  r2h:'One Year of Qualifying Employment', r2b:'Continuous employment for at least 1 year within the 3 years preceding the petition with the qualifying foreign organization, in a managerial, executive, or specialized knowledge capacity.',
+  r3h:'Qualifying Capacity Abroad', r3b:'Your foreign employment must have been in a managerial, executive, or specialized knowledge capacity. Ordinary operational work does not qualify.',
+  r4h:'Qualifying Capacity in the U.S.', r4b:'The U.S. position must be managerial (L-1A), executive (L-1A), or specialized knowledge (L-1B). The officer will scrutinize whether the U.S. role genuinely meets these definitions.',
+  'l1a-title':'&#x1F451; L-1A: Manager or Executive — Key Definitions',
+  'l1a-m-h':'Manager', 'l1a-m-b':'Manages the organization, a department, subdivision, function, or component. Supervises and controls professional employees, managers, or supervisors — OR manages an essential function at a senior level. Has authority to hire/fire. Exercises discretion over day-to-day operations.',
+  'l1a-e-h':'Executive', 'l1a-e-b':'Directs the management of the organization or a major component or function. Establishes goals and policies. Exercises wide latitude in discretionary decision-making. Receives only general supervision from higher-level executives, a board, or stockholders.',
+  lt1t:'Know Your Org Chart', lt1b:'For L-1A, the officer will probe whether your role is genuinely managerial or executive. Know who reports to you, their titles and qualifications, and what decisions you make. If your team is small, be prepared to explain why the role is still managerial.',
+  lt2t:'Function Manager vs. People Manager', lt2b:'If you manage a function rather than people, be ready to explain what essential function you manage, your seniority level, and why professional or supervisory staff carry out routine operational work under your oversight.',
+  'l1b-title':'&#x1F9E0; L-1B: Specialized Knowledge — Key Definition',
+  'l1b-sk-h':'Specialized Knowledge', 'l1b-sk-b':'Special knowledge of the organization\'s products, services, research, equipment, techniques, management, or interests — OR an advanced level of knowledge of the organization\'s processes and procedures. Must be genuinely proprietary or advanced — not generally available in the industry.',
+  lt3t:'Proprietary vs. General Industry Knowledge', lt3b:'Officers frequently challenge L-1B cases by arguing the knowledge is available in the open market. Be prepared to explain specifically what makes your knowledge proprietary to this company — internal systems, confidential processes, unique methodologies.',
+  lt4t:'Be Specific, Not General', lt4b:'Do not describe your role in generic industry terms. Use the company\'s proprietary names for systems, products, and processes. Describe training unique to the company and institutional knowledge built over years.',
+  'new-title':'&#x1F3D7;&#xFE0F; New Office L-1 — Additional Requirements',
+  'new-r1-h':'Physical Premises', 'new-r1-b':'The U.S. entity must have secured physical premises where the new office will operate before the visa is issued. A signed lease or purchase agreement is required.',
+  'new-r2-h':'Will Employ in Qualifying Capacity', 'new-r2-b':'For new office L-1A, the officer will assess whether the U.S. operation will, within one year, support a managerial or executive position. A realistic business plan is critical.',
+  'new-r3-h':'One-Year Initial Period', 'new-r3-b':'New office L-1 is issued for 1 year only (vs. 3 years for established offices). Extension requires evidence that the office is operating and the qualifying capacity is being exercised.',
+  'intent-title':'&#x26A0; Nonimmigrant Intent — Critical for L-1',
+  'intent-desc':'The L-1 is a nonimmigrant visa. You must demonstrate that you intend to depart when your authorized status ends, unless you lawfully adjust status.',
+  'intent-alert':'The officer is watching for immigrant intent. Unlike E-1/E-2, L-1 holders CAN have "dual intent" — they may pursue permanent residence simultaneously. However, demonstrate concrete ties to your home country, a continuing role in the foreign entity, and that you are not abandoning your foreign life.',
+  int1t:'Ties to Home Country', int1b:'Describe concrete ties: home or property owned or leased abroad, family remaining in the home country, continued ownership in the foreign entity, and other financial or professional connections.',
+  int2t:'Dual Intent Is Permitted', int2b:'L-1 visa holders are protected from denial based solely on a pending or intended immigrant petition. If an I-140 or EB-1C has been filed, you do not need to conceal it. The officer may still probe your overall ties.',
+  int3t:'Continuing Role in Foreign Entity', int3b:'Confirm that you have a continuing relationship with the foreign entity. The foreign organization must still exist and maintain a qualifying relationship with the U.S. entity throughout your authorized stay.',
+  int4t:'Never Misrepresent', int4b:'Misrepresentation to a consular officer is a permanent ground of inadmissibility under INA 212(a)(6)(C). Discuss any sensitive area with your attorney before the interview.',
+  qaTitle:'Interview Practice Q&amp;A', qaDesc:'Flip each card to reveal the model answer guidance. Practice until every answer is confident and consistent with your documents.',
+  catAll:'All Questions', catCorp:'&#x1F3E2; Corporate Relationship', catForeign:'&#x1F30D; Foreign Employment', catRole:'&#x1F4BC; U.S. Role &amp; Capacity',
+  catIntent:'&#x1F3E0; Intent &amp; Ties', catBg:'&#x1F4CB; Background &amp; History', catNew:'&#x1F3D7;&#xFE0F; New Office',
+  modeStudy:'&#x1F4D6; Study', modeQuiz:'&#x1F3C6; Quiz', btnShuffle:'&#x1F500; Shuffle', btnResetScore:'&#x21BA; Reset Score',
+  cardFrontLbl:'Consular Interview Question', cardHint:'Click card to reveal answer guidance', cardBackLbl:'Model Answer Guidance', cardHowTo:'How to answer:',
+  btnKnew:'&#x2713; I knew it!', btnPracticeMore:'&#x2717; Need more practice',
+  sbCorrect:'Correct', sbPractice:'Practice More', sbRemaining:'Remaining', sbScore:'Score',
+  tipsTitle:'Interview Tips &amp; Strategy', tipsDesc:'From the desk of Tolga Ozek, Esq. &mdash; what to know before you walk into the consulate for your L-1 interview.',
+  tipsAlert:'<strong>Important:</strong> Always consult with Ozek Law Firm before your interview. Call <strong>+1 (202) 854-8545</strong> with any questions.',
+  tip1t:'Know the Corporate Structure Cold', tip1b:'The L-1 lives or dies on the corporate relationship. Know ownership percentages, the relationship type, and how it is documented. Be able to draw the structure from memory.',
+  tip2t:'Answer Only What Is Asked', tip2b:'Do not volunteer information beyond what the question requires. Keep answers concise and direct.',
+  tip3t:'Dress for Business', tip3b:'You are representing yourself as a corporate manager, executive, or specialist. Dress accordingly: business professional or formal.',
+  tip4t:'Never Misrepresent', tip4b:'Misrepresentation is a permanent ground of inadmissibility. Discuss any complex or sensitive issue with your attorney before the interview.',
+  tip5t:'Arrive No More Than 30 Minutes Early', tip5b:'Most consulates will not admit you earlier. Plan your route in advance. Being late can result in your interview slot being forfeited.',
+  tip6t:'Know the Petition Package', tip6b:'Study the table of contents of your petition package. Know where every key document is. Find anything within seconds.',
+  tip7t:'No Laptops or Large Electronics', tip7b:'Most consulates do not permit laptops or backpacks. Bring only your organized document folder, photo ID, and MRV fee receipt.',
+  tip8t:'Write Everything Down After', tip8b:'Write down every question and answer the moment you leave. Note any concern the officer raised. Contact Ozek Law Firm the same day.',
+  stepsTitle:'What to Expect at the Consulate',
+  step1t:'Security', step1b:'Airport-style X-ray. No laptops or backpacks. Arrive no more than 30 minutes early.',
+  step2t:'Pre-Interview Check', step2b:'Documents verified, sorted by visa type. Ask staff if unsure where to go.',
+  step3t:'The Interview', step3b:'L-1 interviews typically last 10-30 minutes. Strong packages often result in shorter interviews.',
+  step4t:'Decision', step4b:'Approval, 221(g) administrative processing, or denial. A 221(g) is NOT a denial.',
+  step5t:'221(g) — Do Not Panic', step5b:'Request for additional documents or processing. Call Ozek Law Firm immediately: +1 (202) 854-8545.',
+  contactTitle:'Questions before your interview?', contactSub:'Ozek Law Firm is here to guide you every step of the way.',
+  footerText:'This tool is for client preparation only and does not constitute legal advice. Confidential &mdash; Attorney-Client Privileged. &copy; 2025 Ozek Law Firm, LLC.',
+  tipPrefix:'Attorney Tip:'
+},
+tr:{
+  hdrTitle:'L-1 Sirket Ici Transfer Vizesi<br>Konsuler Mulakat Hazirlik Rehberi',
+  hdrSub:'L-1A Yonetici / Ust Duzey Yonetici &middot; L-1B Ozel Bilgi &middot; Yeni Ofis',
+  badgeLbl:'Hazir', progLabel:'Mulakat Hazirlik Durumu',
+  vswLabel:'Vize Kategorisi:', pillAll:'Tum L-1', pillL1A:'L-1A: Yonetici / Ust Yonetici', pillL1B:'L-1B: Ozel Bilgi', pillNew:'Yeni Ofis L-1',
+  tt1:'Belgeler', tt2:'Hukuki Gereklilikler', tt3:'Soru-Cevap Pratigi', tt4:'Mulakat Ipuclari',
+  docTitle:'Belge Kontrol Listesi', docDesc:'Her belgeden orijinal ve birer fotokopi gotirin. Ingilizce olmayan belgeler icin onayli tercume zorunludur.',
+  btnReset:'&#x21BA; Sifirla', btnPrint:'&#x1F5A8; Yazdir',
+  statPrep:'Hazir', statRem:'Eksik', statComp:'Tamamlanan',
+  docAlert:'Her belgeden <strong>orijinal ve birer fotokopi</strong> gotirin. Konsoloslukta dilekce kopyalarinizin mevcut olduguna dayanmayin. Belgeleri saniyelerde bulabilecek sekilde duzenleyin.',
+  g1:'&#x1F4C4; Temel Mulakat Belgeleri', g2:'&#x1F4DC; Dilekce ve Onay Belgeleri',
+  g3:'&#x1F3E2; Nitelikli Sirket Iliskisi Kaniti', g4:'&#x1F30D; Yabanci Istihdam Kaniti (Son 3 Yilda 1 Yil)',
+  g5:'&#x1F4BC; ABD Pozisyon ve Kapasite Kaniti', g6:'&#x1F464; Kisisel ve Bagimli Basvurucu Belgeleri',
+  d1_1:'DS-160 Onay Sayfasi — asil basvurucu ve her bagimli basvurucu (es, cocuklar) icin',
+  d1_2:'Mulakat Randevu Onay Sayfasi',
+  d1_3:'Gecerli pasaport — kalmak istenen sureyi en az 6 ay asan gecerlilik; tum onceki/suresi dolmus pasaportlar',
+  d1_4:'Basvurucu basina iki (2) pasaport fotografı — 5x5 cm, beyaz fon',
+  d1_5:'MRV (Makine Tarafindan Okunabilir Vize) ucret makbuzu — randevudan once odenmis olmali',
+  d2_1:'I-129 Onay Bildirimi (Form I-797) — USCIS tarafindan onaylanan bireysel L-1 dilekceleri icin',
+  d2_2:'Kapsamli L Dilecesi onayi (I-797) ve Form I-129S (Kapsamli Dilekce Kapsaminda Sirket Ici Transfer)',
+  d2_3:'Sunulan I-129 dilecesinin tam kopyasi ve tum destekleyici ekler',
+  d2_4:'Varsa I-129 RFE ve sunulan yanit',
+  d3_1:'ABD kurulusu ile yabanci kurulusun iliskisini (ana sirket, bagli ortaklik, istirak veya sube) gosteren kurumsal organizasyon semasi',
+  d3_2:'Hem ABD hem de yabanci kurulusun kurus belgesi veya tescil sertifikasi',
+  d3_3:'Sahiplik kaniti: nitelikli iliskiyi gosteren pay kayitlari, hisse senetleri veya ticaret sicili kayitlari',
+  d3_4:'Her iki kurulusun yillik raporlari, denetimli mali tablolari veya SEC/EFSA bildirimleri (mevcutsa)',
+  d3_5:"ABD kurulusunun faaliyetlerinin kaniti: ofis kirasi, is ruhsati, vergi numarasi, banka eksteleri",
+  d3_6:"ABD kurulusunun calisanlarinin kaniti: bordro kayitlari, insan kaynaklari organizasyon semasi, unvanlariyla calisan listesi",
+  d4_1:'Yabanci kurulustan is dogrulama mektubu: nitelikli 1 yillik donem boyunca pozisyonunuzu, calisma tarihlerinizi ve is gorevlerinizi teyit eder',
+  d4_2:'Nitelikli istihdam donemi boyunca yabanci kurulustan maas bordrolari, maas tablolari veya bordro kayitlari',
+  d4_3:'Yabanci is sozlesmesi veya is teklif mektubu, onayli Ingilizce tercumesiyle',
+  d4_4:'Pozisyonunuzu ve raporlama yapiyi gosteren yabanci kurulusun organizasyon semasi',
+  d4_5:'Calisma tarihlerini dogrulayan yabanci gelir vergisi kayitlari veya sosyal guvenlik/emeklilik katkisi kayitlari',
+  d5_1:'ABD pozisyonu icin ayrintili is tanimi: unvan, gorevler, raporlama yapisi, maas ve lokasyon',
+  d5_2:'ABD kurulusunun organizasyon semasi: pozisyonunuzu ve yonettıgınız veya yonlendirdiginiz calisanlari/fonksiyonlari gosterir',
+  d5_3:"L-1A: Yonetsel veya ust yonetsel yetki kaniti — ast calisanlar listesi, denetim sorumlulugu, butce/karar alma yetki belgeleri",
+  d5_4:"L-1B: Ozel bilgi kaniti — tescilli sistem belgeleri, patentler, teknik egitim kayitlari, sirkete ozel sertifikasyonlar",
+  d5_5:'Yeni Ofis: Mali projeksiyonlu is plani, imzalanan ofis kira sozlesmesi, ABD operasyonuna yapilanma yatirimi kaniti',
+  d5_6:'ABD dilekce sahibinden sirket antetli kagidında destek mektubu: pozisyon, nitelikleri ve beklenen baslangic tarihini teyit eder',
+  d6_1:'Tam CV / ozgecmisiniz',
+  d6_2:'Egitim diplomalari ve transkriptler; Ingilizce degilse onayli tercumeleriyle',
+  d6_3:'Bagimli basvurucular icin evlilik cuzdani ve dogum belgeleri (L-2 es/cocuklar), onayli Ingilizce tercumeleriyle',
+  d6_4:'Onceki ABD vize onaylari veya reddleri, onceki ABD dilekceleri icin I-797 onay bildirimleri, I-94 kayitlari',
+  d6_5:'Onceki L-1, H-1B veya diger ABD is vizesi onaylari ve pasaportlardaki damga kopyalari',
+  congratsTitle:'Tum belgeler hazir!', congratsSub:'Konsuler mulakatiniza hazirsiniz. Son dakika sorulariniz icin Ozek Law Firm ile iletisime gecin.',
+  docWarn:'Konsolosluk memuru sozlu yanitlarinizi dilekce paketindeki belgelerle karsilastiracaktir. Istihdam gecmisinizi, sirket yapisini ve is gorevlerinizi mulakattan once ezberleyin.',
+  legalTitle:'Hukuki Gereklilikler — Davanizi Bilin', legalDesc:'Konsolosluk memuru asagidaki her unsuru degerlendireccektir. Her birini nasil karsiladigınızı bilmelisiniz.',
+  'l1-req-title':'&#x1F4BC; L-1 Vizesi — Dort Temel Gereklilik (Tum Kategoriler)',
+  r1h:'Nitelikli Kuruluslararasi Iliski', r1b:'ABD ve yabanci ise verenler arasinda nitelikli bir iliski olmali: ana sirket, bagli ortaklik, istirak veya sube. Istirakler icin en az %50 ortak mulkiyet veya kontrol gereklidir.',
+  r2h:'Bir Yillik Nitelikli Istihdam', r2b:'Dileckeceden onceki 3 yil icinde yabanci nitelikli kurulusdta yonetici, ust duzey yonetici veya ozel bilgi kapasitesinde en az 1 yil sureyle kesintisiz istihdam.',
+  r3h:'Yurt Disinda Nitelikli Kapasite', r3b:'Yabanci istihdaminiz yonetsel, ust yonetsel veya ozel bilgi kapasitesinde olmali. Olagan operasyonel calisma nitelik tasimaz.',
+  r4h:'ABD\'de Nitelikli Kapasite', r4b:'ABD pozisyonu yonetsel (L-1A), ust yonetsel (L-1A) veya ozel bilgi (L-1B) kapasitesinde olmali. Memur, ABD rolunun bu tanimlari gercekten karsilayip karsilamadigını inceler.',
+  'l1a-title':'&#x1F451; L-1A: Yonetici veya Ust Yonetici — Temel Tanimlar',
+  'l1a-m-h':'Yonetici', 'l1a-m-b':'Organizasyonu, bir bolumu, alt bolumu, fonksiyonu veya bileseni yonetir. Profesyonel calisanlarin, yoneticilerin veya denetcilerin calismasini denetler veya ust duzey temel fonksiyon yonetir. Ise alma/cikarmaya oneri veya yetki sahip. Gunluk operasyonlar uzerinde takdir yetki.',
+  'l1a-e-h':'Ust Yonetici', 'l1a-e-b':'Organizasyonun veya buyuk bir bileseni yonetimini yonlendirir. Amac ve politikalar belirler. Takdir kararlarinda genis bir serbestliyle hareket eder. Yalnizca ust yoneticilerden, yonetim kurulundan veya hissedarlardan genel gozetim alir.',
+  lt1t:'Organizasyon Semasinizi Ezberleyin', lt1b:'L-1A icin memur rolunuzun gercekten yonetici veya ust yonetici olup olmadigini sorgulayacaktir. Kimlerin size raporladıgını, unvanlarini ve hangi kararlari verdiginizi bilin.',
+  lt2t:'Insan Yoneticisi vs. Fonksiyon Yoneticisi', lt2b:'Insanlar yerine bir fonksiyonu yonetiyorsaniz hangi temel fonksiyonu yonettigini, kIdeminizi ve rutin operasyonel islerin nasil profesyonel personel tarafindan yurutulduğunu aciklamaya hazir olun.',
+  'l1b-title':'&#x1F9E0; L-1B: Ozel Bilgi — Temel Tanim',
+  'l1b-sk-h':'Ozel Bilgi', 'l1b-sk-b':'Sirketin urunleri, hizmetleri, arastirmasi, ekipmanlari, teknikleri, yonetimi veya cikarları hakkinda ozel bilgi — VEYA sirketin surec ve prosedurlerine iliskin ileri duzey bilgi. Gercekten tescilli veya ileri duzey olmali — sektorde genel olarak bulunabilir olmamali.',
+  lt3t:'Tescilli vs. Genel Sektör Bilgisi', lt3b:'Memurlar siklikla L-1B davalarına itiraz ederek bilginin açik piyasada bulunabilir oldugunu one surer. Bilginizin bu sirkete ozel olan yonunu — dahili sistemler, gizli surecler, benzersiz metodolojiler — aciklamaya hazir olun.',
+  lt4t:'Genel Degil, Spesifik Olun', lt4b:'Rolunuzu genel sektör terimleriyle tanimlaymayin. Sirketin tescilli sistem, urun ve surec adlarini kullanın. Sirkete ozel egitimi ve yillar icinde insa edilen kurumsal bilgiyi anlatın.',
+  'new-title':'&#x1F3D7;&#xFE0F; Yeni Ofis L-1 — Ek Gereklilikler',
+  'new-r1-h':'Fiziksel Alan', 'new-r1-b':'ABD kurulusu, vize verilen oncesinde yeni ofisin faaliyet gosterecegi fiziksel bir alan emniyete almis olmalidir. Imzali kira veya alis sozlesmesi gereklidir.',
+  'new-r2-h':'Nitelikli Kapasitede Istihdam', 'new-r2-b':'Yeni ofis L-1A icin memur, ABD operasyonunun bir yil icinde yonetici veya ust yonetici pozisyonunu destekleyip destekleyemeyecegini degerlendirir. Gercekci bir is plani kritiktir.',
+  'new-r3-h':'Ilk Bir Yillik Sure', 'new-r3-b':'Yeni ofis L-1 ilk basta yalnizca 1 yil icin verilir (kurumsal ofisler icin 3 yila karsin). Uzatma, ofisin is yaptigini ve nitelikli kapasitenin uygulandigini kanitlamayi gerektirir.',
+  'intent-title':'&#x26A0; Gocmen Olmayan Niyet — L-1 Icin Kritik',
+  'intent-desc':'L-1 gocmen olmayan bir vizedir. Yetkilendirilmis statunuz sona erdiginde, yasali yollarla statunuzu ayarlamadikca ABD\'yi terk etme niyetinizi gostermelisiniz.',
+  'intent-alert':'Memur, gocmen niyetinin isaretlerini arayacaktir. E-1/E-2\'nin aksine, L-1 sahipleri "cift niyet" tasiyabilir — bunu kapatmamanız gerekir. Ancak, ana ulkede somut baglari, yabanci kurulusdaki suren rolu ve yabanci yasaminizi terk etmedigini gostermeniz gerekir.',
+  int1t:'Ana Ulkeye Bagli Baglar', int1b:'Somut baglari aciklayin: yurt disinda sahip olunan/kiralanan ev veya mulk, ana ulkede kalan aile, yabanci kurulusdaki suren sahiplik payi ve diger finansal veya mesleki baglantılar.',
+  int2t:'Cift Niyet Serbesttir', int2b:'L-1 vizesi sahipleri, yalnizca bekleyen veya planlanan bir gocmen dilekce temelinde reddedilmekten INA 214(b) uyarinca korunmaktadir. I-140 veya EB-1C dosyalandiysa gizlemenize gerek yok.',
+  int3t:'Yabanci Kurulusdaki Suren Rol', int3b:'Yabanci kurulusla devam eden bir iliskinizin oldugunu teyit edin. Yabanci organizasyon, yetkilendirilmis kalisiniz boyunca varligini surdurmeli ve ABD kurulusuyla nitelikli iliskisini korumali.',
+  int4t:'Asla Yanlis Bilgi Vermeyin', int4b:'Konsolosluk memurana yanlis beyanda bulunmak INA 212(a)(6)(C) uyarinca kalici kabul engeline yol acar. Hassas konulari mulakattan once avukatinizla tartışın.',
+  qaTitle:'Mulakat Soru-Cevap Pratigi', qaDesc:'Cevabi gormek icin karti cevirin. Tum yanitlariniz belgelerinizle tutarli ve guvenli olana kadar pratik yapin.',
+  catAll:'Tum Sorular', catCorp:'&#x1F3E2; Sirket Iliskisi', catForeign:'&#x1F30D; Yabanci Istihdam', catRole:'&#x1F4BC; ABD Rolu ve Kapasitesi',
+  catIntent:'&#x1F3E0; Niyet ve Baglar', catBg:'&#x1F4CB; Gecmis ve Tarih', catNew:'&#x1F3D7;&#xFE0F; Yeni Ofis',
+  modeStudy:'&#x1F4D6; Calisma', modeQuiz:'&#x1F3C6; Test', btnShuffle:'&#x1F500; Karistir', btnResetScore:'&#x21BA; Skoru Sifirla',
+  cardFrontLbl:'Konsuler Mulakat Sorusu', cardHint:'Cevabi gormek icin karti tiklayin', cardBackLbl:'Model Cevap Rehberi', cardHowTo:'Nasil cevaplayin:',
+  btnKnew:'&#x2713; Bildim!', btnPracticeMore:'&#x2717; Daha cok pratik gerekiyor',
+  sbCorrect:'Dogru', sbPractice:'Pratik Lazim', sbRemaining:'Kalan', sbScore:'Puan',
+  tipsTitle:'Mulakat Ipuclari ve Stratejisi', tipsDesc:'Tolga Ozek, Esq. masasindan — L-1 mulakatina girmeden once bilmeniz gerekenler.',
+  tipsAlert:'<strong>Onemli:</strong> Mulakattan once mutlaka Ozek Law Firm ile gorusun. <strong>+1 (202) 854-8545</strong>',
+  tip1t:'Sirket Yapisini Ezberleyin', tip1b:'L-1 davasi sirket iliskisine baglidir. Sahiplik yuzdeleri, iliski turunu ve belgelenme bicimini bilin. Yapıyı bellekten cizip her kurulusu adlandirabiliyor olmalisiniz.',
+  tip2t:'Yalnizca Sorulan Soruyu Cevaplayin', tip2b:'Soru gerektirmedikce ek bilgi vermeyin. Yanitlarinizi kısa ve dogrudan tutun.',
+  tip3t:'Is Kiyafeti Giyin', tip3b:'Kendinizi kurumsal bir yonetici, ust yonetici veya uzman olarak temsil ediyorsunuz. Is profesyonel veya resmi kıyafet giyin.',
+  tip4t:'Asla Yanlis Bilgi Vermeyin', tip4b:'Yanlis beyanda bulunmak kalici bir kabul engeline yol acar. Karmasik veya hassas konulari mulakattan once avukatinizla tartışın.',
+  tip5t:'En Fazla 30 Dakika Once Gelin', tip5b:'Cogu konsolosluk bu sureden once sizi iceri almaz. Rotanizi onceden planlayın. Gec kalmak mulakat slotunuzun kaybedilmesine neden olabilir.',
+  tip6t:'Dilekce Paketini Bilin', tip6b:'Dilekce paketinin icerik tablosunu calisin. Her kritik belgenin yerini bilin. Herhangi bir sorulan belgeyi saniyeleri icinde bulabilmelisiniz.',
+  tip7t:'Dizustu Bilgisayar veya Buyuk Elektronik Getirmeyin', tip7b:'Cogu konsolosluk bunlara izin vermez. Yalnizca duzenli belge dosyanizi, kimliginizi ve MRV makbuzunuzu gotirin.',
+  tip8t:'Mulakat Sonrasi Hemen Not Alin', tip8b:'Ayrılır ayrilmaz her soruyu ve yaniti not edin. Memurun ifade ettigi endiseyi kaydedin. Ayni gun Ozek Law Firm\'i arayin.',
+  stepsTitle:'Konsoloslukta Sizi Ne Bekliyor?',
+  step1t:'Guvenlik', step1b:'Havalimanı tarzi X-ray. Dizustu bilgisayar ve sirt cantasi yasak. En fazla 30 dakika once gelin.',
+  step2t:'Mulakat Oncesi Kontrol', step2b:'Belgeler dogrulanir, vize turune gore ayristirılir. Nereden gideceginizden emin degilseniz personele sorun.',
+  step3t:'Mulakat', step3b:'L-1 mulakatlari genellikle 10-30 dakika surer. Guclu paketler cogunlukla daha kisa mulakatta sonuclanir.',
+  step4t:'Karar', step4b:'Onay, 221(g) idari isleme veya ret. 221(g) RED degildir.',
+  step5t:'221(g) — Paniklemeyın', step5b:'Ek belge veya isleme talebi. Derhal Ozek Law Firm\'i arayin: +1 (202) 854-8545.',
+  contactTitle:'Mulakattan once sorularınız mi var?', contactSub:'Ozek Law Firm her adimda yanınızdadir.',
+  footerText:'Bu arac yalnizca musteri hazırligına yoneliktir ve hukuki tavsiye niteliginde degildir. Gizli &mdash; Avukat-Muvekkil Imtiyazi. &copy; 2025 Ozek Law Firm, LLC.',
+  tipPrefix:'Avukat Ipucu:'
+}
+};
+
+var QUESTIONS = {
+en:[
+  {cat:'corp',q:'What is the relationship between the U.S. company and your foreign employer?',a:'Describe the qualifying relationship precisely: parent, subsidiary, affiliate, or branch. State which entity owns which, and the ownership percentage. Example: "The U.S. company is a wholly owned subsidiary of [Foreign Parent], which owns 100% of its shares." Know the jurisdiction of incorporation for each entity.',tip:'This is the foundational question of every L-1 interview. Practice describing the corporate structure in two sentences without hesitation.'},
+  {cat:'corp',q:'Who owns the U.S. company? Who owns the foreign company?',a:'State the ownership chain clearly. If there are intermediate holding companies, trace the full chain. Know the percentages. Example: "[Foreign Parent] owns 80% of [U.S. Entity]. The remaining 20% is owned by [Name]." Be consistent with the corporate documents in the package.',tip:'Officers frequently ask follow-up questions to probe understanding of the structure. Know the ownership at every level.'},
+  {cat:'corp',q:'How long has the U.S. company been in operation? What does it do?',a:'State when the U.S. entity was incorporated and when it commenced business operations. Describe what the U.S. entity does: its industry, its clients, its revenue, and how many employees it has. Be specific and factual.',tip:'For new office cases, acknowledge the company is new and redirect to the business plan showing planned operations within one year.'},
+  {cat:'corp',q:'What is the relationship between what the U.S. company does and what the foreign company does?',a:'Explain the operational connection. Example: "Both entities are part of the same global group engaged in [industry]. The U.S. entity handles [specific function] while the foreign entity handles [specific function]. They share clients, technology, and [other shared resources]."',tip:'The officer is assessing whether the relationship is genuine and the U.S. entity is a real, operating business — not a shell.'},
+  {cat:'corp',q:'How many employees does the U.S. company currently have?',a:'State the number of current employees, their general roles, and whether any are U.S. citizens or permanent residents. For L-1A cases, identify which of those employees report to you. Know this number precisely — it is in the petition.',tip:'For new office L-1, you may be the first employee. State that clearly and refer to the business plan showing projected hiring.'},
+  {cat:'corp',q:'How is the U.S. company funded? What is its annual revenue?',a:'Describe the financial basis of the U.S. operation: investment from the parent company, client revenue, or both. Know the approximate annual revenue or, for a new office, the initial capitalization amount and where those funds originated.',tip:'For new offices, the officer wants to confirm the U.S. entity is financially viable and not merely a paper company.'},
+  {cat:'foreign',q:'How long have you worked for the foreign employer?',a:'State the exact start date of your employment with the qualifying foreign organization and calculate the total duration. Confirm that it includes at least 1 continuous year within the 3 years immediately before the petition filing date.',tip:'The 1-year qualifying period must have been served within 3 years of the petition date. If you had breaks in employment, know the dates precisely and whether they affect the calculation.'},
+  {cat:'foreign',q:'What was your position and role at the foreign employer?',a:'Describe your title and specific responsibilities at the foreign entity during the qualifying period. For L-1A: explain your managerial or executive duties, who reported to you, and the decisions you made. For L-1B: describe the specialized knowledge you developed and applied.',tip:'Your foreign role must be in the same qualifying capacity as your U.S. role: managerial, executive, or specialized knowledge. A mismatch is a ground for denial.'},
+  {cat:'foreign',q:'To whom did you report at the foreign company? Who reported to you?',a:'State your reporting line clearly: your supervisor\'s name and title. Then describe who reported to you: number of direct reports, their titles, and their qualifications. For function managers: describe the function you managed and why it was essential.',tip:'Officers probe whether the foreign role was genuinely managerial. Know your organizational position at the foreign entity as well as you know your U.S. position.'},
+  {cat:'foreign',q:'Are you still employed by the foreign entity? What is your current role there?',a:'Confirm your continued employment with the foreign entity (this is typically required for L-1 eligibility). State your current title and role abroad. If your U.S. assignment means you are on temporary assignment rather than terminated from the foreign payroll, make that clear.',tip:'L-1 requires a continuing qualifying relationship between you and the qualifying organization. Employment typically means being on the payroll — confirm this.'},
+  {cat:'foreign',q:'Did you work continuously for the foreign employer for the required one-year period?',a:'Confirm the continuous employment. State the exact period: from [date] to [date]. If you had any interruptions — leaves of absence, parental leave, or sabbaticals — know the dates and whether they break the continuity analysis under your counsel\'s assessment.',tip:'Authorized leaves of absence (sick leave, parental leave) generally do not break continuity. Unauthorized gaps or periods at a different employer would be more problematic.'},
+  {cat:'role',q:'What will you be doing in the United States?',a:'Describe your U.S. role clearly: title, principal duties, reporting structure, number of direct reports (for L-1A), and the specific specialized knowledge you will apply (for L-1B). Be consistent with the job description in the petition.',tip:'Match the language in your petition description but speak naturally — do not sound like you are reading from a script. The officer is assessing whether the description is genuine.'},
+  {cat:'role',q:'[L-1A] Who will report to you in the U.S. operation? What are their titles?',a:'Name or describe the positions that report to you: their titles, qualifications, and functions. If you have no direct reports yet (new office), describe the positions you plan to hire and the timeline in the business plan.',tip:'The manager definition requires supervising professional employees, other managers, or managing an essential function at a senior level. Know the titles and qualifications of your subordinates.'},
+  {cat:'role',q:'[L-1A] What decisions will you make in this role? What authority do you have?',a:'Describe your decision-making authority specifically: budget approval limits, hiring and firing authority, strategic decisions you make, and the level of oversight you receive. Example: "I approve expenditures up to $X, and make staffing decisions for my team of [N] professionals."',tip:'The distinction between a genuine manager and a working supervisor comes down to discretionary authority. Be specific about the limits of your authority and who oversees you.'},
+  {cat:'role',q:'[L-1B] What specialized knowledge do you have that qualifies you for this role?',a:'Describe the specific proprietary knowledge: name the internal systems, platforms, processes, or methodologies you have mastered that are unique to this organization. Explain how long it took to develop this knowledge and why it cannot simply be taught to a U.S. worker quickly.',tip:'Avoid describing general industry knowledge that anyone in your field might have. The test is whether the knowledge is specific to this company\'s products, services, or internal operations.'},
+  {cat:'role',q:'[L-1B] Why can\'t the U.S. company hire a local employee for this role instead of transferring you?',a:'Explain why your specialized knowledge is not easily transferable: "This role requires an understanding of [Company]\'s proprietary [system/process/platform] that has been developed over [X] years. Training a new hire would take [X] months and would require access to the foreign office\'s confidential [technology/methodology]."',tip:'This is the question that resolves most L-1B denials. Prepare a clear, factual answer that explains the unique and non-public nature of your knowledge.'},
+  {cat:'role',q:'What is your salary in the U.S. position? How does it compare to your foreign salary?',a:'State your offered U.S. salary and briefly describe the comparison to your foreign compensation (adjusting for cost of living differences is acceptable). Confirm the salary is consistent with the petition and the DS-160.',tip:'Salary inconsistencies between the petition, DS-160, and your oral answer are a common red flag. Know the exact figure.'},
+  {cat:'role',q:'[New Office] How will the new U.S. office operate within the first year?',a:'Describe the business plan in outline: projected revenue, initial client targets, timeline for hiring staff, operational costs, and how the U.S. entity will fit within the global organization. Be realistic and specific — vague answers undermine the credibility of the new office.',tip:'The officer will assess whether you will actually be functioning in a managerial or executive capacity within one year. A thin business plan with no realistic path to hiring staff will raise doubts.'},
+  {cat:'intent',q:'Do you intend to remain in the United States permanently?',a:'L-1 visas allow dual intent under INA 214(b). You may answer truthfully: "My assignment is temporary in nature. I am being transferred to manage [describe] in the U.S. operation. My intention is to complete this assignment and maintain my connection to [foreign employer]." If a green card is anticipated, you may acknowledge it without it being a basis for denial.',tip:'Dual intent is explicitly protected for L-1 holders. You do not need to deny any interest in permanent residence. Focus on the genuine business purpose of your transfer.'},
+  {cat:'intent',q:'What ties do you have to your home country?',a:'Describe concrete ties: property owned or leased abroad, family members who remain there, continued equity interest or role in the foreign company, financial accounts and assets, and any professional or community ties. Be specific.',tip:'Specific ties are more persuasive than general statements. "I own an apartment in [city] that I am maintaining" is stronger than "I have strong ties to my home country."'},
+  {cat:'intent',q:'Will you be returning to the foreign office after your U.S. assignment ends?',a:'Confirm your intention to maintain your relationship with the qualifying organization. You may say: "My role is to help develop the U.S. operation. While I anticipate being here for the duration of the authorized L-1 period, my career remains with [qualifying organization]." Dual intent does not require you to deny immigrant intentions.',tip:'Do not speculate about future immigration plans unless asked directly. Focus on the present business purpose of the transfer.'},
+  {cat:'intent',q:'Have you ever been denied a U.S. visa? Have you ever overstayed a U.S. visa?',a:'Answer truthfully. Disclose any prior visa denials, overstays, or previous visa violations. These are on record in consular databases. If a prior L-1 or other visa was denied, know why and be prepared to explain how the current petition differs.',tip:'Prior visa denials are a common source of additional scrutiny. Your attorney should have addressed any prior denial history in the cover letter.'},
+  {cat:'background',q:'What is your educational background? What degrees do you hold?',a:'State your degrees, the institutions that granted them, and the years of graduation. For L-1B cases, be prepared to explain how your educational background contributed to the specialized knowledge you developed at the company.',tip:'Your educational credentials must be consistent with the DS-160 and the petition. Any inconsistency will be noted.'},
+  {cat:'background',q:'How long have you been with this organization in total, including your time at the foreign company?',a:'State the full tenure: from your original hire date at the foreign entity to the present. This demonstrates the depth of institutional knowledge you have developed over time.',tip:'Longer tenure strengthens both L-1A and L-1B cases. Know your exact hire date and total years of service.'},
+  {cat:'background',q:'Have you ever previously held an L-1 visa? Did you work in the U.S. before?',a:'Disclose any prior L-1 visas, H-1B visas, or other U.S. work authorizations truthfully. Know the dates and employers for each prior U.S. work period. If you previously held L-1 status with the same employer, confirm compliance with the terms.',tip:'Prior L-1 status with the same qualifying organization is positive evidence. Prior unauthorized work or overstays are negative factors that must be disclosed.'},
+  {cat:'background',q:'Have you ever had a visa application refused at any consulate?',a:'Disclose any prior visa refusals, including tourist, student, or work visas. State the approximate year, location, and reason if known. "I received a refusal at [consulate] in [year] because [reason]. The current petition addresses that issue by [explanation]."',tip:'Every prior refusal is on record in the consular database (CLASS). Omitting a prior refusal will be discovered and treated as misrepresentation.'},
+  {cat:'background',q:'Have you ever been arrested, charged, or convicted of any crime anywhere in the world?',a:'Disclose all arrests, charges, and convictions in any country, even if dismissed, expunged, or for which you received a pardon. Answer truthfully and bring certified court dispositions for any history that exists.',tip:'Criminal history in a nonimmigrant visa context may not be as automatically disqualifying as in adjustment cases, but any CIMT, drug offense, or aggravated felony can trigger grounds of inadmissibility. Disclose fully.'},
+  {cat:'newoffice',q:'What physical premises has the U.S. company secured?',a:'Describe the office: address, type of space (commercial office, shared workspace, etc.), approximate size, and the terms of the lease or purchase. Confirm the lease is signed and the space is ready or will be ready for operations.',tip:'The physical premises must be secured before the visa is issued. A letter of intent or a prospective lease is generally insufficient.'},
+  {cat:'newoffice',q:'What is the business plan for the new U.S. office?',a:'Describe the business plan in outline: target market, projected revenue for Year 1, Year 2, and Year 3, initial client pipeline, planned staffing, and how the U.S. operation integrates with the global organization.',tip:'New office L-1 is issued for only 1 year. The officer is assessing whether the plan is realistic and whether the U.S. operation will support a genuine managerial or executive role within that year.'},
+  {cat:'newoffice',q:'How much has the foreign company invested or will invest in the new U.S. office?',a:'State the amount of initial capitalization, its source (investment from the foreign parent), and how it will be deployed: rent, equipment, payroll, and operational costs. Know whether the funds have already been transferred to the U.S. entity.',tip:'Adequate capitalization is a key indicator that the new office is genuine. Know the numbers and be prepared to reference the financial evidence in the petition.'},
+  {cat:'newoffice',q:'How many employees do you plan to hire in the first year?',a:'State the projected hiring plan: number of employees, their planned roles and titles, and the timeline for hiring. Confirm these numbers are consistent with the business plan in the petition.',tip:'The one-year initial period requires that you will be operating in a genuine managerial capacity. If you plan to hire no subordinate staff, the officer may question whether the L-1A designation is justified after year one.'},
+  {cat:'corp',q:'Is your company publicly traded? What is its stock symbol?',a:'If publicly traded, state the stock exchange and ticker symbol. Know the approximate market capitalization if it is a large public company. If privately held, be prepared to describe the ownership structure and how the qualifying relationship is evidenced in private corporate documents.',tip:'Publicly traded companies are generally easier to document. If private, ensure you have adequate corporate registry evidence, shareholder agreements, or holding company documentation in the package.'},
+  {cat:'corp',q:'Does your company have other offices in the United States or other countries?',a:'Describe the global footprint of the qualifying organization: number of countries, major offices, and how they relate to the organizational hierarchy. This context reinforces the multinational nature of the enterprise.',tip:'A global footprint makes the corporate relationship more credible. Know the locations of major offices and how they fit into the corporate structure.'},
+  {cat:'foreign',q:'Were you employed by the foreign entity on a full-time basis during the qualifying period?',a:'Confirm full-time employment. State the approximate number of hours per week and confirm you were on the regular payroll of the foreign entity. If you were on a contract or consulting basis, your attorney should have addressed whether this constitutes qualifying "employment."',tip:'L-1 requires genuine employment — not independent contracting without an employment relationship. Confirm that you were on the payroll and received benefits.'},
+  {cat:'role',q:'Will you be the most senior person in the U.S. office, or will you report to someone in the U.S.?',a:'Describe your reporting structure in the U.S. State whether you report to a U.S.-based supervisor, to the foreign parent\'s CEO remotely, or whether you are the senior executive in the U.S. with global oversight. Be consistent with the organizational chart in the petition.',tip:'The L-1A executive category specifically requires receiving only general supervision from higher-level executives or a board. If you have a U.S.-based supervisor who closely oversees your work, the executive category may be harder to establish.'},
+  {cat:'intent',q:'Are you pursuing or do you plan to pursue permanent residence in the United States?',a:'L-1 dual intent permits an honest answer. You may say: "My company and I are considering the possibility of an EB-1C petition, which is a common path for L-1A holders. However, my current assignment is in a nonimmigrant capacity and my visa status governs my stay." You do not need to disclaim any intent.',tip:'Do not volunteer information about immigrant petitions if not asked. If asked directly, answer honestly — the L-1 dual intent protection means this cannot be the sole basis for denial.'},
+  {cat:'background',q:'What is your nationality? Do you hold dual citizenship?',a:'State your nationality or nationalities clearly. If you hold dual citizenship, disclose both. Know which passport you are presenting and ensure the DS-160 reflects your correct nationality.',tip:'The L-1 does not have a treaty nationality requirement (unlike E-1/E-2), but your nationality determines which consulate has jurisdiction and any applicable reciprocity fees.'},
+  {cat:'background',q:'Have you ever been in removal, deportation, or immigration court proceedings in the United States?',a:'Answer truthfully. Disclose any prior immigration court proceedings, even if old or resolved. If you were in removal proceedings that were terminated, bring documentation. This is on record in EOIR and consular databases.',tip:'Prior removal proceedings are a significant factor. Your attorney should have assessed any prior proceedings and addressed them in the cover letter.'}
+],
+tr:[
+  {cat:'corp',q:'ABD sirketi ile yabanci ise verenin arasindaki iliski nedir?',a:'Nitelikli iliskiyi kesin olarak tanimlayın: ana sirket, bagli ortaklik, istirak veya sube. Hangi kurulusun hangini sahiplendığını ve sahiplik yuzdesini belirtin. Ornek: "ABD sirketi, [Yabanci Ana Sirket]in tamamen sahip oldugu bir bagli ortakliktir." Her kurulusun tescil oldugu yargı bolgesi bilinmeli.',tip:'Bu, her L-1 mulakatin temel sorusudur. Sirket yapisini iki cümlede tereddut etmeden aciklamayı pratik yapin.'},
+  {cat:'corp',q:'ABD sirketine kim sahip? Yabanci sirkete kim sahip?',a:'Sahiplik zincirini acikça belirtin. Ara holding sirketleri varsa zinciri basa kadar takip edin. Yuzdeleri bilin. Tutarli olun. Ornek: "[Yabanci Ana] [ABD Kurulusunun] %80\'ine sahip. Geri kalan %20 [Adi]\'na ait."',tip:'Memurlar yapiyi anlamak icin sıklikla ek sorular sorar. Her kademedeki sahipligi bilin.'},
+  {cat:'corp',q:'ABD sirketi ne kadir suredir faaliyet gosteriyor? Ne is yapiyor?',a:'ABD kurulusunun kurus tarihini ve ticari faaliyete basladigi tarihi belirtin. Ne yaptigini aciklayin: sektoru, musterileri, geliri ve calisan sayisi. Somut ve donustu olun.',tip:'Yeni ofis davalarında sirketin yeni oldugunu kabul edin ve planlanan operasyonlari gosteren is planina yonlendirin.'},
+  {cat:'corp',q:'ABD sirketinin yaptigi ile yabanci sirketin yaptiginın iliskisi nedir?',a:'Operasyonel baglantıyı aciklayin. Ornek: "Her iki kurulusuninds ayni kuresel gruba ait [sektor] isletmesi. ABD kurulusu [spesifik fonksiyon]u ustlenirken yabanci kurulusu [spesifik fonksiyon]u ustlenir. Musterileri, teknolojiyi ve [diger paylasilan kaynaklari] paylaşıyorlar."',tip:'Memur, iliskinin gercek olup olmadigini ve ABD kurulusunun gercek, faaliyetteki bir isletme oldugunu degerlendirir.'},
+  {cat:'corp',q:'ABD sirketinin simdi kac calisan var?',a:'Mevcut calisan sayisini, genel rollerini ve bunlardan ABD vatandasi veya daimi ikamet sahibi olanlari belirtin. L-1A davalarinda size kimlerin raporladıgını bilin. Bu sayiyi tam bilin — dilekce icerisinde yer almaktadir.',tip:'Yeni ofis L-1 icin ilk calisan siz olabilirsiniz. Bunu acikca belirtin ve planlanan ise alimi gosteren is planina atifta bulunun.'},
+  {cat:'corp',q:'ABD sirketi nasil finanse ediliyor? Yillik cirosu ne kadar?',a:'ABD operasyonunun mali temelini aciklayin: ana sirket yatirimi, musteri geliri veya her ikisi. Yaklasik yillik ciroyu veya yeni ofis icin baslangic sermaye tutarini ve bu fonlarin kaynagini bilin.',tip:'Yeni ofisler icin, memur ABD kurulusunun finansal olarak canli olduğunu ve yalnizca kagit uzerinde bir sirket olmadigini dogrulamak ister.'},
+  {cat:'foreign',q:'Yabanci ise verende ne kadar suredir calisiyorsunuz?',a:'Nitelikli yabanci kurulusdaki istihdamin kesin baslangic tarihini belirtin ve toplam sureyi hesaplayin. Dilekce basvuru tarihinden onceki 3 yil icinde en az 1 surekli yil oldugunu teyit edin.',tip:'1 yillik nitelikli sure, dilekce tarihinden onceki 3 yil icinde tamamlanmis olmali. Istihdam bosluklariniz varsa tarihleri kesin bilin.'},
+  {cat:'foreign',q:'Yabanci ise verendeki pozisyonunuz ve rolunuz neydi?',a:'Nitelikli sure boyunca yabanci kurulusdaki unvaninizi ve spesifik sorumluluklarinizi aciklayin. L-1A icin: yonetsel veya ust yonetsel gorevlerinizi, size kimlerin raporladığını ve aldigınız kararlari aciklayin. L-1B icin: gelistirip uyguladigınız ozel bilgiyi aciklayin.',tip:'Yabanci rolunuz ABD rolunuzla ayni nitelikli kapasitede olmali: yonetsel, ust yonetsel veya ozel bilgi. Uyumsuzluk red gerekcesidir.'},
+  {cat:'foreign',q:'Yabanci sirkette kime raporladınız? Size kimler raporladi?',a:'Raporlama hattınızı acıkca belirtin: amirin isim ve unvani. Ardindan size raporlayanlari aciklayin: dogrudan rapor sayisi, unvanlari ve nitelikleri. Fonksiyon yoneticileri: yonettiginiz fonksiyonu ve neden temel oldugunu aciklayin.',tip:'Memurlar yabanci rolun gercekten yonetsel olup olmadigını sorgular. Yabanci kurulusdaki organizasyonel pozisyonunuzu ABD pozisyonunuz kadar iyi bilin.'},
+  {cat:'foreign',q:'Hala yabanci kurulusda calisiyor musunuz? Orada mevcut rolunuz ne?',a:'Yabanci kurulusla devam eden istihdaminizi teyit edin (bu genellikle L-1 uygunlugu icin gereklidir). Yurt disindaki mevcut unvan ve rolunuzu belirtin.',tip:'L-1 sizinle nitelikli organizasyon arasında devam eden bir nitelikli iliskiyi gerektirir. Istihdam genellikle maas bordrosunda yer almak anlamina gelir.'},
+  {cat:'foreign',q:'Gerekli bir yillik sure boyunca yabanci ise verende surekli calisiniz mi?',a:'Surekli istihdami teyit edin. Kesin donemleri belirtin: [tarihten] [tarihe]. Izinli olmak (hasta izni, dogum izni) genellikle surekliligi bozmaz. Bu durumlarda tarihleri bilin.',tip:'Yetkili izin donumleri genellikle surekliligi bozmaz. Yetkisiz bosluklar veya baska bir ise verende gecirilen sureler daha sorunlu olurdu.'},
+  {cat:'role',q:'ABD\'de ne yapacaksiniz?',a:'ABD rolunuzu acikca aciklayin: unvan, temel gorevler, raporlama yapisi, dogrudan raporlariniz (L-1A) ve uygulayacaginiz ozel bilgi (L-1B). Dilekce is tanimimiyle tutarli olun.',tip:'Dilekce aciklamasindaki dille eslesin ancak dogal konuşun — senaryodan okuyormus gibi davranmayin. Memur, aciklamanin gercek olup olmadığını degerlendiriyor.'},
+  {cat:'role',q:'[L-1A] ABD operasyonunda size kimler raporlayacak? Unvanlari nedir?',a:'Size raporlayacak pozisyonlari tanimlayin: unvanlari, nitelikleri ve fonksiyonlari. Henz dogrudan raporunuz yoksa (yeni ofis), ise almayı planladiginiz pozisyonlari ve is planindaki zaman cetvelini aciklayin.',tip:'Yonetici tanimı, profesyonel calisanlari, diger yoneticileri veya esssential bir fonksiyonu ust duzey olarak denetlemeyi gerektiriyor. Astlarinizin unvanlarini ve niteliklerini bilin.'},
+  {cat:'role',q:'[L-1A] Bu rolde hangi kararlari alacaksiniz? Ne yetkiye sahipsiniz?',a:'Karar alma yetkisini spesifik olarak aciklayin: butce onay limitleri, ise alma/cıkarma yetkisi, verdiginiz stratejik kararlar ve ust gozetim seviyesi. Ornek: "[N] profesyonellik takimim icin [X] dolara kadar harcamalari onayliyorum."',tip:'Gercek bir yonetici ile calisan bir denetici arasindaki fark takdir yetkisine indir. Yetki sinirlarinizı ve sizi kimin denetlediğini belirtin.'},
+  {cat:'role',q:'[L-1B] Bu rol icin sizi nitelendiren ozel bilginiz nedir?',a:'Spesifik tescilli bilgiyi aciklayin: bu organizasyona ozel hakimiyetinizi olusturdunuz dahili sistemleri, platformlari, surecleri veya metodolojileri isimlendirin. Bu bilgiyi gelistirmenin ne kadar surdugunu ve neden ABD\'li bir calısana kolayca ogretilemeyecegini aciklayin.',tip:'Sektordeki herhangi birinin sahip olabileceği genel sektór bilgisini tanimlamamayın. Test, bilginin bu sirketin urunlerine, hizmetlerine veya dahili operasyonlarina ozel olup olmadığıdır.'},
+  {cat:'role',q:'[L-1B] ABD sirketi sizi transfer etmek yerine neden yerel bir calisan ise alamiyor?',a:'Ozel bilginizin neden kolayca aktarilamaz oldugunu aciklayin: "Bu rol, [X] yil boyunca gelistirilen [Sirket]\'in tescilli [sistem/surec/platform] anlayisini gerektiriyor. Yeni bir calisani egitmek [X] ay alir ve yabanci ofisin gizli [teknoloji/metodoloji]sine erisim gerektirir."',tip:'Bu, L-1B reddlerinin coğunu cozumleyen sorudur. Bilginizin benzersiz ve halka acik olmayan niteligini aciklayan net, olgusal bir yanit hazirlayin.'},
+  {cat:'intent',q:'ABD\'de kalici olarak kalmak niyetinde misiniz?',a:'L-1 vizesi INA 214(b) kapsamında cift niyete izin verir. Donustu cevaplayabilirsiniz: "Gorevim gecici niteltedigini. ABD operasyonundaki [aciklamayi] yonetmek icin transfer ediliyorum." Yesil kart planlıyorsanız bunu inkar etmeniz gerekmiyor; L-1 cift niyet korumasina sahip.',tip:'Cift niyet, L-1 sahipleri icin acikca koruma altindadir. Kalici ikamet konusundaki ilgimi reddetmenize gerek yok. Transferin gercek is amacına odaklanın.'},
+  {cat:'intent',q:'Ana ulkenize bagli somut baglariniz nelerdir?',a:'Somut baglari aciklayin: yurt disinda sahip olunan/kiralanan ev veya mulk, ana ulkede kalan aile uyeleri, yabanci sirketteki devam eden ortaklik payi ve diger finansal veya mesleki baglantılar.',tip:'Somut baglar genel ifadelerden daha ikna edicidir. "[Sehirde] koruduğum bir dairem var" demek "ana ulkemle guclu baglerim var" demekten cok daha kuvvetlidir.'},
+  {cat:'intent',q:'ABD goreviminiz sona erince yabanci ofise donecek misiniz?',a:'"Rolum ABD operasyonunu gelistirmeye yardimci olmak. Yetkilendirilmis L-1 suresi boyunca burada olmayi öngorsem de kariyerim [nitelikli organizasyonla] devam ediyor." Cift niyet gocmen niyetinizi inkar etmenizi gerektirmiyor.',tip:'Dogrudan sorulmadikca gelecekteki goc planlari hakkinda spekule etmeyin. Transferin mevcut is amacina odaklanın.'},
+  {cat:'background',q:'Egitim gecmisiniz nedir? Hangi derecelere sahipsiniz?',a:'Derecelerinizi, veren kurumları ve mezuniyet yillarinı belirtin. L-1B davalarında, egitim gecmisinizin sirkette gelistirdiginiz ozel bilgiye nasil katki sagladigini aciklamaya hazir olun.',tip:'Egitim kimlik bilgileriniz DS-160 ve dilekce ile tutarli olmali.'},
+  {cat:'background',q:'Yabanci sirketteki sure dahil bu organizasyonda toplam ne kadar suredir calisiyorsunuz?',a:'Tam calisma suresini belirtin: yabanci kurulusdaki orijinal ise baslama tarihinden bugune kadar. Bu, zaman icinde gelistirdiginiz kurumsal bilginin derinligini gosterir.',tip:'Uzun calisme suresi hem L-1A hem de L-1B davalari icin guclendirir. Kesin ise baslama tarihinizi ve toplam hizmet yillarinizi bilin.'},
+  {cat:'background',q:'Daha once hic L-1 vizesi aldınız mi? ABD\'de daha once caliştınız mi?',a:'Onceki L-1, H-1B veya diger ABD calisma izinlerini donustu aciklayin. Her onceki ABD calisma doneminin tarihlerini ve ise verenlerini bilin.',tip:'Ayni nitelikli organizasyonla onceki L-1 statusu olumlu bir kanittir. Onceki yetkisiz calisma veya izin asimları olumsuz faktordur ve aciklanmalidir.'},
+  {cat:'background',q:'Herhangi bir konsoloslukta hic vize basvurusu reddedildi mi?',a:'Turist, ogrenci veya is vizesi dahil onceki tum vize reddlerini aciklayin. Yaklasik yil, yer ve bilinen sebebi belirtin. Her red konsolosluk (CLASS) veritabanında kayıtlidir.',tip:'Bir onceki reddi atlamamak, yaniltma olarak ele alinir.'},
+  {cat:'newoffice',q:'ABD sirketi hangi fiziksel alani emniyete aldi?',a:'Ofisi aciklayin: adresi, mekan turu (ticari ofis, paylasimli calısma alani vb.), yaklasik boyutu ve kira veya alis sartlarini. Kiranın imzalandığını teyit edin.',tip:'Vize verilmeden once fiziksel alan guvence altina alınmis olmali. Niyet mektubu veya potansiyel kira genellikle yeterli degildir.'},
+  {cat:'newoffice',q:'Yeni ABD ofisi icin is plani nedir?',a:'Is planini ana hatlariyla aciklayin: hedef pazar, 1., 2. ve 3. yil gelir projeksiyonlari, baslangic musteri hatti, planli personel sayisi ve ABD operasyonunun kuresel organizasyona nasil entegre oldugu.',tip:'Yeni ofis L-1 yalnizca 1 yil icin verilir. Memur, planın gercekci olup olmadığını ve ABD operasyonunun o yil icinde gercek bir yonetici rolunu destekleyip desteklemeyecegini degerlendirir.'},
+  {cat:'corp',q:'Sirketiniz halka acik mi? Borsa kodu nedir?',a:'Halka acıksa borsa ve hisse kodu belirtin. Ozel ise, sahiplik yapisini ve nitelikli iliskinin ozel kurumsal belgelerde nasil kanitlandigini aciklayin.',tip:'Halka acik sirketler genellikle belgelemesi daha kolay. Ozel ise, yeterli sirket sicil kaniti, pay sahipligi anlaşmasi veya holding sirketi belgeleri saglanmali.'},
+  {cat:'foreign',q:'Nitelikli sure boyunca yabanci kurulusda tam zamanli mi calıştınız?',a:'Tam zamanli istihdamı teyit edin. Haftada yaklasik calisma saatini belirtin ve yabanci kurulusun duzenli bordrosunda oldugunuzu teyit edin.',tip:'L-1 gercek istihdami gerektiriyor — bagimsiz sozlesme degil. Bordro uzerinde oldugunuzu ve sosyal haklar aldiginizi teyit edin.'}
+]
+};
+
+// ── LANG TOGGLE ──
+function toggleLang() {
+  lang = lang === 'en' ? 'tr' : 'en';
+  var t = T[lang];
+  document.getElementById('lang-flag').innerHTML = lang === 'en' ? '&#x1F1F9;&#x1F1F7;' : '&#x1F1FA;&#x1F1F8;';
+  document.getElementById('lang-label').textContent = lang === 'en' ? 'T\u00FCrk\u00E7e' : 'English';
+  var ids = {
+    'hdr-title':t.hdrTitle,'hdr-sub':t.hdrSub,'badge-lbl':t.badgeLbl,'prog-label':t.progLabel,
+    'vsw-label':t.vswLabel,'pill-all':t.pillAll,'pill-l1a':t.pillL1A,'pill-l1b':t.pillL1B,'pill-new':t.pillNew,
+    'tt1':t.tt1,'tt2':t.tt2,'tt3':t.tt3,'tt4':t.tt4,
+    'doc-title':t.docTitle,'doc-desc':t.docDesc,'btn-reset':t.btnReset,'btn-print':t.btnPrint,
+    'stat-lbl-prep':t.statPrep,'stat-lbl-rem':t.statRem,'stat-lbl-comp':t.statComp,'doc-alert':t.docAlert,
+    'g1-title':t.g1,'g2-title':t.g2,'g3-title':t.g3,'g4-title':t.g4,'g5-title':t.g5,'g6-title':t.g6,
+    'd1_1':t.d1_1,'d1_2':t.d1_2,'d1_3':t.d1_3,'d1_4':t.d1_4,'d1_5':t.d1_5,
+    'd2_1':t.d2_1,'d2_2':t.d2_2,'d2_3':t.d2_3,'d2_4':t.d2_4,
+    'd3_1':t.d3_1,'d3_2':t.d3_2,'d3_3':t.d3_3,'d3_4':t.d3_4,'d3_5':t.d3_5,'d3_6':t.d3_6,
+    'd4_1':t.d4_1,'d4_2':t.d4_2,'d4_3':t.d4_3,'d4_4':t.d4_4,'d4_5':t.d4_5,
+    'd5_1':t.d5_1,'d5_2':t.d5_2,'d5_3':t.d5_3,'d5_4':t.d5_4,'d5_5':t.d5_5,'d5_6':t.d5_6,
+    'd6_1':t.d6_1,'d6_2':t.d6_2,'d6_3':t.d6_3,'d6_4':t.d6_4,'d6_5':t.d6_5,
+    'congrats-title':t.congratsTitle,'congrats-sub':t.congratsSub,'doc-warn':t.docWarn,
+    'legal-title':t.legalTitle,'legal-desc':t.legalDesc,'l1-req-title':t['l1-req-title'],
+    'r1h':t.r1h,'r1b':t.r1b,'r2h':t.r2h,'r2b':t.r2b,'r3h':t.r3h,'r3b':t.r3b,'r4h':t.r4h,'r4b':t.r4b,
+    'l1a-title':t['l1a-title'],'l1a-m-h':t['l1a-m-h'],'l1a-m-b':t['l1a-m-b'],'l1a-e-h':t['l1a-e-h'],'l1a-e-b':t['l1a-e-b'],
+    'lt1t':t.lt1t,'lt1b':t.lt1b,'lt2t':t.lt2t,'lt2b':t.lt2b,
+    'l1b-title':t['l1b-title'],'l1b-sk-h':t['l1b-sk-h'],'l1b-sk-b':t['l1b-sk-b'],
+    'lt3t':t.lt3t,'lt3b':t.lt3b,'lt4t':t.lt4t,'lt4b':t.lt4b,
+    'new-title':t['new-title'],'new-r1-h':t['new-r1-h'],'new-r1-b':t['new-r1-b'],'new-r2-h':t['new-r2-h'],'new-r2-b':t['new-r2-b'],'new-r3-h':t['new-r3-h'],'new-r3-b':t['new-r3-b'],
+    'intent-title':t['intent-title'],'intent-desc':t['intent-desc'],'intent-alert':t['intent-alert'],
+    'int1t':t.int1t,'int1b':t.int1b,'int2t':t.int2t,'int2b':t.int2b,'int3t':t.int3t,'int3b':t.int3b,'int4t':t.int4t,'int4b':t.int4b,
+    'qa-title':t.qaTitle,'qa-desc':t.qaDesc,
+    'qcat-all':t.catAll,'qcat-corp':t.catCorp,'qcat-foreign':t.catForeign,'qcat-role':t.catRole,'qcat-intent':t.catIntent,'qcat-background':t.catBg,'qcat-newoffice':t.catNew,
+    'mode-study':t.modeStudy,'mode-quiz':t.modeQuiz,'btn-shuffle':t.btnShuffle,'btn-reset-score':t.btnResetScore,
+    'card-front-lbl':t.cardFrontLbl,'card-hint':t.cardHint,'card-back-lbl':t.cardBackLbl,'card-how-to':t.cardHowTo,
+    'btn-knew':t.btnKnew,'btn-practice-more':t.btnPracticeMore,
+    'sb-correct':t.sbCorrect,'sb-practice':t.sbPractice,'sb-remaining':t.sbRemaining,'sb-score':t.sbScore,
+    'tips-title':t.tipsTitle,'tips-desc':t.tipsDesc,'tips-alert':t.tipsAlert,
+    'tip1t':t.tip1t,'tip1b':t.tip1b,'tip2t':t.tip2t,'tip2b':t.tip2b,'tip3t':t.tip3t,'tip3b':t.tip3b,
+    'tip4t':t.tip4t,'tip4b':t.tip4b,'tip5t':t.tip5t,'tip5b':t.tip5b,'tip6t':t.tip6t,'tip6b':t.tip6b,
+    'tip7t':t.tip7t,'tip7b':t.tip7b,'tip8t':t.tip8t,'tip8b':t.tip8b,
+    'steps-title':t.stepsTitle,'step1t':t.step1t,'step1b':t.step1b,'step2t':t.step2t,'step2b':t.step2b,
+    'step3t':t.step3t,'step3b':t.step3b,'step4t':t.step4t,'step4b':t.step4b,'step5t':t.step5t,'step5b':t.step5b,
+    'contact-title':t.contactTitle,'contact-sub':t.contactSub,'footer-text':t.footerText
+  };
+  Object.keys(ids).forEach(function(id){ var el=document.getElementById(id); if(el) el.innerHTML=ids[id]; });
+  applyFilter();
+}
+
+// ── VISA SWITCH ──
+function setVisa(visa, el) {
+  curVisa = visa;
+  document.querySelectorAll('.vsw-pill').forEach(function(p){ p.classList.remove('active'); });
+  el.classList.add('active');
+  var showL1A = (visa === 'all' || visa === 'l1a');
+  var showL1B = (visa === 'all' || visa === 'l1b');
+  var showNew = (visa === 'all' || visa === 'new');
+  // Doc items
+  var r53 = document.getElementById('d5_3-row'); if(r53) r53.style.display = showL1A ? '' : 'none';
+  var r54 = document.getElementById('d5_4-row'); if(r54) r54.style.display = showL1B ? '' : 'none';
+  var r55 = document.getElementById('d5_5-row'); if(r55) r55.style.display = showNew ? '' : 'none';
+  // Legal blocks
+  var la = document.getElementById('legal-l1a-block'); if(la) la.style.display = showL1A ? '' : 'none';
+  var lb = document.getElementById('legal-l1b-block'); if(lb) lb.style.display = showL1B ? '' : 'none';
+  var ln = document.getElementById('legal-new-block'); if(ln) ln.style.display = showNew ? '' : 'none';
+  // Q&A new office pill
+  var np = document.getElementById('qcat-newoffice'); if(np) np.style.display = showNew ? '' : 'none';
+  if(currentCat === 'newoffice' && !showNew){ currentCat = 'all'; document.querySelectorAll('.cat-pill').forEach(function(p){ p.classList.remove('active'); }); document.getElementById('qcat-all').classList.add('active'); }
+  applyFilter();
+  updateStats();
+}
+
+// ── TABS ──
+function switchTab(name, el) {
+  document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+  document.getElementById('tab-' + name).classList.add('active');
+  el.classList.add('active');
+}
+
+// ── CHECKLIST ──
+function toggleCheck(el) { el.classList.toggle('checked'); updateStats(); }
+function updateStats() {
+  var items = Array.from(document.querySelectorAll('.cl-item')).filter(function(e){ return e.style.display !== 'none'; });
+  var checked = items.filter(function(e){ return e.classList.contains('checked'); });
+  var n = checked.length, total = items.length, pct = total > 0 ? Math.round((n/total)*100) : 0;
+  document.getElementById('stat-checked').textContent = n;
+  document.getElementById('stat-remaining').textContent = total - n;
+  document.getElementById('stat-pct').textContent = pct + '%';
+  document.getElementById('docs-badge').textContent = n;
+  document.getElementById('badge-num').textContent = n;
+  document.getElementById('overall-fill').style.width = pct + '%';
+  document.getElementById('overall-pct').textContent = pct + '%';
+  for(var g = 1; g <= 6; g++) {
+    var cnt = document.getElementById('g' + g + '-cnt'); if(!cnt) continue;
+    var gi = Array.from(document.querySelectorAll("[data-group='" + g + "']")).filter(function(e){ return e.style.display !== 'none'; });
+    var gc = gi.filter(function(e){ return e.classList.contains('checked'); });
+    cnt.textContent = gc.length + '/' + gi.length;
+  }
+  var cong = document.getElementById('congrats');
+  if(n > 0 && n === total){ cong.style.display = 'block'; launchConfetti(); } else { cong.style.display = 'none'; }
+}
+function clearAll() { document.querySelectorAll('.cl-item').forEach(function(e){ e.classList.remove('checked'); }); updateStats(); }
+function launchConfetti() {
+  var colors = ['#B8962E','#1B2B4B','#D4AF5A','#F4F1EC','#2e7d52'];
+  for(var i = 0; i < 60; i++) {
+    (function(i){ setTimeout(function(){
+      var c = document.createElement('div'); c.className = 'confetti-piece';
+      c.style.left = (Math.random()*100) + 'vw'; c.style.top = '-20px';
+      c.style.background = colors[Math.floor(Math.random()*colors.length)];
+      c.style.transform = 'rotate(' + (Math.random()*360) + 'deg)';
+      c.style.animationDuration = (2 + Math.random()*1.5) + 's';
+      document.body.appendChild(c); setTimeout(function(){ c.remove(); }, 4000);
+    }, i * 40); })(i);
+  }
+}
+
+// ── FLASHCARDS ──
+var CAT_BG = {corp:'rgba(27,43,75,.15)',foreign:'rgba(0,128,100,.15)',role:'rgba(107,33,168,.15)',intent:'rgba(139,31,31,.15)',background:'rgba(133,100,4,.15)',newoffice:'rgba(184,150,46,.2)'};
+var CAT_FG = {corp:'#1B2B4B',foreign:'#007060',role:'#6b21a8',intent:'#8b1f1f',background:'#856404',newoffice:'#8a6800'};
+var CAT_LBL_EN = {corp:'Corporate Relationship',foreign:'Foreign Employment',role:'U.S. Role & Capacity',intent:'Intent & Ties',background:'Background & History',newoffice:'New Office'};
+var CAT_LBL_TR = {corp:'Sirket Iliskisi',foreign:'Yabanci Istihdam',role:'ABD Rolu ve Kapasitesi',intent:'Niyet ve Baglar',background:'Gecmis ve Tarih',newoffice:'Yeni Ofis'};
+
+function applyFilter() {
+  var qs = QUESTIONS[lang];
+  if(currentCat !== 'all') qs = qs.filter(function(q){ return q.cat === currentCat; });
+  filteredQ = qs.slice();
+  curIdx = 0; isFlipped = false;
+  document.getElementById('flashcard').classList.remove('flipped');
+  document.getElementById('score-row').style.display = 'none';
+  renderCard();
+}
+function filterCat(cat, el) {
+  document.querySelectorAll('.cat-pill').forEach(function(p){ p.classList.remove('active'); });
+  el.classList.add('active');
+  currentCat = cat;
+  applyFilter();
+}
+function renderCard() {
+  if(!filteredQ.length){ document.getElementById('card-q').textContent = 'No questions match this filter.'; return; }
+  var q = filteredQ[curIdx];
+  document.getElementById('card-q').textContent = q.q;
+  document.getElementById('card-a').textContent = q.a;
+  var pfx = T[lang].tipPrefix || 'Attorney Tip:';
+  document.getElementById('card-tip').innerHTML = '&#x1F4A1; <strong>' + pfx + '</strong> ' + q.tip;
+  var badge = document.getElementById('card-cat-badge');
+  var labels = lang === 'en' ? CAT_LBL_EN : CAT_LBL_TR;
+  badge.textContent = labels[q.cat] || q.cat;
+  badge.style.background = CAT_BG[q.cat] || 'rgba(255,255,255,.1)';
+  badge.style.color = CAT_FG[q.cat] || '#fff';
+  badge.style.border = '1px solid ' + (CAT_FG[q.cat] || '#fff');
+  var ql = lang === 'en' ? 'Question ' : 'Soru ';
+  document.getElementById('card-qnum').textContent = ql + (curIdx+1) + ' / ' + filteredQ.length;
+  document.getElementById('card-ctr').textContent = (curIdx+1) + ' / ' + filteredQ.length;
+  document.getElementById('btn-prev').disabled = curIdx === 0;
+  document.getElementById('btn-next').disabled = curIdx === filteredQ.length - 1;
+  updateScoreboard();
+}
+function flipCard() {
+  isFlipped = !isFlipped;
+  document.getElementById('flashcard').classList.toggle('flipped', isFlipped);
+  if(quizMode && isFlipped) document.getElementById('score-row').style.display = 'flex';
+}
+function nextCard() { if(curIdx < filteredQ.length - 1){ curIdx++; isFlipped=false; document.getElementById('flashcard').classList.remove('flipped'); document.getElementById('score-row').style.display='none'; renderCard(); } }
+function prevCard() { if(curIdx > 0){ curIdx--; isFlipped=false; document.getElementById('flashcard').classList.remove('flipped'); document.getElementById('score-row').style.display='none'; renderCard(); } }
+function shuffleCards() { for(var i=filteredQ.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=filteredQ[i];filteredQ[i]=filteredQ[j];filteredQ[j]=t;} curIdx=0;isFlipped=false;document.getElementById('flashcard').classList.remove('flipped');document.getElementById('score-row').style.display='none';renderCard(); }
+function setMode(mode, el) { document.querySelectorAll('.mode-btn').forEach(function(b){ b.classList.remove('active'); }); el.classList.add('active'); quizMode=mode==='quiz'; document.getElementById('score-row').style.display='none'; resetQuiz(); }
+function markCard(correct) { if(correct) score.correct++; else score.incorrect++; document.getElementById('score-row').style.display='none'; updateScoreboard(); if(curIdx<filteredQ.length-1) setTimeout(nextCard,200); }
+function resetQuiz() { score={correct:0,incorrect:0}; curIdx=0; isFlipped=false; document.getElementById('flashcard').classList.remove('flipped'); document.getElementById('score-row').style.display='none'; renderCard(); }
+function updateScoreboard() {
+  var ans=score.correct+score.incorrect, pct=ans>0?Math.round((score.correct/ans)*100)+'%':'\u2014';
+  document.getElementById('sc-correct').textContent=score.correct;
+  document.getElementById('sc-incorrect').textContent=score.incorrect;
+  document.getElementById('sc-remaining').textContent=filteredQ.length-ans;
+  document.getElementById('sc-pct').textContent=pct;
+}
+
+// ── INIT ──
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('lang-btn').addEventListener('click', toggleLang);
+  document.getElementById('pill-all').addEventListener('click', function(){ setVisa('all',this); });
+  document.getElementById('pill-l1a').addEventListener('click', function(){ setVisa('l1a',this); });
+  document.getElementById('pill-l1b').addEventListener('click', function(){ setVisa('l1b',this); });
+  document.getElementById('pill-new').addEventListener('click', function(){ setVisa('new',this); });
+  document.getElementById('tbtn-docs').addEventListener('click', function(){ switchTab('docs',this); });
+  document.getElementById('tbtn-legal').addEventListener('click', function(){ switchTab('legal',this); });
+  document.getElementById('tbtn-practice').addEventListener('click', function(){ switchTab('practice',this); });
+  document.getElementById('tbtn-tips').addEventListener('click', function(){ switchTab('tips',this); });
+  document.getElementById('btn-reset').addEventListener('click', clearAll);
+  document.getElementById('btn-print').addEventListener('click', function(){ window.print(); });
+  document.getElementById('btn-shuffle').addEventListener('click', shuffleCards);
+  document.getElementById('btn-reset-score').addEventListener('click', resetQuiz);
+  document.getElementById('flashcard').addEventListener('click', flipCard);
+  document.getElementById('btn-prev').addEventListener('click', prevCard);
+  document.getElementById('btn-next').addEventListener('click', nextCard);
+  document.getElementById('mode-study').addEventListener('click', function(){ setMode('study',this); });
+  document.getElementById('mode-quiz').addEventListener('click', function(){ setMode('quiz',this); });
+  document.getElementById('btn-knew').addEventListener('click', function(){ markCard(true); });
+  document.getElementById('btn-practice-more').addEventListener('click', function(){ markCard(false); });
+  document.querySelectorAll('.cl-item').forEach(function(el){ el.addEventListener('click', function(){ toggleCheck(this); }); });
+  document.getElementById('qcat-all').addEventListener('click', function(){ filterCat('all',this); });
+  document.getElementById('qcat-corp').addEventListener('click', function(){ filterCat('corp',this); });
+  document.getElementById('qcat-foreign').addEventListener('click', function(){ filterCat('foreign',this); });
+  document.getElementById('qcat-role').addEventListener('click', function(){ filterCat('role',this); });
+  document.getElementById('qcat-intent').addEventListener('click', function(){ filterCat('intent',this); });
+  document.getElementById('qcat-background').addEventListener('click', function(){ filterCat('background',this); });
+  document.getElementById('qcat-newoffice').addEventListener('click', function(){ filterCat('newoffice',this); });
+  setVisa('all', document.getElementById('pill-all'));
+  applyFilter();
+  updateStats();
+});
+</script>
+</body>
+</html>
