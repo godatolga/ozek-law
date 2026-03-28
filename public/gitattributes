@@ -1,0 +1,3 @@
+# Force correct file type detection for GitHub Linguist
+*.html linguist-language=HTML
+*.html linguist-detectable=true
