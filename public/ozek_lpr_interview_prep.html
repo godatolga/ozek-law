@@ -13,48 +13,48 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 .hdr-pattern{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 30px,rgba(184,150,46,.04) 30px,rgba(184,150,46,.04) 31px),repeating-linear-gradient(-45deg,transparent,transparent 30px,rgba(184,150,46,.04) 30px,rgba(184,150,46,.04) 31px);}
 .hdr-inner{position:relative;max-width:960px;margin:0 auto;padding:36px 32px 32px;display:flex;align-items:center;gap:24px;}
 .logo-wrap{flex-shrink:0;height:60px;display:flex;align-items:center;}
-.logo-wrap img{height:60px;width:auto;object-fit:contain;mix-blend-mode:screen;}
+.logo-wrap img{height:60px;width:auto;object-fit:contain;}
 .hdr-text{flex:1;}
 .page-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--white);line-height:1.2;margin-bottom:8px;}
-.page-subtitle{font-size:13px;font-weight:300;color:rgba(255,255,255,.65);line-height:1.5;}
+.page-subtitle{font-size:14px;font-weight:300;color:rgba(255,255,255,.65);line-height:1.5;}
 .hdr-right{display:flex;flex-direction:column;align-items:flex-end;gap:10px;flex-shrink:0;}
 .hdr-badge{background:rgba(184,150,46,.15);border:1px solid rgba(184,150,46,.4);border-radius:8px;padding:10px 16px;text-align:center;}
 .badge-num{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--gold);display:block;line-height:1;}
-.badge-lbl{font-size:10px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:1px;margin-top:3px;display:block;}
-.lang-btn{background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.25);border-radius:8px;padding:8px 16px;cursor:pointer;display:flex;align-items:center;gap:8px;transition:all .2s;color:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:.5px;}
+.badge-lbl{font-size:11px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:1px;margin-top:3px;display:block;}
+.lang-btn{background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.25);border-radius:8px;padding:8px 16px;cursor:pointer;display:flex;align-items:center;gap:8px;transition:all .2s;color:var(--white);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;letter-spacing:.5px;}
 .lang-btn:hover{background:rgba(184,150,46,.2);border-color:var(--gold);}
-.lang-flag{font-size:16px;}
+.lang-flag{font-size:17px;}
 .overall-prog{background:var(--navy);padding:12px 32px;display:flex;align-items:center;gap:16px;}
-.prog-label{font-size:12px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:1px;white-space:nowrap;}
+.prog-label{font-size:13px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:1px;white-space:nowrap;}
 .prog-track{flex:1;height:6px;background:rgba(255,255,255,.1);border-radius:3px;overflow:hidden;}
 .prog-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:3px;transition:width .6s cubic-bezier(.4,0,.2,1);width:0%;}
-.prog-pct{font-size:13px;font-weight:600;color:var(--gold);min-width:36px;text-align:right;}
+.prog-pct{font-size:14px;font-weight:600;color:var(--gold);min-width:36px;text-align:right;}
 .tab-bar{background:var(--white);border-bottom:1px solid var(--cream-dark);display:flex;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.06);}
-.tab-btn{flex:1;padding:16px 12px;border:none;background:transparent;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:var(--text-muted);display:flex;align-items:center;justify-content:center;gap:8px;border-bottom:3px solid transparent;transition:all .25s ease;}
+.tab-btn{flex:1;padding:16px 12px;border:none;background:transparent;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;color:var(--text-muted);display:flex;align-items:center;justify-content:center;gap:8px;border-bottom:3px solid transparent;transition:all .25s ease;}
 .tab-btn:hover{color:var(--navy);background:var(--cream);}
 .tab-btn.active{color:var(--navy);border-bottom-color:var(--gold);font-weight:600;background:rgba(184,150,46,.04);}
-.tab-ico{font-size:16px;}
-.tab-badge{background:var(--gold);color:var(--white);font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;min-width:18px;text-align:center;}
+.tab-ico{font-size:17px;}
+.tab-badge{background:var(--gold);color:var(--white);font-size:11px;font-weight:700;padding:2px 6px;border-radius:10px;min-width:18px;text-align:center;}
 .main{max-width:960px;margin:0 auto;padding:32px 24px 60px;}
 .tab-panel{display:none;animation:fadeUp .35s ease;}
 .tab-panel.active{display:block;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
 .sec-hdr{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--cream-dark);gap:16px;flex-wrap:wrap;}
 .sec-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--navy);line-height:1.2;}
-.sec-desc{font-size:13px;color:var(--text-muted);margin-top:4px;line-height:1.5;}
+.sec-desc{font-size:14px;color:var(--text-muted);margin-top:4px;line-height:1.5;}
 .sec-actions{display:flex;gap:10px;flex-wrap:wrap;}
-.btn{padding:9px 18px;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;border:none;display:inline-flex;align-items:center;gap:6px;transition:all .2s ease;white-space:nowrap;text-decoration:none;}
+.btn{padding:9px 18px;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;border:none;display:inline-flex;align-items:center;gap:6px;transition:all .2s ease;white-space:nowrap;text-decoration:none;}
 .btn-primary{background:var(--navy);color:var(--white);}
 .btn-primary:hover{background:var(--navy-mid);transform:translateY(-1px);}
 .btn-gold{background:var(--gold);color:var(--white);}
 .btn-gold:hover{background:var(--gold-light);transform:translateY(-1px);}
 .btn-outline{background:transparent;border:1.5px solid var(--cream-dark);color:var(--text-muted);}
 .btn-outline:hover{border-color:var(--navy);color:var(--navy);}
-.btn-sm{padding:6px 12px;font-size:12px;}
+.btn-sm{padding:6px 12px;font-size:13px;}
 .cl-group{margin-bottom:28px;}
 .grp-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:600;color:var(--navy);margin-bottom:12px;display:flex;align-items:center;gap:10px;}
 .grp-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--cream-dark),transparent);}
-.grp-cnt{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;color:var(--text-muted);background:var(--cream-dark);padding:2px 8px;border-radius:10px;}
+.grp-cnt{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;color:var(--text-muted);background:var(--cream-dark);padding:2px 8px;border-radius:10px;}
 .cl-item{display:flex;align-items:flex-start;gap:14px;padding:13px 16px;background:var(--white);border:1.5px solid var(--cream-dark);border-radius:8px;margin-bottom:8px;cursor:pointer;transition:all .22s ease;position:relative;overflow:hidden;}
 .cl-item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--cream-dark);transition:background .22s ease;}
 .cl-item:hover{border-color:var(--gold-pale);box-shadow:0 2px 10px rgba(0,0,0,.05);}
@@ -64,11 +64,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 .cl-item.ifa{background:#fafaf7;}
 .chk-box{width:22px;height:22px;flex-shrink:0;border:2px solid var(--cream-dark);border-radius:5px;display:flex;align-items:center;justify-content:center;transition:all .2s ease;margin-top:1px;background:var(--white);}
 .cl-item.checked .chk-box{background:var(--success);border-color:var(--success);}
-.chkmark{color:var(--white);font-size:13px;opacity:0;transition:opacity .15s ease;font-weight:700;}
+.chkmark{color:var(--white);font-size:14px;opacity:0;transition:opacity .15s ease;font-weight:700;}
 .cl-item.checked .chkmark{opacity:1;}
 .item-body{flex:1;}
-.item-text{font-size:14px;color:var(--text-dark);line-height:1.5;}
-.itag{display:inline-block;font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;text-transform:uppercase;letter-spacing:.5px;margin-top:4px;margin-right:4px;}
+.item-text{font-size:15px;color:var(--text-dark);line-height:1.5;}
+.itag{display:inline-block;font-size:11px;font-weight:600;padding:2px 7px;border-radius:4px;text-transform:uppercase;letter-spacing:.5px;margin-top:4px;margin-right:4px;}
 .tag-req{background:#fff3cd;color:#856404;border:1px solid #ffc107;}
 .tag-ifa{background:#e7f3ff;color:#0056b3;border:1px solid #b8d8f5;}
 .tag-orig{background:#f3e8ff;color:#6b21a8;border:1px solid #d8b4fe;}
@@ -76,21 +76,21 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 .cl-stats{display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap;}
 .stat-card{flex:1;min-width:120px;background:var(--white);border:1.5px solid var(--cream-dark);border-radius:10px;padding:14px 18px;text-align:center;}
 .stat-num{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--navy);display:block;line-height:1;}
-.stat-lbl{font-size:11px;color:var(--text-muted);margin-top:4px;text-transform:uppercase;letter-spacing:.5px;}
-.alert{border-radius:10px;padding:16px 20px;display:flex;gap:14px;align-items:flex-start;margin-bottom:20px;font-size:13px;line-height:1.6;}
+.stat-lbl{font-size:12px;color:var(--text-muted);margin-top:4px;text-transform:uppercase;letter-spacing:.5px;}
+.alert{border-radius:10px;padding:16px 20px;display:flex;gap:14px;align-items:flex-start;margin-bottom:20px;font-size:14px;line-height:1.6;}
 .alert.info{background:#e8f3ff;border:1px solid #b8d4f5;color:#1e3a5f;}
 .alert.warn{background:#fff8e1;border:1px solid #ffe082;color:#5d4037;}
-.alert-ico{font-size:18px;flex-shrink:0;margin-top:1px;}
+.alert-ico{font-size:19px;flex-shrink:0;margin-top:1px;}
 .congrats{text-align:center;padding:40px 20px;display:none;}
-.congrats-emoji{font-size:56px;margin-bottom:12px;}
+.congrats-emoji{font-size:57px;margin-bottom:12px;}
 .congrats-title{font-family:'Playfair Display',serif;font-size:26px;color:var(--navy);margin-bottom:8px;}
-.congrats-sub{font-size:14px;color:var(--text-muted);}
+.congrats-sub{font-size:15px;color:var(--text-muted);}
 .cat-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;}
-.cat-pill{padding:6px 14px;border-radius:20px;font-size:12px;font-weight:500;cursor:pointer;border:1.5px solid var(--cream-dark);background:var(--white);color:var(--text-muted);transition:all .2s;}
+.cat-pill{padding:6px 14px;border-radius:20px;font-size:13px;font-weight:500;cursor:pointer;border:1.5px solid var(--cream-dark);background:var(--white);color:var(--text-muted);transition:all .2s;}
 .cat-pill:hover,.cat-pill.active{background:var(--navy);color:var(--white);border-color:var(--navy);}
 .fc-controls{display:flex;align-items:center;gap:12px;margin-bottom:24px;flex-wrap:wrap;}
 .mode-sel{display:flex;gap:4px;background:var(--cream-dark);border-radius:8px;padding:3px;}
-.mode-btn{padding:7px 14px;border-radius:6px;border:none;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;cursor:pointer;transition:all .2s;color:var(--text-muted);background:transparent;}
+.mode-btn{padding:7px 14px;border-radius:6px;border:none;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;color:var(--text-muted);background:transparent;}
 .mode-btn.active{background:var(--white);color:var(--navy);box-shadow:0 1px 4px rgba(0,0,0,.08);}
 .fc-arena{perspective:1200px;margin-bottom:24px;}
 .fc-wrapper{position:relative;width:100%;max-width:640px;height:280px;margin:0 auto;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.4,0,.2,1);cursor:pointer;}
@@ -98,22 +98,22 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 .card-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:32px;text-align:center;}
 .card-front{background:var(--navy);border:2px solid rgba(184,150,46,.3);box-shadow:0 8px 40px rgba(15,28,53,.25);}
 .card-back{background:var(--white);border:2px solid var(--gold-pale);box-shadow:0 8px 40px rgba(184,150,46,.12);transform:rotateY(180deg);}
-.card-lbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:2px;margin-bottom:16px;}
+.card-lbl{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:2px;margin-bottom:16px;}
 .card-front .card-lbl{color:rgba(184,150,46,.8);}
 .card-back .card-lbl{color:var(--gold);}
-.card-qnum{font-size:11px;color:rgba(255,255,255,.3);margin-bottom:12px;}
+.card-qnum{font-size:12px;color:rgba(255,255,255,.3);margin-bottom:12px;}
 .card-q{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--white);line-height:1.4;}
-.card-hint{margin-top:16px;font-size:12px;color:rgba(255,255,255,.4);font-style:italic;}
-.card-a-title{font-size:12px;color:var(--text-muted);margin-bottom:10px;font-weight:500;}
-.card-a{font-family:'EB Garamond',serif;font-size:17px;color:var(--text-dark);line-height:1.6;}
-.card-tip{margin-top:16px;font-size:12px;color:var(--text-muted);background:var(--cream);padding:8px 14px;border-radius:6px;border-left:3px solid var(--gold);text-align:left;width:100%;}
+.card-hint{margin-top:16px;font-size:13px;color:rgba(255,255,255,.4);font-style:italic;}
+.card-a-title{font-size:13px;color:var(--text-muted);margin-bottom:10px;font-weight:500;}
+.card-a{font-family:'EB Garamond',serif;font-size:18px;color:var(--text-dark);line-height:1.6;}
+.card-tip{margin-top:16px;font-size:13px;color:var(--text-muted);background:var(--cream);padding:8px 14px;border-radius:6px;border-left:3px solid var(--gold);text-align:left;width:100%;}
 .card-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:20px;}
-.nav-btn{width:44px;height:44px;border-radius:50%;border:2px solid var(--cream-dark);background:var(--white);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s ease;color:var(--navy);}
+.nav-btn{width:44px;height:44px;border-radius:50%;border:2px solid var(--cream-dark);background:var(--white);font-size:19px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s ease;color:var(--navy);}
 .nav-btn:hover{border-color:var(--navy);background:var(--navy);color:var(--white);transform:scale(1.08);}
 .nav-btn:disabled{opacity:.3;cursor:not-allowed;}
-.card-ctr{font-size:13px;font-weight:500;color:var(--text-muted);min-width:70px;text-align:center;}
+.card-ctr{font-size:14px;font-weight:500;color:var(--text-muted);min-width:70px;text-align:center;}
 .score-row{display:flex;gap:10px;justify-content:center;margin-bottom:24px;flex-wrap:wrap;}
-.score-btn{padding:10px 24px;border-radius:8px;border:none;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px;transition:all .2s;}
+.score-btn{padding:10px 24px;border-radius:8px;border:none;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px;transition:all .2s;}
 .score-yes{background:var(--success-light);color:var(--success);border:2px solid #a8d8c0;}
 .score-yes:hover{background:var(--success);color:var(--white);transform:translateY(-2px);}
 .score-no{background:var(--danger-light);color:var(--danger);border:2px solid #f5b8b8;}
@@ -122,7 +122,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 .sb-item{text-align:center;flex:1;min-width:80px;}
 .sb-val{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;display:block;}
 .sb-val.c{color:var(--success);}.sb-val.i{color:var(--danger);}.sb-val.r{color:var(--gold);}.sb-val.p{color:var(--navy);}
-.sb-lbl{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;}
+.sb-lbl{font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;}
 .tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:28px;}
 .tip-card{background:var(--white);border:1.5px solid var(--cream-dark);border-radius:12px;padding:22px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s;}
 .tip-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.08);}
@@ -131,12 +131,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 .tip-card.navy::before{background:linear-gradient(90deg,var(--navy),var(--navy-mid));}
 .tip-card.green::before{background:linear-gradient(90deg,#2e7d52,#4caf50);}
 .tip-card.red::before{background:linear-gradient(90deg,#8b1f1f,#c62828);}
-.tip-ico{font-size:28px;margin-bottom:12px;display:block;}
+.tip-ico{font-size:29px;margin-bottom:12px;display:block;}
 .tip-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:var(--navy);margin-bottom:8px;}
-.tip-body{font-size:13px;color:var(--text-muted);line-height:1.65;}
+.tip-body{font-size:14px;color:var(--text-muted);line-height:1.65;}
 .confetti-piece{position:fixed;width:8px;height:12px;border-radius:2px;animation:cffall 2.5s ease-in forwards;pointer-events:none;z-index:9999;}
 @keyframes cffall{0%{opacity:1;transform:translateY(-20px) rotate(0deg);}100%{opacity:0;transform:translateY(100vh) rotate(720deg);}}
-@media(max-width:600px){.hdr-inner{padding:12px 14px 10px;gap:10px;}.logo-wrap img{height:46px;}.page-title{font-size:14px;line-height:1.25;margin-bottom:3px;}.page-subtitle{font-size:10.5px;line-height:1.4;}.hdr-badge{display:none;}.hdr-right{gap:6px;flex-direction:column;align-items:flex-end;}.lang-btn{padding:5px 11px;font-size:11px;}.overall-prog{padding:9px 14px;}.prog-label{font-size:10px;}.fc-wrapper{height:240px;}.card-q{font-size:17px;}.tab-txt{display:none;}}
+@media(max-width:600px){.hdr-inner{padding:12px 14px 10px;gap:10px;}.logo-wrap img{height:34px;}.page-title{font-size:15px;line-height:1.25;margin-bottom:3px;}.page-subtitle{font-size:10.5px;line-height:1.4;}.hdr-badge{display:none;}.hdr-right{gap:6px;flex-direction:column;align-items:flex-end;}.lang-btn{padding:5px 11px;font-size:12px;}.overall-prog{padding:9px 14px;}.prog-label{font-size:11px;}.fc-wrapper{height:240px;}.card-q{font-size:18px;}.tab-txt{display:none;}}
 </style>
 </head>
 <body>
@@ -184,6 +184,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
   </button>
   <button class="tab-btn" onclick="switchTab('tips',this)">
     <span class="tab-ico">&#x1F4A1;</span><span class="tab-txt" data-i18n="tab3">Interview Tips</span>
+  </button>
+  <button class="tab-btn" onclick="switchTab('consular',this)">
+    <span class="tab-ico">&#x1F30D;</span><span class="tab-txt" data-i18n="tab4">Consular</span>
   </button>
 </nav>
 
@@ -377,6 +380,98 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
   </div>
 </div>
 
+<!-- ===== CONSULAR TAB ===== -->
+<div id="tab-consular" class="tab-panel">
+  <div class="sec-hdr">
+    <div>
+      <h2 class="sec-title" data-i18n="conTitle">Consular Interview Checklist</h2>
+      <p class="sec-desc" data-i18n="conDesc">Documents required for your immigrant visa interview at a U.S. Embassy or Consulate abroad. Based on U.S. Department of State guidelines.</p>
+    </div>
+    <div class="sec-actions">
+      <button class="btn btn-outline btn-sm" onclick="clearConsular()" data-i18n="btnReset">&#x21BA; Reset</button>
+      <button class="btn btn-primary btn-sm" onclick="window.print()" data-i18n="btnPrint">&#x1F5A8; Print</button>
+    </div>
+  </div>
+
+  <div class="cl-stats">
+    <div class="stat-card"><span class="stat-num" id="con-checked">0</span><div class="stat-lbl" data-i18n="statPrepared">Prepared</div></div>
+    <div class="stat-card"><span class="stat-num" id="con-remaining">21</span><div class="stat-lbl" data-i18n="statRemaining">Remaining</div></div>
+    <div class="stat-card"><span class="stat-num" id="con-pct">0%</span><div class="stat-lbl" data-i18n="statComplete">Complete</div></div>
+  </div>
+
+  <div class="alert info">
+    <span class="alert-ico">&#x2139;&#xFE0F;</span>
+    <div data-i18n="conAlert">All documents not in English must have a <strong>certified English translation</strong>. Bring originals plus photocopies of each document. If your case is electronic, upload these same documents to CEAC before your appointment.</div>
+  </div>
+
+  <!-- Group A: Every Applicant -->
+  <div class="cl-group">
+    <div class="grp-title"><span data-i18n="cgA">&#x1F4CB; &nbsp;Required for Every Applicant</span><span class="grp-cnt" id="cg1-cnt">0/9</span></div>
+    <div class="cl-item" onclick="toggleConsular(this)" data-cgroup="1"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" data-i18n="c1_1">NVC Interview Letter (copy) &mdash; not required for Diversity Visa, fiancé(e), adoptive, or asylee/refugee applicants</div><span class="itag tag-req" data-i18n="tagReq">Required</span></div></div>
+    <div class="cl-item" onclick="toggleConsular(this)" data-cgroup="1"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" data-i18n="c1_2">Unexpired passport valid for at least 6 months beyond intended U.S. entry date + photocopy of biographic page</div><span class="itag tag-req" data-i18n="tagReq">Required</span><span class="itag tag-orig" data-i18n="tagOrig">Original</span></div></div>
+    <div class="cl-item" onclick="toggleConsular(this)" data-cgroup="1"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" data-i18n="c1_3">Two (2) color passport-style photographs per applicant (5cm x 5cm)</div><span class="itag tag-req" data-i18n="tagReq">Required</span></div></div>
+    <div class="cl-item" onclick="toggleConsular(this)" data-cgroup="1"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" data-i18n="c1_4">DS-260 Immigrant Visa Application confirmation page (submitted online at ceac.state.gov/iv)</div><span class="itag tag-req" data-i18n="tagReq">Required</span></div></div>
+    <div class="cl-item" onclick="toggleConsular(this)" data-cgroup="1"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" data-i18n="c1_5">Online address registration confirmation &mdash; for passport/documents return delivery (print two copies)</div><span class="itag tag-req" data-i18n="tagReq">Required</span></div></div>
+    <div class="cl-item" onclick="toggleConsular(this)" data-cgroup="1"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" data-i18n="c1_6">Original birth certificate + certified English translation + photocopy</div><span class="itag tag-req" data-i18n="tagReq">Required</span><span class="itag tag-trans" data-i18n="tagTrans">+ Translation if non-English</span></div></div>
+    <div class="cl-item" onclick="toggleConsular(this)" data-cgroup="1"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" data-i18n="c1_7">Medical examination results in sealed envelope &mdash; do NOT open. (If electronic case: bring summary sheet instead)</div><span class="itag tag-req" data-i18n="tagReq">Required</span></div></div>
+    <div class="cl-item" onclick="toggleConsular(this)" data-cgroup="1"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" data-i18n="c1_8">Original or certified birth certificates for ALL children of the principal applicant, even non-accompanying children</div><span class="itag tag-req" data-i18n="tagReq">Required</span><span class="itag tag-orig" data-i18n="tagOrig">Original</span></div></div>
+    <div class="cl-item" onclick="toggleConsular(this)" data-cgroup="1"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" data-i18n="c1_9">Police certificate from country of current residence and all prior residences (applicants 16 years of age or older)</div><span class="itag tag-req" data-i18n="tagReq">Required if 16+</span><span class="itag tag-orig" data-i18n="tagOrig">Original</span></div></div>
+  </div>
+
+  <!-- Group B: Family-Based -->
+  <div class="cl-group">
+    <div class="grp-title"><span data-i18n="cgB">&#x1F492; &nbsp;Family-Based Applications</span><span class="grp-cnt" id="cg2-cnt">0/4</span></div>
+    <div class="cl-item ifa" onclick="toggleConsular(this)" data-cgroup="2"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" data-i18n="c2_1">Form I-864 Affidavit of Support for each financial sponsor + IRS tax transcript or most recent federal tax return with all W-2s</div><span class="itag tag-ifa" data-i18n="tagIfa">If Applicable</span></div></div>
+    <div class="cl-item ifa" onclick="toggleConsular(this)" data-cgroup="2"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" data-i18n="c2_2">Proof of U.S. petitioner status and U.S. domicile (copy of U.S. passport, naturalization certificate, or Permanent Resident Card)</div><span class="itag tag-ifa" data-i18n="tagIfa">If Applicable</span></div></div>
+    <div class="cl-item ifa" onclick="toggleConsular(this)" data-cgroup="2"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" data-i18n="c2_3">Evidence of relationship between petitioner and applicant (photographs, letters, emails, etc.)</div><span class="itag tag-ifa" data-i18n="tagIfa">If Applicable</span></div></div>
+    <div class="cl-item ifa" onclick="toggleConsular(this)" data-cgroup="2"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" data-i18n="c2_4">Original marriage certificate + certified English translation + photocopy (if married)</div><span class="itag tag-ifa" data-i18n="tagIfa">If Married</span><span class="itag tag-trans" data-i18n="tagTrans">+ Translation if non-English</span></div></div>
+  </div>
+
+  <!-- Group C: Conditional -->
+  <div class="cl-group">
+    <div class="grp-title"><span data-i18n="cgC">&#x2696;&#xFE0F; &nbsp;Conditional Documents</span><span class="grp-cnt" id="cg3-cnt">0/5</span></div>
+    <div class="cl-item ifa" onclick="toggleConsular(this)" data-cgroup="3"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" data-i18n="c3_1">Original divorce decree or deceased spouse death certificate + translation + photocopy (if previously married)</div><span class="itag tag-ifa" data-i18n="tagIfa">If Previously Married</span><span class="itag tag-trans" data-i18n="tagTrans">+ Translation if non-English</span></div></div>
+    <div class="cl-item ifa" onclick="toggleConsular(this)" data-cgroup="3"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" data-i18n="c3_2">Letter from U.S. employer dated less than one month ago (employment-based applicants)</div><span class="itag tag-ifa" data-i18n="tagIfa">Employment-Based</span></div></div>
+    <div class="cl-item ifa" onclick="toggleConsular(this)" data-cgroup="3"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" data-i18n="c3_3">Court and criminal records + English translation + photocopy (if ever convicted of a crime)</div><span class="itag tag-ifa" data-i18n="tagCrim">If Any Criminal History</span></div></div>
+    <div class="cl-item ifa" onclick="toggleConsular(this)" data-cgroup="3"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" data-i18n="c3_4">Military records + English translation + photocopy (if served in any country military)</div><span class="itag tag-ifa" data-i18n="tagIfa">If Military Service</span></div></div>
+    <div class="cl-item ifa" onclick="toggleConsular(this)" data-cgroup="3"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" data-i18n="c3_5">Adoption papers or custody documents + translation + photocopy (if adopted or stepchild)</div><span class="itag tag-ifa" data-i18n="tagIfa">If Adopted / Stepchild</span></div></div>
+  </div>
+
+  <!-- Group D: Medical Exam -->
+  <div class="cl-group">
+    <div class="grp-title"><span data-i18n="cgD">&#x2695;&#xFE0F; &nbsp;Medical Examination (Before Your Interview)</span><span class="grp-cnt" id="cg4-cnt">0/3</span></div>
+    <div class="cl-item" onclick="toggleConsular(this)" data-cgroup="4"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" data-i18n="c4_1">Schedule medical exam with an authorized panel physician designated by your U.S. Embassy/Consulate &mdash; ideally 3 weeks before interview, minimum 10 days before</div><span class="itag tag-req" data-i18n="tagReq">Required</span></div></div>
+    <div class="cl-item" onclick="toggleConsular(this)" data-cgroup="4"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" data-i18n="c4_2">Bring to medical exam: passport, 3 passport-size photos, DS-260 confirmation, immunization records, and any medical records/prescriptions for existing conditions</div><span class="itag tag-req" data-i18n="tagReq">Required</span></div></div>
+    <div class="cl-item" onclick="toggleConsular(this)" data-cgroup="4"><div class="chk-box"><span class="chkmark">&#x2713;</span></div><div class="item-body"><div class="item-text" data-i18n="c4_3">Confirm required vaccinations with panel physician: Mumps, Measles, Rubella, Polio, Tetanus-Diphtheria, Pertussis, HIB, Hepatitis A &amp; B, Varicella, Pneumococcal, Influenza, Rotavirus</div><span class="itag tag-req" data-i18n="tagReq">Required</span></div></div>
+  </div>
+
+  <div class="alert warn" style="margin-top:8px;">
+    <span class="alert-ico">&#x26A0;&#xFE0F;</span>
+    <div data-i18n="conWarn"><strong>Medical clearance is valid for 6 months</strong> (3 months for certain TB classifications). If you do not travel within the clearance period, you must restart the entire medical process. Do NOT open the sealed results envelope &mdash; bring it intact to your interview.</div>
+  </div>
+
+  <!-- Key Reminders -->
+  <div style="background:var(--navy);border-radius:14px;padding:24px 28px;margin-top:8px;">
+    <div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--gold);margin-bottom:16px;" data-i18n="conRemTitle">Key Consular Reminders</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
+      <div style="display:flex;gap:10px;align-items:flex-start;"><div style="color:var(--gold);font-size:20px;flex-shrink:0;">&#x1F4EE;</div><div><div style="color:#fff;font-size:13px;font-weight:600;margin-bottom:3px;" data-i18n="conR1t">Sealed Envelope</div><div style="color:rgba(255,255,255,.55);font-size:12px;line-height:1.5;" data-i18n="conR1b">Do NOT open your medical results envelope. Carry your X-rays with you when you travel to the U.S. for the first time.</div></div></div>
+      <div style="display:flex;gap:10px;align-items:flex-start;"><div style="color:var(--gold);font-size:20px;flex-shrink:0;">&#x1F4B3;</div><div><div style="color:#fff;font-size:13px;font-weight:600;margin-bottom:3px;" data-i18n="conR2t">USCIS Immigrant Fee</div><div style="color:rgba(255,255,255,.55);font-size:12px;line-height:1.5;" data-i18n="conR2b">Pay the USCIS Immigrant Fee online before traveling to the U.S. This covers processing of your Permanent Resident Card.</div></div></div>
+      <div style="display:flex;gap:10px;align-items:flex-start;"><div style="color:var(--gold);font-size:20px;flex-shrink:0;">&#x2708;&#xFE0F;</div><div><div style="color:#fff;font-size:13px;font-weight:600;margin-bottom:3px;" data-i18n="conR3t">Travel Before Visa Expires</div><div style="color:rgba(255,255,255,.55);font-size:12px;line-height:1.5;" data-i18n="conR3b">You must enter the U.S. before your visa expiration date (usually 6 months from issuance). Visas cannot be extended.</div></div></div>
+      <div style="display:flex;gap:10px;align-items:flex-start;"><div style="color:var(--gold);font-size:20px;flex-shrink:0;">&#x1F9BE;</div><div><div style="color:#fff;font-size:13px;font-weight:600;margin-bottom:3px;" data-i18n="conR4t">Do Not Make Irreversible Plans</div><div style="color:rgba(255,255,255,.55);font-size:12px;line-height:1.5;" data-i18n="conR4b">Do not resign from your job, sell property, or book non-refundable flights until your immigrant visa is approved and in hand.</div></div></div>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:28px;padding:22px;background:var(--cream-dark);border-radius:12px;">
+    <div style="font-family:'Playfair Display',serif;font-size:17px;color:var(--navy);margin-bottom:6px;" data-i18n="contactTitle">Have questions before your interview?</div>
+    <div style="font-size:13px;color:var(--text-muted);margin-bottom:14px;" data-i18n="contactSub">Ozek Law Firm is here to guide you every step of the way.</div>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+      <a href="tel:+12028548545" class="btn btn-primary">&#x1F4DE; +1 (202) 854-8545</a>
+      <a href="mailto:info@ozeklaw.com" class="btn btn-gold">&#x2709;&#xFE0F; info&#64;ozeklaw.com</a>
+    </div>
+  </div>
+</div>
+
+
 </main>
 
 <footer style="background:var(--navy-deep);padding:20px 32px;text-align:center;">
@@ -475,7 +570,42 @@ var translations = {
     contactTitle:"Have questions before your interview?",
     contactSub:"Ozek Law Firm is here to guide you every step of the way.",
     footerDisclaimer:"This tool is for client preparation purposes only and does not constitute legal advice. &copy; 2025 Ozek Law Firm, LLC.",
-    tipPrefix:"Officer Tip:"
+    tipPrefix:"Officer Tip:",
+    tab4:"Consular",
+    conTitle:"Consular Interview Checklist",
+    conDesc:"Documents required for your immigrant visa interview at a U.S. Embassy or Consulate abroad. Based on U.S. Department of State guidelines.",
+    conAlert:"All documents not in English must have a <strong>certified English translation</strong>. Bring originals plus photocopies. If your case is electronic, upload documents to CEAC before your appointment.",
+    cgA:"&#x1F4CB; &nbsp;Required for Every Applicant",
+    cgB:"&#x1F492; &nbsp;Family-Based Applications",
+    cgC:"&#x2696;&#xFE0F; &nbsp;Conditional Documents",
+    cgD:"&#x2695;&#xFE0F; &nbsp;Medical Examination (Before Your Interview)",
+    c1_1:"NVC Interview Letter (copy) &mdash; not required for Diversity Visa, fianc&eacute;(e), adoptive, or asylee/refugee applicants",
+    c1_2:"Unexpired passport valid for at least 6 months beyond intended U.S. entry date + photocopy of biographic page",
+    c1_3:"Two (2) color passport-style photographs per applicant (5cm x 5cm)",
+    c1_4:"DS-260 Immigrant Visa Application confirmation page (submitted online at ceac.state.gov/iv)",
+    c1_5:"Online address registration confirmation &mdash; for passport/documents return delivery (print two copies)",
+    c1_6:"Original birth certificate + certified English translation + photocopy",
+    c1_7:"Medical examination results in sealed envelope &mdash; do NOT open. (If electronic case: bring summary sheet instead)",
+    c1_8:"Original or certified birth certificates for ALL children of the principal applicant, even non-accompanying children",
+    c1_9:"Police certificate from country of current and all prior residences (applicants 16 years of age or older)",
+    c2_1:"Form I-864 Affidavit of Support for each financial sponsor + IRS tax transcript or most recent federal tax return with all W-2s",
+    c2_2:"Proof of U.S. petitioner status and U.S. domicile (copy of U.S. passport, naturalization certificate, or Permanent Resident Card)",
+    c2_3:"Evidence of relationship between petitioner and applicant (photographs, letters, emails, etc.)",
+    c2_4:"Original marriage certificate + certified English translation + photocopy (if married)",
+    c3_1:"Original divorce decree or deceased spouse death certificate + translation + photocopy (if previously married)",
+    c3_2:"Letter from U.S. employer dated less than one month ago (employment-based applicants)",
+    c3_3:"Court and criminal records + English translation + photocopy (if ever convicted of a crime)",
+    c3_4:"Military records + English translation + photocopy (if served in any country military)",
+    c3_5:"Adoption papers or custody documents + translation + photocopy (if adopted or stepchild)",
+    c4_1:"Schedule medical exam with an authorized panel physician designated by your U.S. Embassy/Consulate &mdash; ideally 3 weeks before interview, minimum 10 days before",
+    c4_2:"Bring to medical exam: passport, 3 passport-size photos, DS-260 confirmation, immunization records, and any medical records for existing conditions",
+    c4_3:"Confirm required vaccinations with panel physician: Mumps, Measles, Rubella, Polio, Tetanus-Diphtheria, Pertussis, HIB, Hepatitis A &amp; B, Varicella, Pneumococcal, Influenza, Rotavirus",
+    conWarn:"<strong>Medical clearance is valid for 6 months</strong> (3 months for certain TB classifications). Do NOT open the sealed results envelope &mdash; bring it intact to your interview.",
+    conRemTitle:"Key Consular Reminders",
+    conR1t:"Sealed Envelope",conR1b:"Do NOT open your medical results envelope. Carry your X-rays with you when you first travel to the U.S.",
+    conR2t:"USCIS Immigrant Fee",conR2b:"Pay the USCIS Immigrant Fee online before traveling. This covers processing of your Permanent Resident Card.",
+    conR3t:"Travel Before Visa Expires",conR3b:"You must enter the U.S. before your visa expiration date (usually 6 months from issuance). Visas cannot be extended.",
+    conR4t:"Do Not Make Irreversible Plans",conR4b:"Do not resign from your job, sell property, or book non-refundable flights until your immigrant visa is approved."
   },
   tr: {
     pageTitle: "Aile Temelli Green Card<br>Mulakat Hazirlik Rehberi",
@@ -561,7 +691,42 @@ var translations = {
     contactTitle:"Mulakatinizdan once sorulariniz mi var?",
     contactSub:"Ozek Law Firm her adimda yaninizdadir.",
     footerDisclaimer:"Bu arac yalnizca musteri hazirligina yoneliktir ve hukuki tavsiye niteliginde degildir. &copy; 2025 Ozek Law Firm, LLC.",
-    tipPrefix:"Memur Ipucu:"
+    tipPrefix:"Memur Ipucu:",
+    tab4:"Konsolosluk",
+    conTitle:"Konsolosluk Mulakat Kontrol Listesi",
+    conDesc:"ABD Buyukelciligi veya Konsoloslugunuzdaki gocinmen vize mulakatiniz icin gerekli belgeler. ABD Disisleri Bakanligi yonergelerine dayanmaktadir.",
+    conAlert:"Ingilizce olmayan tum belgeler icin <strong>onaylanmis Ingilizce tercume</strong> gereklidir. Asil belgeler ve her birinden fotokopi getirin. Elektronik dosyaniz varsa belgeleri randevudan once CEAC sistemine yukleyin.",
+    cgA:"&#x1F4CB; &nbsp;Her Basvurucu Icin Zorunlu Belgeler",
+    cgB:"&#x1F492; &nbsp;Aile Temelli Basvurular",
+    cgC:"&#x2696;&#xFE0F; &nbsp;Kosullu Belgeler",
+    cgD:"&#x2695;&#xFE0F; &nbsp;Tibbi Muayene (Mulakatinizdan Once)",
+    c1_1:"NVC Mulakat Mektubu (kopya) &mdash; Cesitlilik Vizesi, nisan(li), evlat edinme veya siginmaci/multeci basvurucular icin gerekli degildir",
+    c1_2:"ABD'ye planladığınız giris tarihinden itibaren en az 6 ay gecerli pasaport + biyografik sayfanin fotokopisi",
+    c1_3:"Her basvurucu icin iki (2) adet renkli vesikalik fotograf (5cm x 5cm)",
+    c1_4:"DS-260 Gocinmen Vize Basvurusu onay sayfasi (ceac.state.gov/iv adresinde cevrimici olarak gonderilmis)",
+    c1_5:"Pasaport/belge iade teslimat adresi icin cevrimici adres kayit onay belgesi (iki kopya yazdir)",
+    c1_6:"Asil dogum belgesi + onaylanmis Ingilizce tercume + fotokopi",
+    c1_7:"Muhrulu zarftaki tibbi muayene sonuclari &mdash; ACMAYIN. (Elektronik dosya ise ozet sayfa getirin)",
+    c1_8:"Asil basvurucunun TUM cocuklari icin asil veya onaylanmis dogum belgeleri, eslik etmeyenler dahil",
+    c1_9:"Mevcut ve onceki tum ikamet ulkelerinden polis sabika belgesi (16 yas ve uzeri basvurucular icin)",
+    c2_1:"Her mali sponsor icin Form I-864 Destek Taahhutnamesi + IRS vergi transkribi veya W-2'lerle birlikte en son federal vergi beyani",
+    c2_2:"ABD dilekce sahibinin statusunun ve ABD'de ikamet ettiginin kaniti (ABD pasaportu, vatandaslik belgesi veya yesil kart kopyasi)",
+    c2_3:"Dilekce sahibi ile basvurucu arasindaki iliskinin kaniti (fotograflar, mektuplar, e-postalar vb.)",
+    c2_4:"Asil evlilik cuzdani + onaylanmis Ingilizce tercume + fotokopi (evliyseniz)",
+    c3_1:"Asil bosanamis karari veya vefat eden esin olum belgesi + tercume + fotokopi (daha once evlendiyseniz)",
+    c3_2:"ABD isvereninizden bir aydan eski olmayan is mektubu (istihdam bazli basvurucular icin)",
+    c3_3:"Mahkeme ve ceza kayitlari + Ingilizce tercume + fotokopi (hic suc islenmissel)",
+    c3_4:"Askerlik kayitlari + Ingilizce tercume + fotokopi (herhangi bir ulkede askerlik hizmeti yapildiysa)",
+    c3_5:"Evlat edinme belgeleri veya velayet kararlari + tercume + fotokopi (evlat edinilmis veya uzey cocuguysa)",
+    c4_1:"ABD Buyukelciligi/Konsoloslugunuzun yetkilendirdigi panel doktoru ile tibbi muayene randevusu alin &mdash; tercihen mulakattan 3 hafta once, en gec 10 gun once",
+    c4_2:"Tibbi muayeneye goturulecekler: pasaport, 3 vesikalik fotograf, DS-260 onay sayfasi, asılama kayitlari ve mevcut rahatsizliklar icin tibbi belgeler",
+    c4_3:"Gerekli asilamaları panel doktoruyla teyit edin: Kizamikçik, Kizamik, Rubela, Polio, Tetanoz-Difteri, Bogmaca, HIB, Hepatit A ve B, Varicella, Pnomokokal, Influenza, Rotavirus",
+    conWarn:"<strong>Tibbi izin 6 ay gecerlidir</strong> (bazi TB siniflandirmalari icin 3 ay). Muhrulu zarfi acmayin &mdash; mulakata sağlam bir sekilde getirin.",
+    conRemTitle:"Temel Konsolosluk Hatirlaticlari",
+    conR1t:"Muhrulu Zarf",conR1b:"Tibbi sonuc zarfini ACMAYIN. Rontgen filmlerini ABD'ye ilk giriste yanınizda taşıyın.",
+    conR2t:"USCIS Gocinmen Ucreti",conR2b:"ABD'ye gitmeden once USCIS Gocinmen Ucretini cevrimici odeyin. Bu ucret Kalici Oturum Kartinizin islenmesini karsilar.",
+    conR3t:"Vize Suresi Dolmadan Seyahat Edin",conR3b:"Vizanizin bitis tarihinden (genellikle duzenlenme tarihinden 6 ay sonra) once ABD'ye girmeniz zorunludur. Vizeler uzatilamaz.",
+    conR4t:"Geri Donusu Olmayan Planlar Yapmayin",conR4b:"Gocinmen vizaniz onaylanip elinize gecmeden isten cikmayın, mulklerinizi satmayin veya iade edilmez ucak bileti satin almayin."
   }
 };
 
@@ -807,9 +972,35 @@ function updateScoreboard() {
   document.getElementById("sc-pct").textContent = pct;
 }
 
+// ── CONSULAR CHECKLIST ──
+function toggleConsular(el) {
+  el.classList.toggle("checked");
+  updateConsularStats();
+}
+function updateConsularStats() {
+  var all = document.querySelectorAll("[data-cgroup]");
+  var checked = document.querySelectorAll("[data-cgroup].checked");
+  var n = checked.length, total = all.length;
+  var pct = Math.round((n/total)*100);
+  document.getElementById("con-checked").textContent = n;
+  document.getElementById("con-remaining").textContent = total - n;
+  document.getElementById("con-pct").textContent = pct + "%";
+  for (var g = 1; g <= 4; g++) {
+    var gi = document.querySelectorAll("[data-cgroup='"+g+"']");
+    var gc = document.querySelectorAll("[data-cgroup='"+g+"'].checked");
+    var el = document.getElementById("cg"+g+"-cnt");
+    if (el) el.textContent = gc.length+"/"+gi.length;
+  }
+}
+function clearConsular() {
+  document.querySelectorAll("[data-cgroup]").forEach(function(el){ el.classList.remove("checked"); });
+  updateConsularStats();
+}
+
 // Init
 renderCard();
 updateStats();
+updateConsularStats();
 </script>
 </body>
 </html>
