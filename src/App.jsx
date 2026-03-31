@@ -454,10 +454,12 @@ function NewsPage({t,lang}){
     <div style={{background:"#FFFFFF",borderRadius:14,padding:"12px 14px",marginBottom:6,border:"1px solid rgba(0,0,0,0.05)"}}>
       <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:4}}>
         <span style={{background:"#0A1628",color:"#FFF",padding:"3px 9px",borderRadius:8,fontSize:11,fontWeight:700}}>{r.cat}</span>
-        <div style={{textAlign:"right"}}><div style={{fontSize:10,color:C.inkLo}}>FINAL ACTION</div><div style={{fontSize:12,fontWeight:700,color:r.final==="Current"?C.green:C.ink}}>{r.final}</div></div>
+        <div style={{display:"flex",gap:16}}>
+          <div style={{textAlign:"right"}}><div style={{fontSize:10,color:C.inkLo}}>FINAL ACTION</div><div style={{fontSize:12,fontWeight:700,color:r.final==="Current"?C.green:C.ink}}>{r.final}</div></div>
+          <div style={{textAlign:"right"}}><div style={{fontSize:10,color:C.inkLo}}>FILE DATE</div><div style={{fontSize:12,fontWeight:600,color:r.file==="Current"?C.green:C.goldDim}}>{r.file}</div></div>
+        </div>
       </div>
-      <div style={{fontSize:12,color:C.inkMd,marginBottom:4}}>{r.desc}</div>
-      <div style={{display:"flex",justifyContent:"space-between"}}><div style={{fontSize:10,color:C.inkLo}}>FILE DATE</div><div style={{fontSize:12,fontWeight:600,color:r.file==="Current"?C.green:C.goldDim}}>{r.file}</div></div>
+      <div style={{fontSize:12,color:C.inkMd}}>{r.desc}</div>
     </div>
   );
   return(
