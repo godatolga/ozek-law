@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H-1B / H-4 / H-2B Visa Interview Prep | Ozek Law Firm</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=EB+Garamond:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B2B4B;--navy-deep:#0F1C35;--navy-mid:#243560;--gold:#B8962E;--gold-light:#D4AF5A;--gold-pale:#F0E0A8;--cream:#F4F1EC;--cream-dark:#E8E3D8;--white:#FFFFFF;--text-dark:#111827;--text-body:#1f2937;--text-muted:#4b5563;--success:#2e7d52;--success-light:#e8f5ee;--danger:#8b1f1f;--danger-light:#fde8e8;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:"DM Sans",sans-serif;background:var(--cream);color:var(--text-dark);min-height:100vh;overflow-x:hidden;}
+
+/* HEADER */
+.site-header{background:var(--navy-deep);position:relative;overflow:hidden;}
+.hdr-pattern{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 30px,rgba(184,150,46,.04) 30px,rgba(184,150,46,.04) 31px),repeating-linear-gradient(-45deg,transparent,transparent 30px,rgba(184,150,46,.04) 30px,rgba(184,150,46,.04) 31px);}
+.hdr-inner{position:relative;max-width:960px;margin:0 auto;padding:28px 32px 24px;display:flex;align-items:center;gap:24px;}
+.logo-wrap{flex-shrink:0;height:64px;display:flex;align-items:center;}
+.logo-wrap img{height:64px;width:auto;object-fit:contain;}
+.hdr-text{flex:1;}
+.page-title{font-family:"Playfair Display",serif;font-size:26px;font-weight:700;color:var(--white);line-height:1.2;margin-bottom:6px;}
+.page-subtitle{font-size:12px;font-weight:400;color:rgba(255,255,255,.65);line-height:1.5;}
+.hdr-right{display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0;}
+.hdr-badge{background:rgba(184,150,46,.15);border:1px solid rgba(184,150,46,.4);border-radius:8px;padding:10px 16px;text-align:center;}
+.badge-num{font-family:"Playfair Display",serif;font-size:24px;font-weight:700;color:var(--gold);display:block;line-height:1;}
+.badge-lbl{font-size:10px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:1px;margin-top:3px;display:block;}
+.lang-btn{background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.25);border-radius:8px;padding:7px 14px;cursor:pointer;display:flex;align-items:center;gap:7px;transition:all .2s;color:var(--white);font-family:"DM Sans",sans-serif;font-size:12px;font-weight:600;letter-spacing:.5px;}
+.lang-btn:hover{background:rgba(184,150,46,.2);border-color:var(--gold);}
+
+/* PROGRESS */
+.overall-prog{background:var(--navy);padding:10px 32px;display:flex;align-items:center;gap:16px;}
+.prog-label{font-size:12px;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:1px;white-space:nowrap;font-weight:500;}
+.prog-track{flex:1;height:6px;background:rgba(255,255,255,.1);border-radius:3px;overflow:hidden;}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:3px;transition:width .6s cubic-bezier(.4,0,.2,1);width:0%;}
+.prog-pct{font-size:13px;font-weight:600;color:var(--gold);min-width:36px;text-align:right;}
+
+/* VISA SWITCHER */
+.vsw-wrap{background:var(--navy-mid);}
+.visa-switcher{max-width:960px;margin:0 auto;padding:10px 32px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.vsw-label{font-size:12px;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:1px;white-space:nowrap;font-weight:500;}
+.vsw-pills{display:flex;gap:6px;flex-wrap:wrap;}
+.vsw-pill{padding:7px 22px;border-radius:20px;border:1.5px solid rgba(184,150,46,.35);background:transparent;color:rgba(255,255,255,.65);font-family:"DM Sans",sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;letter-spacing:.5px;}
+.vsw-pill.active{background:var(--gold);border-color:var(--gold);color:var(--white);}
+.vsw-pill:not(.active):hover{border-color:var(--gold-light);color:var(--white);}
+
+/* TAB BAR */
+.tab-bar{background:var(--white);border-bottom:1px solid var(--cream-dark);display:flex;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.06);}
+.tab-btn{flex:1;padding:15px 8px;border:none;background:transparent;cursor:pointer;font-family:"DM Sans",sans-serif;font-size:12px;font-weight:500;color:var(--text-muted);display:flex;align-items:center;justify-content:center;gap:6px;border-bottom:3px solid transparent;transition:all .25s ease;}
+.tab-btn:hover{color:var(--navy);background:var(--cream);}
+.tab-btn.active{color:var(--navy);border-bottom-color:var(--gold);font-weight:700;background:rgba(184,150,46,.04);}
+.tab-ico{font-size:15px;}
+.tab-badge{background:var(--gold);color:var(--white);font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;min-width:18px;text-align:center;}
+
+/* MAIN */
+.main{max-width:960px;margin:0 auto;padding:32px 24px 60px;}
+.tab-panel{display:none;animation:fadeUp .35s ease;}
+.tab-panel.active{display:block;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+
+/* SECTION HEADER */
+.sec-hdr{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--cream-dark);gap:16px;flex-wrap:wrap;}
+.sec-title{font-family:"Playfair Display",serif;font-size:24px;font-weight:700;color:var(--navy);line-height:1.2;}
+.sec-desc{font-size:13px;color:var(--text-muted);margin-top:4px;line-height:1.5;font-weight:400;}
+.sec-actions{display:flex;gap:10px;flex-wrap:wrap;}
+
+/* BUTTONS */
+.btn{padding:9px 18px;border-radius:6px;font-family:"DM Sans",sans-serif;font-size:13px;font-weight:600;cursor:pointer;border:none;display:inline-flex;align-items:center;gap:6px;transition:all .2s ease;white-space:nowrap;text-decoration:none;}
+.btn-primary{background:var(--navy);color:var(--white);}
+.btn-primary:hover{background:var(--navy-mid);transform:translateY(-1px);}
+.btn-gold{background:var(--gold);color:var(--white);}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-1px);}
+.btn-outline{background:transparent;border:1.5px solid var(--cream-dark);color:var(--text-muted);}
+.btn-outline:hover{border-color:var(--navy);color:var(--navy);}
+.btn-sm{padding:6px 12px;font-size:12px;}
+
+/* STATS */
+.cl-stats{display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap;}
+.stat-card{flex:1;min-width:120px;background:var(--white);border:1.5px solid var(--cream-dark);border-radius:10px;padding:14px 18px;text-align:center;}
+.stat-num{font-family:"Playfair Display",serif;font-size:28px;font-weight:700;color:var(--navy);display:block;line-height:1;}
+.stat-lbl{font-size:11px;color:var(--text-muted);margin-top:4px;text-transform:uppercase;letter-spacing:.5px;font-weight:500;}
+
+/* CHECKLIST */
+.cl-group{margin-bottom:28px;}
+.grp-title{font-family:"Playfair Display",serif;font-size:15px;font-weight:600;color:var(--navy);margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+.grp-title::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--cream-dark),transparent);}
+.grp-cnt{font-family:"DM Sans",sans-serif;font-size:11px;font-weight:600;color:var(--text-muted);background:var(--cream-dark);padding:2px 8px;border-radius:10px;}
+.cl-item{display:flex;align-items:flex-start;gap:14px;padding:13px 16px;background:var(--white);border:1.5px solid var(--cream-dark);border-radius:8px;margin-bottom:8px;cursor:pointer;transition:all .22s ease;position:relative;overflow:hidden;}
+.cl-item::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--cream-dark);transition:background .22s ease;}
+.cl-item:hover{border-color:var(--gold-pale);box-shadow:0 2px 10px rgba(0,0,0,.05);}
+.cl-item.checked{background:var(--success-light);border-color:#a8d8c0;}
+.cl-item.checked::before{background:var(--success);}
+.cl-item.checked .item-text{color:#3a6a4a;text-decoration:line-through;opacity:.75;}
+.chk-box{width:22px;height:22px;flex-shrink:0;border:2px solid var(--cream-dark);border-radius:5px;display:flex;align-items:center;justify-content:center;transition:all .2s ease;margin-top:1px;background:var(--white);}
+.cl-item.checked .chk-box{background:var(--success);border-color:var(--success);}
+.chkmark{color:var(--white);font-size:13px;opacity:0;transition:opacity .15s ease;font-weight:700;}
+.cl-item.checked .chkmark{opacity:1;}
+.item-body{flex:1;}
+.item-text{font-size:14px;color:var(--text-dark);line-height:1.5;font-weight:500;}
+.item-note{font-size:12px;color:var(--text-muted);margin-top:3px;line-height:1.4;font-weight:400;}
+.itag{display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;text-transform:uppercase;letter-spacing:.5px;margin-top:5px;margin-right:4px;}
+.tag-req{background:#fff3cd;color:#7a5800;border:1px solid #ffc107;}
+.tag-orig{background:#f3e8ff;color:#5b1a98;border:1px solid #d8b4fe;}
+.tag-copy{background:#e7f3ff;color:#004a9a;border:1px solid #b8d8f5;}
+.tag-trans{background:#fde8d8;color:#8a2f08;border:1px solid #fdba74;}
+.tag-dep{background:#dcfce7;color:#166534;border:1px solid #86efac;}
+
+/* ALERTS */
+.alert{border-radius:10px;padding:16px 20px;display:flex;gap:14px;align-items:flex-start;margin-bottom:20px;font-size:13px;line-height:1.6;font-weight:500;}
+.alert strong{color:inherit;font-weight:700;}
+.alert.info{background:#e8f3ff;border:1px solid #b8d4f5;color:#1a3255;}
+.alert.warn{background:#fff8e1;border:1px solid #ffe082;color:#4d3400;}
+.alert.danger{background:var(--danger-light);border:1px solid #f5b8b8;color:#7a1515;}
+.alert.success{background:var(--success-light);border:1px solid #a8d8c0;color:#1e5235;}
+.alert-ico{font-size:18px;flex-shrink:0;margin-top:1px;}
+
+/* TIPS */
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:28px;}
+.tip-card{background:var(--white);border:1.5px solid var(--cream-dark);border-radius:12px;padding:22px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s;}
+.tip-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.08);}
+.tip-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;}
+.tip-card.gold::before{background:linear-gradient(90deg,var(--gold),var(--gold-light));}
+.tip-card.navy::before{background:linear-gradient(90deg,var(--navy),var(--navy-mid));}
+.tip-card.green::before{background:linear-gradient(90deg,#2e7d52,#4caf50);}
+.tip-card.red::before{background:linear-gradient(90deg,#8b1f1f,#c62828);}
+.tip-ico{font-size:28px;margin-bottom:12px;display:block;}
+.tip-title{font-family:"Playfair Display",serif;font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px;}
+.tip-body{font-size:13px;color:var(--text-body);line-height:1.65;font-weight:400;}
+
+/* CONGRATS */
+.congrats{text-align:center;padding:40px 20px;display:none;}
+.congrats-emoji{font-size:56px;margin-bottom:12px;}
+.congrats-title{font-family:"Playfair Display",serif;font-size:26px;color:var(--navy);margin-bottom:8px;}
+.congrats-sub{font-size:14px;color:var(--text-muted);font-weight:400;}
+.confetti-piece{position:fixed;width:8px;height:12px;border-radius:2px;animation:cffall 2.5s ease-in forwards;pointer-events:none;z-index:9999;}
+@keyframes cffall{0%{opacity:1;transform:translateY(-20px) rotate(0deg);}100%{opacity:0;transform:translateY(100vh) rotate(720deg);}}
+
+/* STEPS BOX */
+.steps-box{background:var(--navy);border-radius:14px;padding:28px 32px;margin-bottom:28px;}
+.steps-title{font-family:"Playfair Display",serif;font-size:20px;color:var(--gold);margin-bottom:20px;font-weight:700;}
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:20px;}
+.step-item{display:flex;gap:12px;align-items:flex-start;}
+.step-num{background:rgba(184,150,46,.15);border-radius:50%;width:34px;height:34px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:700;font-size:13px;}
+.step-title{color:#fff;font-size:13px;font-weight:600;margin-bottom:3px;}
+.step-body{color:rgba(255,255,255,.65);font-size:12px;line-height:1.5;font-weight:400;}
+
+/* CONTACT BOX */
+.contact-box{text-align:center;padding:28px;background:var(--cream-dark);border-radius:12px;margin-top:24px;}
+.contact-title{font-family:"Playfair Display",serif;font-size:18px;color:var(--navy);margin-bottom:6px;font-weight:700;}
+.contact-sub{font-size:13px;color:var(--text-muted);margin-bottom:16px;font-weight:400;}
+.contact-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+
+/* MOBILE */
+@media(max-width:640px){
+  .hdr-inner{padding:14px 16px 12px;gap:12px;}
+  .logo-wrap img{height:48px;}
+  .page-title{font-size:17px;}
+  .hdr-badge{display:none;}
+  .tab-txt{display:none;}
+  .overall-prog{padding:10px 16px;}
+  .visa-switcher{padding:10px 16px;}
+  .main{padding:20px 14px 60px;}
+  .vsw-pill{padding:6px 14px;font-size:12px;}
+  .steps-box{padding:20px 18px;}
+  .steps-grid{grid-template-columns:1fr 1fr;}
+  .cl-stats{gap:8px;}
+  .stat-card{min-width:80px;padding:10px 12px;}
+  .stat-num{font-size:22px;}
+}
+@media(max-width:400px){
+  .steps-grid{grid-template-columns:1fr;}
+  .tab-btn{font-size:11px;padding:13px 4px;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="hdr-pattern"></div>
+  <div class="hdr-inner">
+    <div class="logo-wrap">
+      <img src="https://ozeklaw.com/wp-content/uploads/2026/03/Ozek-Law-Firm-Logo-white-transparent.png" alt="Ozek Law Firm">
+    </div>
+    <div class="hdr-text">
+      <h1 class="page-title" id="hdr-title">H-1B / H-4 / H-2B Visa<br>Consular Interview Preparation</h1>
+      <p class="page-subtitle" id="hdr-sub">Document checklist &middot; Interview tips &middot; What to expect<br>
+        <span style="color:rgba(184,150,46,.8);font-size:11px;">Tel: +1 (202) 854-8545 &nbsp;&middot;&nbsp; ozeklaw.com</span>
+      </p>
+    </div>
+    <div class="hdr-right">
+      <div class="hdr-badge">
+        <span class="badge-num" id="badge-num">0</span>
+        <span class="badge-lbl" id="badge-lbl">Prepared</span>
+      </div>
+      <button class="lang-btn" id="lang-btn">
+        <span id="lang-flag">&#x1F1F9;&#x1F1F7;</span>
+        <span id="lang-label">T&uuml;rk&ccedil;e</span>
+      </button>
+    </div>
+  </div>
+  <div class="overall-prog">
+    <span class="prog-label" id="prog-label">Interview Readiness</span>
+    <div class="prog-track"><div class="prog-fill" id="overall-fill"></div></div>
+    <span class="prog-pct" id="overall-pct">0%</span>
+  </div>
+</header>
+
+<!-- VISA SWITCHER -->
+<div class="vsw-wrap">
+  <div class="visa-switcher">
+    <span class="vsw-label" id="vsw-label">Visa Type:</span>
+    <div class="vsw-pills">
+      <button class="vsw-pill active" id="pill-h1b" onclick="switchVisa('h1b',this)">H-1B</button>
+      <button class="vsw-pill" id="pill-h4" onclick="switchVisa('h4',this)">H-4</button>
+      <button class="vsw-pill" id="pill-h2b" onclick="switchVisa('h2b',this)">H-2B</button>
+    </div>
+  </div>
+</div>
+
+<!-- TAB BAR -->
+<div class="tab-bar">
+  <button class="tab-btn active" id="tab-btn-docs" onclick="switchTab('docs',this)">
+    <span class="tab-ico">&#x1F4CB;</span>
+    <span class="tab-txt" id="tab-lbl-docs">Documents</span>
+    <span class="tab-badge" id="tab-badge-docs">0</span>
+  </button>
+  <button class="tab-btn" id="tab-btn-tips" onclick="switchTab('tips',this)">
+    <span class="tab-ico">&#x1F4A1;</span>
+    <span class="tab-txt" id="tab-lbl-tips">Tips</span>
+  </button>
+  <button class="tab-btn" id="tab-btn-expect" onclick="switchTab('expect',this)">
+    <span class="tab-ico">&#x1F3DB;&#xFE0F;</span>
+    <span class="tab-txt" id="tab-lbl-expect">At Consulate</span>
+  </button>
+  <button class="tab-btn" id="tab-btn-contact" onclick="switchTab('contact',this)">
+    <span class="tab-ico">&#x1F4DE;</span>
+    <span class="tab-txt" id="tab-lbl-contact">Contact</span>
+  </button>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- ── DOCUMENTS TAB ── -->
+  <div id="tab-docs" class="tab-panel active">
+    <div class="sec-hdr">
+      <div>
+        <h2 class="sec-title" id="docs-title">Document Checklist</h2>
+        <p class="sec-desc" id="docs-desc">Check off each item as you prepare your interview package. Bring originals and copies for every document.</p>
+      </div>
+      <div class="sec-actions">
+        <button class="btn btn-outline btn-sm" id="btn-reset" onclick="resetAll()">&#x21BA; <span id="lbl-reset">Reset</span></button>
+        <button class="btn btn-gold btn-sm" id="btn-print" onclick="window.print()">&#x1F5A8; <span id="lbl-print">Print</span></button>
+      </div>
+    </div>
+
+    <div class="cl-stats">
+      <div class="stat-card">
+        <span class="stat-num" id="stat-total">0</span>
+        <div class="stat-lbl" id="lbl-total">Total Items</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num" id="stat-checked" style="color:var(--success)">0</span>
+        <div class="stat-lbl" id="lbl-checked">Checked</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num" id="stat-remaining" style="color:var(--gold)">0</span>
+        <div class="stat-lbl" id="lbl-remaining">Remaining</div>
+      </div>
+    </div>
+
+    <div class="alert info" id="top-alert">
+      <span class="alert-ico">&#x2139;&#xFE0F;</span>
+      <div id="top-alert-text"><strong>Attorney Tip:</strong> Bring every document in an organized binder with tabs. Always carry both originals and photocopies, as the consular officer may retain copies.</div>
+    </div>
+
+    <!-- Checklist items injected here -->
+    <div id="checklist-area"></div>
+
+    <div class="congrats" id="congrats-box">
+      <div class="congrats-emoji">&#x1F3C6;</div>
+      <div class="congrats-title" id="congrats-title">You Are Interview-Ready!</div>
+      <div class="congrats-sub" id="congrats-sub">All documents are prepared. Contact Ozek Law Firm for a final review before your appointment.</div>
+    </div>
+  </div>
+
+  <!-- ── TIPS TAB ── -->
+  <div id="tab-tips" class="tab-panel">
+    <div class="sec-hdr">
+      <div>
+        <h2 class="sec-title" id="tips-title">Interview Tips &amp; Strategy</h2>
+        <p class="sec-desc" id="tips-desc-sub">From the desk of Tolga Ozek, Esq. &mdash; how to present yourself and handle the unexpected.</p>
+      </div>
+    </div>
+
+    <div class="alert warn">
+      <span class="alert-ico">&#x26A0;&#xFE0F;</span>
+      <div id="tips-alert"><strong>Important:</strong> Always consult with Ozek Law Firm before your consular interview. Call <strong>+1 (202) 854-8545</strong>.</div>
+    </div>
+
+    <div class="tips-grid" id="tips-grid"></div>
+  </div>
+
+  <!-- ── AT CONSULATE TAB ── -->
+  <div id="tab-expect" class="tab-panel">
+    <div class="sec-hdr">
+      <div>
+        <h2 class="sec-title" id="expect-title">What to Expect at the Consulate</h2>
+        <p class="sec-desc" id="expect-desc">A step-by-step guide to the consular appointment process.</p>
+      </div>
+    </div>
+
+    <div class="alert info">
+      <span class="alert-ico">&#x2139;&#xFE0F;</span>
+      <div id="expect-alert"><strong>Note:</strong> Procedures vary by consulate. Always verify specific requirements with the U.S. Embassy or Consulate where you will apply.</div>
+    </div>
+
+    <div class="steps-box">
+      <div class="steps-title" id="steps-title">The Consular Appointment &mdash; Step by Step</div>
+      <div class="steps-grid" id="steps-grid"></div>
+    </div>
+
+    <div class="tips-grid" id="expect-extra"></div>
+  </div>
+
+  <!-- ── CONTACT TAB ── -->
+  <div id="tab-contact" class="tab-panel">
+    <div class="sec-hdr">
+      <div>
+        <h2 class="sec-title" id="contact-sec-title">Contact Ozek Law Firm</h2>
+        <p class="sec-desc" id="contact-sec-desc">We are here to guide you at every step of the process.</p>
+      </div>
+    </div>
+
+    <div class="alert success">
+      <span class="alert-ico">&#x2705;</span>
+      <div id="contact-alert"><strong>Free Consultation Available.</strong> Call or visit our website to schedule your consultation with Tolga Ozek, Esq.</div>
+    </div>
+
+    <div class="tips-grid" id="contact-cards"></div>
+
+    <div style="background:var(--navy);border-radius:14px;padding:32px;text-align:center;margin-top:8px;">
+      <img src="https://ozeklaw.com/wp-content/uploads/2026/03/Ozek-Law-Firm-Logo-white-transparent.png" alt="Ozek Law Firm" style="height:60px;margin-bottom:18px;display:block;margin-left:auto;margin-right:auto;">
+      <div style="font-family:'Playfair Display',serif;font-size:22px;color:var(--white);margin-bottom:6px;font-weight:700;" id="firm-name">Ozek Law Firm, LLC</div>
+      <div style="font-size:13px;color:rgba(255,255,255,.6);margin-bottom:6px;font-weight:400;">2 Wisconsin Circle, Suite 700</div>
+      <div style="font-size:13px;color:rgba(255,255,255,.6);margin-bottom:20px;font-weight:400;">Chevy Chase, MD 20815</div>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+        <a href="tel:+12028548545" class="btn btn-gold">&#x1F4DE; (202) 854-8545</a>
+        <a href="https://ozeklaw.com" target="_blank" class="btn btn-outline" style="border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.75);">&#x1F310; ozeklaw.com</a>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<script>
+var lang = 'en';
+var curVisa = 'h1b';
+var checkedItems = {};
+
+/* ── TEXT STRINGS ── */
+var T = {
+  en:{
+    hdrTitle:'H-1B / H-4 / H-2B Visa<br>Consular Interview Preparation',
+    hdrSub:'Document checklist · Interview tips · What to expect',
+    progLabel:'Interview Readiness',
+    badgeLbl:'Prepared',
+    vswLabel:'Visa Type:',
+    langLabel:'Türkçe',
+    tabDocs:'Documents',tabTips:'Tips',tabExpect:'At Consulate',tabContact:'Contact',
+    docsTitle:'Document Checklist',
+    docsDesc:'Check off each item as you prepare your interview package. Bring originals and copies for every document.',
+    topAlert:'<strong>Attorney Tip:</strong> Bring every document in an organized binder with tabs. Always carry both originals and photocopies, as the consular officer may retain copies.',
+    reset:'Reset',print:'Print',
+    totalLbl:'Total Items',checkedLbl:'Checked',remainingLbl:'Remaining',
+    congTitle:'You Are Interview-Ready!',
+    congSub:'All documents are prepared. Contact Ozek Law Firm for a final review before your appointment.',
+    tipsTitle:'Interview Tips & Strategy',
+    tipsDescSub:'From the desk of Tolga Ozek, Esq. — how to present yourself and handle the unexpected.',
+    tipsAlert:'<strong>Important:</strong> Always consult with Ozek Law Firm before your consular interview. Call <strong>+1 (202) 854-8545</strong>.',
+    expectTitle:'What to Expect at the Consulate',
+    expectDesc:'A step-by-step guide to the consular appointment process.',
+    expectAlert:'<strong>Note:</strong> Procedures vary by consulate. Always verify specific requirements with the U.S. Embassy or Consulate where you will apply.',
+    stepsTitle:'The Consular Appointment — Step by Step',
+    contactSecTitle:'Contact Ozek Law Firm',
+    contactSecDesc:'We are here to guide you at every step of the process.',
+    contactAlert:'<strong>Free Consultation Available.</strong> Call or visit our website to schedule your consultation with Tolga Ozek, Esq.',
+  },
+  tr:{
+    hdrTitle:'H-1B / H-4 / H-2B Vizesi<br>Konsolosluk Mülakatı Hazırlığı',
+    hdrSub:'Belge listesi · Mülakat ipuçları · Neler beklenmeli',
+    progLabel:'Mülakat Hazırlığı',
+    badgeLbl:'Tamamlandı',
+    vswLabel:'Vize Türü:',
+    langLabel:'English',
+    tabDocs:'Belgeler',tabTips:'İpuçları',tabExpect:'Konsoloslukta',tabContact:'İletişim',
+    docsTitle:'Belge Kontrol Listesi',
+    docsDesc:'Her belgeyi hazırladıkça işaretleyin. Her belgenin orijinali ve fotokopisi ile gidin.',
+    topAlert:'<strong>Avukat Notu:</strong> Tüm belgelerinizi sekmeli, düzenli bir klasörde getirin. Konsolosluk görevlisi fotokopi alabilir; her zaman hem orijinal hem de fotokopi taşıyın.',
+    reset:'Sıfırla',print:'Yazdır',
+    totalLbl:'Toplam Belge',checkedLbl:'Tamamlanan',remainingLbl:'Kalan',
+    congTitle:'Mülakata Hazırsınız!',
+    congSub:'Tüm belgeler hazır. Randevunuzdan önce Ozek Law Firm ile son inceleme için iletişime geçin.',
+    tipsTitle:'Mülakat İpuçları ve Stratejisi',
+    tipsDescSub:'Tolga Ozek, Esq. masasından — kendinizi nasıl sunacağınız ve beklenmedik durumlarla nasıl başa çıkacağınız.',
+    tipsAlert:'<strong>Önemli:</strong> Konsolosluk mülakatınızdan önce mutlaka Ozek Law Firm ile görüşün. <strong>+1 (202) 854-8545</strong>',
+    expectTitle:'Konsoloslukta Neler Beklenmeli',
+    expectDesc:'Konsolosluk randevu sürecine adım adım rehber.',
+    expectAlert:'<strong>Not:</strong> Prosedürler konsolosluğa göre değişir. Başvuracağınız Büyükelçilik veya Konsolosluktan spesifik gereksinimleri her zaman doğrulayın.',
+    stepsTitle:'Konsolosluk Randevusu — Adım Adım',
+    contactSecTitle:'Ozek Law Firm ile İletişim',
+    contactSecDesc:'Sürecin her adımında size rehberlik etmek için buradayız.',
+    contactAlert:'<strong>Ücretsiz Danışmanlık Mevcuttur.</strong> Tolga Ozek, Esq. ile konsültasyon için arayın veya web sitemizi ziyaret edin.',
+  }
+};
+
+/* ── DOCUMENT CHECKLISTS ── */
+var DOCS = {
+  h1b:{
+    en:[
+      {group:'Passport & Identity',items:[
+        {text:'Valid passport (must be valid for at least 6 months beyond intended stay)',tags:['REQ','ORIG']},
+        {text:'All previous passports (if any, bring for travel history)',tags:['REQ','ORIG']},
+        {text:'DS-160 confirmation page (printed, with barcode)',tags:['REQ']},
+        {text:'Visa application fee (MRV) payment receipt',tags:['REQ']},
+        {text:'Interview appointment confirmation letter',tags:['REQ']},
+      ]},
+      {group:'H-1B Approval & Petition Documents',items:[
+        {text:'Form I-797 Notice of Action — H-1B Approval (original)',tags:['REQ','ORIG'],note:'If the petition is pending (COS), bring the receipt notice.'},
+        {text:'Copy of the full H-1B petition package filed by employer (I-129 and supporting docs)',tags:['COPY']},
+        {text:'Labor Condition Application (LCA) — ETA 9035 — certified copy',tags:['REQ','COPY']},
+        {text:'Employer support letter / offer letter on official letterhead',tags:['REQ','ORIG']},
+      ]},
+      {group:'Employment & Qualifications',items:[
+        {text:'All academic diplomas and transcripts (bachelor\'s degree minimum; specialty occupation)',tags:['REQ','ORIG']},
+        {text:'Certified translations of foreign diplomas/transcripts (if not in English)',tags:['TRANS']},
+        {text:'Professional licenses or certifications (if applicable)',tags:['ORIG']},
+        {text:'Updated resume / curriculum vitae',tags:['COPY']},
+        {text:'Credential evaluation (if degree is from a foreign institution)',tags:['COPY']},
+        {text:'Evidence of prior U.S. work authorization (previous I-797s, pay stubs) if applicable',tags:['COPY']},
+      ]},
+      {group:'Employer Evidence',items:[
+        {text:'Most recent employer financial statements or annual reports',tags:['COPY']},
+        {text:'IRS Form 941 (quarterly payroll tax returns) for at least the last 2 quarters',tags:['COPY']},
+        {text:'Evidence of employer\'s legitimate business (business license, photos of premises)',tags:['COPY']},
+        {text:'Organizational chart showing petitioner\'s position',tags:['COPY']},
+      ]},
+      {group:'Non-Immigrant Intent & Ties to Home Country',items:[
+        {text:'Evidence of ties to home country (property deeds, family, bank accounts)',tags:['COPY'],note:'H-1B is a dual-intent visa, but demonstrating ties strengthens your application.'},
+        {text:'Evidence you will return home after authorized stay (employment contracts abroad if any)',tags:['COPY']},
+      ]},
+      {group:'Photos',items:[
+        {text:'U.S. visa-sized photographs (2 photos, per consulate requirements)',tags:['REQ'],note:'Check current photo specifications at travel.state.gov before your appointment.'},
+      ]},
+    ],
+    tr:[
+      {group:'Pasaport ve Kimlik',items:[
+        {text:'Geçerli pasaport (planlanan konaklamadan en az 6 ay sonrasına kadar geçerli olmalı)',tags:['GEREKLİ','ORİJİNAL']},
+        {text:'Önceki tüm pasaportlar (varsa, seyahat geçmişi için getirin)',tags:['GEREKLİ','ORİJİNAL']},
+        {text:'DS-160 onay sayfası (barkodlu, yazdırılmış)',tags:['GEREKLİ']},
+        {text:'Vize başvuru ücreti (MRV) ödeme makbuzu',tags:['GEREKLİ']},
+        {text:'Mülakat randevu onay mektubu',tags:['GEREKLİ']},
+      ]},
+      {group:'H-1B Onay ve Dilekçe Belgeleri',items:[
+        {text:'Form I-797 H-1B Onay Bildirimi (orijinal)',tags:['GEREKLİ','ORİJİNAL'],note:'Dilekçe beklemedeyse (statü değişikliği), makbuz bildirimini getirin.'},
+        {text:'İşveren tarafından sunulan tam H-1B dilekçe paketi (I-129 ve destekleyici belgeler)',tags:['KOPYA']},
+        {text:'Onaylanmış Çalışma Koşulları Başvurusu (LCA) — ETA 9035',tags:['GEREKLİ','KOPYA']},
+        {text:'İşveren destek mektubu / iş teklif mektubu (resmi antet kağıdında)',tags:['GEREKLİ','ORİJİNAL']},
+      ]},
+      {group:'İstihdam ve Nitelikler',items:[
+        {text:'Tüm akademik diplomalar ve transkriptler (en az lisans; uzmanlık mesleği)',tags:['GEREKLİ','ORİJİNAL']},
+        {text:'Yabancı diplomas/transkriptlerin onaylı İngilizce çevirileri',tags:['ÇEVİRİ']},
+        {text:'Mesleki lisanslar veya sertifikalar (varsa)',tags:['ORİJİNAL']},
+        {text:'Güncel özgeçmiş',tags:['KOPYA']},
+        {text:'Yabancı kurumdan alınan derecelerin denklik değerlendirmesi',tags:['KOPYA']},
+        {text:'Önceki ABD çalışma izni kanıtı (önceki I-797\'ler, maaş bordroları) — varsa',tags:['KOPYA']},
+      ]},
+      {group:'İşveren Kanıtları',items:[
+        {text:'En son işveren mali tabloları veya yıllık raporlar',tags:['KOPYA']},
+        {text:'Son 2 çeyreğe ait IRS Form 941 (çeyreklik bordro vergi beyannameleri)',tags:['KOPYA']},
+        {text:'İşverenin meşru faaliyetine dair kanıtlar (işletme lisansı, işyeri fotoğrafları)',tags:['KOPYA']},
+        {text:'Dilekçe sahibinin pozisyonunu gösteren organizasyon şeması',tags:['KOPYA']},
+      ]},
+      {group:'Göçmen Olmayan Niyet ve Ülkeyle Bağlar',items:[
+        {text:'Ülkedeki bağlara dair kanıt (tapu, aile, banka hesapları)',tags:['KOPYA'],note:'H-1B çift niyetli bir vizedir; ancak bağların kanıtlanması başvuruyu güçlendirir.'},
+        {text:'Yetkilendirilmiş kalış süresi sonunda döneceğinizi kanıtlayan belgeler',tags:['KOPYA']},
+      ]},
+      {group:'Fotoğraflar',items:[
+        {text:'ABD vize boyutunda fotoğraflar (2 adet, konsolosluk gereksinimlerine göre)',tags:['GEREKLİ'],note:'Randevunuzdan önce güncel fotoğraf şartlarını travel.state.gov\'dan kontrol edin.'},
+      ]},
+    ]
+  },
+  h4:{
+    en:[
+      {group:'Passport & Identity',items:[
+        {text:'Valid passport for each H-4 dependent (valid 6 months beyond stay)',tags:['REQ','ORIG']},
+        {text:'All prior passports for each dependent',tags:['ORIG']},
+        {text:'DS-160 confirmation page for each H-4 applicant',tags:['REQ']},
+        {text:'Visa fee (MRV) payment receipt',tags:['REQ']},
+        {text:'Interview appointment confirmation',tags:['REQ']},
+      ]},
+      {group:'Relationship to Primary H-1B Holder',items:[
+        {text:'Original marriage certificate (for spouse applying for H-4)',tags:['REQ','ORIG']},
+        {text:'Certified English translation of marriage certificate (if not in English)',tags:['TRANS']},
+        {text:'Birth certificates for each H-4 child applicant (original)',tags:['REQ','ORIG']},
+        {text:'Certified English translations of birth certificates (if not in English)',tags:['TRANS']},
+        {text:'Divorce decrees from prior marriages (if applicable)',tags:['ORIG']},
+      ]},
+      {group:'Principal H-1B Beneficiary Documents',items:[
+        {text:'Copy of principal H-1B holder\'s valid visa or I-797 approval notice',tags:['COPY']},
+        {text:'Copy of principal H-1B holder\'s passport bio page',tags:['COPY']},
+        {text:'Evidence that the principal H-1B holder is maintaining valid status',tags:['COPY'],note:'Such as recent pay stubs, employment verification letter, or I-94 printout.'},
+      ]},
+      {group:'Financial Ability & Support',items:[
+        {text:'Most recent U.S. tax returns of the H-1B principal (or employer letter showing salary)',tags:['COPY']},
+        {text:'Recent bank statements demonstrating financial support capability',tags:['COPY']},
+      ]},
+      {group:'U.S. Ties (if travel history is limited)',items:[
+        {text:'Evidence of ties to home country: property, family obligations, prior returns',tags:['COPY']},
+      ]},
+      {group:'Photos',items:[
+        {text:'U.S. visa-sized photographs for each H-4 applicant (2 per person)',tags:['REQ']},
+      ]},
+    ],
+    tr:[
+      {group:'Pasaport ve Kimlik',items:[
+        {text:'Her H-4 bağımlısı için geçerli pasaport (kalıştan 6 ay sonrasına kadar geçerli)',tags:['GEREKLİ','ORİJİNAL']},
+        {text:'Her bağımlı için önceki tüm pasaportlar',tags:['ORİJİNAL']},
+        {text:'Her H-4 başvurucusu için DS-160 onay sayfası',tags:['GEREKLİ']},
+        {text:'Vize ücreti (MRV) ödeme makbuzu',tags:['GEREKLİ']},
+        {text:'Mülakat randevu onayı',tags:['GEREKLİ']},
+      ]},
+      {group:'Birincil H-1B Hamiliyle İlişki',items:[
+        {text:'Orijinal evlilik cüzdanı / nikah belgesi (eş için H-4 başvurucusu)',tags:['GEREKLİ','ORİJİNAL']},
+        {text:'Evlilik belgesinin onaylı İngilizce çevirisi (İngilizce değilse)',tags:['ÇEVİRİ']},
+        {text:'Her H-4 çocuk başvurucusu için doğum belgesi (orijinal)',tags:['GEREKLİ','ORİJİNAL']},
+        {text:'Doğum belgelerinin onaylı İngilizce çevirileri (İngilizce değilse)',tags:['ÇEVİRİ']},
+        {text:'Önceki evliliklerden boşanma kararları (varsa)',tags:['ORİJİNAL']},
+      ]},
+      {group:'Birincil H-1B Hamiline Ait Belgeler',items:[
+        {text:'Birincil H-1B hamilinin geçerli vizesinin veya I-797 onay bildiriminin kopyası',tags:['KOPYA']},
+        {text:'Birincil H-1B hamilinin pasaport biyografi sayfasının kopyası',tags:['KOPYA']},
+        {text:'Birincil H-1B hamilinin geçerli statüsünü sürdürdüğüne dair kanıt',tags:['KOPYA'],note:'Örn. güncel maaş bordrosu, istihdam doğrulama mektubu veya I-94 çıktısı.'},
+      ]},
+      {group:'Mali Yeterlilik ve Destek',items:[
+        {text:'H-1B hamilinin en son ABD vergi beyannamesi (veya maaşı gösteren işveren mektubu)',tags:['KOPYA']},
+        {text:'Mali destek kapasitesini gösteren güncel banka ekstreleri',tags:['KOPYA']},
+      ]},
+      {group:'Ülkeyle Bağlar (seyahat geçmişi sınırlıysa)',items:[
+        {text:'Ülkedeki bağlara dair kanıt: mülk, aile yükümlülükleri, önceki dönüşler',tags:['KOPYA']},
+      ]},
+      {group:'Fotoğraflar',items:[
+        {text:'Her H-4 başvurucusu için ABD vize boyutunda fotoğraf (kişi başı 2 adet)',tags:['GEREKLİ']},
+      ]},
+    ]
+  },
+  h2b:{
+    en:[
+      {group:'Passport & Identity',items:[
+        {text:'Valid passport (at least 6 months validity beyond intended stay)',tags:['REQ','ORIG']},
+        {text:'Prior passports (if any)',tags:['ORIG']},
+        {text:'DS-160 confirmation page (with barcode, printed)',tags:['REQ']},
+        {text:'Visa application fee (MRV) receipt',tags:['REQ']},
+        {text:'Interview appointment confirmation letter',tags:['REQ']},
+      ]},
+      {group:'H-2B Petition & Approval Documents',items:[
+        {text:'Form I-797 H-2B Approval Notice (original)',tags:['REQ','ORIG'],note:'The employer files the I-129 petition; the approval notice is your key document.'},
+        {text:'Temporary Labor Certification (TLC) from the Department of Labor',tags:['REQ','COPY']},
+        {text:'Job offer / employment contract from the U.S. employer',tags:['REQ','COPY']},
+        {text:'Employer\'s letter confirming the temporary, non-agricultural job offer',tags:['REQ','COPY']},
+      ]},
+      {group:'Employer Evidence',items:[
+        {text:'Evidence of employer\'s legitimate business (business license, tax ID)',tags:['COPY']},
+        {text:'Employer\'s description of the temporary need (seasonal, one-time occurrence, peak load, etc.)',tags:['COPY']},
+        {text:'Proof that qualified U.S. workers are not available for the position',tags:['COPY']},
+      ]},
+      {group:'Applicant Qualifications',items:[
+        {text:'Diplomas, certificates, or training documents relevant to the job',tags:['COPY']},
+        {text:'Certified translations of any foreign education documents (if not in English)',tags:['TRANS']},
+        {text:'Prior work experience letters or references from former employers',tags:['COPY']},
+      ]},
+      {group:'Non-Immigrant Intent & Home Country Ties',items:[
+        {text:'Evidence of strong ties to home country: property, family, employment',tags:['COPY'],note:'H-2B is strictly non-immigrant intent. This is critical. You must show you will return home.'},
+        {text:'Evidence of employment or livelihood awaiting your return',tags:['COPY']},
+        {text:'Bank statements or financial ties showing your life is centered abroad',tags:['COPY']},
+      ]},
+      {group:'Additional Items',items:[
+        {text:'Proof of prior lawful U.S. entries and timely departures (if applicable)',tags:['COPY']},
+        {text:'U.S. visa-sized photographs (2 photos, per consulate requirements)',tags:['REQ']},
+      ]},
+    ],
+    tr:[
+      {group:'Pasaport ve Kimlik',items:[
+        {text:'Geçerli pasaport (planlanan konaklamadan en az 6 ay sonrasına kadar geçerli)',tags:['GEREKLİ','ORİJİNAL']},
+        {text:'Önceki pasaportlar (varsa)',tags:['ORİJİNAL']},
+        {text:'DS-160 onay sayfası (barkodlu, yazdırılmış)',tags:['GEREKLİ']},
+        {text:'Vize başvuru ücreti (MRV) makbuzu',tags:['GEREKLİ']},
+        {text:'Mülakat randevu onay mektubu',tags:['GEREKLİ']},
+      ]},
+      {group:'H-2B Dilekçe ve Onay Belgeleri',items:[
+        {text:'Form I-797 H-2B Onay Bildirimi (orijinal)',tags:['GEREKLİ','ORİJİNAL'],note:'İşveren I-129 dilekçesini sunar; onay bildirimi en önemli belgenizdir.'},
+        {text:'Çalışma Bakanlığı\'ndan Geçici İşgücü Sertifikası (TLC)',tags:['GEREKLİ','KOPYA']},
+        {text:'ABD\'li işverenden iş teklifi / iş sözleşmesi',tags:['GEREKLİ','KOPYA']},
+        {text:'Geçici, tarım dışı iş teklifini onaylayan işveren mektubu',tags:['GEREKLİ','KOPYA']},
+      ]},
+      {group:'İşveren Kanıtları',items:[
+        {text:'İşverenin meşru faaliyetine dair kanıtlar (işletme lisansı, vergi numarası)',tags:['KOPYA']},
+        {text:'İşverenin geçici ihtiyaç açıklaması (mevsimlik, tek seferlik olay, doruk yükü vb.)',tags:['KOPYA']},
+        {text:'Pozisyon için nitelikli ABD\'li işçi bulunmadığının kanıtı',tags:['KOPYA']},
+      ]},
+      {group:'Başvurucu Nitelikleri',items:[
+        {text:'İşle ilgili diplomalar, sertifikalar veya eğitim belgeleri',tags:['KOPYA']},
+        {text:'Yabancı eğitim belgelerinin onaylı İngilizce çevirileri (İngilizce değilse)',tags:['ÇEVİRİ']},
+        {text:'Önceki işverenlerden deneyim mektupları veya referanslar',tags:['KOPYA']},
+      ]},
+      {group:'Göçmen Olmayan Niyet ve Ülkeyle Bağlar',items:[
+        {text:'Güçlü ülke bağlarının kanıtı: mülk, aile, istihdam',tags:['KOPYA'],note:'H-2B kesinlikle göçmen olmayan niyetlidir. Ülkenize döneceğinizi kanıtlamanız kritik önem taşır.'},
+        {text:'Dönüşünüzde sizi bekleyen istihdam veya geçim kaynağı kanıtı',tags:['KOPYA']},
+        {text:'Hayatınızın yurt dışında merkezi olduğunu gösteren banka ekstreleri veya mali bağlar',tags:['KOPYA']},
+      ]},
+      {group:'Ek Belgeler',items:[
+        {text:'Önceki yasal ABD girişleri ve zamanında ayrılmaların kanıtı (varsa)',tags:['KOPYA']},
+        {text:'ABD vize boyutunda fotoğraflar (2 adet, konsolosluk gereksinimlerine göre)',tags:['GEREKLİ']},
+      ]},
+    ]
+  }
+};
+
+/* ── TAG DISPLAY ── */
+var TAG_EN = {REQ:'Required',ORIG:'Original',COPY:'Copy',TRANS:'Certified Translation',DEP:'Dependent'};
+var TAG_TR = {'GEREKLİ':'Gerekli','ORİJİNAL':'Orijinal','KOPYA':'Fotokopi','ÇEVİRİ':'Onaylı Çeviri','DEP':'Bağımlı'};
+var TAG_CLASS = {REQ:'tag-req',ORIG:'tag-orig',COPY:'tag-copy',TRANS:'tag-trans',DEP:'tag-dep','GEREKLİ':'tag-req','ORİJİNAL':'tag-orig','KOPYA':'tag-copy','ÇEVİRİ':'tag-trans'};
+
+/* ── TIPS DATA ── */
+var TIPS_EN = [
+  {ico:'📋',cls:'gold',title:'Organize with Tabs',body:'Use a binder with numbered or labeled tabs matching the checklist. When the officer asks for a document, find it within seconds.'},
+  {ico:'🗣️',cls:'navy',title:'Answer Only What Is Asked',body:'Answer concisely and stop. Do not volunteer extra information — it creates extra questions. Practice your answers beforehand.'},
+  {ico:'👔',cls:'green',title:'Dress Professionally',body:'Conservative business attire signals you are a serious professional. First impressions matter from the moment you enter the consulate.'},
+  {ico:'🚫',cls:'red',title:'Never Misrepresent',body:'Any misrepresentation is a permanent bar to U.S. immigration benefits under INA 212(a)(6)(C). Discuss sensitive facts with Ozek Law Firm first.'},
+  {ico:'⏰',cls:'gold',title:'Arrive 20–30 Minutes Early',body:'Most consulates will not admit you earlier than 30 minutes before your appointment. Being late may forfeit your interview slot.'},
+  {ico:'💻',cls:'navy',title:'No Laptops or Backpacks',body:'Most consulates do not permit laptops, tablets, or large bags. Bring only your document binder, passport, and fee receipts.'},
+  {ico:'📝',cls:'green',title:'Note Everything Afterward',body:'Write down everything you remember immediately after leaving the consulate. Call Ozek Law Firm right away if anything unexpected occurred.'},
+  {ico:'📞',cls:'red',title:'221(g) — Do Not Panic',body:'A 221(g) administrative processing notice is NOT a denial. It is a request for more time or documents. Contact Ozek Law Firm immediately at (202) 854-8545.'},
+];
+var TIPS_TR = [
+  {ico:'📋',cls:'gold',title:'Sekmeli Klasörle Düzenleyin',body:'Kontrol listesiyle eşleşen numaralı veya etiketli sekmeli bir klasör kullanın. Görevli belge istediğinde saniyeler içinde bulun.'},
+  {ico:'🗣️',cls:'navy',title:'Sadece Sorulanı Yanıtlayın',body:'Kısa ve öz yanıt verin, durdurun. Ekstra bilgi vermeyin — bu ekstra sorulara yol açar. Yanıtlarınızı önceden pratik yapın.'},
+  {ico:'👔',cls:'green',title:'Profesyonel Giyinin',body:'Muhafazakâr iş kıyafeti, ciddi bir profesyonel olduğunuzu gösterir. İlk izlenimler konsolosluğa girdiğiniz andan itibaren önem taşır.'},
+  {ico:'🚫',cls:'red',title:'Asla Yanlış Beyanda Bulunmayın',body:'Her türlü yanlış beyan, INA 212(a)(6)(C) kapsamında ABD göçmenlik haklarına kalıcı yasakla sonuçlanır. Hassas konuları önce Ozek Law Firm ile görüşün.'},
+  {ico:'⏰',cls:'gold',title:'20–30 Dakika Erken Gelin',body:'Çoğu konsolosluk randevunuzdan 30 dakikadan fazla önce sizi kabul etmez. Geç kalırsanız mülakatınızı kaybedebilirsiniz.'},
+  {ico:'💻',cls:'navy',title:'Dizüstü Bilgisayar ve Sırt Çantası Yasak',body:'Çoğu konsoloslukta dizüstü bilgisayar, tablet veya büyük çanta yasaktır. Sadece belge klasörünüzü, pasaportunuzu ve ücret makbuzlarınızı getirin.'},
+  {ico:'📝',cls:'green',title:'Her Şeyi Not Edin',body:'Konsolosluktan çıktıktan hemen sonra hatırladığınız her şeyi yazın. Beklenmedik bir şey olduysa hemen Ozek Law Firm\'i arayın.'},
+  {ico:'📞',cls:'red',title:'221(g) — Paniklemeyın',body:'221(g) idari işlem bildirimi RED DEĞİLDİR. Daha fazla zaman veya belge talebedir. Hemen Ozek Law Firm\'i arayın: (202) 854-8545.'},
+];
+
+/* ── STEPS DATA ── */
+var STEPS_EN = [
+  {t:'Security Screening',b:'Airport-style X-ray screening. Electronics may not be allowed inside. Leave laptops and large bags at home.'},
+  {t:'Document Pre-Check',b:'Staff may review your DS-160 and appointment confirmation at the door before you reach the window.'},
+  {t:'Biometrics',b:'Fingerprints and photographs are taken digitally. This is standard for all U.S. visa applicants.'},
+  {t:'The Interview',b:'Typically 5–20 minutes. A well-prepared, organized binder often results in a shorter interview.'},
+  {t:'Decision',b:'You will receive approval, a 221(g) notice, or in rare cases a denial. Ask for the reason if denied.'},
+  {t:'Visa Issuance',b:'If approved, your passport is typically retained for visa printing and returned within a few days.'},
+];
+var STEPS_TR = [
+  {t:'Güvenlik Kontrolü',b:'Havaalanı tipi X-ray kontrolü. Elektronik cihazlara izin verilmeyebilir. Dizüstü bilgisayar ve büyük çantaları evde bırakın.'},
+  {t:'Belge Ön Kontrolü',b:'Personel, pencereye ulaşmadan önce DS-160 ve randevu onayınızı kapıda kontrol edebilir.'},
+  {t:'Biyometri',b:'Parmak izleri ve fotoğraflar dijital olarak alınır. Bu tüm ABD vize başvurucuları için standarttır.'},
+  {t:'Mülakat',b:'Genellikle 5–20 dakika sürer. İyi hazırlanmış, düzenli bir klasör çoğunlukla daha kısa mülakatla sonuçlanır.'},
+  {t:'Karar',b:'Onay, 221(g) bildirimi veya nadir durumlarda ret alırsınız. Reddedilirseniz gerekçeyi sorun.'},
+  {t:'Vize Düzenlenmesi',b:'Onaylanırsa pasaportunuz genellikle vize basımı için alıkonur ve birkaç gün içinde iade edilir.'},
+];
+
+/* ── EXPECT EXTRA CARDS ── */
+var EXPECT_EN = [
+  {ico:'🌐',cls:'gold',title:'Consulate Website First',body:'Always check your specific U.S. Embassy or Consulate website before your appointment. Requirements and scheduling systems vary by country.'},
+  {ico:'🔒',cls:'navy',title:'Confidentiality',body:'Your application details are confidential. Do not discuss your case with others in the waiting area. Keep all documents secure.'},
+];
+var EXPECT_TR = [
+  {ico:'🌐',cls:'gold',title:'Önce Konsolosluk Web Sitesi',body:'Randevunuzdan önce mutlaka ilgili ABD Büyükelçiliği veya Konsolosluğu web sitesini kontrol edin. Gereksinimler ve zamanlama sistemleri ülkeden ülkeye değişir.'},
+  {ico:'🔒',cls:'navy',title:'Gizlilik',body:'Başvuru bilgileriniz gizlidir. Bekleme alanında başkalarıyla davanızı tartışmayın. Tüm belgelerinizi güvende tutun.'},
+];
+
+/* ── CONTACT CARDS ── */
+var CONTACT_EN = [
+  {ico:'📞',cls:'gold',title:'Call Us',body:'Reach Tolga Ozek, Esq. directly for urgent matters.\n+1 (202) 854-8545'},
+  {ico:'🌐',cls:'navy',title:'Visit Our Website',body:'Learn more about our services and schedule a consultation online.\nozeklaw.com'},
+  {ico:'📍',cls:'green',title:'Our Office',body:'2 Wisconsin Circle, Suite 700\nChevy Chase, MD 20815'},
+  {ico:'⚖️',cls:'red',title:'Our Practice Areas',body:'Immigration law · Business law · Civil litigation · Visa petitions · Removal defense'},
+];
+var CONTACT_TR = [
+  {ico:'📞',cls:'gold',title:'Bizi Arayın',body:'Acil durumlar için doğrudan Tolga Ozek, Esq. ile iletişime geçin.\n+1 (202) 854-8545'},
+  {ico:'🌐',cls:'navy',title:'Web Sitemizi Ziyaret Edin',body:'Hizmetlerimiz hakkında daha fazla bilgi edinin ve çevrimiçi konsültasyon planlayın.\nozeklaw.com'},
+  {ico:'📍',cls:'green',title:'Ofisimiz',body:'2 Wisconsin Circle, Suite 700\nChevy Chase, MD 20815'},
+  {ico:'⚖️',cls:'red',title:'Uygulama Alanlarımız',body:'Göçmenlik hukuku · İş hukuku · Hukuki davalar · Vize dilekçeleri · Sınır dışı etme savunması'},
+];
+
+/* ══════════════════════════════════════════
+   RENDER FUNCTIONS
+══════════════════════════════════════════ */
+function renderChecklist() {
+  var data = DOCS[curVisa][lang];
+  var html = '';
+  var total = 0;
+  data.forEach(function(grp, gi) {
+    var count = grp.items.length;
+    total += count;
+    html += '<div class="cl-group"><div class="grp-title"><span class="grp-cnt" id="grp-cnt-'+gi+'">'+count+' items</span> '+grp.group+'</div>';
+    grp.items.forEach(function(item, ii) {
+      var key = curVisa+'-'+gi+'-'+ii;
+      var checked = checkedItems[key] ? ' checked' : '';
+      var chk = checkedItems[key] ? '✓' : '';
+      var tags = item.tags.map(function(t){ return '<span class="itag '+TAG_CLASS[t]+'">'+t+'</span>'; }).join('');
+      var note = item.note ? '<div class="item-note">'+item.note+'</div>' : '';
+      html += '<div class="cl-item'+checked+'" onclick="toggleItem(\''+key+'\',this)">'
+        +'<div class="chk-box"><span class="chkmark">'+chk+'</span></div>'
+        +'<div class="item-body"><div class="item-text">'+item.text+'</div>'+note+'<div>'+tags+'</div></div>'
+        +'</div>';
+    });
+    html += '</div>';
+  });
+  document.getElementById('checklist-area').innerHTML = html;
+  updateStats(total);
+}
+
+function renderTips() {
+  var tips = lang === 'en' ? TIPS_EN : TIPS_TR;
+  document.getElementById('tips-grid').innerHTML = tips.map(function(t){
+    return '<div class="tip-card '+t.cls+'"><span class="tip-ico">'+t.ico+'</span><div class="tip-title">'+t.title+'</div><div class="tip-body">'+t.body+'</div></div>';
+  }).join('');
+}
+
+function renderSteps() {
+  var steps = lang === 'en' ? STEPS_EN : STEPS_TR;
+  document.getElementById('steps-grid').innerHTML = steps.map(function(s, i){
+    return '<div class="step-item"><div class="step-num">'+(i+1)+'</div><div><div class="step-title">'+s.t+'</div><div class="step-body">'+s.b+'</div></div></div>';
+  }).join('');
+  var extras = lang === 'en' ? EXPECT_EN : EXPECT_TR;
+  document.getElementById('expect-extra').innerHTML = extras.map(function(t){
+    return '<div class="tip-card '+t.cls+'"><span class="tip-ico">'+t.ico+'</span><div class="tip-title">'+t.title+'</div><div class="tip-body">'+t.body+'</div></div>';
+  }).join('');
+}
+
+function renderContact() {
+  var cards = lang === 'en' ? CONTACT_EN : CONTACT_TR;
+  document.getElementById('contact-cards').innerHTML = cards.map(function(t){
+    return '<div class="tip-card '+t.cls+'"><span class="tip-ico">'+t.ico+'</span><div class="tip-title">'+t.title+'</div><div class="tip-body">'+t.body.replace(/\n/g,'<br>')+'</div></div>';
+  }).join('');
+}
+
+function updateStats(total) {
+  var checkedCount = 0;
+  var data = DOCS[curVisa][lang];
+  data.forEach(function(grp, gi) {
+    grp.items.forEach(function(_, ii) {
+      if (checkedItems[curVisa+'-'+gi+'-'+ii]) checkedCount++;
+    });
+  });
+  var pct = total > 0 ? Math.round((checkedCount/total)*100) : 0;
+  document.getElementById('stat-total').textContent = total;
+  document.getElementById('stat-checked').textContent = checkedCount;
+  document.getElementById('stat-remaining').textContent = total - checkedCount;
+  document.getElementById('badge-num').textContent = checkedCount;
+  document.getElementById('overall-fill').style.width = pct + '%';
+  document.getElementById('overall-pct').textContent = pct + '%';
+
+  // tab badge
+  document.getElementById('tab-badge-docs').textContent = (total - checkedCount);
+
+  // congrats
+  var cong = document.getElementById('congrats-box');
+  if (checkedCount === total && total > 0) {
+    cong.style.display = 'block';
+    launchConfetti();
+  } else {
+    cong.style.display = 'none';
+  }
+}
+
+/* ── TOGGLE ITEM ── */
+function toggleItem(key, el) {
+  checkedItems[key] = !checkedItems[key];
+  el.classList.toggle('checked', checkedItems[key]);
+  var box = el.querySelector('.chkmark');
+  box.textContent = checkedItems[key] ? '✓' : '';
+  var data = DOCS[curVisa][lang];
+  var total = data.reduce(function(s,g){ return s+g.items.length; }, 0);
+  updateStats(total);
+}
+
+/* ── SWITCH VISA ── */
+function switchVisa(v, el) {
+  curVisa = v;
+  document.querySelectorAll('.vsw-pill').forEach(function(p){ p.classList.remove('active'); });
+  el.classList.add('active');
+  renderChecklist();
+}
+
+/* ── SWITCH TAB ── */
+function switchTab(id, el) {
+  document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+  document.getElementById('tab-'+id).classList.add('active');
+  el.classList.add('active');
+}
+
+/* ── TOGGLE LANGUAGE ── */
+function toggleLang() {
+  lang = lang === 'en' ? 'tr' : 'en';
+  applyTranslations();
+  renderChecklist();
+  renderTips();
+  renderSteps();
+  renderContact();
+}
+
+function applyTranslations() {
+  var t = T[lang];
+  document.getElementById('hdr-title').innerHTML = t.hdrTitle;
+  document.getElementById('hdr-sub').innerHTML = t.hdrSub + '<br><span style="color:rgba(184,150,46,.8);font-size:11px;">Tel: +1 (202) 854-8545 &nbsp;·&nbsp; ozeklaw.com</span>';
+  document.getElementById('prog-label').textContent = t.progLabel;
+  document.getElementById('badge-lbl').textContent = t.badgeLbl;
+  document.getElementById('vsw-label').textContent = t.vswLabel;
+  document.getElementById('lang-label').textContent = t.langLabel;
+  document.getElementById('lang-flag').textContent = lang === 'en' ? '🇹🇷' : '🇺🇸';
+  document.getElementById('tab-lbl-docs').textContent = t.tabDocs;
+  document.getElementById('tab-lbl-tips').textContent = t.tabTips;
+  document.getElementById('tab-lbl-expect').textContent = t.tabExpect;
+  document.getElementById('tab-lbl-contact').textContent = t.tabContact;
+  document.getElementById('docs-title').textContent = t.docsTitle;
+  document.getElementById('docs-desc').textContent = t.docsDesc;
+  document.getElementById('top-alert-text').innerHTML = t.topAlert;
+  document.getElementById('lbl-reset').textContent = t.reset;
+  document.getElementById('lbl-print').textContent = t.print;
+  document.getElementById('lbl-total').textContent = t.totalLbl;
+  document.getElementById('lbl-checked').textContent = t.checkedLbl;
+  document.getElementById('lbl-remaining').textContent = t.remainingLbl;
+  document.getElementById('congrats-title').textContent = t.congTitle;
+  document.getElementById('congrats-sub').textContent = t.congSub;
+  document.getElementById('tips-title').textContent = t.tipsTitle;
+  document.getElementById('tips-desc-sub').textContent = t.tipsDescSub;
+  document.getElementById('tips-alert').innerHTML = t.tipsAlert;
+  document.getElementById('expect-title').textContent = t.expectTitle;
+  document.getElementById('expect-desc').textContent = t.expectDesc;
+  document.getElementById('expect-alert').innerHTML = t.expectAlert;
+  document.getElementById('steps-title').textContent = t.stepsTitle;
+  document.getElementById('contact-sec-title').textContent = t.contactSecTitle;
+  document.getElementById('contact-sec-desc').textContent = t.contactSecDesc;
+  document.getElementById('contact-alert').innerHTML = t.contactAlert;
+}
+
+/* ── RESET ── */
+function resetAll() {
+  checkedItems = {};
+  renderChecklist();
+}
+
+/* ── CONFETTI ── */
+function launchConfetti() {
+  var colors = ['#B8962E','#1B2B4B','#D4AF5A','#F4F1EC','#2e7d52'];
+  for (var i = 0; i < 60; i++) {
+    (function(i){ setTimeout(function(){
+      var c = document.createElement('div'); c.className = 'confetti-piece';
+      c.style.left = (Math.random()*100) + 'vw'; c.style.top = '-20px';
+      c.style.background = colors[Math.floor(Math.random()*colors.length)];
+      c.style.transform = 'rotate(' + (Math.random()*360) + 'deg)';
+      c.style.animationDuration = (2 + Math.random()*1.5) + 's';
+      document.body.appendChild(c); setTimeout(function(){ c.remove(); }, 4000);
+    }, i*40); })(i);
+  }
+}
+
+/* ── INIT ── */
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('lang-btn').addEventListener('click', toggleLang);
+  renderChecklist();
+  renderTips();
+  renderSteps();
+  renderContact();
+});
+</script>
+</body>
+</html>
