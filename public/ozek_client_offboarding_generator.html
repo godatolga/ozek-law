@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Ozek Law Firm – Client Offboarding Email Generator</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#1B2B4B;--navy2:#243660;--gold:#B8962E;--gold2:#D4AF50;
+  --cream:#F4F1EC;--cream2:#EDE8E0;--white:#fff;
+  --border:#D8D0C0;--text:#2C2C2C;--muted:#7A7A7A;
+  --green:#2E7D52;--green-bg:#F0FBF4;--red:#C0392B;--red-bg:#FFF5F5;
+  --blue:#2B5DAB;--blue-bg:#EFF4FB;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;display:flex;flex-direction:column;}
+.app-bar{background:var(--navy);padding:14px 32px;display:flex;align-items:center;gap:14px;border-bottom:3px solid var(--gold);flex-shrink:0;}
+.app-bar img{height:38px;}
+.app-bar-title{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--cream);opacity:.8;margin-left:auto;letter-spacing:.04em;}
+.workspace{display:grid;grid-template-columns:420px 1fr;flex:1;min-height:0;overflow:hidden;}
+.panel{background:var(--white);border-right:1px solid var(--border);padding:22px 20px 40px;overflow-y:auto;display:flex;flex-direction:column;}
+.panel-title{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--navy);margin-bottom:3px;}
+.panel-sub{font-size:.7rem;color:var(--muted);letter-spacing:.03em;text-transform:uppercase;margin-bottom:18px;}
+.toggle-row{display:flex;border:1.5px solid var(--border);border-radius:6px;overflow:hidden;margin-bottom:10px;}
+.toggle-btn{flex:1;padding:9px 6px;text-align:center;font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;border:none;background:var(--cream2);color:var(--muted);transition:background .18s,color .18s;}
+.toggle-btn.active-navy{background:var(--navy);color:var(--gold);}
+.toggle-btn.active-gold{background:var(--gold);color:var(--navy);}
+.toggle-btn.active-green{background:var(--green);color:var(--white);}
+.visa-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-bottom:10px;}
+.visa-chip{padding:7px 4px;text-align:center;border:1.5px solid var(--border);border-radius:5px;font-family:'DM Sans',sans-serif;font-size:.72rem;font-weight:600;cursor:pointer;background:var(--cream2);color:var(--navy);transition:all .15s;line-height:1.2;}
+.visa-chip:hover{border-color:var(--gold);background:#fdf8ec;}
+.visa-chip.selected{background:var(--navy);color:var(--gold);border-color:var(--navy);}
+.visa-chip .chip-sub{display:block;font-size:.6rem;font-weight:400;color:var(--muted);margin-top:1px;}
+.visa-chip.selected .chip-sub{color:rgba(184,150,46,.7);}
+.outcome-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-bottom:10px;}
+.outcome-chip{padding:9px 6px;text-align:center;border:1.5px solid var(--border);border-radius:5px;font-family:'DM Sans',sans-serif;font-size:.72rem;font-weight:600;cursor:pointer;background:var(--cream2);color:var(--navy);transition:all .15s;line-height:1.3;}
+.outcome-chip:hover{border-color:var(--gold);background:#fdf8ec;}
+.outcome-chip.selected{border-color:var(--navy);}
+.outcome-chip.selected.oc-approved{background:#1a6b3c;color:#fff;border-color:#1a6b3c;}
+.outcome-chip.selected.oc-rfe{background:#b8860b;color:#fff;border-color:#b8860b;}
+.outcome-chip.selected.oc-noid{background:#c0392b;color:#fff;border-color:#c0392b;}
+.outcome-chip.selected.oc-denied{background:#7b241c;color:#fff;border-color:#7b241c;}
+.outcome-chip.selected.oc-cos{background:#2B5DAB;color:#fff;border-color:#2B5DAB;}
+.outcome-chip.selected.oc-eos{background:#6B3FA0;color:#fff;border-color:#6B3FA0;}
+.outcome-chip .chip-icon{font-size:1rem;display:block;margin-bottom:2px;}
+.sec-lbl{font-size:.62rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);margin-bottom:7px;margin-top:16px;padding-bottom:5px;border-bottom:1px solid var(--cream2);}
+.fg{display:flex;flex-direction:column;gap:3px;margin-bottom:8px;}
+.fg label{font-size:.65rem;font-weight:500;color:var(--navy);text-transform:uppercase;letter-spacing:.02em;}
+.fg input,.fg textarea,.fg select{border:1.5px solid var(--border);border-radius:5px;padding:6px 9px;font-family:'DM Sans',sans-serif;font-size:.82rem;color:var(--text);background:var(--cream);outline:none;transition:border-color .18s;width:100%;}
+.fg textarea{resize:vertical;min-height:58px;line-height:1.5;}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--gold);background:var(--white);}
+.status-box{background:var(--blue-bg);border:1.5px solid var(--blue);border-radius:5px;padding:10px 12px;margin-bottom:8px;}
+.status-box label{font-size:.63rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);display:block;margin-bottom:5px;}
+.status-box input,.status-box select{border:1.5px solid var(--border);border-radius:5px;padding:6px 9px;font-family:'DM Sans',sans-serif;font-size:.82rem;color:var(--text);background:var(--white);outline:none;width:100%;margin-bottom:6px;}
+.status-box input:last-child,.status-box select:last-child{margin-bottom:0;}
+.status-box input:focus,.status-box select:focus{border-color:var(--gold);}
+.status-row{display:flex;gap:6px;align-items:flex-end;}
+.status-row .fg{flex:1;margin-bottom:0;}
+details{border:1px solid var(--cream2);border-radius:5px;margin-bottom:6px;overflow:hidden;}
+details summary{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);padding:7px 10px;cursor:pointer;background:var(--cream2);list-style:none;display:flex;justify-content:space-between;align-items:center;}
+details summary::after{content:'&#9662;';font-size:.75rem;color:var(--gold);}
+details[open] summary::after{content:'&#9652;';}
+details .det-body{padding:8px 10px 10px;}
+.next-steps-container{display:flex;flex-direction:column;gap:6px;margin-bottom:8px;}
+.step-row{display:flex;align-items:flex-start;gap:6px;background:var(--cream);border:1.5px solid var(--border);border-radius:5px;padding:6px 8px;}
+.step-num{min-width:20px;height:20px;background:var(--navy);color:var(--gold);border-radius:50%;font-size:.65rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:3px;flex-shrink:0;}
+.step-row textarea{flex:1;border:none;background:transparent;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);resize:vertical;min-height:44px;outline:none;padding:2px 4px;line-height:1.5;}
+.step-row textarea:focus{background:rgba(184,150,46,.04);}
+.step-del{background:none;border:none;color:#c0392b;font-size:.85rem;cursor:pointer;padding:3px 5px;border-radius:3px;transition:background .15s;align-self:flex-start;margin-top:1px;}
+.step-del:hover{background:#fdecea;}
+.btn-add-step{width:100%;padding:7px;background:none;border:1.5px dashed var(--gold);border-radius:5px;font-family:'DM Sans',sans-serif;font-size:.73rem;font-weight:600;color:var(--gold);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:background .15s;margin-bottom:4px;}
+.btn-add-step:hover{background:#fdf8ec;}
+.doc-checks{display:flex;flex-direction:column;gap:4px;margin-bottom:8px;}
+.doc-check{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--navy);cursor:pointer;}
+.doc-check input{accent-color:var(--navy);width:16px;height:16px;cursor:pointer;}
+.btn-lang-gen{display:flex;gap:8px;margin-top:12px;}
+.btn-gen{flex:1;background:var(--navy);color:var(--cream);border:none;padding:10px 6px;font-family:'DM Sans',sans-serif;font-weight:500;font-size:.75rem;letter-spacing:.07em;text-transform:uppercase;cursor:pointer;border-radius:5px;transition:background .18s;}
+.btn-gen:hover{background:var(--navy2);}
+.btn-copy{display:none;width:100%;background:var(--gold);color:var(--navy);border:none;padding:10px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border-radius:5px;margin-top:7px;transition:background .18s;}
+.btn-copy:hover{background:var(--gold2);}
+.copy-msg{font-size:.7rem;color:#2d7a50;text-align:center;margin-top:5px;min-height:16px;font-weight:500;}
+.btn-wa{display:none;width:100%;background:#25a563;color:#fff;border:none;padding:10px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border-radius:5px;margin-top:7px;transition:background .18s;}
+.btn-wa:hover{background:#1a8a50;}
+.preview-area{overflow-y:auto;padding:28px 24px;background:#e4e1db;display:flex;align-items:flex-start;justify-content:center;}
+.preview-wrap{width:100%;max-width:680px;display:flex;flex-direction:column;gap:0;}
+.empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;height:260px;color:var(--muted);font-size:.85rem;gap:8px;opacity:.55;}
+.empty-state svg{width:44px;height:44px;opacity:.3;}
+#emailContainer{background:#fff;}
+.preview-header{display:none;align-items:center;justify-content:space-between;padding:10px 16px;background:#fff;border-bottom:1px solid #D8D0C0;border-radius:4px 4px 0 0;flex-shrink:0;}
+.preview-header.visible{display:flex;}
+.preview-mode-toggle{display:flex;border:1.5px solid #D8D0C0;border-radius:20px;overflow:hidden;}
+.pm-btn{padding:5px 14px;font-family:'DM Sans',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;border:none;cursor:pointer;transition:background .18s,color .18s;background:#F4F1EC;color:#7A7A7A;}
+.pm-btn.active{background:#1B2B4B;color:#B8962E;}
+.pm-btn.wa-active{background:#25a563;color:#fff;}
+.preview-label{font-size:.65rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#7A7A7A;}
+.phone-wrap{display:flex;justify-content:center;padding:20px 0 40px;}
+.phone-frame{width:340px;background:#111;border-radius:36px;padding:12px;box-shadow:0 20px 60px rgba(0,0,0,0.4);}
+.phone-screen{background:#E5DDD5;border-radius:26px;overflow:hidden;min-height:500px;display:flex;flex-direction:column;}
+.phone-status{background:#075E54;padding:10px 16px 8px;display:flex;align-items:center;gap:10px;}
+.phone-avatar{width:32px;height:32px;border-radius:50%;background:#25a563;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0;}
+.phone-name{font-size:13px;font-weight:600;color:#fff;}
+.phone-status-txt{font-size:10px;color:rgba(255,255,255,0.7);}
+.chat-body{flex:1;padding:12px 10px;overflow-y:auto;display:flex;flex-direction:column;gap:4px;max-height:600px;}
+.wa-bubble{background:#fff;border-radius:12px 12px 12px 3px;padding:9px 11px;max-width:92%;font-size:11.5px;line-height:1.55;color:#111;box-shadow:0 1px 2px rgba(0,0,0,0.15);white-space:pre-wrap;word-break:break-word;font-family:system-ui,-apple-system,sans-serif;}
+.wa-bubble .wa-time{font-size:9px;color:#999;text-align:right;margin-top:4px;}
+.wa-copy-bar{background:#075E54;padding:10px 14px;display:flex;gap:8px;}
+.wa-copy-btn{flex:1;background:#25a563;color:#fff;border:none;padding:9px;border-radius:20px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:.73rem;letter-spacing:.05em;cursor:pointer;transition:background .18s;}
+.wa-copy-btn:hover{background:#1a8a50;}
+.wa-copy-btn.copied{background:#1a5e38;}
+@media(max-width:900px){.workspace{grid-template-columns:1fr;}.panel{border-right:none;border-bottom:1px solid var(--border);max-height:65vh;}}
+</style>
+</head>
+<body>
+
+<div class="app-bar">
+  <img src="https://ozeklaw.com/wp-content/uploads/2026/03/Ozek-Law-Firm-Logo-white-transparent.png" alt="Ozek Law Firm" onerror="this.style.display='none'"/>
+  <div class="app-bar-title">Client Offboarding &amp; Case Outcome Generator</div>
+</div>
+
+<div class="workspace">
+<div class="panel">
+  <div class="panel-title">Case Outcome Notice</div>
+  <div class="panel-sub">Ozek Law Firm &middot; Client Offboarding</div>
+
+  <div class="sec-lbl">Language</div>
+  <div class="toggle-row" id="langRow">
+    <button class="toggle-btn active-navy" id="btn-en">&#127482;&#127480; English</button>
+    <button class="toggle-btn" id="btn-tr">&#127481;&#127479; T&uuml;rk&ccedil;e</button>
+  </div>
+
+  <div class="sec-lbl">Case Outcome</div>
+  <div class="outcome-grid" id="outcomeGrid">
+    <div class="outcome-chip oc-approved selected" data-outcome="approved"><span class="chip-icon">&#9989;</span>Approved</div>
+    <div class="outcome-chip oc-cos" data-outcome="cos"><span class="chip-icon">&#128260;</span>Change of Status</div>
+    <div class="outcome-chip oc-eos" data-outcome="eos"><span class="chip-icon">&#128338;</span>Extension of Status</div>
+    <div class="outcome-chip oc-rfe" data-outcome="rfe"><span class="chip-icon">&#128221;</span>RFE Received</div>
+    <div class="outcome-chip oc-noid" data-outcome="noid"><span class="chip-icon">&#9888;&#65039;</span>NOID Received</div>
+    <div class="outcome-chip oc-denied" data-outcome="denied"><span class="chip-icon">&#10060;</span>Denied</div>
+  </div>
+
+  <div class="sec-lbl">Application Category</div>
+  <div class="visa-grid" id="visaGrid"></div>
+  <div class="fg">
+    <label>Custom / Override</label>
+    <input type="text" id="f-visatype" placeholder="Type or select above"/>
+  </div>
+
+  <div class="sec-lbl">Recipient</div>
+  <div class="fg"><label>Client Name</label>
+    <input type="text" id="f-client" placeholder="e.g. Ayse Yilmaz"/>
+  </div>
+
+  <div class="sec-lbl">Case Information</div>
+  <div class="fg"><label>Case / Receipt Number</label>
+    <input type="text" id="f-casenum" placeholder="e.g. WAC-25-123-45678"/>
+  </div>
+  <div class="fg"><label>Decision / Notice Date</label>
+    <input type="date" id="f-decisiondate"/>
+  </div>
+
+  <div class="sec-lbl">Status Expiration</div>
+  <div class="status-box">
+    <label>&#128197; Status Valid Until</label>
+    <div class="status-row">
+      <div class="fg"><label>Type</label>
+        <select id="f-statustype">
+          <option value="date">Specific Date</option>
+          <option value="ds">D/S (Duration of Status)</option>
+          <option value="10yr">10 Years</option>
+          <option value="permanent">Permanent (Green Card)</option>
+          <option value="custom">Custom</option>
+        </select>
+      </div>
+      <div class="fg" id="statusDateFg">
+        <label>Expiration Date</label>
+        <input type="date" id="f-statusdate"/>
+      </div>
+    </div>
+    <div class="fg" id="statusCustomFg" style="display:none;margin-top:4px;">
+      <label>Custom Status Description</label>
+      <input type="text" id="f-statuscustom" placeholder="e.g. 2 years conditional"/>
+    </div>
+  </div>
+
+  <div class="sec-lbl">Documents to Request from Client</div>
+  <div class="doc-checks" id="docChecks">
+    <label class="doc-check"><input type="checkbox" checked data-doc="greencard"/> Green Card (front &amp; back)</label>
+    <label class="doc-check"><input type="checkbox" checked data-doc="ead"/> EAD Card (front &amp; back)</label>
+    <label class="doc-check"><input type="checkbox" checked data-doc="receipts"/> USCIS Receipt Notices (I-797)</label>
+    <label class="doc-check"><input type="checkbox" data-doc="approval"/> Approval Notice (I-797)</label>
+    <label class="doc-check"><input type="checkbox" data-doc="passport"/> Passport Stamp / Visa Foil</label>
+    <label class="doc-check"><input type="checkbox" data-doc="ssn"/> Social Security Card</label>
+    <label class="doc-check"><input type="checkbox" data-doc="combo"/> Combo Card (EAD + AP)</label>
+  </div>
+  <div class="fg">
+    <label>Additional Document Request</label>
+    <input type="text" id="f-customdoc" placeholder="e.g. Certificate of Naturalization"/>
+  </div>
+
+  <div class="sec-lbl">RFE / NOID Details <span style="color:var(--muted);font-weight:300;letter-spacing:0;text-transform:none;font-size:.64rem;">(if applicable)</span></div>
+  <div class="fg"><label>Response Deadline</label>
+    <input type="date" id="f-rfedeadline"/>
+  </div>
+  <div class="fg"><label>Brief Description of Issue</label>
+    <textarea id="f-rfedesc" rows="2" placeholder="e.g. USCIS is requesting additional evidence regarding..."></textarea>
+  </div>
+
+  <div class="sec-lbl">Next Steps <span style="color:var(--muted);font-weight:300;letter-spacing:0;text-transform:none;font-size:.64rem;">&#8212; edit, reorder, add</span></div>
+  <div class="next-steps-container" id="stepsContainer"></div>
+  <button class="btn-add-step" id="addStepBtn">&#43; Add Step</button>
+
+  <div class="sec-lbl">Edit Email Body Text</div>
+  <details>
+    <summary>Opening Paragraph <span style="color:var(--gold);font-size:.6rem;margin-left:4px;">&#9998;</span></summary>
+    <div class="det-body"><div class="fg" style="margin:0;"><textarea id="f-opening" rows="5"></textarea></div></div>
+  </details>
+  <details>
+    <summary>Document Sharing Request <span style="color:var(--gold);font-size:.6rem;margin-left:4px;">&#9998;</span></summary>
+    <div class="det-body"><div class="fg" style="margin:0;"><textarea id="f-docrequest" rows="4"></textarea></div></div>
+  </details>
+  <details>
+    <summary>Stay Connected &amp; Social <span style="color:var(--gold);font-size:.6rem;margin-left:4px;">&#9998;</span></summary>
+    <div class="det-body"><div class="fg" style="margin:0;"><textarea id="f-social" rows="4"></textarea></div></div>
+  </details>
+  <details>
+    <summary>Closing Paragraph <span style="color:var(--gold);font-size:.6rem;margin-left:4px;">&#9998;</span></summary>
+    <div class="det-body"><div class="fg" style="margin:0;"><textarea id="f-closing" rows="3"></textarea></div></div>
+  </details>
+
+  <div class="sec-lbl">Attorney Note (Optional)</div>
+  <div class="fg"><textarea id="f-attnote" rows="2" placeholder="Any case-specific note to add at the bottom..."></textarea></div>
+
+  <div class="sec-lbl">Signature</div>
+  <div class="fg"><label>Sender Name</label><input type="text" id="f-sender" value="Tolga Ozek"/></div>
+  <div class="fg"><label>Sender Title</label><input type="text" id="f-stitle" value="Attorney at Law"/></div>
+
+  <div class="btn-lang-gen">
+    <button class="btn-gen" id="genEn">&#127482;&#127480; Generate EN</button>
+    <button class="btn-gen" id="genTr">&#127481;&#127479; Generate TR</button>
+  </div>
+  <button class="btn-copy" id="copyBtn">&#9166; Copy for Outlook</button>
+  <button class="btn-wa" id="waBtn">&#128172; Copy for WhatsApp</button>
+  <div class="copy-msg" id="copyMsg"></div>
+</div>
+
+<div class="preview-area">
+  <div class="preview-wrap">
+    <div class="preview-header" id="previewHeader">
+      <span class="preview-label">Preview Mode</span>
+      <div class="preview-mode-toggle">
+        <button class="pm-btn active" id="pm-email">&#128231; Outlook</button>
+        <button class="pm-btn" id="pm-wa">&#128172; WhatsApp</button>
+      </div>
+    </div>
+    <div class="empty-state" id="emptyState">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      <span>Select outcome &amp; category, fill in the fields, then click <strong>Generate</strong></span>
+    </div>
+    <div id="emailContainer" style="display:none;"></div>
+    <div id="waContainer" style="display:none;">
+      <div class="phone-wrap">
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <div class="phone-status">
+              <div class="phone-avatar">OL</div>
+              <div><div class="phone-name">Ozek Law Firm</div><div class="phone-status-txt">online</div></div>
+            </div>
+            <div class="chat-body" id="waChatBody"></div>
+            <div class="wa-copy-bar">
+              <button class="wa-copy-btn" id="waCopyBtn2">&#128172; Copy Full Message</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+var LOGO='https://ozeklaw.com/wp-content/uploads/2026/03/Ozek-Law-Firm-Logo-white-transparent.png';
+var APP_URL='https://ozek-law.vercel.app/install.html';
+var GOOGLE_REVIEW='https://g.page/ozek-law/review?rc';
+var AVVO_REVIEW='https://t.avvo.com/5lP6';
+var NEWSLETTER='https://ozeklaw.us14.list-manage.com/subscribe?u=6544ef151a1a4e8dc185d2605&id=8baac926ba';
+
+var VISA_CATS=[
+  {id:'i485',label:'I-485',sub:'Adjustment of Status'},
+  {id:'i130',label:'I-130',sub:'Family Petition'},
+  {id:'i765',label:'I-765',sub:'Work Authorization'},
+  {id:'i131',label:'I-131',sub:'Travel Document'},
+  {id:'asylum',label:'Asylum',sub:'I-589'},
+  {id:'dv',label:'DV Lottery',sub:'Diversity Visa'},
+  {id:'natd',label:'N-400',sub:'Naturalization'},
+  {id:'eb2niw',label:'EB-2 NIW',sub:'Self-Petition'},
+  {id:'o1',label:'O-1',sub:'Extraordinary Ability'},
+  {id:'h1b',label:'H-1B',sub:'Specialty Occupation'},
+  {id:'perm',label:'PERM',sub:'Labor Cert.'},
+  {id:'eb2',label:'EB-2/EB-3',sub:'I-140 Petition'},
+  {id:'l1',label:'L-1',sub:'Intracompany'},
+  {id:'e2',label:'E-2',sub:'Treaty Investor'},
+  {id:'tn',label:'TN',sub:'USMCA'},
+  {id:'i539cos',label:'I-539',sub:'Change of Status'},
+  {id:'i539eos',label:'I-539',sub:'Extension of Status'}
+];
+
+var OUTCOMES={
+  approved:{
+    en:{
+      banner:'CASE APPROVED',
+      bannerIcon:'\uD83C\uDF86 \u2713',
+      opening:'First and foremost, we would like to extend our warm congratulations on the approval of your {VISA} case.\n\nWhile this outcome reflects the consistent work carried out by our office\u2014achieved with an approximate 99.6% success rate\u2014we would also like to emphasize that, in your case, this result has been made possible through the trust established between us and the cooperation you demonstrated at every stage of the process. At the same time, we would like to highlight that for us, this result represents far more than a numerical success.\n\nThroughout your application process, our approach extended beyond merely fulfilling legal requirements. We focused on understanding you accurately, clarifying your expectations, and expressing them in the most appropriate manner within the legal framework.\n\nAt every stage of the process, we prioritized communication, took care to listen to you, and worked to shape the process together. We believe that effective legal representation is made possible not only through knowledge, but also through proper communication, proper timing, and the use of the right language.\n\nThe approval obtained in your case not only demonstrates that your application was presented correctly, but also represents an important step toward your new life.',
+      docrequest:'At this stage, we kindly ask that you scan and share with us the front and back sides of any documents you receive from USCIS (e.g. Green Card, EAD Card, receipt notices, approval notices). This will allow our office to properly assess the nature of your documents (for example, if a Green Card has been issued as conditional or for a limited period) and to ensure that any future processes that may be required are tracked accurately and in a timely manner.\n\nIn addition, we kindly request that you forward to us all receipt and approval notices issued by USCIS. This is important in order to maintain a consistent record of your immigration history and to ensure that your file is preserved in a complete and organized manner.',
+      social:'Furthermore, in order for you to closely follow developments in immigration law, access practical and timely information regarding procedures, and receive reminders about legal matters you may need to address in the future, we recommend following our communication channels below.',
+      closing:'We would also like to thank you for the trust and cooperation you have shown throughout this process. We will always be here to support you.',
+      reviewIntro:'Finally, sharing your experience regarding the process you went through with us and your feedback on our way of working is extremely valuable for us in improving the services we provide. If you have the opportunity, we would greatly appreciate it if you could share your experience through one or both of the platforms below:'
+    },
+    tr:{
+      banner:'BA\u015eVURU ONAYLANDI',
+      bannerIcon:'\uD83C\uDF86 \u2713',
+      opening:'\u00d6ncelikle {VISA} ba\u015fvurunuzun onaylanmas\u0131 dolay\u0131s\u0131yla en i\u00e7ten tebriklerimizi sunmak isteriz.\n\nBu sonu\u00e7, ofisimizin yakla\u015f\u0131k %99,6 ba\u015far\u0131 oran\u0131yla y\u00fcr\u00fctt\u00fc\u011f\u00fc tutarl\u0131 \u00e7al\u0131\u015fmay\u0131 yans\u0131tmakla birlikte, sizin ba\u015fvurunuzda bu sonucun, aram\u0131zda olu\u015fan g\u00fcven ve s\u00fcrecin her a\u015famas\u0131nda g\u00f6sterdi\u011finiz i\u015f birli\u011fi sayesinde m\u00fcmk\u00fcn oldu\u011funu \u00f6zellikle vurgulamak isteriz. Ayn\u0131 zamanda, bu sonucun bizim i\u00e7in say\u0131sal bir ba\u015far\u0131n\u0131n \u00e7ok \u00f6tesinde bir anlam ta\u015f\u0131d\u0131\u011f\u0131n\u0131 belirtmek isteriz.\n\nBa\u015fvuru s\u00fcreciniz boyunca yakla\u015f\u0131m\u0131m\u0131z, yaln\u0131zca yasal gereklilikleri yerine getirmenin \u00f6tesine ge\u00e7ti. Sizi do\u011fru anlamaya, beklentilerinizi netle\u015ftirmeye ve bunlar\u0131 hukuki \u00e7er\u00e7eve i\u00e7inde en uygun bi\u00e7imde ifade etmeye odakland\u0131k.\n\nS\u00fcrecin her a\u015famas\u0131nda ileti\u015fimi \u00f6nceliklendirdik, sizi dinlemeye \u00f6zen g\u00f6sterdik ve s\u00fcreci birlikte \u015fekillendirmeye \u00e7al\u0131\u015ft\u0131k. Etkili hukuki temsilin yaln\u0131zca bilgiyle de\u011fil, ayn\u0131 zamanda do\u011fru ileti\u015fim, do\u011fru zamanlama ve do\u011fru dil kullan\u0131m\u0131yla m\u00fcmk\u00fcn oldu\u011funa inan\u0131yoruz.\n\nBa\u015fvurunuzda al\u0131nan onay, ba\u015fvurunuzun do\u011fru sunuldu\u011funu g\u00f6stermekle kalmay\u0131p, ayn\u0131 zamanda yeni ya\u015fam\u0131n\u0131za do\u011fru at\u0131lan \u00f6nemli bir ad\u0131m\u0131 temsil etmektedir.',
+      docrequest:'Bu a\u015famada, USCIS\u2019ten alaca\u011f\u0131n\u0131z belgelerin (\u00f6rne\u011fin Ye\u015fil Kart, EAD Kart\u0131, makbuz bildirimleri, onay bildirimleri) \u00f6n ve arka y\u00fczlerini taray\u0131p bizimle payla\u015fman\u0131z\u0131 rica ederiz. Bu, ofisimizin belgelerinizin niteli\u011fini do\u011fru de\u011ferlendirmesini (Ye\u015fil Kart\u0131n \u015fartl\u0131 veya s\u0131n\u0131rl\u0131 s\u00fcreli verilip verilmedi\u011fi gibi) ve gelecekte gerekli olabilecek i\u015flemlerin zaman\u0131nda takibini sa\u011flayacakt\u0131r.\n\nAyr\u0131ca, USCIS taraf\u0131ndan d\u00fczenlenen t\u00fcm makbuz ve onay bildirimlerini bize iletmenizi rica ederiz. Bu, g\u00f6\u00e7menlik ge\u00e7mi\u015finizin tutarl\u0131 bir kayd\u0131n\u0131 s\u00fcrd\u00fcrmek ve dosyan\u0131z\u0131n eksiksiz ve d\u00fczenli bir \u015fekilde korunmas\u0131n\u0131 sa\u011flamak a\u00e7\u0131s\u0131ndan \u00f6nemlidir.',
+      social:'Ayr\u0131ca g\u00f6\u00e7menlik hukuku alan\u0131ndaki geli\u015fmeleri yak\u0131ndan takip edebilmeniz, i\u015flemlere ili\u015fkin pratik ve g\u00fcncel bilgilere eri\u015febilmeniz ve gelecekte dikkat etmeniz gereken hukuki konularda hat\u0131rlatmalar alabilmeniz i\u00e7in a\u015fa\u011f\u0131daki ileti\u015fim kanallar\u0131m\u0131z\u0131 takip etmenizi \u00f6neririz.',
+      closing:'Bu s\u00fcre\u00e7 boyunca g\u00f6sterdi\u011finiz g\u00fcven ve i\u015f birli\u011fi i\u00e7in de ayr\u0131ca te\u015fekk\u00fcr etmek isteriz. Size destek olmak i\u00e7in her zaman burada olaca\u011f\u0131z.',
+      reviewIntro:'Son olarak, bizimle ya\u015fad\u0131\u011f\u0131n\u0131z s\u00fcrece ve \u00e7al\u0131\u015fma tarz\u0131m\u0131za ili\u015fkin deneyiminizi payla\u015fman\u0131z, sundu\u011fumuz hizmetleri geli\u015ftirmemiz a\u00e7\u0131s\u0131ndan son derece de\u011ferlidir. F\u0131rsat\u0131n\u0131z olursa, deneyiminizi a\u015fa\u011f\u0131daki platformlardan biri veya her ikisi arac\u0131l\u0131\u011f\u0131yla payla\u015fman\u0131z\u0131 \u00e7ok takdir ederiz:'
+    }
+  },
+  cos:{
+    en:{
+      banner:'CHANGE OF STATUS APPROVED',
+      bannerIcon:'\u2713',
+      opening:'We are pleased to inform you that your {VISA} Change of Status application has been approved by USCIS. This approval confirms that your immigration status has been officially changed, and you are now authorized under your new status.\n\nThis outcome reflects the careful preparation and documentation submitted on your behalf. We are proud to have guided you through this important transition.',
+      docrequest:'Please scan and share the front and back of any approval notices, new I-94 records, EAD cards, or other documents issued by USCIS in connection with your change of status. This will allow our office to verify the terms and duration of your new status and ensure accurate tracking for any future filings.',
+      social:'To stay informed about immigration law developments and receive timely reminders, we recommend following our communication channels below.',
+      closing:'We are grateful for the trust you placed in our office throughout this process. Should you need any assistance in the future, we are always here to help.',
+      reviewIntro:'If you have the opportunity, we would greatly appreciate it if you could share your experience working with our firm through one or both of the platforms below:'
+    },
+    tr:{
+      banner:'STAT\u00dc DE\u011e\u0130\u015e\u0130KL\u0130\u011e\u0130 ONAYLANDI',
+      bannerIcon:'\u2713',
+      opening:'{VISA} Stat\u00fc De\u011fi\u015fikli\u011fi ba\u015fvurunuzun USCIS taraf\u0131ndan onayland\u0131\u011f\u0131n\u0131 memnuniyetle bildiririz. Bu onay, g\u00f6\u00e7menlik stat\u00fcn\u00fcz\u00fcn resmi olarak de\u011fi\u015ftirildi\u011fini ve art\u0131k yeni stat\u00fcn\u00fcz kapsam\u0131nda yetkilendirildi\u011finizi teyit etmektedir.\n\nBu sonu\u00e7, sizin ad\u0131n\u0131za haz\u0131rlanan dikkatli dok\u00fcmantasyon ve ba\u015fvuru s\u00fcrecini yans\u0131tmaktad\u0131r. Bu \u00f6nemli ge\u00e7i\u015fte size rehberlik etmekten gurur duyuyoruz.',
+      docrequest:'L\u00fctfen stat\u00fc de\u011fi\u015fikli\u011finizle ba\u011flant\u0131l\u0131 olarak USCIS taraf\u0131ndan d\u00fczenlenen onay bildirimlerinin, yeni I-94 kay\u0131tlar\u0131n\u0131n, EAD kartlar\u0131n\u0131n veya di\u011fer belgelerin \u00f6n ve arka y\u00fczlerini taray\u0131p bizimle payla\u015f\u0131n. Bu, yeni stat\u00fcn\u00fcz\u00fcn ko\u015fullar\u0131n\u0131 ve s\u00fcresini do\u011frulamamiz\u0131 ve gelecekteki ba\u015fvurular i\u00e7in do\u011fru takip sa\u011flamamiz\u0131 m\u00fcmk\u00fcn k\u0131lacakt\u0131r.',
+      social:'G\u00f6\u00e7menlik hukuku geli\u015fmelerinden haberdar olmak ve zaman\u0131nda hat\u0131rlatmalar almak i\u00e7in a\u015fa\u011f\u0131daki ileti\u015fim kanallar\u0131m\u0131z\u0131 takip etmenizi \u00f6neririz.',
+      closing:'Bu s\u00fcre\u00e7 boyunca ofisimize duydu\u011funuz g\u00fcven i\u00e7in minnettariz. Gelecekte herhangi bir yard\u0131ma ihtiyac\u0131n\u0131z olursa, her zaman burada olaca\u011f\u0131z.',
+      reviewIntro:'F\u0131rsat\u0131n\u0131z olursa, firmam\u0131zla \u00e7al\u0131\u015fma deneyiminizi a\u015fa\u011f\u0131daki platformlardan biri veya her ikisi arac\u0131l\u0131\u011f\u0131yla payla\u015fman\u0131z\u0131 \u00e7ok takdir ederiz:'
+    }
+  },
+  eos:{
+    en:{
+      banner:'EXTENSION OF STATUS APPROVED',
+      bannerIcon:'\u2713',
+      opening:'We are pleased to inform you that your {VISA} Extension of Status application has been approved by USCIS. This approval extends your authorized period of stay in the United States under your current immigration status.\n\nThis result reflects the thorough preparation and timely filing carried out by our office on your behalf.',
+      docrequest:'Please scan and share the front and back of any approval notices, updated I-94 records, EAD cards, or other documents issued by USCIS in connection with your extension. This will allow our office to confirm your new authorized stay period and plan ahead for any future filings or renewals.',
+      social:'To stay informed about immigration law developments and receive timely reminders, we recommend following our communication channels below.',
+      closing:'We appreciate the trust you have placed in our office. As your extension period progresses, we will proactively reach out to discuss renewal planning well in advance of your new expiration date.',
+      reviewIntro:'If you have the opportunity, we would greatly appreciate it if you could share your experience working with our firm through one or both of the platforms below:'
+    },
+    tr:{
+      banner:'STAT\u00dc UZATMASI ONAYLANDI',
+      bannerIcon:'\u2713',
+      opening:'{VISA} Stat\u00fc Uzatmas\u0131 ba\u015fvurunuzun USCIS taraf\u0131ndan onayland\u0131\u011f\u0131n\u0131 memnuniyetle bildiririz. Bu onay, mevcut g\u00f6\u00e7menlik stat\u00fcn\u00fcz kapsam\u0131nda ABD\u2019deki yetkilendirilmi\u015f kal\u0131\u015f s\u00fcrenizi uzatmaktad\u0131r.\n\nBu sonu\u00e7, sizin ad\u0131n\u0131za ofisimiz taraf\u0131ndan ger\u00e7ekle\u015ftirilen kapsaml\u0131 haz\u0131rl\u0131k ve zaman\u0131nda yap\u0131lan ba\u015fvuruyu yans\u0131tmaktad\u0131r.',
+      docrequest:'L\u00fctfen uzatman\u0131zla ba\u011flant\u0131l\u0131 olarak USCIS taraf\u0131ndan d\u00fczenlenen onay bildirimlerinin, g\u00fcncellenmi\u015f I-94 kay\u0131tlar\u0131n\u0131n, EAD kartlar\u0131n\u0131n veya di\u011fer belgelerin \u00f6n ve arka y\u00fczlerini taray\u0131p bizimle payla\u015f\u0131n. Bu, yeni yetkilendirilmi\u015f kal\u0131\u015f s\u00fcrenizi do\u011frulamamiz\u0131 ve gelecekteki ba\u015fvuru veya yenilemeler i\u00e7in \u00f6nceden planlama yapmam\u0131z\u0131 sa\u011flayacakt\u0131r.',
+      social:'G\u00f6\u00e7menlik hukuku geli\u015fmelerinden haberdar olmak ve zaman\u0131nda hat\u0131rlatmalar almak i\u00e7in a\u015fa\u011f\u0131daki ileti\u015fim kanallar\u0131m\u0131z\u0131 takip etmenizi \u00f6neririz.',
+      closing:'Ofisimize duydu\u011funuz g\u00fcven i\u00e7in te\u015fekk\u00fcr ederiz. Uzatma s\u00fcreniz ilerledik\u00e7e, yeni son kullanma tarihinizden \u00e7ok \u00f6nce yenileme planlamas\u0131n\u0131 g\u00f6r\u00fc\u015fmek \u00fczere proaktif olarak sizinle ileti\u015fime ge\u00e7ece\u011fiz.',
+      reviewIntro:'F\u0131rsat\u0131n\u0131z olursa, firmam\u0131zla \u00e7al\u0131\u015fma deneyiminizi a\u015fa\u011f\u0131daki platformlardan biri veya her ikisi arac\u0131l\u0131\u011f\u0131yla payla\u015fman\u0131z\u0131 \u00e7ok takdir ederiz:'
+    }
+  },
+  rfe:{
+    en:{
+      banner:'RFE RECEIVED \u2014 ACTION REQUIRED',
+      bannerIcon:'&#128221;',
+      opening:'We are writing to inform you that USCIS has issued a Request for Evidence (RFE) regarding your {VISA} case. An RFE is a standard part of the adjudication process and does not indicate a negative outcome. It means USCIS requires additional documentation or clarification before making a final decision.\n\nOur office has carefully reviewed the RFE notice and is already preparing a comprehensive response strategy. We will be in touch shortly to discuss the specific evidence requested and coordinate the collection of any additional documentation needed from you.',
+      docrequest:'To prepare our RFE response, we may need you to provide updated or additional documents. We will send you a detailed checklist of what is required. In the meantime, please scan and share any new documents you may have received from USCIS or other agencies related to your case.',
+      social:'For updates on immigration policy changes and practical guidance, we recommend following our communication channels below.',
+      closing:'Please rest assured that our office will handle this matter with the same diligence and attention to detail that we apply to every case. We will guide you through each step of the RFE response process.',
+      reviewIntro:''
+    },
+    tr:{
+      banner:'EK BELGE TALEB\u0130 ALINDI \u2014 \u0130\u015eLEM GEREKL\u0130',
+      bannerIcon:'&#128221;',
+      opening:'{VISA} ba\u015fvurunuzla ilgili olarak USCIS\u2019in bir Ek Belge Talebi (RFE) d\u00fczenledi\u011fini bildirmek i\u00e7in yaz\u0131yoruz. RFE, de\u011ferlendirme s\u00fcrecinin standart bir par\u00e7as\u0131d\u0131r ve olumsuz bir sonu\u00e7 anlam\u0131na gelmez. USCIS\u2019in nihai karar\u0131n\u0131 vermeden \u00f6nce ek belge veya a\u00e7\u0131klama talep etti\u011fi anlam\u0131na gelir.\n\nOfisimiz RFE bildirimini dikkatle incelemi\u015f olup kapsaml\u0131 bir yan\u0131t stratejisi haz\u0131rlamaktad\u0131r. Talep edilen belgeleri ve sizden ihtiya\u00e7 duyulacak ek dok\u00fcmantasyonu g\u00f6r\u00fc\u015fmek \u00fczere k\u0131sa s\u00fcre i\u00e7inde sizinle ileti\u015fime ge\u00e7ece\u011fiz.',
+      docrequest:'RFE yan\u0131t\u0131m\u0131z\u0131 haz\u0131rlamak i\u00e7in sizden g\u00fcncel veya ek belgeler talep etmemiz gerekebilir. Gerekli belgelerin ayr\u0131nt\u0131l\u0131 listesini size g\u00f6nderece\u011fiz. Bu arada, USCIS veya di\u011fer kurumlardan ba\u015fvurunuzla ilgili ald\u0131\u011f\u0131n\u0131z yeni belgeleri taray\u0131p bizimle payla\u015fman\u0131z\u0131 rica ederiz.',
+      social:'G\u00f6\u00e7menlik politikas\u0131 de\u011fi\u015fiklikleri ve pratik rehberlik i\u00e7in ileti\u015fim kanallar\u0131m\u0131z\u0131 takip etmenizi \u00f6neririz.',
+      closing:'Ofisimizin bu konuyu her ba\u015fvuruya uygulad\u0131\u011f\u0131m\u0131z \u00f6zen ve dikkatle ele alaca\u011f\u0131ndan emin olabilirsiniz. RFE yan\u0131t s\u00fcrecinin her ad\u0131m\u0131nda size rehberlik edece\u011fiz.',
+      reviewIntro:''
+    }
+  },
+  noid:{
+    en:{
+      banner:'NOID RECEIVED \u2014 URGENT ACTION REQUIRED',
+      bannerIcon:'&#9888;',
+      opening:'We are writing to inform you that USCIS has issued a Notice of Intent to Deny (NOID) regarding your {VISA} case. A NOID provides an opportunity to respond with additional evidence and arguments before a final decision is made. This is a critical juncture, and our office is treating this matter with the highest priority.\n\nWe have thoroughly analyzed the NOID and are developing a comprehensive response strategy to address each concern raised by USCIS. We will schedule a detailed consultation with you to discuss the next steps.',
+      docrequest:'To prepare our NOID response, it is essential that you provide any additional documents we may request promptly. Time-sensitive deadlines apply. Please scan and share any relevant documents you may have, and be available for consultations as we prepare the response.',
+      social:'For updates, follow our communication channels below.',
+      closing:'We understand this may be concerning news, but please know that a NOID is not a final denial. Our office has successfully reversed many NOID outcomes through thorough and well-crafted responses. We will work tirelessly to present the strongest possible case on your behalf.',
+      reviewIntro:''
+    },
+    tr:{
+      banner:'RED N\u0130YET\u0130 B\u0130LD\u0130R\u0130M\u0130 ALINDI \u2014 AC\u0130L \u0130\u015eLEM GEREKL\u0130',
+      bannerIcon:'&#9888;',
+      opening:'{VISA} ba\u015fvurunuzla ilgili olarak USCIS\u2019in bir Red Niyeti Bildirimi (NOID) d\u00fczenledi\u011fini bildirmek i\u00e7in yaz\u0131yoruz. NOID, nihai karar verilmeden \u00f6nce ek delil ve arg\u00fcmanlarla yan\u0131t verme f\u0131rsat\u0131 tan\u0131r. Bu kritik bir a\u015famad\u0131r ve ofisimiz konuyu en y\u00fcksek \u00f6ncelikle ele almaktad\u0131r.\n\nNOID\u2019u kapsaml\u0131 bir \u015fekilde analiz ettik ve USCIS\u2019in dile getirdi\u011fi her endi\u015feyi ele almak i\u00e7in kapsaml\u0131 bir yan\u0131t stratejisi geli\u015ftiriyoruz. Sonraki ad\u0131mlar\u0131 g\u00f6r\u00fc\u015fmek \u00fczere sizinle ayr\u0131nt\u0131l\u0131 bir g\u00f6r\u00fc\u015fme planlayaca\u011f\u0131z.',
+      docrequest:'NOID yan\u0131t\u0131m\u0131z\u0131 haz\u0131rlamak i\u00e7in talep edece\u011fimiz ek belgeleri ivedilikle sa\u011flaman\u0131z \u00e7ok \u00f6nemlidir. S\u00fcreye ba\u011fl\u0131 son tarihler ge\u00e7erlidir. Elinizdeki ilgili belgeleri taray\u0131p payla\u015f\u0131n ve yan\u0131t\u0131 haz\u0131rlarken g\u00f6r\u00fc\u015fmelere haz\u0131r olun.',
+      social:'G\u00fcncellemeler i\u00e7in ileti\u015fim kanallar\u0131m\u0131z\u0131 takip edin.',
+      closing:'Bu haberin endi\u015fe verici olabilece\u011fini anl\u0131yoruz, ancak NOID\u2019un nihai bir red olmad\u0131\u011f\u0131n\u0131 bilmenizi isteriz. Ofisimiz, kapsaml\u0131 ve titizlikle haz\u0131rlanm\u0131\u015f yan\u0131tlarla bir\u00e7ok NOID sonucunu ba\u015far\u0131yla tersine \u00e7evirmi\u015ftir. Sizin ad\u0131n\u0131za m\u00fcmk\u00fcn olan en g\u00fc\u00e7l\u00fc ba\u015fvuruyu sunmak i\u00e7in \u00f6zveriyle \u00e7al\u0131\u015faca\u011f\u0131z.',
+      reviewIntro:''
+    }
+  },
+  denied:{
+    en:{
+      banner:'CASE DENIED \u2014 REVIEW OPTIONS AVAILABLE',
+      bannerIcon:'&#10060;',
+      opening:'We regret to inform you that USCIS has denied your {VISA} case. We understand this is a difficult outcome, and we want to assure you that our office is ready to carefully evaluate all available options, including motions to reopen, motions to reconsider, and appellate remedies.\n\nWe will schedule a consultation with you at the earliest opportunity to discuss the denial grounds in detail and outline a clear path forward.',
+      docrequest:'Please share any new documents or correspondence you have received from USCIS or any other agency related to your case. It is important that we have a complete record as we evaluate your options.',
+      social:'For updates, follow our communication channels below.',
+      closing:'While this is not the result we worked toward, please know that a denial does not necessarily mean the end of the road. Many cases have viable paths forward through appeals, new filings, or alternative strategies. Our office remains committed to advising and supporting you.',
+      reviewIntro:''
+    },
+    tr:{
+      banner:'BA\u015eVURU REDDEDILD\u0130 \u2014 \u0130T\u0130RAZ SE\u00c7ENEKLER\u0130 MEVCUT',
+      bannerIcon:'&#10060;',
+      opening:'{VISA} ba\u015fvurunuzun USCIS taraf\u0131ndan reddedildi\u011fini bildirmekten \u00fcz\u00fcnt\u00fc duymaktay\u0131z. Bu zor bir sonu\u00e7 oldu\u011funu anl\u0131yoruz ve ofisimizin yeniden a\u00e7ma dilek\u00e7eleri, yeniden de\u011ferlendirme dilek\u00e7eleri ve temyiz yollar\u0131 dahil t\u00fcm mevcut se\u00e7enekleri dikkatle de\u011ferlendirmeye haz\u0131r oldu\u011funu belirtmek isteriz.\n\nRed gerek\u00e7elerini ayr\u0131nt\u0131l\u0131 olarak g\u00f6r\u00fc\u015fmek ve net bir yol haritas\u0131 \u00e7izmek \u00fczere en k\u0131sa s\u00fcrede sizinle bir g\u00f6r\u00fc\u015fme planlayaca\u011f\u0131z.',
+      docrequest:'L\u00fctfen USCIS veya ba\u015fka bir kurumdan ba\u015fvurunuzla ilgili ald\u0131\u011f\u0131n\u0131z yeni belge veya yaz\u0131\u015fmalar\u0131 bizimle payla\u015f\u0131n. Se\u00e7eneklerinizi de\u011ferlendirirken eksiksiz bir kay\u0131da sahip olmam\u0131z \u00f6nemlidir.',
+      social:'G\u00fcncellemeler i\u00e7in ileti\u015fim kanallar\u0131m\u0131z\u0131 takip edin.',
+      closing:'Bu, u\u011frunda \u00e7al\u0131\u015ft\u0131\u011f\u0131m\u0131z sonu\u00e7 olmasa da bir reddin yolun sonu olmad\u0131\u011f\u0131n\u0131 bilmenizi isteriz. Bir\u00e7ok ba\u015fvuru, itiraz, yeni ba\u015fvuru veya alternatif stratejiler arac\u0131l\u0131\u011f\u0131yla ilerleme imkan\u0131na sahiptir. Ofisimiz size dan\u0131\u015fmanl\u0131k ve destek sa\u011flamaya kararl\u0131d\u0131r.',
+      reviewIntro:''
+    }
+  }
+};
+
+var DEFAULT_STEPS={
+  approved:{
+    en:[
+      'Please scan and share the front and back sides of any physical documents you receive from USCIS (Green Card, EAD Card, combo cards, etc.) as soon as they arrive.',
+      'Forward all USCIS receipt notices (Form I-797) and approval notices to our office for your records.',
+      'Note the expiration date of your status (if applicable) on your calendar. Renewal or extension may be required before that date.',
+      'Notify our office immediately if you change your home address so we can update your records and inform USCIS if necessary.',
+      'Consult our office before making any international travel plans, especially if your status or travel document has conditions.'
+    ],
+    tr:[
+      'USCIS\u2019ten ald\u0131\u011f\u0131n\u0131z fiziksel belgelerin (Ye\u015fil Kart, EAD Kart\u0131, kombo kart vb.) \u00f6n ve arka y\u00fczlerini tarayarak en k\u0131sa s\u00fcrede bizimle payla\u015f\u0131n.',
+      'USCIS taraf\u0131ndan d\u00fczenlenen t\u00fcm makbuz bildirimlerini (Form I-797) ve onay bildirimlerini ofisimize iletin.',
+      'Stat\u00fcn\u00fcz\u00fcn son ge\u00e7erlilik tarihini (varsa) takviminize not edin; bu tarihten \u00f6nce yenileme veya uzatma gerekebilir.',
+      'Ev adresinizi de\u011fi\u015ftirirseniz kay\u0131tlar\u0131m\u0131z\u0131 g\u00fcncelleyebilmemiz ve gerekirse USCIS\u2019e bildirebilmemiz i\u00e7in bizi derhal bilgilendirin.',
+      '\u00d6zellikle stat\u00fcn\u00fcz veya seyahat belgenizde ko\u015fullar varsa, yurt d\u0131\u015f\u0131 seyahat planlar\u0131n\u0131zdan \u00f6nce ofisimize dan\u0131\u015f\u0131n.'
+    ]
+  },
+  cos:{
+    en:[
+      'Please scan and share any approval notices, new I-94 records, or EAD cards you receive from USCIS as soon as they arrive.',
+      'Forward all USCIS correspondence (receipt notices, approval notices) to our office for your file.',
+      'Note the expiration date of your new status on your calendar. Renewal or extension may be required before that date.',
+      'Notify our office immediately if you change your home address.',
+      'Consult our office before making any international travel plans under your new status.'
+    ],
+    tr:[
+      'USCIS\u2019ten ald\u0131\u011f\u0131n\u0131z onay bildirimlerini, yeni I-94 kay\u0131tlar\u0131n\u0131 veya EAD kartlar\u0131n\u0131 en k\u0131sa s\u00fcrede taray\u0131p bizimle payla\u015f\u0131n.',
+      'T\u00fcm USCIS yaz\u0131\u015fmalar\u0131n\u0131 (makbuz bildirimleri, onay bildirimleri) dosyan\u0131z i\u00e7in ofisimize iletin.',
+      'Yeni stat\u00fcn\u00fcz\u00fcn son ge\u00e7erlilik tarihini takviminize not edin; bu tarihten \u00f6nce yenileme veya uzatma gerekebilir.',
+      'Ev adresinizi de\u011fi\u015ftirirseniz bizi derhal bilgilendirin.',
+      'Yeni stat\u00fcn\u00fcz kapsam\u0131nda yurt d\u0131\u015f\u0131 seyahat planlar\u0131n\u0131zdan \u00f6nce ofisimize dan\u0131\u015f\u0131n.'
+    ]
+  },
+  eos:{
+    en:[
+      'Please scan and share any approval notices, updated I-94 records, or EAD cards you receive from USCIS as soon as they arrive.',
+      'Forward all USCIS correspondence to our office for your file.',
+      'Note the new expiration date of your extended status on your calendar. Our office will contact you in advance to discuss the next renewal.',
+      'Notify our office immediately if you change your home address.',
+      'Consult our office before making any international travel plans.'
+    ],
+    tr:[
+      'USCIS\u2019ten ald\u0131\u011f\u0131n\u0131z onay bildirimlerini, g\u00fcncellenmi\u015f I-94 kay\u0131tlar\u0131n\u0131 veya EAD kartlar\u0131n\u0131 en k\u0131sa s\u00fcrede taray\u0131p bizimle payla\u015f\u0131n.',
+      'T\u00fcm USCIS yaz\u0131\u015fmalar\u0131n\u0131 dosyan\u0131z i\u00e7in ofisimize iletin.',
+      'Uzat\u0131lan stat\u00fcn\u00fcz\u00fcn yeni son ge\u00e7erlilik tarihini takviminize not edin. Ofisimiz bir sonraki yenilemeyi g\u00f6r\u00fc\u015fmek \u00fczere \u00f6nceden sizinle ileti\u015fime ge\u00e7ecektir.',
+      'Ev adresinizi de\u011fi\u015ftirirseniz bizi derhal bilgilendirin.',
+      'Yurt d\u0131\u015f\u0131 seyahat planlar\u0131n\u0131zdan \u00f6nce ofisimize dan\u0131\u015f\u0131n.'
+    ]
+  },
+  rfe:{
+    en:[
+      'Our office is reviewing the RFE in detail and will contact you with a list of required documents within 48 hours.',
+      'Respond promptly to any document requests from our office. Timely submission is critical to meeting the RFE deadline.',
+      'Do not send any additional documents or correspondence to USCIS directly without consulting our office first.',
+      'Be available for a strategy call. We may need to discuss your case in detail to formulate the strongest possible response.'
+    ],
+    tr:[
+      'Ofisimiz RFE\u2019yi ayr\u0131nt\u0131l\u0131 incelemekte olup 48 saat i\u00e7inde gerekli belge listesini size iletecektir.',
+      'Ofisimizden gelen belge taleplerine h\u0131zla yan\u0131t verin. RFE son tarihine yeti\u015fmek i\u00e7in zaman\u0131nda teslim kritik \u00f6nem ta\u015f\u0131r.',
+      '\u00d6nce ofisimize dan\u0131\u015fmadan do\u011frudan USCIS\u2019e ek belge veya yaz\u0131\u015fma g\u00f6ndermeyin.',
+      'Strateji g\u00f6r\u00fc\u015fmesi i\u00e7in m\u00fcsait olun. M\u00fcmk\u00fcn olan en g\u00fc\u00e7l\u00fc yan\u0131t\u0131 haz\u0131rlamak i\u00e7in ba\u015fvurunuzu ayr\u0131nt\u0131l\u0131 g\u00f6r\u00fc\u015fmemiz gerekebilir.'
+    ]
+  },
+  noid:{
+    en:[
+      'URGENT: Our office will contact you within 24 hours to schedule a detailed strategy consultation.',
+      'Gather and provide any additional evidence or documentation that may support your case. We will provide specific guidance.',
+      'Do not respond to USCIS or communicate with any government agency about your case without our involvement.',
+      'The NOID response deadline is strict. Full cooperation and timely document submission are essential.'
+    ],
+    tr:[
+      'AC\u0130L: Ofisimiz ayr\u0131nt\u0131l\u0131 bir strateji g\u00f6r\u00fc\u015fmesi planlamak i\u00e7in 24 saat i\u00e7inde sizinle ileti\u015fime ge\u00e7ecektir.',
+      'Ba\u015fvurunuzu destekleyebilecek ek delil veya belge toplay\u0131n ve sa\u011flay\u0131n. Belirli rehberlik sunaca\u011f\u0131z.',
+      'Kat\u0131l\u0131m\u0131m\u0131z olmadan USCIS\u2019e yan\u0131t vermeyin veya herhangi bir devlet kurumu ile ba\u015fvurunuz hakk\u0131nda ileti\u015fime ge\u00e7meyin.',
+      'NOID yan\u0131t s\u00fcresi kesindir. Tam i\u015f birli\u011fi ve zaman\u0131nda belge teslimi \u015fartt\u0131r.'
+    ]
+  },
+  denied:{
+    en:[
+      'Our office will schedule a consultation within the next few days to discuss denial grounds and your options in detail.',
+      'Preserve all documents related to your case. Do not discard any notices, receipts, or correspondence from USCIS.',
+      'Do not file any new applications or take any immigration-related actions without consulting our office.',
+      'If you have concerns about your current immigration status, contact our office immediately for guidance.'
+    ],
+    tr:[
+      'Ofisimiz red gerek\u00e7elerini ve se\u00e7eneklerinizi ayr\u0131nt\u0131l\u0131 g\u00f6r\u00fc\u015fmek \u00fczere \u00f6n\u00fcm\u00fcdeki g\u00fcnlerde bir g\u00f6r\u00fc\u015fme planlayacakt\u0131r.',
+      'Ba\u015fvurunuzla ilgili t\u00fcm belgeleri saklay\u0131n. USCIS\u2019ten gelen hi\u00e7bir bildirimi, makbuzu veya yaz\u0131\u015fmay\u0131 atmay\u0131n.',
+      'Ofisimize dan\u0131\u015fmadan yeni bir ba\u015fvuru yapmay\u0131n veya g\u00f6\u00e7menlikle ilgili herhangi bir i\u015flem yapmay\u0131n.',
+      'Mevcut g\u00f6\u00e7menlik stat\u00fcn\u00fczle ilgili endi\u015feleriniz varsa rehberlik i\u00e7in derhal ofisimizle ileti\u015fime ge\u00e7in.'
+    ]
+  }
+};
+
+var currentLang='en';
+var currentOutcome='approved';
+var currentVisaId='i485';
+var steps=[];
+
+function g(id){return document.getElementById(id);}
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function nl2br(s){return esc(s).replace(/\n/g,'<br/>');}
+
+function renderVisaGrid(){
+  var grid=g('visaGrid');
+  grid.innerHTML='';
+  VISA_CATS.forEach(function(c){
+    var d=document.createElement('div');
+    d.className='visa-chip'+(c.id===currentVisaId?' selected':'');
+    d.innerHTML=c.label+'<span class="chip-sub">'+c.sub+'</span>';
+    d.addEventListener('click',(function(cid,clabel){return function(){selectVisa(cid,clabel);};})(c.id,c.label));
+    grid.appendChild(d);
+  });
+}
+
+function selectVisa(id,label){
+  currentVisaId=id;
+  g('f-visatype').value=label;
+  renderVisaGrid();
+}
+
+function setOutcome(oc){
+  currentOutcome=oc;
+  document.querySelectorAll('.outcome-chip').forEach(function(el){
+    el.classList.toggle('selected',el.dataset.outcome===oc);
+  });
+  loadDefaults(currentLang,oc);
+}
+
+function setLang(lang){
+  currentLang=lang;
+  g('btn-en').className='toggle-btn'+(lang==='en'?' active-navy':'');
+  g('btn-tr').className='toggle-btn'+(lang==='tr'?' active-navy':'');
+  loadDefaults(lang,currentOutcome);
+}
+
+function loadDefaults(lang,outcome){
+  var O=OUTCOMES[outcome][lang];
+  var S=DEFAULT_STEPS[outcome][lang]||[];
+  steps=S.slice();
+  renderSteps();
+  g('f-opening').value=O.opening;
+  g('f-docrequest').value=O.docrequest;
+  g('f-social').value=O.social;
+  g('f-closing').value=O.closing;
+}
+
+function renderSteps(){
+  var c=g('stepsContainer');
+  c.innerHTML='';
+  steps.forEach(function(s,i){
+    var row=document.createElement('div');
+    row.className='step-row';
+    var ta=document.createElement('textarea');
+    ta.value=s;
+    ta.addEventListener('input',(function(idx){return function(){steps[idx]=this.value;};})(i));
+    var num=document.createElement('div');
+    num.className='step-num';
+    num.textContent=i+1;
+    var del=document.createElement('button');
+    del.className='step-del';
+    del.textContent='\u2715';
+    del.title='Remove';
+    del.addEventListener('click',(function(idx){return function(){removeStep(idx);};})(i));
+    row.appendChild(num);
+    row.appendChild(ta);
+    row.appendChild(del);
+    c.appendChild(row);
+  });
+}
+
+function addStep(val){
+  steps.push(val||'New step \u2014 describe what happens next.');
+  renderSteps();
+}
+
+function removeStep(i){
+  steps.splice(i,1);
+  renderSteps();
+}
+
+function getLiveSteps(){
+  return Array.from(g('stepsContainer').querySelectorAll('textarea')).map(function(t){return t.value.trim();}).filter(Boolean);
+}
+
+function getCheckedDocs(){
+  var docs=[];
+  document.querySelectorAll('#docChecks input:checked').forEach(function(cb){docs.push(cb.dataset.doc);});
+  return docs;
+}
+
+function getStatusString(lang){
+  var ln=lang==='en';
+  var type=g('f-statustype').value;
+  if(type==='ds') return 'D/S ('+(ln?'Duration of Status':'Stat\u00fc S\u00fcresi Boyunca')+')';
+  if(type==='10yr') return ln?'10 Years from approval':'Onay tarihinden itibaren 10 y\u0131l';
+  if(type==='permanent') return ln?'Permanent Resident (No Expiration)':'Daimi Oturum (Son Kullanma Yok)';
+  if(type==='custom') return g('f-statuscustom').value.trim()||(ln?'See documents':'Belgelere bak\u0131n\u0131z');
+  if(type==='date'){
+    var d=g('f-statusdate').value;
+    if(!d) return ln?'See documents':'Belgelere bak\u0131n\u0131z';
+    var locale=ln?'en-US':'tr-TR';
+    return new Date(d+'T12:00:00').toLocaleDateString(locale,{year:'numeric',month:'long',day:'numeric'});
+  }
+  return '';
+}
+
+function divider(label){
+  return '<table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:14px;"><tr><td style="border-bottom:1px solid #D8D0C0;"></td><td style="text-align:center;padding:0 12px;white-space:nowrap;font-family:Arial,sans-serif;font-size:8.5px;font-weight:bold;letter-spacing:.2em;text-transform:uppercase;color:#B8962E;">'+label+'</td><td style="border-bottom:1px solid #D8D0C0;"></td></tr></table>';
+}
+
+function generateEmail(lang){
+  lang=lang||currentLang;
+  var ln=lang==='en';
+  var oc=currentOutcome;
+  var O=OUTCOMES[oc][lang];
+
+  var client=g('f-client').value.trim()||(ln?'Dear Sir/Madam':'Say\u0131n \u0130lgili');
+  var visaType=g('f-visatype').value.trim()||'Immigration';
+  var caseNum=g('f-casenum').value.trim();
+  var decisionDate=g('f-decisiondate').value;
+  var sender=g('f-sender').value.trim()||'Tolga \u00d6zek';
+  var stitle=g('f-stitle').value.trim()||(ln?'Attorney at Law':'Avukat');
+  var attNote=g('f-attnote').value.trim();
+  var initial=sender.charAt(0).toUpperCase();
+  var rfeDeadline=g('f-rfedeadline').value;
+  var rfeDesc=g('f-rfedesc').value.trim();
+  var customDoc=g('f-customdoc').value.trim();
+  var statusStr=getStatusString(lang);
+
+  var locale=ln?'en-US':'tr-TR';
+  var decDateStr=decisionDate?new Date(decisionDate+'T12:00:00').toLocaleDateString(locale,{year:'numeric',month:'long',day:'numeric'}):'';
+  var rfeDeadlineStr=rfeDeadline?new Date(rfeDeadline+'T12:00:00').toLocaleDateString(locale,{year:'numeric',month:'long',day:'numeric'}):'';
+
+  function interp(t){return t.replace(/\{VISA\}/g,visaType);}
+
+  var txtOpening=interp(g('f-opening').value.trim()||O.opening);
+  var txtDocrequest=g('f-docrequest').value.trim()||O.docrequest;
+  var txtSocial=g('f-social').value.trim()||O.social;
+  var txtClosing=g('f-closing').value.trim()||O.closing;
+  var liveSteps=getLiveSteps();
+  var checkedDocs=getCheckedDocs();
+
+  var bannerColors={approved:{bg:'#1a6b3c',text:'#fff'},cos:{bg:'#2B5DAB',text:'#fff'},eos:{bg:'#6B3FA0',text:'#fff'},rfe:{bg:'#b8860b',text:'#fff'},noid:{bg:'#c0392b',text:'#fff'},denied:{bg:'#7b241c',text:'#fff'}};
+  var bc=bannerColors[oc]||bannerColors.approved;
+  var showReview=(oc==='approved'||oc==='cos'||oc==='eos');
+  var showStatus=(oc==='approved'||oc==='cos'||oc==='eos');
+
+  var stepsHtml=liveSteps.map(function(s,i){
+    return '<tr><td style="width:28px;vertical-align:top;padding-top:3px;"><div style="width:22px;height:22px;background:#1B2B4B;border-radius:50%;text-align:center;line-height:22px;font-family:Arial,sans-serif;font-size:11px;font-weight:bold;color:#B8962E;">'+(i+1)+'</div></td><td style="vertical-align:top;padding-left:10px;padding-bottom:14px;"><p style="font-family:Arial,sans-serif;font-size:12pt;color:#2C2C2C;line-height:1.8;margin:0;">'+nl2br(s)+'</p></td></tr>';
+  }).join('');
+
+  var docLabels={greencard:ln?'Green Card (front & back)':'Ye\u015fil Kart (\u00f6n ve arka y\u00fcz)',ead:ln?'EAD Card (front & back)':'EAD Kart\u0131 (\u00f6n ve arka y\u00fcz)',receipts:ln?'USCIS Receipt Notices (I-797)':'USCIS Makbuz Bildirimleri (I-797)',approval:ln?'Approval Notice (I-797)':'Onay Bildirimi (I-797)',passport:ln?'Passport Stamp / Visa Foil':'Pasaport Dam\u011fas\u0131 / Vize Etiketi',ssn:ln?'Social Security Card':'Sosyal G\u00fcvenlik Kart\u0131',combo:ln?'Combo Card (EAD + Advance Parole)':'Kombo Kart (EAD + Advance Parole)'};
+  var docListHtml='';
+  if(checkedDocs.length||customDoc){
+    docListHtml='<div style="margin-top:10px;">';
+    checkedDocs.forEach(function(d){
+      docListHtml+='<div style="font-family:Arial,sans-serif;font-size:12pt;color:#1a3360;padding:4px 0 4px 14px;border-left:2px solid #B8962E;">\u2610 '+(docLabels[d]||d)+'</div>';
+    });
+    if(customDoc) docListHtml+='<div style="font-family:Arial,sans-serif;font-size:12pt;color:#1a3360;padding:4px 0 4px 14px;border-left:2px solid #B8962E;">\u2610 '+esc(customDoc)+'</div>';
+    docListHtml+='</div>';
+  }
+
+  var statusHtml='';
+  if(statusStr && showStatus){
+    statusHtml='<div style="padding:14px 36px 0;"><div style="background:#F0F4FB;border:1.5px solid #2B5DAB;border-left:5px solid #2B5DAB;border-radius:4px;padding:14px 16px;"><div style="font-family:Arial,sans-serif;font-size:8.5px;font-weight:bold;letter-spacing:.18em;text-transform:uppercase;color:#2B5DAB;margin-bottom:8px;">\uD83D\uDCC5 '+(ln?'STATUS VALID UNTIL':'STAT\u00dc GE\u00c7ERL\u0130L\u0130K S\u00dcRES\u0130')+'</div><div style="font-family:Georgia,serif;font-size:16px;font-weight:bold;color:#1B2B4B;">'+esc(statusStr)+'</div></div></div>';
+  }
+
+  var rfeHtml='';
+  if((oc==='rfe'||oc==='noid')&&(rfeDeadlineStr||rfeDesc)){
+    var urgColor=oc==='noid'?'#C0392B':'#b8860b';
+    rfeHtml='<div style="padding:14px 36px 0;"><div style="background:'+(oc==='noid'?'#FFF5F5':'#FFFBF0')+';border:1.5px solid '+urgColor+';border-left:5px solid '+urgColor+';border-radius:4px;padding:14px 16px;"><div style="font-family:Arial,sans-serif;font-size:8.5px;font-weight:bold;letter-spacing:.18em;text-transform:uppercase;color:'+urgColor+';margin-bottom:8px;">\u23F0 '+(ln?'RESPONSE DEADLINE':'YANIT SON TAR\u0130H\u0130')+'</div>';
+    if(rfeDeadlineStr) rfeHtml+='<div style="font-family:Georgia,serif;font-size:16px;font-weight:bold;color:#1B2B4B;margin-bottom:6px;">'+rfeDeadlineStr+'</div>';
+    if(rfeDesc) rfeHtml+='<div style="font-family:Arial,sans-serif;font-size:12pt;color:#2C2C2C;line-height:1.75;">'+nl2br(rfeDesc)+'</div>';
+    rfeHtml+='</div></div>';
+  }
+
+  var reviewHtml='';
+  if(showReview){
+    reviewHtml='<div style="padding:14px 36px 0;"><div style="background:#F0FBF4;border:1.5px solid #2E7D52;border-left:5px solid #2E7D52;border-radius:4px;padding:16px 18px;">'
+    +'<div style="font-family:Arial,sans-serif;font-size:8.5px;font-weight:bold;letter-spacing:.18em;text-transform:uppercase;color:#2E7D52;margin-bottom:10px;">\u2B50 '+(ln?'SHARE YOUR EXPERIENCE':'DEN\u0130Y\u0130M\u0130N\u0130Z\u0130 PAYLA\u015eIN')+'</div>'
+    +'<p style="font-family:Arial,sans-serif;font-size:12pt;color:#1a4a30;line-height:1.82;margin:0 0 14px 0;">'+nl2br(O.reviewIntro)+'</p>'
+    +'<table cellpadding="0" cellspacing="0"><tr>'
+    +'<td style="padding-right:10px;"><a href="'+GOOGLE_REVIEW+'" style="display:inline-block;background:#4285F4;color:#ffffff;font-family:Arial,sans-serif;font-size:11px;font-weight:bold;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:10px 18px;border-radius:5px;">\u2733 '+(ln?'Review on Google':'Google\'da De\u011ferlendirin')+'</a></td>'
+    +'<td><a href="'+AVVO_REVIEW+'" style="display:inline-block;background:#3D6BB3;color:#ffffff;font-family:Arial,sans-serif;font-size:11px;font-weight:bold;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:10px 18px;border-radius:5px;">\u2733 '+(ln?'Review on Avvo':'Avvo\'da De\u011ferlendirin')+'</a></td>'
+    +'</tr></table>'
+    +'<div style="margin-top:10px;font-family:Arial,sans-serif;font-size:10px;color:#5a8a6a;"><a href="'+GOOGLE_REVIEW+'" style="color:#4285F4;text-decoration:none;">g.page/ozek-law/review</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="'+AVVO_REVIEW+'" style="color:#3D6BB3;text-decoration:none;">t.avvo.com/5lP6</a></div>'
+    +'</div></div>';
+  }
+
+  var attNoteHtml=attNote?'<div style="padding:0 36px 18px;margin-top:14px;"><div style="background:#FFFBF0;border:1.5px solid #B8962E;border-left:5px solid #B8962E;border-radius:4px;padding:13px 16px;font-family:Arial,sans-serif;font-size:12pt;color:#5a4a1a;line-height:1.8;"><strong>\u270E '+(ln?'Note from Attorney:':'Avukat Notu:')+'</strong> '+nl2br(attNote)+'</div></div>':'';
+
+  var caseNumHtml=caseNum?'<tr><td colspan="3" style="padding-top:10px;"><div style="display:inline-block;background:#fff;border:1px solid #D8D0C0;border-left:3px solid #B8962E;border-radius:4px;padding:6px 14px;font-family:Arial,sans-serif;font-size:11px;color:#1B2B4B;"><strong>'+(ln?'Case / Receipt No:':'Dosya / Makbuz No:')+'</strong>&nbsp;'+esc(caseNum)+'</div></td></tr>':'';
+
+  var confText=ln?'This communication and all information contained herein is protected by attorney-client privilege and is intended solely for the named recipient. If you have received this message in error, please notify us immediately and delete it without forwarding or copying.':'Bu ileti\u015fim ve i\u00e7erdi\u011fi t\u00fcm bilgiler avukat-m\u00fcvekkil gizlili\u011fi kapsam\u0131nda korunmakta olup yaln\u0131zca adreslendiği ki\u015fiye y\u00f6neliktir. Bu iletiyi hataen ald\u0131ysan\u0131z, l\u00fctfen derhal bizi bilgilendirin ve iletmeden ya da kopyalamadan silin.';
+
+  var html='<div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:#2C2C2C;background:#FFFFFF;max-width:680px;margin:0 auto;">'
+  +'<div style="background:#1B2B4B;padding:24px 36px 20px;border-bottom:4px solid #B8962E;">'
+  +'<table width="100%" cellpadding="0" cellspacing="0"><tr>'
+  +'<td><img src="'+LOGO+'" alt="Ozek Law Firm" style="height:48px;display:block;" onerror="this.style.display=\'none\'"/></td>'
+  +'<td style="text-align:right;vertical-align:middle;"><div style="font-family:Arial,sans-serif;font-size:10px;font-weight:bold;letter-spacing:.12em;text-transform:uppercase;color:#B8962E;">'+(ln?'Case Outcome Notice':'Ba\u015fvuru Sonu\u00e7 Bildirimi')+'</div>'
+  +'<div style="font-family:Arial,sans-serif;font-size:10px;color:rgba(244,241,236,0.55);margin-top:4px;line-height:1.65;">2 Wisconsin Circle, Suite 700<br>Chevy Chase, MD 20815<br>(202) 854-8545 &nbsp;&middot;&nbsp; ozeklaw.com</div></td>'
+  +'</tr></table></div>'
+  +'<div style="background:#F4F1EC;border-bottom:3px solid #B8962E;">'
+  +'<div style="background:'+bc.bg+';padding:'+((oc==='approved'||oc==='cos'||oc==='eos')?'12px 36px':'6px 36px')+';font-family:Arial,sans-serif;font-size:'+((oc==='approved'||oc==='cos'||oc==='eos')?'13px':'8.5px')+';font-weight:bold;letter-spacing:.22em;text-transform:uppercase;color:'+bc.text+';">'+O.bannerIcon+' '+esc(O.banner)+'</div>'
+  +'<table width="100%" cellpadding="0" cellspacing="0" style="padding:16px 36px 18px;"><tr>'
+  +'<td style="width:35%;vertical-align:top;padding-right:14px;"><div style="font-family:Arial,sans-serif;font-size:8px;font-weight:bold;letter-spacing:.18em;text-transform:uppercase;color:#B8962E;margin-bottom:5px;">'+(ln?'Application Type':'Ba\u015fvuru T\u00fcr\u00fc')+'</div><div style="font-family:Georgia,serif;font-size:15px;font-weight:bold;color:#1B2B4B;border-bottom:1.5px solid rgba(184,150,46,0.3);padding-bottom:6px;">'+esc(visaType)+'</div></td>'
+  +'<td style="width:35%;vertical-align:top;padding-right:14px;border-left:1px solid #D8D0C0;padding-left:14px;"><div style="font-family:Arial,sans-serif;font-size:8px;font-weight:bold;letter-spacing:.18em;text-transform:uppercase;color:#B8962E;margin-bottom:5px;">'+(ln?'Decision Date':'Karar Tarihi')+'</div><div style="font-family:Georgia,serif;font-size:14px;font-weight:bold;color:#1B2B4B;border-bottom:1.5px solid rgba(184,150,46,0.3);padding-bottom:6px;">'+(decDateStr||'<span style="color:#b0a88a;font-style:italic;font-size:13px;">'+(ln?'See notice':'Bildirime bak\u0131n\u0131z')+'</span>')+'</div></td>'
+  +'<td style="width:30%;vertical-align:top;border-left:1px solid #D8D0C0;padding-left:14px;"><div style="font-family:Arial,sans-serif;font-size:8px;font-weight:bold;letter-spacing:.18em;text-transform:uppercase;color:#B8962E;margin-bottom:5px;">'+(ln?'Outcome':'Sonu\u00e7')+'</div><div style="font-family:Georgia,serif;font-size:14px;font-weight:bold;color:'+bc.bg+';border-bottom:1.5px solid rgba(184,150,46,0.3);padding-bottom:6px;">'+esc(oc==='approved'?(ln?'Approved':'Onayland\u0131'):oc==='cos'?(ln?'COS Approved':'Stat\u00fc De\u011fi\u015fikli\u011fi Onayland\u0131'):oc==='eos'?(ln?'EOS Approved':'Stat\u00fc Uzatmas\u0131 Onayland\u0131'):oc==='rfe'?(ln?'RFE Received':'RFE Al\u0131nd\u0131'):oc==='noid'?(ln?'NOID Received':'NOID Al\u0131nd\u0131'):(ln?'Denied':'Reddedildi'))+'</div></td>'
+  +'</tr>'+caseNumHtml+'</table></div>'
+  +'<div style="padding:24px 36px 0;"><p style="font-family:Arial,sans-serif;font-size:12pt;color:#1B2B4B;font-weight:bold;margin-bottom:8px;">'+esc(client)+',</p><p style="font-family:Arial,sans-serif;font-size:12pt;color:#2C2C2C;line-height:1.82;margin-bottom:0;">'+nl2br(txtOpening)+'</p></div>'
+  +statusHtml
+  +rfeHtml
+  +'<div style="padding:18px 36px 0;">'+divider(ln?'NEXT STEPS & CASE FOLLOW-UP':'SONRAK\u0130 ADIMLAR VE BA\u015eVURU TAK\u0130B\u0130')+'<table width="100%" cellpadding="0" cellspacing="0">'+stepsHtml+'</table></div>'
+  +'<div style="padding:18px 36px 0;">'+divider(ln?'DOCUMENTS TO SHARE':'PAYLA\u015eILMASI GEREKEN BELGELER')
+  +'<p style="font-family:Arial,sans-serif;font-size:12pt;color:#2C2C2C;line-height:1.82;margin-bottom:0;">'+nl2br(txtDocrequest)+'</p>'
+  +docListHtml+'</div>'
+  +reviewHtml
+  +'<div style="padding:18px 36px 0;">'+divider(ln?'STAY CONNECTED':'BA\u011eLANTIDA KALIN')
+  +'<p style="font-family:Arial,sans-serif;font-size:12pt;color:#2C2C2C;line-height:1.82;margin-bottom:14px;">'+nl2br(txtSocial)+'</p>'
+  +'<table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:10px;"><tr>'
+  +'<td style="width:48%;vertical-align:top;"><div style="background:#FDF4FF;border:1.5px solid #C56AF0;border-left:4px solid #C56AF0;border-radius:5px;padding:12px 14px;"><div style="font-family:Arial,sans-serif;font-size:8px;font-weight:bold;letter-spacing:.15em;text-transform:uppercase;color:#8B2FC9;margin-bottom:6px;">\uD83D\uDCF8 Instagram</div><a href="https://instagram.com/ozeklaw" style="font-family:Georgia,serif;font-size:13px;color:#5a1a75;font-weight:bold;text-decoration:none;">@ozeklaw</a><br/><a href="https://instagram.com/ozeklaw" style="font-family:Arial,sans-serif;font-size:10px;color:#8B2FC9;text-decoration:none;">instagram.com/ozeklaw</a></div></td>'
+  +'<td style="width:4%;"></td>'
+  +'<td style="width:48%;vertical-align:top;"><div style="background:#F0F4FB;border:1.5px solid #2B5DAB;border-left:4px solid #2B5DAB;border-radius:5px;padding:12px 14px;"><div style="font-family:Arial,sans-serif;font-size:8px;font-weight:bold;letter-spacing:.15em;text-transform:uppercase;color:#2B5DAB;margin-bottom:6px;">\uD83D\uDCBC LinkedIn</div><a href="https://linkedin.com/company/ozek-law-firm" style="font-family:Georgia,serif;font-size:13px;color:#1a3360;font-weight:bold;text-decoration:none;">Ozek Law Firm</a><br/><a href="https://linkedin.com/company/ozek-law-firm" style="font-family:Arial,sans-serif;font-size:10px;color:#2B5DAB;text-decoration:none;">linkedin.com/company/ozek-law-firm</a></div></td>'
+  +'</tr></table>'
+  +'<table width="100%" cellpadding="0" cellspacing="0"><tr>'
+  +'<td style="width:48%;vertical-align:top;"><div style="background:#F0FBF4;border:1.5px solid #2E7D52;border-left:4px solid #2E7D52;border-radius:5px;padding:12px 14px;"><div style="font-family:Arial,sans-serif;font-size:8px;font-weight:bold;letter-spacing:.15em;text-transform:uppercase;color:#2E7D52;margin-bottom:6px;">\u2709\uFE0F '+(ln?'Newsletter':'B\u00fclten')+'</div><a href="'+NEWSLETTER+'" style="font-family:Georgia,serif;font-size:13px;color:#1a4a30;font-weight:bold;text-decoration:none;">'+(ln?'Subscribe':'Abone Ol')+'</a><br/><a href="'+NEWSLETTER+'" style="font-family:Arial,sans-serif;font-size:10px;color:#2E7D52;text-decoration:none;">'+(ln?'Sign up for updates':'G\u00fcncellemeler i\u00e7in kay\u0131t olun')+'</a></div></td>'
+  +'<td style="width:4%;"></td>'
+  +'<td style="width:48%;vertical-align:top;"><div style="background:#FFFBF0;border:1.5px solid #B8962E;border-left:4px solid #B8962E;border-radius:5px;padding:12px 14px;"><div style="font-family:Arial,sans-serif;font-size:8px;font-weight:bold;letter-spacing:.15em;text-transform:uppercase;color:#B8962E;margin-bottom:6px;">\uD83D\uDCF1 '+(ln?'Our App':'Uygulama')+'</div><a href="'+APP_URL+'" style="font-family:Georgia,serif;font-size:13px;color:#5a4a1a;font-weight:bold;text-decoration:none;">'+(ln?'Download':'Indir')+'</a><br/><a href="'+APP_URL+'" style="font-family:Arial,sans-serif;font-size:10px;color:#B8962E;text-decoration:none;">'+APP_URL+'</a></div></td>'
+  +'</tr></table>'
+  +'</div>'
+  +attNoteHtml
+  +'<div style="padding:20px 36px 24px;">'+divider(ln?'CONTACT US':'\u0130LET\u0130\u015e\u0130M')
+  +'<p style="font-family:Arial,sans-serif;font-size:12pt;color:#2C2C2C;line-height:1.82;margin-bottom:18px;">'+nl2br(txtClosing)+'</p>'
+  +'<table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:20px;"><tr>'
+  +'<td style="width:32%;vertical-align:top;border:1.5px solid #D8D0C0;border-left:3px solid #B8962E;border-radius:5px;padding:11px 13px;background:#F7F5F1;text-align:center;"><div style="font-family:Arial,sans-serif;font-size:8.5px;font-weight:bold;text-transform:uppercase;letter-spacing:.12em;color:#B8962E;margin-bottom:4px;">'+(ln?'Phone':'Telefon')+'</div><a href="tel:+12028548545" style="font-family:Georgia,serif;font-size:13px;color:#1B2B4B;font-weight:bold;text-decoration:none;">+1 (202) 854-8545</a></td>'
+  +'<td style="width:2%;"></td>'
+  +'<td style="width:32%;vertical-align:top;border:1.5px solid #D8D0C0;border-left:3px solid #B8962E;border-radius:5px;padding:11px 13px;background:#F7F5F1;text-align:center;"><div style="font-family:Arial,sans-serif;font-size:8.5px;font-weight:bold;text-transform:uppercase;letter-spacing:.12em;color:#B8962E;margin-bottom:4px;">'+(ln?'Email':'E-posta')+'</div><span style="font-family:Georgia,serif;font-size:13px;color:#1B2B4B;font-weight:bold;">info@ozeklaw.com</span></td>'
+  +'<td style="width:2%;"></td>'
+  +'<td style="width:32%;vertical-align:top;border:1.5px solid #D8D0C0;border-left:3px solid #B8962E;border-radius:5px;padding:11px 13px;background:#F7F5F1;text-align:center;"><div style="font-family:Arial,sans-serif;font-size:8.5px;font-weight:bold;text-transform:uppercase;letter-spacing:.12em;color:#B8962E;margin-bottom:4px;">Website</div><a href="https://ozeklaw.com" style="font-family:Georgia,serif;font-size:13px;color:#1B2B4B;font-weight:bold;text-decoration:none;">ozeklaw.com</a></td>'
+  +'</tr></table>'
+  +'<p style="font-family:Arial,sans-serif;font-size:12pt;color:#2C2C2C;margin-bottom:14px;">'+(ln?'Sincerely,':'Sayg\u0131lar\u0131m\u0131zla,')+'</p>'
+  +'<table cellpadding="0" cellspacing="0"><tr>'
+  +'<td style="width:42px;height:42px;background:#1B2B4B;border-radius:50%;text-align:center;vertical-align:middle;font-family:Georgia,serif;font-size:18px;font-weight:bold;color:#B8962E;">'+initial+'</td>'
+  +'<td style="width:12px;"></td>'
+  +'<td><div style="font-family:Arial,sans-serif;font-size:13px;font-weight:bold;color:#1B2B4B;">'+esc(sender)+'</div>'
+  +'<div style="font-family:Arial,sans-serif;font-size:10.5px;color:#7A7A7A;margin-top:2px;">'+esc(stitle)+' &middot; Ozek Law Firm</div>'
+  +'<div style="font-family:Arial,sans-serif;font-size:10.5px;color:#7A7A7A;margin-top:1px;">EOIR ID: XX895411</div></td>'
+  +'</tr></table>'
+  +'<p style="font-family:Arial,sans-serif;font-size:10px;color:#b0aba4;font-style:italic;line-height:1.65;margin-top:18px;padding-top:12px;border-top:1px solid #E2DDD5;">'+confText+'</p>'
+  +'</div>'
+  +'<div style="background:#1B2B4B;padding:16px 36px;text-align:center;border-top:3px solid #B8962E;">'
+  +'<table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:8px;"><tr><td style="text-align:center;">'
+  +'<a href="https://ozeklaw.com" style="font-family:Arial,sans-serif;font-size:10px;color:rgba(184,150,46,.7);text-decoration:none;margin:0 7px;">Website</a>'
+  +'<span style="color:rgba(255,255,255,.2);">|</span>'
+  +'<a href="https://instagram.com/ozeklaw" style="font-family:Arial,sans-serif;font-size:10px;color:rgba(184,150,46,.7);text-decoration:none;margin:0 7px;">Instagram</a>'
+  +'<span style="color:rgba(255,255,255,.2);">|</span>'
+  +'<a href="https://linkedin.com/company/ozeklaw" style="font-family:Arial,sans-serif;font-size:10px;color:rgba(184,150,46,.7);text-decoration:none;margin:0 7px;">LinkedIn</a>'
+  +'<span style="color:rgba(255,255,255,.2);">|</span>'
+  +'<a href="'+APP_URL+'" style="font-family:Arial,sans-serif;font-size:10px;color:rgba(184,150,46,.7);text-decoration:none;margin:0 7px;">\uD83D\uDCF1 App</a>'
+  +'</td></tr></table>'
+  +'<p style="font-family:Arial,sans-serif;font-size:9.5px;color:rgba(244,241,236,0.4);margin:0;letter-spacing:.02em;">Ozek Law Firm, LLC &nbsp;&middot;&nbsp; 2 Wisconsin Circle, Suite 700, Chevy Chase, MD 20815<br>'
+  +'<a href="tel:+12028548545" style="color:#B8962E;text-decoration:none;">(202) 854-8545</a>&nbsp;&middot;&nbsp;<a href="https://ozeklaw.com" style="color:#B8962E;text-decoration:none;">ozeklaw.com</a></p>'
+  +'</div></div>';
+
+  var container=g('emailContainer');
+  container.innerHTML=html;
+  container.dataset.emailHtml=html;
+  container.style.display='block';
+  g('emptyState').style.display='none';
+  g('copyBtn').style.display='block';
+  g('waBtn').style.display='block';
+  g('copyMsg').textContent='';
+  buildWaPreview(lang,oc,client,visaType,caseNum,decDateStr,statusStr,rfeDeadlineStr,rfeDesc,txtOpening,txtDocrequest,txtSocial,txtClosing,attNote,sender,stitle,liveSteps,checkedDocs,customDoc,O);
+  g('previewHeader').classList.add('visible');
+  setPreviewMode('email');
+}
+
+function buildWaText(lang,oc,client,visaType,caseNum,decDateStr,statusStr,rfeDeadlineStr,rfeDesc,txtOpening,txtDocrequest,txtSocial,txtClosing,attNote,sender,stitle,liveSteps,checkedDocs,customDoc,O){
+  var ln=lang==='en';
+  var sep='\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500';
+  var outcomeLabel=oc==='approved'?(ln?'APPROVED':'ONAYLANDI'):oc==='cos'?(ln?'COS APPROVED':'STAT\u00dc DE\u011e\u0130\u015e\u0130KL\u0130\u011e\u0130 ONAYLANDI'):oc==='eos'?(ln?'EOS APPROVED':'STAT\u00dc UZATMASI ONAYLANDI'):oc==='rfe'?(ln?'RFE RECEIVED':'RFE ALINDI'):oc==='noid'?(ln?'NOID RECEIVED':'NOID ALINDI'):(ln?'DENIED':'REDDEDILDI');
+  var docLabels={greencard:ln?'Green Card (front & back)':'Ye\u015fil Kart (\u00f6n ve arka)',ead:ln?'EAD Card (front & back)':'EAD Kart\u0131 (\u00f6n ve arka)',receipts:ln?'USCIS Receipt Notices':'USCIS Makbuz Bildirimleri',approval:ln?'Approval Notice':'Onay Bildirimi',passport:ln?'Passport Stamp / Visa Foil':'Pasaport Dam\u011fas\u0131 / Vize',ssn:ln?'Social Security Card':'Sosyal G\u00fcvenlik Kart\u0131',combo:ln?'Combo Card (EAD + AP)':'Kombo Kart (EAD + AP)'};
+
+  var lines=[
+    '*Ozek Law Firm* | '+(ln?'Case Outcome Notice':'Ba\u015fvuru Sonu\u00e7 Bildirimi'),
+    '',
+    '*'+client+'*,',
+    '',
+    txtOpening,
+    '',
+    sep,
+    '\uD83D\uDCCB *'+(ln?'Case Type':'Ba\u015fvuru T\u00fcr\u00fc')+':* '+visaType,
+    '\uD83D\uDFE2 *'+(ln?'Outcome':'Sonu\u00e7')+':* '+outcomeLabel
+  ];
+  if(decDateStr) lines.push('\uD83D\uDCC5 *'+(ln?'Decision Date':'Karar Tarihi')+':* '+decDateStr);
+  if(caseNum) lines.push('\uD83D\uDD22 *'+(ln?'Case No':'Dosya No')+':* '+caseNum);
+  if(statusStr && (oc==='approved'||oc==='cos'||oc==='eos')) lines.push('\uD83D\uDCC6 *'+(ln?'Status Valid Until':'Stat\u00fc Ge\u00e7erlilik')+':* '+statusStr);
+  lines.push(sep);
+
+  if((oc==='rfe'||oc==='noid')&&(rfeDeadlineStr||rfeDesc)){
+    lines.push('','*\u23F0 '+(ln?'RESPONSE DEADLINE':'YANIT SON TAR\u0130H\u0130')+'*');
+    if(rfeDeadlineStr) lines.push('\uD83D\uDDD3 '+rfeDeadlineStr);
+    if(rfeDesc) lines.push(rfeDesc);
+    lines.push(sep);
+  }
+
+  if(liveSteps.length){
+    lines.push('','*'+(ln?'Next Steps':'Sonraki Ad\u0131mlar')+'*');
+    liveSteps.forEach(function(s,i){lines.push((i+1)+'. '+s);});
+    lines.push(sep);
+  }
+
+  lines.push('','*\uD83D\uDCC4 '+(ln?'Documents to Share':'Payla\u015f\u0131lacak Belgeler')+'*');
+  lines.push(txtDocrequest);
+  if(checkedDocs.length||customDoc){
+    lines.push('');
+    checkedDocs.forEach(function(d){lines.push('\u2610 '+(docLabels[d]||d));});
+    if(customDoc) lines.push('\u2610 '+customDoc);
+  }
+  lines.push(sep);
+
+  if(oc==='approved'||oc==='cos'||oc==='eos'){
+    lines.push('','*\u2B50 '+(ln?'Share Your Experience':'Deneyiminizi Payla\u015f\u0131n')+'*');
+    lines.push(O.reviewIntro);
+    lines.push('\uD83D\uDFE2 Google: '+GOOGLE_REVIEW);
+    lines.push('\uD83D\uDD35 Avvo: '+AVVO_REVIEW);
+    lines.push(sep);
+  }
+
+  lines.push('','*\uD83D\uDCF1 '+(ln?'Stay Connected':'Ba\u011flant\u0131da Kal\u0131n')+'*');
+  lines.push((ln?'Follow us for immigration updates:':'G\u00f6\u00e7menlik g\u00fcncellemeleri i\u00e7in bizi takip edin:'));
+  lines.push('\uD83D\uDCF8 Instagram: instagram.com/ozeklaw');
+  lines.push('\uD83D\uDCBC LinkedIn: linkedin.com/company/ozek-law-firm');
+  lines.push('\u2709 '+(ln?'Newsletter':'B\u00fclten')+': '+NEWSLETTER);
+  lines.push('\uD83D\uDCF1 '+(ln?'App':'Uygulama')+': '+APP_URL);
+  lines.push(sep);
+
+  if(attNote){lines.push('','*\u270E '+(ln?'Note from Attorney':'Avukat Notu')+':*',attNote,sep);}
+
+  lines.push('',txtClosing,'','*'+sender+'*',stitle+' \u00b7 Ozek Law Firm','\uD83D\uDCDE +1-202-854-8545  |  \uD83C\uDF10 ozeklaw.com');
+  return lines.join('\n');
+}
+
+function buildWaPreview(lang,oc,client,visaType,caseNum,decDateStr,statusStr,rfeDeadlineStr,rfeDesc,txtOpening,txtDocrequest,txtSocial,txtClosing,attNote,sender,stitle,liveSteps,checkedDocs,customDoc,O){
+  var text=buildWaText(lang,oc,client,visaType,caseNum,decDateStr,statusStr,rfeDeadlineStr,rfeDesc,txtOpening,txtDocrequest,txtSocial,txtClosing,attNote,sender,stitle,liveSteps,checkedDocs,customDoc,O);
+  g('waContainer').dataset.waText=text;
+  var sep='\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500';
+  var sections=text.split('\n'+sep+'\n');
+  var chatBody=g('waChatBody');
+  chatBody.innerHTML='';
+  var now=new Date();
+  var timeStr=now.getHours().toString().padStart(2,'0')+':'+now.getMinutes().toString().padStart(2,'0');
+  sections.forEach(function(section,i){
+    var bubble=document.createElement('div');
+    bubble.className='wa-bubble';
+    var fmt=section.trim().replace(/\*(.*?)\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');
+    bubble.innerHTML=fmt+(i===sections.length-1?'<div class="wa-time">'+timeStr+'</div>':'');
+    chatBody.appendChild(bubble);
+  });
+}
+
+async function copyEmail(){
+  var container=g('emailContainer');
+  var html=container.dataset.emailHtml||container.innerHTML;
+  var btn=g('copyBtn'),msg=g('copyMsg');
+  var done=function(){
+    btn.textContent='\u2713 Copied \u2014 Paste into Outlook';
+    msg.textContent='New Outlook email \u2192 Ctrl+V (or \u2318V)';
+    setTimeout(function(){btn.textContent='\u2358 Copy for Outlook';msg.textContent='';},4000);
+  };
+  try{
+    await navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([html],{type:'text/html'}),'text/plain':new Blob([container.innerText],{type:'text/plain'})})]);
+    done();
+  }catch(e){
+    var sel=window.getSelection(),range=document.createRange();
+    range.selectNodeContents(container);sel.removeAllRanges();sel.addRange(range);
+    document.execCommand('copy');sel.removeAllRanges();done();
+  }
+}
+
+async function copyWhatsApp(){
+  var text=g('waContainer').dataset.waText||'';
+  var btn=g('waBtn'),btn2=g('waCopyBtn2'),msg=g('copyMsg');
+  var done=function(){
+    [btn,btn2].forEach(function(b){if(b){b.textContent='\u2713 Copied!';b.classList.add('copied');}});
+    msg.textContent='Open WhatsApp \u2192 New Message \u2192 Ctrl+V';
+    setTimeout(function(){
+      if(btn){btn.textContent='\uD83D\uDCAC Copy for WhatsApp';btn.classList.remove('copied');}
+      if(btn2){btn2.textContent='\uD83D\uDCAC Copy Full Message';btn2.classList.remove('copied');}
+      msg.textContent='';
+    },4000);
+  };
+  try{await navigator.clipboard.writeText(text);done();}
+  catch(e){
+    var ta=document.createElement('textarea');ta.value=text;
+    document.body.appendChild(ta);ta.select();document.execCommand('copy');
+    document.body.removeChild(ta);done();
+  }
+}
+
+function setPreviewMode(mode){
+  var eEl=g('emailContainer'),wEl=g('waContainer');
+  var bE=g('pm-email'),bW=g('pm-wa'),cE=g('copyBtn'),cW=g('waBtn');
+  if(mode==='email'){
+    eEl.style.display='block';wEl.style.display='none';
+    bE.classList.add('active');bE.classList.remove('wa-active');
+    bW.classList.remove('active','wa-active');
+    cE.style.display='block';cW.style.display='none';
+  }else{
+    eEl.style.display='none';wEl.style.display='block';
+    bW.classList.add('active','wa-active');bE.classList.remove('active','wa-active');
+    cE.style.display='none';cW.style.display='block';
+  }
+}
+
+/* ── EVENT LISTENERS ── */
+document.addEventListener('DOMContentLoaded',function(){
+  g('btn-en').addEventListener('click',function(){setLang('en');});
+  g('btn-tr').addEventListener('click',function(){setLang('tr');});
+
+  document.querySelectorAll('.outcome-chip').forEach(function(el){
+    el.addEventListener('click',function(){setOutcome(el.dataset.outcome);});
+  });
+
+  g('addStepBtn').addEventListener('click',function(){addStep('');});
+  g('genEn').addEventListener('click',function(){generateEmail('en');});
+  g('genTr').addEventListener('click',function(){generateEmail('tr');});
+  g('copyBtn').addEventListener('click',function(){copyEmail();});
+  g('waBtn').addEventListener('click',function(){copyWhatsApp();});
+  g('waCopyBtn2').addEventListener('click',function(){copyWhatsApp();});
+  g('pm-email').addEventListener('click',function(){setPreviewMode('email');});
+  g('pm-wa').addEventListener('click',function(){setPreviewMode('wa');});
+
+  g('f-statustype').addEventListener('change',function(){
+    var v=this.value;
+    g('statusDateFg').style.display=(v==='date'?'flex':'none');
+    g('statusCustomFg').style.display=(v==='custom'?'block':'none');
+  });
+
+  renderVisaGrid();
+  loadDefaults('en','approved');
+  g('f-visatype').value='I-485';
+});
+</script>
+</body>
+</html>
