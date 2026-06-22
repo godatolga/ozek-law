@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Ozek Law to Your Phone</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B2B4B;
+    --navy-light: #243a63;
+    --gold: #B8962E;
+    --gold-light: #d4af50;
+    --warm-white: #FDFBF7;
+    --gray: #8892A0;
+    --light-gray: #E8EDF3;
+    --text: #1a1a2e;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--warm-white); color: var(--text); min-height: 100vh; }
+
+  /* ── Lang Bar ── */
+  .lang-bar {
+    background: var(--navy);
+    display: flex; justify-content: flex-end;
+    padding: 10px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .lang-toggle { display: flex; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 100px; overflow: hidden; }
+  .lang-btn {
+    padding: 5px 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+    cursor: pointer; border: none; background: transparent; color: rgba(255,255,255,0.45);
+    transition: all 0.2s; font-family: 'DM Sans', sans-serif;
+  }
+  .lang-btn.active { background: var(--gold); color: #fff; border-radius: 100px; }
+
+  /* ── Header ── */
+  .header {
+    background: var(--navy); padding: 28px 24px 36px;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .header::before { content: ''; position: absolute; top: -60px; right: -60px; width: 240px; height: 240px; border-radius: 50%; background: rgba(184,150,46,0.08); }
+  .header::after  { content: ''; position: absolute; bottom: -80px; left: -40px; width: 180px; height: 180px; border-radius: 50%; background: rgba(184,150,46,0.06); }
+
+  .firm-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(184,150,46,0.15); border: 1px solid rgba(184,150,46,0.3); border-radius: 100px; padding: 5px 14px; margin-bottom: 14px; }
+  .firm-badge span { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-light); }
+
+  .header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(24px, 5vw, 38px); font-weight: 600; color: #fff; line-height: 1.2; margin-bottom: 8px; position: relative; z-index: 1; }
+  .header h1 em { color: var(--gold-light); font-style: italic; }
+  .header .subtitle { color: rgba(255,255,255,0.55); font-size: 14px; line-height: 1.6; max-width: 380px; margin: 0 auto 28px; position: relative; z-index: 1; }
+
+  /* ══════════════════════════
+     STEP OVERVIEW STRIP
+  ══════════════════════════ */
+  .step-overview { position: relative; z-index: 1; margin-bottom: 28px; }
+
+  .os-tabs { display: flex; gap: 8px; justify-content: center; margin-bottom: 18px; }
+  .os-tab {
+    display: flex; align-items: center; gap: 6px; padding: 6px 16px; border-radius: 100px;
+    cursor: pointer; font-size: 12px; font-weight: 600;
+    border: 1.5px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.5); transition: all 0.2s; font-family: 'DM Sans', sans-serif;
+  }
+  .os-tab.active { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.35); color: #fff; }
+
+  /* The row is flex; icons stay TOP-aligned so they all sit at same height */
+  .steps-row {
+    display: none;
+    align-items: flex-start;   /* ← key fix: icons stay at same Y */
+    justify-content: center;
+    gap: 0;
+    overflow-x: auto;
+    padding-top: 12px;         /* room for the −7px number badge overflow */
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .steps-row::-webkit-scrollbar { display: none; }
+  .steps-row.active { display: flex; }
+
+  .mini-step {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 8px; flex: 0 0 auto; width: 88px;
+    cursor: pointer; text-decoration: none;
+  }
+
+  /* Icon box — fixed square so all icons sit at identical Y */
+  .mini-step-icon {
+    width: 56px; height: 56px; border-radius: 14px;
+    background: rgba(255,255,255,0.07);
+    border: 1.5px solid rgba(255,255,255,0.12);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; flex-shrink: 0;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .mini-step:hover .mini-step-icon { background: rgba(184,150,46,0.15); border-color: rgba(184,150,46,0.4); }
+
+  .mini-step-num {
+    position: absolute; top: -7px; left: -7px;
+    width: 20px; height: 20px; border-radius: 50%;
+    background: var(--gold); color: #fff; font-size: 10px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Sans', sans-serif; box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  }
+
+  /* Fixed-height label so varying text doesn't shift icons */
+  .mini-step-label {
+    font-size: 10.5px; font-weight: 500; color: rgba(255,255,255,0.6);
+    text-align: center; line-height: 1.3;
+    width: 80px;
+    min-height: 32px; /* room for up to 2 lines without pushing icons */
+  }
+
+  .step-arrow {
+    color: rgba(255,255,255,0.2); font-size: 16px; flex-shrink: 0;
+    margin: 0 -4px;
+    padding-top: 20px; /* visually centers arrow against the icon, not the label */
+  }
+
+  .scroll-hint { color: rgba(255,255,255,0.35); font-size: 11px; margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 5px; }
+  .scroll-hint svg { width: 13px; height: 13px; opacity: 0.5; }
+
+  /* ── CTA ── */
+  .cta-block { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .cta-step-label { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; }
+
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: #fff; color: var(--navy); text-decoration: none;
+    padding: 15px 30px; border-radius: 14px; font-size: 16px; font-weight: 700;
+    box-shadow: 0 0 0 5px rgba(255,255,255,0.15), 0 8px 28px rgba(0,0,0,0.35);
+    animation: pulse-white 2.8s ease-in-out infinite; transition: transform 0.15s;
+  }
+  .cta-btn:hover { transform: translateY(-2px) scale(1.02); animation: none; box-shadow: 0 0 0 8px rgba(255,255,255,0.1), 0 12px 36px rgba(0,0,0,0.4); }
+  .cta-btn:active { transform: scale(0.97); }
+  @keyframes pulse-white {
+    0%, 100% { box-shadow: 0 0 0 5px rgba(255,255,255,0.15), 0 8px 28px rgba(0,0,0,0.35); }
+    50%       { box-shadow: 0 0 0 10px rgba(255,255,255,0.07), 0 8px 32px rgba(0,0,0,0.4); }
+  }
+  .cta-btn .ext-icon { width: 36px; height: 36px; border-radius: 10px; background: var(--navy); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .cta-btn .ext-icon svg { width: 18px; height: 18px; }
+  .cta-btn-text { text-align: left; }
+  .cta-btn-text .top { font-size: 16px; font-weight: 700; display: block; }
+  .cta-btn-text .sub { font-size: 11.5px; font-weight: 400; color: var(--gray); display: block; margin-top: 1px; }
+
+  .cta-note { color: rgba(255,255,255,0.38); font-size: 11px; display: flex; align-items: center; gap: 5px; }
+  .dot-sep { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,255,255,0.25); }
+
+  /* ── Container ── */
+  .container { max-width: 860px; margin: 0 auto; padding: 0 20px 64px; }
+
+  .section-os-label { display: flex; align-items: center; gap: 14px; margin: 40px 0 28px; padding-bottom: 16px; border-bottom: 2px solid var(--light-gray); }
+  .os-badge { width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .os-badge.apple { background: #000; }
+  .os-badge.android { background: #3ddc84; }
+  .section-os-label-text h2 { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: var(--navy); }
+  .section-os-label-text span { font-size: 13px; color: var(--gray); }
+
+  .steps-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; }
+  .step-card {
+    background: #fff; border: 1px solid var(--light-gray);
+    border-radius: 16px; overflow: hidden; scroll-margin-top: 20px;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .step-card:hover { box-shadow: 0 8px 32px rgba(27,43,75,0.12); transform: translateY(-2px); }
+  .phone-mockup { background: var(--navy); padding: 14px 10px; display: flex; justify-content: center; min-height: 200px; align-items: center; }
+  .step-info { padding: 14px 14px 16px; }
+  .step-num-badge { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: var(--gold); color: #fff; font-size: 11px; font-weight: 700; margin-bottom: 8px; }
+  .step-info h3 { font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 4px; line-height: 1.3; }
+  .step-info p { font-size: 11.5px; color: var(--gray); line-height: 1.5; }
+
+  .section-divider { height: 1px; background: var(--light-gray); margin: 20px 0 0; }
+
+  /* ── Result ── */
+  .result-banner { margin-top: 40px; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); border-radius: 20px; padding: 32px 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center; }
+  .result-text h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: #fff; margin-bottom: 16px; }
+  .result-items { display: flex; flex-direction: column; gap: 10px; }
+  .result-item { display: flex; align-items: flex-start; gap: 10px; }
+  .check { width: 20px; height: 20px; border-radius: 50%; background: rgba(184,150,46,0.2); border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+  .check svg { width: 10px; height: 10px; }
+  .result-item span { color: rgba(255,255,255,0.8); font-size: 13px; line-height: 1.5; }
+  .result-visual { display: flex; justify-content: center; }
+  .home-screen-preview { background: linear-gradient(160deg, #1a1a3e 0%, #0d1b3e 100%); border-radius: 20px; padding: 16px; width: 140px; border: 2px solid rgba(255,255,255,0.1); }
+  .hs-time { color: rgba(255,255,255,0.5); font-size: 9px; text-align: center; margin-bottom: 12px; }
+  .app-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+  .app-icon-placeholder { width: 32px; height: 32px; border-radius: 8px; background: rgba(255,255,255,0.08); }
+  .app-icon-ozek { width: 32px; height: 32px; border-radius: 8px; background: var(--navy); border: 1.5px solid var(--gold); display: flex; align-items: center; justify-content: center; font-size: 8px; font-weight: 700; color: var(--gold); font-family: 'Cormorant Garamond', serif; }
+  .app-label { color: rgba(255,255,255,0.7); font-size: 8px; text-align: center; margin-top: 3px; }
+
+  @keyframes pulse-gold { 0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.18)} }
+  .tap-indicator { animation: pulse-gold 2s ease-in-out infinite; }
+
+  @media (max-width: 600px) { .result-banner { grid-template-columns: 1fr; } .result-visual { order: -1; } .steps-grid { grid-template-columns: repeat(2,1fr); } }
+</style>
+</head>
+<body id="body" class="lang-en">
+
+<!-- ── LANG BAR ── -->
+<div class="lang-bar">
+  <div class="lang-toggle">
+    <button class="lang-btn active" id="btn-en" onclick="setLang('en')">🇺🇸 EN</button>
+    <button class="lang-btn"        id="btn-tr" onclick="setLang('tr')">🇹🇷 TR</button>
+  </div>
+</div>
+
+<!-- ── HEADER ── -->
+<div class="header">
+  <div class="firm-badge">
+    <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="#d4af50" stroke-width="1.2"/><path d="M5 2v3l2 1" stroke="#d4af50" stroke-width="1.2" stroke-linecap="round"/></svg>
+    <span>Ozek Law Firm</span>
+  </div>
+
+  <h1 id="hdr-title"></h1>
+  <p class="subtitle" id="hdr-sub"></p>
+
+  <!-- STEP OVERVIEW -->
+  <div class="step-overview">
+    <div class="os-tabs">
+      <button class="os-tab active" id="tab-ios" onclick="switchOS('ios')">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        <span id="tab-ios-label"></span>
+      </button>
+      <button class="os-tab" id="tab-and" onclick="switchOS('android')">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85a.637.637 0 0 0-.83.22l-1.88 3.24a11.463 11.463 0 0 0-8.94 0L5.65 5.67a.643.643 0 0 0-.87-.2c-.28.18-.37.54-.22.83L6.4 9.48A10.78 10.78 0 0 0 1 18h22a10.78 10.78 0 0 0-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg>
+        <span id="tab-and-label"></span>
+      </button>
+    </div>
+
+    <!-- iOS row -->
+    <div class="steps-row active" id="row-ios">
+      <a class="mini-step" href="#ios-s1">
+        <div class="mini-step-icon">
+          <div class="mini-step-num">1</div>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+        </div>
+        <div class="mini-step-label" id="ios-lbl-1"></div>
+      </a>
+      <div class="step-arrow">›</div>
+      <a class="mini-step" href="#ios-s2">
+        <div class="mini-step-icon">
+          <div class="mini-step-num">2</div>
+          <!-- three horizontal dots = ··· -->
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <circle cx="8"  cy="13" r="2" fill="rgba(255,255,255,0.7)"/>
+            <circle cx="13" cy="13" r="2" fill="rgba(255,255,255,0.7)"/>
+            <circle cx="18" cy="13" r="2" fill="rgba(255,255,255,0.7)"/>
+          </svg>
+        </div>
+        <div class="mini-step-label" id="ios-lbl-2"></div>
+      </a>
+      <div class="step-arrow">›</div>
+      <a class="mini-step" href="#ios-s3">
+        <div class="mini-step-icon">
+          <div class="mini-step-num">3</div>
+          <!-- share box-with-arrow -->
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <rect x="8" y="10" width="10" height="11" rx="2" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" fill="none"/>
+            <path d="M13 14V6" stroke="rgba(255,255,255,0.7)" stroke-width="1.7" stroke-linecap="round"/>
+            <path d="M10 9l3-3 3 3" stroke="rgba(255,255,255,0.7)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="mini-step-label" id="ios-lbl-3"></div>
+      </a>
+      <div class="step-arrow">›</div>
+      <a class="mini-step" href="#ios-s4">
+        <div class="mini-step-icon">
+          <div class="mini-step-num">4</div>
+          <!-- chevron-down = "View More" -->
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <path d="M8 11l5 5 5-5" stroke="rgba(255,255,255,0.7)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="mini-step-label" id="ios-lbl-4"></div>
+      </a>
+      <div class="step-arrow">›</div>
+      <a class="mini-step" href="#ios-s5">
+        <div class="mini-step-icon">
+          <div class="mini-step-num">5</div>
+          <!-- plus-in-box = Add to Home Screen -->
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <rect x="5" y="5" width="16" height="16" rx="3" stroke="rgba(255,255,255,0.35)" stroke-width="1.4" fill="none"/>
+            <path d="M9 13h8M13 9v8" stroke="rgba(255,255,255,0.7)" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="mini-step-label" id="ios-lbl-5"></div>
+      </a>
+    </div>
+
+    <!-- Android row -->
+    <div class="steps-row" id="row-android">
+      <a class="mini-step" href="#and-s1">
+        <div class="mini-step-icon">
+          <div class="mini-step-num">1</div>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+        </div>
+        <div class="mini-step-label" id="and-lbl-1"></div>
+      </a>
+      <div class="step-arrow">›</div>
+      <a class="mini-step" href="#and-s2">
+        <div class="mini-step-icon">
+          <div class="mini-step-num">2</div>
+          <!-- share box-with-arrow (same as iOS step 3) -->
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <rect x="8" y="10" width="10" height="11" rx="2" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" fill="none"/>
+            <path d="M13 14V6" stroke="rgba(255,255,255,0.7)" stroke-width="1.7" stroke-linecap="round"/>
+            <path d="M10 9l3-3 3 3" stroke="rgba(255,255,255,0.7)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="mini-step-label" id="and-lbl-2"></div>
+      </a>
+      <div class="step-arrow">›</div>
+      <a class="mini-step" href="#and-s3">
+        <div class="mini-step-icon">
+          <div class="mini-step-num">3</div>
+          <!-- chevron-down V = View More -->
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <path d="M8 11l5 5 5-5" stroke="rgba(255,255,255,0.7)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="mini-step-label" id="and-lbl-3"></div>
+      </a>
+      <div class="step-arrow">›</div>
+      <a class="mini-step" href="#and-s4">
+        <div class="mini-step-icon">
+          <div class="mini-step-num">4</div>
+          <!-- plus = Add to Home Screen -->
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <path d="M13 7v12M7 13h12" stroke="rgba(255,255,255,0.7)" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="mini-step-label" id="and-lbl-4"></div>
+      </a>
+    </div>
+
+    <div class="scroll-hint">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      <span id="scroll-hint-text"></span>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <div class="cta-step-label" id="cta-label"></div>
+    <a href="https://ozek-law.vercel.app/" target="_blank" rel="noopener noreferrer" class="cta-btn">
+      <div class="ext-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+          <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+        </svg>
+      </div>
+      <div class="cta-btn-text">
+        <span class="top" id="cta-main"></span>
+        <span class="sub" id="cta-sub"></span>
+      </div>
+    </a>
+    <div class="cta-note">
+      <span id="cta-note-ios"></span>
+      <span class="dot-sep"></span>
+      <span id="cta-note-and"></span>
+    </div>
+  </div>
+</div><!-- /header -->
+
+<!-- ═══════════ DETAILED STEPS ═══════════ -->
+<div class="container">
+
+  <!-- iPHONE -->
+  <div id="ios-steps">
+    <div class="section-os-label">
+      <div class="os-badge apple">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      </div>
+      <div class="section-os-label-text">
+        <h2>iPhone — Safari</h2>
+        <span id="ios-section-sub"></span>
+      </div>
+    </div>
+    <div class="steps-grid">
+
+      <div class="step-card" id="ios-s1">
+        <div class="phone-mockup">
+          <svg width="110" height="185" viewBox="0 0 110 185" fill="none">
+            <rect x="5" y="2" width="100" height="181" rx="16" fill="#1a1a2e" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+            <rect x="32" y="0" width="46" height="16" rx="8" fill="#0d0d1a"/>
+            <rect x="9" y="17" width="92" height="162" rx="4" fill="#0f1729"/>
+            <rect x="13" y="21" width="84" height="14" rx="4" fill="rgba(255,255,255,0.08)"/>
+            <text x="55" y="31" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="6" font-family="sans-serif">ozek-law.vercel.app</text>
+            <rect x="13" y="40" width="84" height="30" rx="3" fill="#1B2B4B"/>
+            <text x="55" y="59" text-anchor="middle" fill="#B8962E" font-size="8" font-weight="700" font-family="serif">OZEK LAW FIRM</text>
+            <rect x="13" y="74" width="55" height="4" rx="2" fill="rgba(255,255,255,0.12)"/>
+            <rect x="13" y="82" width="45" height="3" rx="2" fill="rgba(255,255,255,0.07)"/>
+            <rect x="13" y="94" width="84" height="10" rx="3" fill="rgba(184,150,46,0.15)" stroke="rgba(184,150,46,0.3)" stroke-width="0.8"/>
+            <text x="55" y="101.5" text-anchor="middle" fill="#B8962E" font-size="6" font-family="sans-serif">Client Portal →</text>
+            <rect x="9" y="163" width="92" height="12" rx="2" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.07)" stroke-width="0.5"/>
+            <text x="55" y="171" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="5" font-family="sans-serif">Safari</text>
+          </svg>
+        </div>
+        <div class="step-info">
+          <div class="step-num-badge">1</div>
+          <h3 id="ios-c1-h"></h3>
+          <p id="ios-c1-p"></p>
+        </div>
+      </div>
+
+      <div class="step-card" id="ios-s2">
+        <div class="phone-mockup">
+          <svg width="110" height="185" viewBox="0 0 110 185" fill="none">
+            <!-- phone body -->
+            <rect x="5" y="2" width="100" height="181" rx="16" fill="#1a1a2e" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+            <rect x="32" y="0" width="46" height="16" rx="8" fill="#0d0d1a"/>
+            <rect x="9" y="17" width="92" height="162" rx="4" fill="#0f1729"/>
+            <!-- URL bar -->
+            <rect x="13" y="21" width="84" height="14" rx="4" fill="rgba(255,255,255,0.08)"/>
+            <text x="42" y="31" fill="rgba(255,255,255,0.45)" font-size="6" font-family="sans-serif">ozek-law.vercel.app</text>
+            <!-- THREE DOTS highlighted at far right of URL bar -->
+            <g class="tap-indicator">
+              <rect x="84" y="22" width="11" height="12" rx="3" fill="rgba(184,150,46,0.3)" stroke="#B8962E" stroke-width="1.2"/>
+              <circle cx="87.5" cy="28" r="1.2" fill="#B8962E"/>
+              <circle cx="90.5" cy="28" r="1.2" fill="#B8962E"/>
+              <circle cx="93.5" cy="28" r="1.2" fill="#B8962E"/>
+            </g>
+            <!-- label arrow -->
+            <text x="55" y="46" text-anchor="middle" fill="#d4af50" font-size="6" font-family="sans-serif" font-weight="600">Tap ··· here ↑</text>
+            <!-- page content -->
+            <rect x="13" y="54" width="84" height="28" rx="3" fill="#1B2B4B"/>
+            <text x="55" y="72" text-anchor="middle" fill="#B8962E" font-size="8" font-weight="700" font-family="serif">OZEK LAW FIRM</text>
+            <rect x="13" y="86" width="55" height="3" rx="2" fill="rgba(255,255,255,0.1)"/>
+            <rect x="13" y="93" width="45" height="3" rx="2" fill="rgba(255,255,255,0.07)"/>
+            <!-- bottom Safari bar -->
+            <rect x="9" y="163" width="92" height="12" rx="2" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.07)" stroke-width="0.5"/>
+            <text x="55" y="171" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="5" font-family="sans-serif">Safari</text>
+          </svg>
+        </div>
+        <div class="step-info">
+          <div class="step-num-badge">2</div>
+          <h3 id="ios-c2-h"></h3>
+          <p id="ios-c2-p"></p>
+        </div>
+      </div>
+
+      <div class="step-card" id="ios-s3">
+        <div class="phone-mockup">
+          <svg width="110" height="185" viewBox="0 0 110 185" fill="none">
+            <!-- phone body -->
+            <rect x="5" y="2" width="100" height="181" rx="16" fill="#1a1a2e" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+            <rect x="32" y="0" width="46" height="16" rx="8" fill="#0d0d1a"/>
+            <rect x="9" y="17" width="92" height="162" rx="4" fill="#0f1729"/>
+            <!-- URL bar dimmed -->
+            <rect x="13" y="21" width="84" height="14" rx="4" fill="rgba(255,255,255,0.05)"/>
+            <text x="42" y="31" fill="rgba(255,255,255,0.3)" font-size="6" font-family="sans-serif">ozek-law.vercel.app</text>
+            <!-- dim overlay -->
+            <rect x="9" y="37" width="92" height="142" rx="4" fill="rgba(0,0,0,0.45)"/>
+            <!-- dropdown from ··· dots (top right area) -->
+            <rect x="42" y="37" width="56" height="90" rx="8" fill="#1e2a45" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
+            <!-- menu items -->
+            <text x="52" y="55" fill="rgba(255,255,255,0.45)" font-size="6.5" font-family="sans-serif">Reload Page</text>
+            <line x1="46" y1="60" x2="94" y2="60" stroke="rgba(255,255,255,0.07)" stroke-width="0.5"/>
+            <text x="52" y="73" fill="rgba(255,255,255,0.45)" font-size="6.5" font-family="sans-serif">Add Bookmark</text>
+            <line x1="46" y1="78" x2="94" y2="78" stroke="rgba(255,255,255,0.07)" stroke-width="0.5"/>
+            <!-- SHARE — highlighted -->
+            <rect x="42" y="81" width="56" height="18" rx="0" fill="rgba(184,150,46,0.22)"/>
+            <text x="52" y="93" fill="#B8962E" font-size="6.5" font-weight="700" font-family="sans-serif">↑  Share…</text>
+            <circle cx="40" cy="90" r="5" fill="rgba(184,150,46,0.35)" class="tap-indicator"/>
+            <line x1="46" y1="99" x2="94" y2="99" stroke="rgba(255,255,255,0.07)" stroke-width="0.5"/>
+            <text x="52" y="112" fill="rgba(255,255,255,0.45)" font-size="6.5" font-family="sans-serif">Find on Page</text>
+          </svg>
+        </div>
+        <div class="step-info">
+          <div class="step-num-badge">3</div>
+          <h3 id="ios-c3-h"></h3>
+          <p id="ios-c3-p"></p>
+        </div>
+      </div>
+
+      <!-- iOS Step 4 — View More -->
+      <div class="step-card" id="ios-s4">
+        <div class="phone-mockup">
+          <svg width="110" height="185" viewBox="0 0 110 185" fill="none">
+            <!-- phone body -->
+            <rect x="5" y="2" width="100" height="181" rx="16" fill="#1a1a2e" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+            <rect x="32" y="0" width="46" height="16" rx="8" fill="#0d0d1a"/>
+            <rect x="9" y="17" width="92" height="162" rx="4" fill="#0f1729"/>
+            <!-- dim bg -->
+            <rect x="9" y="17" width="92" height="162" rx="4" fill="rgba(0,0,0,0.5)"/>
+            <!-- share sheet from bottom -->
+            <rect x="9" y="80" width="92" height="99" rx="14" fill="#1e2a45"/>
+            <rect x="47" y="85" width="16" height="3" rx="2" fill="rgba(255,255,255,0.18)"/>
+            <text x="55" y="100" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="6" font-family="sans-serif">Share</text>
+            <!-- icon row -->
+            <rect x="16" y="104" width="15" height="15" rx="4" fill="rgba(255,255,255,0.07)"/>
+            <rect x="34" y="104" width="15" height="15" rx="4" fill="rgba(255,255,255,0.07)"/>
+            <rect x="52" y="104" width="15" height="15" rx="4" fill="rgba(255,255,255,0.07)"/>
+            <rect x="70" y="104" width="15" height="15" rx="4" fill="rgba(255,255,255,0.07)"/>
+            <!-- Copy Link row -->
+            <rect x="13" y="126" width="84" height="15" rx="4" fill="rgba(255,255,255,0.04)"/>
+            <text x="55" y="136.5" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="6.5" font-family="sans-serif">Copy Link</text>
+            <!-- VIEW MORE row — highlighted -->
+            <rect x="13" y="144" width="84" height="16" rx="4" fill="rgba(184,150,46,0.22)" stroke="#B8962E" stroke-width="1.2"/>
+            <text x="22" y="155" fill="#B8962E" font-size="6.5" font-weight="700" font-family="sans-serif">View More</text>
+            <!-- chevron-down V icon on the right -->
+            <path d="M83 150l3.5 4 3.5-4" stroke="#B8962E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="tap-indicator"/>
+            <circle cx="93" cy="152" r="5" fill="rgba(184,150,46,0.25)" class="tap-indicator"/>
+          </svg>
+        </div>
+        <div class="step-info">
+          <div class="step-num-badge">4</div>
+          <h3 id="ios-c4-h"></h3>
+          <p id="ios-c4-p"></p>
+        </div>
+      </div>
+
+      <!-- iOS Step 5 — Add to Home Screen -->
+      <div class="step-card" id="ios-s5">
+        <div class="phone-mockup">
+          <svg width="110" height="185" viewBox="0 0 110 185" fill="none">
+            <!-- phone body -->
+            <rect x="5" y="2" width="100" height="181" rx="16" fill="#1a1a2e" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+            <rect x="32" y="0" width="46" height="16" rx="8" fill="#0d0d1a"/>
+            <rect x="9" y="17" width="92" height="162" rx="4" fill="#0f1729"/>
+            <!-- dim bg -->
+            <rect x="9" y="17" width="92" height="162" rx="4" fill="rgba(0,0,0,0.5)"/>
+            <!-- share sheet expanded list -->
+            <rect x="9" y="60" width="92" height="119" rx="14" fill="#1e2a45"/>
+            <rect x="47" y="65" width="16" height="3" rx="2" fill="rgba(255,255,255,0.18)"/>
+            <text x="55" y="80" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="6" font-family="sans-serif">All Actions</text>
+            <!-- rows -->
+            <rect x="13" y="85" width="84" height="14" rx="4" fill="rgba(255,255,255,0.04)"/>
+            <text x="22" y="95" fill="rgba(255,255,255,0.35)" font-size="6.5" font-family="sans-serif">📋  Copy Link</text>
+            <rect x="13" y="102" width="84" height="14" rx="4" fill="rgba(255,255,255,0.04)"/>
+            <text x="22" y="112" fill="rgba(255,255,255,0.35)" font-size="6.5" font-family="sans-serif">📤  Add Bookmark</text>
+            <!-- ADD TO HOME SCREEN highlighted -->
+            <rect x="13" y="119" width="84" height="17" rx="4" fill="rgba(184,150,46,0.22)" stroke="#B8962E" stroke-width="1.2"/>
+            <text x="22" y="130" fill="#B8962E" font-size="8" font-family="sans-serif">⊞</text>
+            <text x="32" y="130" fill="#B8962E" font-size="6.5" font-weight="700" font-family="sans-serif">Add to Home Screen</text>
+            <circle cx="91" cy="127.5" r="5" fill="rgba(184,150,46,0.35)" class="tap-indicator"/>
+            <rect x="13" y="139" width="84" height="14" rx="4" fill="rgba(255,255,255,0.04)"/>
+            <text x="22" y="149" fill="rgba(255,255,255,0.35)" font-size="6.5" font-family="sans-serif">🖨️  Print</text>
+          </svg>
+        </div>
+        <div class="step-info">
+          <div class="step-num-badge">5</div>
+          <h3 id="ios-c5-h"></h3>
+          <p id="ios-c5-p"></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ANDROID -->
+  <div id="android-steps">
+    <div class="section-os-label">
+      <div class="os-badge android">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M6 18c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h2v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48C13.85 1.23 12.95 1 12 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31C6.97 3.26 6 5.01 6 7h12c0-1.99-.97-3.75-2.47-4.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z"/></svg>
+      </div>
+      <div class="section-os-label-text">
+        <h2>Android — Chrome</h2>
+        <span id="and-section-sub"></span>
+      </div>
+    </div>
+    <div class="steps-grid">
+
+      <div class="step-card" id="and-s1">
+        <div class="phone-mockup">
+          <svg width="110" height="185" viewBox="0 0 110 185" fill="none">
+            <rect x="5" y="2" width="100" height="181" rx="12" fill="#1a1a2e" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+            <rect x="9" y="6" width="92" height="12" fill="rgba(255,255,255,0.02)"/>
+            <text x="14" y="14.5" fill="rgba(255,255,255,0.4)" font-size="6" font-family="sans-serif">9:41</text>
+            <rect x="9" y="20" width="92" height="16" fill="rgba(20,30,55,0.95)"/>
+            <rect x="13" y="22" width="75" height="12" rx="4" fill="rgba(255,255,255,0.08)"/>
+            <text x="50" y="30" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="6" font-family="sans-serif">ozek-law.vercel.app</text>
+            <circle cx="92" cy="28" r="1.2" fill="rgba(255,255,255,0.45)"/>
+            <circle cx="96" cy="28" r="1.2" fill="rgba(255,255,255,0.45)"/>
+            <circle cx="100" cy="28" r="1.2" fill="rgba(255,255,255,0.45)"/>
+            <rect x="9" y="38" width="92" height="141" fill="#0f1729"/>
+            <rect x="13" y="44" width="84" height="30" rx="3" fill="#1B2B4B"/>
+            <text x="55" y="63" text-anchor="middle" fill="#B8962E" font-size="8" font-weight="700" font-family="serif">OZEK LAW FIRM</text>
+            <rect x="13" y="78" width="55" height="4" rx="2" fill="rgba(255,255,255,0.12)"/>
+            <rect x="13" y="94" width="84" height="10" rx="3" fill="rgba(184,150,46,0.15)" stroke="rgba(184,150,46,0.3)" stroke-width="0.8"/>
+            <text x="55" y="101.5" text-anchor="middle" fill="#B8962E" font-size="6" font-family="sans-serif">Client Portal →</text>
+          </svg>
+        </div>
+        <div class="step-info">
+          <div class="step-num-badge">1</div>
+          <h3 id="and-c1-h"></h3>
+          <p id="and-c1-p"></p>
+        </div>
+      </div>
+
+      <div class="step-card" id="and-s2">
+        <div class="phone-mockup">
+          <svg width="110" height="185" viewBox="0 0 110 185" fill="none">
+            <!-- phone body -->
+            <rect x="5" y="2" width="100" height="181" rx="12" fill="#1a1a2e" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+            <rect x="9" y="6" width="92" height="12" fill="rgba(255,255,255,0.02)"/>
+            <text x="14" y="14.5" fill="rgba(255,255,255,0.4)" font-size="6" font-family="sans-serif">9:41</text>
+            <!-- Chrome address bar -->
+            <rect x="9" y="20" width="92" height="16" fill="rgba(20,30,55,0.95)"/>
+            <rect x="13" y="22" width="64" height="12" rx="4" fill="rgba(255,255,255,0.08)"/>
+            <text x="44" y="30" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="6" font-family="sans-serif">ozek-law.vercel.app</text>
+            <!-- SHARE ICON highlighted at right of address bar -->
+            <g class="tap-indicator">
+              <rect x="79" y="22" width="12" height="12" rx="3" fill="rgba(184,150,46,0.3)" stroke="#B8962E" stroke-width="1.2"/>
+              <!-- share arrow up from box -->
+              <path d="M85 30V26" stroke="#B8962E" stroke-width="1.4" stroke-linecap="round"/>
+              <path d="M83 27.5L85 25.5L87 27.5" stroke="#B8962E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M82.5 29H87.5" stroke="#B8962E" stroke-width="1.1" stroke-linecap="round"/>
+            </g>
+            <!-- three dots (not highlighted) -->
+            <circle cx="96" cy="28" r="1.1" fill="rgba(255,255,255,0.4)"/>
+            <circle cx="99" cy="28" r="1.1" fill="rgba(255,255,255,0.4)"/>
+            <circle cx="102" cy="28" r="1.1" fill="rgba(255,255,255,0.4)"/>
+            <!-- label -->
+            <text x="55" y="48" text-anchor="middle" fill="#d4af50" font-size="6" font-family="sans-serif" font-weight="600">Tap Share ↑ here</text>
+            <!-- page content -->
+            <rect x="9" y="38" width="92" height="141" fill="#0f1729"/>
+            <rect x="13" y="55" width="84" height="28" rx="3" fill="#1B2B4B"/>
+            <text x="55" y="73" text-anchor="middle" fill="#B8962E" font-size="8" font-weight="700" font-family="serif">OZEK LAW FIRM</text>
+            <rect x="13" y="88" width="55" height="3" rx="2" fill="rgba(255,255,255,0.1)"/>
+          </svg>
+        </div>
+        <div class="step-info">
+          <div class="step-num-badge">2</div>
+          <h3 id="and-c2-h"></h3>
+          <p id="and-c2-p"></p>
+        </div>
+      </div>
+
+      <div class="step-card" id="and-s3">
+        <div class="phone-mockup">
+          <svg width="110" height="185" viewBox="0 0 110 185" fill="none">
+            <!-- phone body -->
+            <rect x="5" y="2" width="100" height="181" rx="12" fill="#1a1a2e" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+            <rect x="9" y="6" width="92" height="12" fill="rgba(255,255,255,0.02)"/>
+            <rect x="9" y="20" width="92" height="16" fill="rgba(20,30,55,0.95)"/>
+            <!-- dim bg -->
+            <rect x="9" y="36" width="92" height="143" fill="rgba(0,0,0,0.45)"/>
+            <!-- share sheet from bottom -->
+            <rect x="9" y="82" width="92" height="97" rx="14" fill="#1e2a45"/>
+            <rect x="47" y="87" width="16" height="3" rx="2" fill="rgba(255,255,255,0.18)"/>
+            <text x="55" y="101" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="6" font-family="sans-serif">Share via</text>
+            <!-- app icon row -->
+            <rect x="14" y="105" width="14" height="14" rx="4" fill="rgba(255,255,255,0.07)"/>
+            <rect x="31" y="105" width="14" height="14" rx="4" fill="rgba(255,255,255,0.07)"/>
+            <rect x="48" y="105" width="14" height="14" rx="4" fill="rgba(255,255,255,0.07)"/>
+            <rect x="65" y="105" width="14" height="14" rx="4" fill="rgba(255,255,255,0.07)"/>
+            <!-- MORE button highlighted -->
+            <rect x="82" y="105" width="18" height="14" rx="4" fill="rgba(184,150,46,0.25)" stroke="#B8962E" stroke-width="1.1" class="tap-indicator"/>
+            <!-- 2×2 grid icon inside -->
+            <rect x="85"  y="108.5" width="4" height="4" rx="0.8" fill="#B8962E"/>
+            <rect x="91"  y="108.5" width="4" height="4" rx="0.8" fill="#B8962E"/>
+            <rect x="85"  y="113.5" width="4" height="4" rx="0.8" fill="#B8962E"/>
+            <rect x="91"  y="113.5" width="4" height="4" rx="0.8" fill="#B8962E"/>
+            <text x="91" y="127" text-anchor="middle" fill="#B8962E" font-size="5.5" font-family="sans-serif">More</text>
+            <!-- list items below -->
+            <rect x="13" y="130" width="84" height="15" rx="4" fill="rgba(255,255,255,0.04)"/>
+            <text x="55" y="140.5" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="6.5" font-family="sans-serif">Copy link</text>
+            <rect x="13" y="149" width="84" height="15" rx="4" fill="rgba(255,255,255,0.04)"/>
+            <text x="55" y="159.5" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="6.5" font-family="sans-serif">Send via email</text>
+          </svg>
+        </div>
+        <div class="step-info">
+          <div class="step-num-badge">3</div>
+          <h3 id="and-c3-h"></h3>
+          <p id="and-c3-p"></p>
+        </div>
+      </div>
+
+      <!-- Android Step 4 — Confirm Add -->
+      <div class="step-card" id="and-s4">
+        <div class="phone-mockup">
+          <svg width="110" height="185" viewBox="0 0 110 185" fill="none">
+            <rect x="5" y="2" width="100" height="181" rx="12" fill="#1a1a2e" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+            <rect x="9" y="6" width="92" height="12" fill="rgba(255,255,255,0.02)"/>
+            <text x="14" y="14.5" fill="rgba(255,255,255,0.4)" font-size="6" font-family="sans-serif">9:41</text>
+            <rect x="9" y="20" width="92" height="16" fill="rgba(20,30,55,0.95)"/>
+            <rect x="9" y="36" width="92" height="143" fill="#0f1729"/>
+            <!-- Confirmation dialog -->
+            <rect x="14" y="52" width="82" height="108" rx="12" fill="#1e2a45" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
+            <!-- App icon -->
+            <rect x="38" y="64" width="34" height="34" rx="10" fill="#1B2B4B" stroke="rgba(184,150,46,0.5)" stroke-width="1.5"/>
+            <text x="55" y="79" text-anchor="middle" fill="#B8962E" font-size="7" font-weight="700" font-family="serif">OZEK</text>
+            <text x="55" y="88" text-anchor="middle" fill="rgba(184,150,46,0.6)" font-size="4.5" font-family="sans-serif">LAW FIRM</text>
+            <!-- Dialog text -->
+            <text x="55" y="110" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-size="7" font-weight="600" font-family="sans-serif">Add to Home screen?</text>
+            <text x="55" y="121" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="5.5" font-family="sans-serif">ozek-law.vercel.app</text>
+            <!-- Buttons -->
+            <rect x="18" y="130" width="34" height="14" rx="7" fill="rgba(255,255,255,0.06)"/>
+            <text x="35" y="140" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="6.5" font-family="sans-serif">Cancel</text>
+            <!-- ADD button highlighted -->
+            <g class="tap-indicator">
+              <rect x="58" y="130" width="34" height="14" rx="7" fill="rgba(184,150,46,0.3)" stroke="#B8962E" stroke-width="1.3"/>
+              <text x="75" y="140" text-anchor="middle" fill="#B8962E" font-size="6.5" font-weight="700" font-family="sans-serif">Add</text>
+            </g>
+          </svg>
+        </div>
+        <div class="step-info">
+          <div class="step-num-badge">4</div>
+          <h3 id="and-c4-h"></h3>
+          <p id="and-c4-p"></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RESULT -->
+  <div class="result-banner">
+    <div class="result-text">
+      <h3 id="result-title"></h3>
+      <div class="result-items">
+        <div class="result-item"><div class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#B8962E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span id="r1"></span></div>
+        <div class="result-item"><div class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#B8962E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span id="r2"></span></div>
+        <div class="result-item"><div class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#B8962E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span id="r3"></span></div>
+        <div class="result-item"><div class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#B8962E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span id="r4"></span></div>
+      </div>
+    </div>
+    <div class="result-visual">
+      <div class="home-screen-preview">
+        <div class="hs-time">9:41 AM</div>
+        <div class="app-grid">
+          <div class="app-icon-placeholder"></div>
+          <div class="app-icon-placeholder"></div>
+          <div class="app-icon-placeholder"></div>
+          <div class="app-icon-placeholder"></div>
+          <div><div class="app-icon-ozek">OL</div><div class="app-label">Ozek Law</div></div>
+          <div class="app-icon-placeholder"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<script>
+/* ─────────────────────────────────────
+   ALL TEXT IN ONE PLACE — nothing lives
+   in HTML, so there is zero bleed-through
+   between languages.
+───────────────────────────────────── */
+const copy = {
+  en: {
+    title:       'Install Our App<br><em>No App Store Needed</em>',
+    subtitle:    'Follow these 4 quick steps — then tap the button to get started.',
+    tabIos:      'iPhone (Safari)',
+    tabAnd:      'Android (Chrome)',
+    iosLbls:     ['Open in Safari', 'Tap ··· Dots', 'Tap Share', 'Tap View More', 'Add to Home Screen'],
+    andLbls:     ['Open in Chrome', 'Tap Share', 'Tap View More', 'Add to Home Screen'],
+    scrollHint:  'Tap a step above or scroll down to see the visual guide',
+    ctaLabel:    '✦ Now do Step 1 — Open the App',
+    ctaMain:     'Open ozek-law.vercel.app',
+    ctaSub:      'Then follow Steps 2 · 3 · 4 · 5 below ↓',
+    ctaNoteIos:  'iPhone: open in Safari',
+    ctaNoteAnd:  'Android: open in Chrome',
+    iosSectionSub: 'Steps 2 · 3 · 4 · 5 after opening the app above',
+    andSectionSub: 'Steps 2 · 3 · 4 after opening the app above',
+    ios: [
+      { h: 'Open in Safari',         p: 'Tap the button above. <strong>Safari only</strong> — not Chrome.' },
+      { h: 'Tap ··· Next to URL',    p: 'Tap the <strong>three dots (···)</strong> at the right end of the address bar.' },
+      { h: 'Tap Share',              p: 'In the dropdown, tap <strong>"Share"</strong> to open the share sheet.' },
+      { h: 'Tap View More',          p: 'In the share sheet, tap <strong>"View More"</strong> (the chevron ❯) to see all options.' },
+      { h: 'Add to Home Screen',     p: 'Tap <strong>"Add to Home Screen"</strong> then confirm by tapping <strong>"Add."</strong>' },
+    ],
+    and: [
+      { h: 'Open in Chrome',         p: 'Tap the button above. <strong>Chrome only</strong> — not another browser.' },
+      { h: 'Tap Share Next to URL',  p: 'Tap the <strong>Share icon (↑)</strong> at the right end of the address bar.' },
+      { h: 'Tap View More',          p: 'In the share sheet, tap the <strong>View More (∨)</strong> button to expand all options.' },
+      { h: 'Add to Home Screen',     p: 'Find and tap <strong>"Add to Home Screen"</strong>, then tap <strong>"Add"</strong> to confirm.' },
+    ],
+    resultTitle: 'You\'re all set ✦',
+    results: [
+      'App icon appears on your home screen',
+      'Opens instantly — no browser tabs',
+      'No App Store download required',
+      'One tap access anytime',
+    ],
+  },
+  tr: {
+    title:       'Uygulamamızı Yükleyin<br><em>Uygulama Mağazası Gerekmez</em>',
+    subtitle:    'Bu 4 hızlı adımı takip edin — sonra düğmeye tıklayarak başlayın.',
+    tabIos:      'iPhone (Safari)',
+    tabAnd:      'Android (Chrome)',
+    iosLbls:     ['Safari\'de Aç', '··· Noktalara Dokun', 'Paylaş\'a Dokun', 'Daha Fazla\'ya Dokun', 'Ana Ekrana Ekle'],
+    andLbls:     ['Chrome\'da Aç', 'Paylaş\'a Dokun', 'Daha Fazla\'ya Dokun', 'Ana Ekrana Ekle'],
+    scrollHint:  'Yukarıdaki adımlara veya görsel kılavuz için aşağı kaydırın',
+    ctaLabel:    '✦ Şimdi 1. Adım — Uygulamayı Açın',
+    ctaMain:     'ozek-law.vercel.app\'ı Aç',
+    ctaSub:      'Sonra aşağıdaki 2 · 3 · 4 · 5. adımları takip edin ↓',
+    ctaNoteIos:  'iPhone: Safari\'de açın',
+    ctaNoteAnd:  'Android: Chrome\'da açın',
+    iosSectionSub: 'Uygulamayı açtıktan sonra 2 · 3 · 4 · 5. adımlar',
+    andSectionSub: 'Uygulamayı açtıktan sonra 2 · 3 · 4. adımlar',
+    ios: [
+      { h: 'Safari\'de Aç',                p: 'Yukarıdaki düğmeye dokunun. <strong>Yalnızca Safari</strong> — Chrome değil.' },
+      { h: 'URL\'deki ··· Noktalar',       p: 'Adres çubuğunun sağındaki <strong>üç noktaya (···)</strong> dokunun.' },
+      { h: 'Paylaş\'a Dokun',              p: 'Açılan menüde <strong>"Paylaş"</strong> seçeneğine dokunun.' },
+      { h: 'Daha Fazla\'ya Dokun',         p: 'Paylaş menüsünde <strong>"Daha Fazla"</strong> (❯ simgesi) seçeneğine dokunun.' },
+      { h: 'Ana Ekrana Ekle',              p: '<strong>"Ana Ekrana Ekle"</strong> seçeneğine dokunun ve <strong>"Ekle"</strong> ile onaylayın.' },
+    ],
+    and: [
+      { h: 'Chrome\'da Aç',                p: 'Yukarıdaki düğmeye dokunun. <strong>Yalnızca Chrome</strong> — başka tarayıcı değil.' },
+      { h: 'URL\'deki Paylaş Simgesi',     p: 'Adres çubuğunun sağındaki <strong>Paylaş simgesine (↑)</strong> dokunun.' },
+      { h: 'Daha Fazla\'ya Dokun',         p: 'Paylaş menüsünde <strong>∨ Daha Fazla</strong> düğmesine dokunarak tüm seçenekleri açın.' },
+      { h: 'Ana Ekrana Ekle',              p: '<strong>"Ana Ekrana Ekle"</strong> seçeneğine dokunun ve ardından <strong>"Ekle"</strong> ile onaylayın.' },
+    ],
+    resultTitle: 'Hazırsınız ✦',
+    results: [
+      'Ana ekranda uygulama simgesi belirir',
+      'Anında açılır — tarayıcı sekmesi yok',
+      'Uygulama Mağazasından indirme gerekmez',
+      'İstediğiniz zaman tek dokunuşla erişim',
+    ],
+  },
+};
+
+let currentLang = 'en';
+
+function applyLang(lang) {
+  const t = copy[lang];
+  currentLang = lang;
+
+  // Header
+  document.getElementById('hdr-title').innerHTML = t.title;
+  document.getElementById('hdr-sub').textContent  = t.subtitle;
+
+  // Tabs
+  document.getElementById('tab-ios-label').textContent = t.tabIos;
+  document.getElementById('tab-and-label').textContent = t.tabAnd;
+
+  // Mini-step labels
+  ['ios','and'].forEach(os => {
+    t[os + 'Lbls'].forEach((lbl, i) => {
+      document.getElementById(`${os}-lbl-${i+1}`).textContent = lbl;
+    });
+  });
+
+  // Scroll hint & CTA
+  document.getElementById('scroll-hint-text').textContent = t.scrollHint;
+  document.getElementById('cta-label').textContent         = t.ctaLabel;
+  document.getElementById('cta-main').textContent          = t.ctaMain;
+  document.getElementById('cta-sub').textContent           = t.ctaSub;
+  document.getElementById('cta-note-ios').textContent      = t.ctaNoteIos;
+  document.getElementById('cta-note-and').textContent      = t.ctaNoteAnd;
+
+  // Section subtitles
+  document.getElementById('ios-section-sub').textContent = t.iosSectionSub;
+  document.getElementById('and-section-sub').textContent = t.andSectionSub;
+
+  // Step cards
+  t.ios.forEach((s, i) => {
+    document.getElementById(`ios-c${i+1}-h`).textContent = s.h;
+    document.getElementById(`ios-c${i+1}-p`).innerHTML   = s.p;
+  });
+  t.and.forEach((s, i) => {
+    document.getElementById(`and-c${i+1}-h`).textContent = s.h;
+    document.getElementById(`and-c${i+1}-p`).innerHTML   = s.p;
+  });
+
+  // Result
+  document.getElementById('result-title').textContent = t.resultTitle;
+  t.results.forEach((r, i) => { document.getElementById(`r${i+1}`).textContent = r; });
+
+  // Buttons
+  document.getElementById('btn-en').className = 'lang-btn' + (lang === 'en' ? ' active' : '');
+  document.getElementById('btn-tr').className = 'lang-btn' + (lang === 'tr' ? ' active' : '');
+}
+
+function setLang(lang) { applyLang(lang); }
+
+function switchOS(os) {
+  document.getElementById('row-ios').classList.toggle('active', os === 'ios');
+  document.getElementById('row-android').classList.toggle('active', os === 'android');
+  document.getElementById('tab-ios').classList.toggle('active', os === 'ios');
+  document.getElementById('tab-and').classList.toggle('active', os === 'android');
+}
+
+// Boot
+applyLang('en');
+</script>
+</body>
+</html>
