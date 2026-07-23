@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# local build previews + retired inject helper — never deploy
+_preview_build*.html
+inject-policy-footer.cjs
+public/ozek-policy-footer.js
+_preview_*.html
