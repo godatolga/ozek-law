@@ -334,8 +334,64 @@ function BottomNav({tab,setTab,isClient,t}){
   );
 }
 
+// ── Live newsletter feed from ozeklaw.com (WordPress REST) ────────────────
+function _decodeHtml(s){return String(s||"").replace(/&#8217;|&#8216;|&#039;|&rsquo;|&lsquo;/g,"’").replace(/&#8220;|&#8221;|&quot;|&ldquo;|&rdquo;/g,'"').replace(/&amp;/g,"&").replace(/&#8211;|&#8212;|&ndash;|&mdash;/g,"–").replace(/&nbsp;|&#160;/g," ").replace(/<[^>]+>/g,"").trim();}
+function _newsDate(d){try{return d?new Date(d).toLocaleDateString(undefined,{month:"short",day:"numeric"}):"";}catch(e){return "";}}
+function _newsEmoji(s){s=(s||"").toLowerCase();const M=[["immigration","🛂"],["visa","🛂"],["asylum","🕊️"],["business","🏢"],["corporate","🏢"],["litigation","⚖️"],["family","👨‍👩‍👧"],["injury","🚑"],["news","📰"]];for(let j=0;j<M.length;j++){if(s.indexOf(M[j][0])>=0)return M[j][1];}return "📰";}
+function _langOf(s){s=s||"";
+  if(/[؀-ۿ]/.test(s))return "ar";
+  if(/[一-鿿]/.test(s))return "zh";
+  if(/[Ѐ-ӿ]/.test(s))return "ru";
+  var l=s.toLowerCase();
+  if(/[şğı]/.test(l)||/\b(ve|için|yeni|nasıl|kural|kuralı|göç|başvuru|yeşil|kart|anlama|hakkı|güncel)\b/.test(l))return "tr";
+  if(/[ñ¿¡]/.test(l)||/\b(nueva|nuevo|regla|para|qué|años|cómo|guía|carga|pública|significa|verde|su)\b/.test(l))return "es";
+  if(/\b(nouvelle|règle|pour|comment|guide|carte|verte|ans|nouveau)\b/.test(l))return "fr";
+  return "en";}
+function useLiveNews(lang){
+  const [items,setItems]=useState(null);
+  useEffect(()=>{
+    let on=true;const want=lang||"en";
+    const base="https://ozeklaw.com/wp-json/wp/v2/posts?per_page=20&_embed";
+    const norm=(l)=>{
+      let arr=(l||[]).map(p=>{let slug="",name="News";try{const tm=p._embedded["wp:term"][0][0];slug=tm.slug||"";name=tm.name||"News";}catch(e){}const title=_decodeHtml(p.title&&p.title.rendered);return {title,link:p.link,cat:_decodeHtml(name),emoji:_newsEmoji(slug+" "+name),read:_newsDate(p.date),lg:_langOf(title)};}).filter(a=>a.title);
+      let pick=arr.filter(a=>a.lg===want);if(pick.length<1)pick=arr.filter(a=>a.lg==="en");arr=pick.length?pick:arr;
+      const seen={};arr=arr.filter(a=>{const k=a.title.slice(0,44);if(seen[k])return false;seen[k]=1;return true;});
+      return arr.slice(0,8);
+    };
+    fetch(base+"&lang="+encodeURIComponent(want)).then(r=>r.ok?r.json():Promise.reject(0)).then(l=>(Array.isArray(l)&&l.length)?l:Promise.reject(0))
+      .catch(()=>fetch(base).then(r=>r.json()))
+      .then(l=>{if(on)setItems(norm(l));})
+      .catch(()=>{if(on)setItems([]);});
+    return ()=>{on=false;};
+  },[lang]);
+  return items;
+}
+function newsList(news,lang){
+  if(news&&news.length)return news;
+  const titles=ARTICLE_TITLES[lang]||ARTICLE_TITLES.en;
+  return ARTICLES_META.map((a,i)=>({emoji:a.emoji,cat:a.cat,title:titles[i],read:a.read,link:"https://ozeklaw.com/newsletter/"}));
+}
+function PolicyFooter(){
+  const A=({href,children})=>(<a href={href} target="_blank" rel="noopener noreferrer" style={{color:"rgba(255,255,255,0.74)",textDecoration:"none",fontSize:12,fontWeight:500}}>{children}</a>);
+  const Dot=()=><span style={{color:"rgba(255,255,255,0.24)"}}>·</span>;
+  return(
+    <div style={{background:"#0A1628",padding:"26px 22px 34px",borderTop:"1px solid rgba(201,168,76,0.28)"}}>
+      <div style={{fontFamily:"'Playfair Display',serif",fontSize:16,fontWeight:700,color:"#FFFFFF",marginBottom:5}}>Ozek Law Firm, LLC</div>
+      <div style={{fontSize:12,color:"rgba(255,255,255,0.5)",lineHeight:1.65,marginBottom:15}}>4500 East West Highway, Ste 150<br/>Bethesda, MD 20814</div>
+      <div style={{display:"flex",flexWrap:"wrap",alignItems:"center",gap:"7px 11px",marginBottom:13}}>
+        <A href="https://ozeklaw.com/terms-of-service/">Terms of Service</A><Dot/>
+        <A href="https://ozeklaw.com/privacy-policy-ozek-law/">Privacy Policy</A><Dot/>
+        <A href="https://ozeklaw.com/application-privacy-data-practices/">Application Data Practices</A>
+      </div>
+      <div style={{fontSize:11,color:"rgba(255,255,255,0.4)"}}>© {new Date().getFullYear()} Ozek Law Firm, LLC. All rights reserved.</div>
+    </div>
+  );
+}
+
 function PublicHome({setTab,t,lang}){
   const[showBooking,setShowBooking]=useState(false);
+  const news=useLiveNews(lang);
+  const list=newsList(news,lang);
   const dir=LANGS[lang].dir;
   return(
     <>
@@ -402,12 +458,12 @@ function PublicHome({setTab,t,lang}){
           </div>
           <button onClick={()=>setTab("news")} style={{fontSize:13,color:C.gold,fontWeight:600,background:"none",border:"none",cursor:"pointer"}}>{t.seeAll}</button>
         </div>
-        {ARTICLES_META.slice(0,3).map((a,i)=>(
-          <div key={i} onClick={()=>window.open("https://ozeklaw.com/newsletter/","_blank")} style={{display:"flex",gap:14,alignItems:"center",padding:"14px 0",borderBottom:"1px solid rgba(0,0,0,0.07)",cursor:"pointer"}}>
+        {list.slice(0,3).map((a,i)=>(
+          <div key={i} onClick={()=>window.open(a.link||"https://ozeklaw.com/newsletter/","_blank")} style={{display:"flex",gap:14,alignItems:"center",padding:"14px 0",borderBottom:"1px solid rgba(0,0,0,0.07)",cursor:"pointer"}}>
             <div style={{width:48,height:48,borderRadius:14,flexShrink:0,background:"rgba(201,168,76,0.08)",border:"1px solid rgba(201,168,76,0.15)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:22}}>{a.emoji}</div>
             <div style={{flex:1}}>
               <div style={{display:"flex",gap:7,marginBottom:5}}><Badge bg={C.goldPale} color={C.goldDim}>{a.cat}</Badge><span style={{fontSize:11,color:C.inkLo}}>{a.read}</span></div>
-              <div style={{fontSize:14,fontWeight:600,color:C.ink,lineHeight:1.35}}>{(ARTICLE_TITLES[lang]||ARTICLE_TITLES.en)[i]}</div>
+              <div style={{fontSize:14,fontWeight:600,color:C.ink,lineHeight:1.35}}>{a.title}</div>
             </div>
             <span style={{color:C.gold,fontSize:19,opacity:0.7}}>›</span>
           </div>
@@ -425,6 +481,7 @@ function PublicHome({setTab,t,lang}){
           </div>
         </div>
       </div>
+      <PolicyFooter/>
     </div>
     {showBooking&&<BookingModal onClose={()=>setShowBooking(false)}/>}
     </>
@@ -434,6 +491,8 @@ function PublicHome({setTab,t,lang}){
 function NewsPage({t,lang}){
   const[sub,setSub]=useState("");const[done,setDone]=useState(false);
   const[newsTab,setNewsTab]=useState("news");
+  const news=useLiveNews(lang);
+  const list=newsList(news,lang);
   const dir=LANGS[lang].dir;
   if(newsTab==="regs") return <RegsPage t={t} lang={lang} onBack={()=>setNewsTab("news")}/>;
   const VB_FAM=[
@@ -491,10 +550,10 @@ function NewsPage({t,lang}){
             )}
           </div>
           <div style={{fontSize:15,fontWeight:700,color:C.ink,marginBottom:12}}>{t.articles}</div>
-          {ARTICLES_META.map((a,i)=>(
-            <div key={i} onClick={()=>window.open("https://ozeklaw.com/newsletter/","_blank")} style={{display:"flex",gap:12,alignItems:"center",background:"#FFFFFF",borderRadius:18,padding:"14px",marginBottom:9,border:"1px solid rgba(0,0,0,0.05)",cursor:"pointer"}}>
+          {list.map((a,i)=>(
+            <div key={i} onClick={()=>window.open(a.link||"https://ozeklaw.com/newsletter/","_blank")} style={{display:"flex",gap:12,alignItems:"center",background:"#FFFFFF",borderRadius:18,padding:"14px",marginBottom:9,border:"1px solid rgba(0,0,0,0.05)",cursor:"pointer"}}>
               <div style={{width:44,height:44,borderRadius:12,background:"rgba(201,168,76,0.10)",border:"1px solid rgba(201,168,76,0.18)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:20,flexShrink:0}}>{a.emoji}</div>
-              <div style={{flex:1}}><div style={{display:"flex",gap:6,marginBottom:4}}><Badge bg="rgba(201,168,76,0.12)" color={C.goldDim}>{a.cat}</Badge><span style={{fontSize:11,color:C.inkLo}}>{a.read}</span></div><div style={{fontSize:14,fontWeight:600,color:C.ink,lineHeight:1.3}}>{(ARTICLE_TITLES[lang]||ARTICLE_TITLES.en)[i]}</div></div>
+              <div style={{flex:1}}><div style={{display:"flex",gap:6,marginBottom:4}}><Badge bg="rgba(201,168,76,0.12)" color={C.goldDim}>{a.cat}</Badge><span style={{fontSize:11,color:C.inkLo}}>{a.read}</span></div><div style={{fontSize:14,fontWeight:600,color:C.ink,lineHeight:1.3}}>{a.title}</div></div>
               <span style={{color:C.gold,fontSize:17,opacity:0.7}}>›</span>
             </div>
           ))}
