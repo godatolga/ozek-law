@@ -1041,7 +1041,10 @@ img{max-width:100%}
 /* ---------- gate ---------- */
 .oz-gate{position:fixed;inset:0;z-index:200;background:radial-gradient(120% 120% at 50% 0%,#16293D 0%,#0B1622 70%);display:flex;align-items:center;justify-content:center;padding:24px}
 .oz-gate-in{width:100%;max-width:440px;text-align:center;animation:ozFade .6s ease both}
-.oz-gate-logo{width:170px;margin:0 auto 36px;display:block;opacity:.95}
+.oz-gate-logo{width:170px;margin:0 auto 28px;display:block;opacity:.95}
+.oz-gate-lang{display:inline-flex;margin:0 0 22px;border:1px solid rgba(182,138,78,.5);border-radius:30px;overflow:hidden}
+.oz-gate-lang button{border:none;cursor:pointer;padding:7px 16px;font-family:inherit;font-size:11px;font-weight:600;letter-spacing:.1em;background:transparent;color:#7A8794}
+.oz-gate-lang button.on{background:#B68A4E;color:#0E1C2D}
 .oz-gate-h1{font-family:'Newsreader',Georgia,serif;font-weight:400;font-size:30px;line-height:1.25;color:#F4EFE6;margin:18px 0 14px}
 .oz-gate-p{font-size:14.5px;line-height:1.65;color:#9FB0C0;margin:0 0 30px}
 #oz-pw{width:100%;padding:15px 18px;background:rgba(255,255,255,.04);border:1px solid rgba(182,138,78,.45);border-radius:3px;color:#F4EFE6;font-family:inherit;font-size:15px;letter-spacing:.04em;outline:none;text-align:center}
@@ -1359,10 +1362,17 @@ var OZ = (function () {
   /* ---------- section builders ---------- */
 
   function sGate(t) {
+    // The nav is hidden behind the gate, so the language switch has to live
+    // here too — otherwise an English-speaking client meets a Turkish
+    // password screen with no way out.
     return '' +
       '<div id="oz-gate" class="oz-gate">' +
         '<div class="oz-gate-in">' +
           '<img src="' + A.logo + '" alt="Ozek Law Firm" class="oz-gate-logo">' +
+          '<div class="oz-gate-lang">' +
+            '<button data-lang="tr" class="' + (lang === 'tr' ? 'on' : '') + '">TR</button>' +
+            '<button data-lang="en" class="' + (lang === 'en' ? 'on' : '') + '">EN</button>' +
+          '</div>' +
           '<div class="eyebrow gold">' + esc(t.gate.eyebrow) + '</div>' +
           '<h1 class="oz-gate-h1">' + esc(t.gate.title) + '</h1>' +
           '<p class="oz-gate-p">' + esc(t.gate.subtitle) + '</p>' +
@@ -1687,7 +1697,7 @@ var OZ = (function () {
       sFaq(t) + sDisclaimer(t) + sTeam(t) + sContact(t);
     if (locked) { wireGate(); document.body.style.overflow = 'hidden'; }
     else { document.body.style.overflow = ''; }
-    Array.prototype.forEach.call(document.querySelectorAll('.oz-lang button'), function (b) {
+    Array.prototype.forEach.call(document.querySelectorAll('.oz-lang button, .oz-gate-lang button'), function (b) {
       b.onclick = function () {
         lang = b.getAttribute('data-lang');
         try { localStorage.setItem('ozp_lang', lang); } catch (e) {}
