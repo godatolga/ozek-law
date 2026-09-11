@@ -205,17 +205,17 @@ document.addEventListener('DOMContentLoaded', async function() {
    before the block was added. Regenerate after editing the page's colours;
    do not hand-edit, the block is replaced wholesale on each run. */
 :root[data-theme="dark"] body,
-body.dark{background:#13161C !important}
+body.dark{background:var(--bg-app,#1E1E1E) !important}
 :root[data-theme="dark"] #__bundler_loading,
-body.dark #__bundler_loading{color:#E6E6E6 !important;background:#12141A !important;box-shadow:0 1px 4px rgba(0,0,0,0.28) !important}
+body.dark #__bundler_loading{color:var(--text-secondary,#A0A0A0) !important;background:var(--bg-sidebar,#262626) !important;box-shadow:0 1px 4px rgba(0,0,0,0.28) !important}
 :root[data-theme="dark"] #__bundler_thumbnail,
-body.dark #__bundler_thumbnail{background:#13161C !important}
+body.dark #__bundler_thumbnail{background:var(--bg-app,#1E1E1E) !important}
 :root[data-theme="dark"] #__bundler_placeholder,
-body.dark #__bundler_placeholder{color:#E6E6E6 !important}
+body.dark #__bundler_placeholder{color:var(--text-secondary,#A0A0A0) !important}
 :root[data-theme="dark"] [style*="color:#999"],
-body.dark [style*="color:#999"]{color:#E6E6E6 !important}
+body.dark [style*="color:#999"]{color:var(--text-secondary,#A0A0A0) !important}
 :root[data-theme="dark"] [style*="background:rgba(255,255,255,0.9)"],
-body.dark [style*="background:rgba(255,255,255,0.9)"]{background-color:rgba(18,20,26,0.900) !important}
+body.dark [style*="background:rgba(255,255,255,0.9)"]{background-color:var(--bg-sidebar,#262626) !important}
 </style>
 <script id="ozk-dark-sync">
 /* Theme bridge: this page follows the launcher.
