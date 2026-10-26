@@ -63,7 +63,8 @@
  "tr": {
   "meta": {
    "label": "Marka Tescili",
-   "docTitle": "Teklif"
+   "docTitle": "Teklif",
+   "code": "Marka"
   },
   "nav": {
    "approach": "Yaklaşımımız",
@@ -312,7 +313,7 @@
      "stage": "USPTO Aşaması",
      "fees": [
       {
-       "amount": "$1,750",
+       "amount": "$1,950",
        "label": "Avukatlık Ücreti"
       },
       {
@@ -377,7 +378,7 @@
     "label": "Toplam",
     "fees": [
      {
-      "amount": "$1,750",
+      "amount": "$1,950",
       "label": "Avukatlık Ücreti"
      },
      {
@@ -398,7 +399,7 @@
      "n": "2",
      "when": "Başvurunun sunumunda",
      "title": "Son Ödeme",
-     "amount": "$250"
+     "amount": "$450"
     }
    ],
    "colService": "Hizmet Kapsamı",
@@ -535,7 +536,8 @@
  "en": {
   "meta": {
    "label": "Trademark Registration",
-   "docTitle": "Proposal"
+   "docTitle": "Proposal",
+   "code": "Trademark"
   },
   "nav": {
    "approach": "Approach",
@@ -784,7 +786,7 @@
      "stage": "USPTO Stage",
      "fees": [
       {
-       "amount": "$1,750",
+       "amount": "$1,950",
        "label": "Attorney Fee"
       },
       {
@@ -849,7 +851,7 @@
     "label": "Total",
     "fees": [
      {
-      "amount": "$1,750",
+      "amount": "$1,950",
       "label": "Attorney Fee"
      },
      {
@@ -870,7 +872,7 @@
      "n": "2",
      "when": "On filing the application",
      "title": "Final Payment",
-     "amount": "$250"
+     "amount": "$450"
     }
    ],
    "colService": "Scope of Service",
@@ -1007,7 +1009,8 @@
  "es": {
   "meta": {
    "label": "Registro de Marca",
-   "docTitle": "Propuesta"
+   "docTitle": "Propuesta",
+   "code": "Marca"
   },
   "nav": {
    "approach": "Enfoque",
@@ -1256,7 +1259,7 @@
      "stage": "Etapa USPTO",
      "fees": [
       {
-       "amount": "$1,750",
+       "amount": "$1,950",
        "label": "Honorarios del Abogado"
       },
       {
@@ -1321,7 +1324,7 @@
     "label": "Total",
     "fees": [
      {
-      "amount": "$1,750",
+      "amount": "$1,950",
       "label": "Honorarios del Abogado"
      },
      {
@@ -1342,7 +1345,7 @@
      "n": "2",
      "when": "Al presentar la solicitud",
      "title": "Pago Final",
-     "amount": "$250"
+     "amount": "$450"
     }
    ],
    "colService": "Alcance del servicio",
@@ -1479,7 +1482,8 @@
  "fr": {
   "meta": {
    "label": "Enregistrement de marque",
-   "docTitle": "Proposition"
+   "docTitle": "Proposition",
+   "code": "Marque"
   },
   "nav": {
    "approach": "Approche",
@@ -1728,7 +1732,7 @@
      "stage": "Étape USPTO",
      "fees": [
       {
-       "amount": "$1,750",
+       "amount": "$1,950",
        "label": "Honoraires d’avocat"
       },
       {
@@ -1793,7 +1797,7 @@
     "label": "Total",
     "fees": [
      {
-      "amount": "$1,750",
+      "amount": "$1,950",
       "label": "Honoraires d’avocat"
      },
      {
@@ -1814,7 +1818,7 @@
      "n": "2",
      "when": "Au dépôt de la demande",
      "title": "Versement final",
-     "amount": "$250"
+     "amount": "$450"
     }
    ],
    "colService": "Étendue de la prestation",
@@ -1951,7 +1955,8 @@
  "ar": {
   "meta": {
    "label": "تسجيل العلامة التجارية",
-   "docTitle": "عرض أتعاب"
+   "docTitle": "عرض أتعاب",
+   "code": "العلامة التجارية"
   },
   "nav": {
    "approach": "منهجنا",
@@ -2200,7 +2205,7 @@
      "stage": "مرحلة USPTO",
      "fees": [
       {
-       "amount": "$1,750",
+       "amount": "$1,950",
        "label": "أتعاب المحاماة"
       },
       {
@@ -2265,7 +2270,7 @@
     "label": "الإجمالي",
     "fees": [
      {
-      "amount": "$1,750",
+      "amount": "$1,950",
       "label": "أتعاب المحاماة"
      },
      {
@@ -2286,7 +2291,7 @@
      "n": "2",
      "when": "عند تقديم الطلب",
      "title": "الدفعة الأخيرة",
-     "amount": "$250"
+     "amount": "$450"
     }
    ],
    "colService": "نطاق الخدمة",
@@ -2831,6 +2836,8 @@ var OZ = (function () {
     if (html != null) e.innerHTML = html;
     return e;
   }
+  // the big cover code, per language when the language has one (Trademark: Marka / Trademark / Marca ...)
+  function codeOf(t) { return (t && t.meta && t.meta.code) || D.meta.code; }
   function codeMarkup(code) {
     // renders "EB-2 NIW" with a gold hyphen, like the O-1 proposal
     return esc(code).replace(/-/g, '<span class="gold">-</span>');
@@ -2882,7 +2889,7 @@ var OZ = (function () {
         '<div class="oz-hero-bot">' +
           '<div class="eyebrow gold wide">' + esc(t.hero.eyebrow) + '</div>' +
           '<div class="oz-hero-block">' +
-            '<h1 class="oz-hero-code">' + codeMarkup(D.meta.code) + '</h1>' +
+            '<h1 class="oz-hero-code">' + codeMarkup(codeOf(t)) + '</h1>' +
             '<div class="oz-hero-em">' + esc(t.hero.titleEm) + '</div>' +
             '<div class="oz-beam"><span></span></div>' +
           '</div>' +
@@ -2911,7 +2918,7 @@ var OZ = (function () {
             '<div class="oz-toc-note">' +
               '<div class="bar"></div>' +
               '<div><div class="q">' + esc(t.contents.note) + '</div>' +
-              '<div class="eyebrow gold sm">' + esc(D.meta.code) + ' &middot; ' + esc(t.meta.label) + ' &middot; ' + esc(D.meta.year) + '</div></div>' +
+              '<div class="eyebrow gold sm">' + esc(codeOf(t)) + ' &middot; ' + esc(t.meta.label) + ' &middot; ' + esc(D.meta.year) + '</div></div>' +
             '</div>' +
           '</div>' +
         '</div>' +
@@ -3516,7 +3523,7 @@ var OZ = (function () {
   /* ---------- render ---------- */
   function render() {
     var t = D[lang] || D.en;
-    document.title = 'Ozek Law Firm — ' + D.meta.code + ' ' + (t.meta.docTitle || 'Proposal');
+    document.title = 'Ozek Law Firm — ' + codeOf(t) + ' ' + (t.meta.docTitle || 'Proposal');
     document.documentElement.lang = lang;
     document.documentElement.dir = RTL[lang] ? 'rtl' : 'ltr';
     var locked = !editing && !unlockedFlag();
@@ -3663,7 +3670,8 @@ var OZ = (function () {
     var metaSec = el('details', { 'class': 'ozed-sec' });
     metaSec.appendChild(el('summary', {}, LABELS.meta));
     ['code', 'slug', 'year', 'validityDays', 'code_word', 'defaultLang'].forEach(function (k) {
-      if (D.meta[k] != null) metaSec.appendChild(field(D.meta, k, ''));
+      if (k === 'code' && t.meta && t.meta.code != null) metaSec.appendChild(field(t.meta, k, ''));
+      else if (D.meta[k] != null) metaSec.appendChild(field(D.meta, k, ''));
     });
     body.appendChild(metaSec);
 
