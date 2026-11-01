@@ -1237,7 +1237,7 @@ const CFG = {
 const P = {
   phases:[4000, 5500, 2500, 2500],          // I review · II purchase agreement · III landlord · IV closing
   add:{ fin:2000, opa:2500, lease:3000, emp:750 },
-  hourly:{ att:375, para:250 },
+  hourly:{ att:412.5, para:250 },
   third:[250, 600]
 };
 const TOTAL = P.phases.reduce((a,b)=>a+b,0);
@@ -1386,7 +1386,7 @@ function renderFees(){
   h+=feeRow(L.total,'',[{a:usd(TOTAL),lb:L.attorney},{a:usd(P.third[0])+'–'+usd(P.third[1]),lb:L.third}],f.totNote,'tot');
   $('#ftMain').innerHTML=h;
   const fee={ fin:[{a:usd(P.add.fin),lb:L.fixed}], opa:[{a:usd(P.add.opa),lb:L.fixed}], lease:[{a:usd(P.add.lease),lb:L.fixed}], emp:[{a:usd(P.add.emp),lb:L.per}],
-    hourly:[{a:usd(P.hourly.att),lb:L.hourlyA},{a:usd(P.hourly.para),lb:L.hourlyP}] };
+    hourly:[{a:'$'+P.hourly.att.toFixed(P.hourly.att%1?2:0),lb:L.hourlyA},{a:usd(P.hourly.para),lb:L.hourlyP}] };
   h=head; f.add.forEach(r=>{ h+=feeRow(r.t,r.s,fee[r.k],r.n); });
   $('#ftAdd').innerHTML=h;
 }
